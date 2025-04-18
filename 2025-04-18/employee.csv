@@ -1,0 +1,6 @@
+empID,name,department,salary,isActive
+,Ravi,IT,825000.0000000001,true
+102,Alice,IT,55000.00000000001,true
+,Bob,HR,45000,true
+,Charlie,IT,60500.00000000001,true
+,Diana,Finance,60000,true
