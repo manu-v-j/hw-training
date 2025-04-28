@@ -10,9 +10,9 @@ class Markandspencer:
         response=requests.get(self.url)
         selector=Selector(response.text)
         products=selector.xpath('//div[@class="product-card_rootBox__BcM9P"]')
-        category=selector.xpath('//label[contains(@class, "media-0") and contains(@for, "subcategory")]/text()').getall()
+        category_name=selector.xpath("//p[contains(@class,'eco-box_ecoBox__50nux')]/text()").getall()
         pagination_link = selector.xpath('//a[@class="pagination_trigger__YEwyN"]/@href').get()
-        print(f'Total categories found: {category}')
+        print(f'Total categories found: {category_name}')
         print(f"pagination_link:{pagination_link}")
 
         for product in products:
