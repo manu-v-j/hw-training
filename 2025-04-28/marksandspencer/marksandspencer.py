@@ -53,6 +53,6 @@ class Markandspencer:
 
         print(rating)
 
-obj=Markandspencer()
+object=Markandspencer()
 
-obj.parser()    
+object.parser()    
