@@ -43,5 +43,5 @@ class NextScraper:
         
 
 
-object=NextScraper()
-object.parser()
+obj=NextScraper()
+obj.parser()
