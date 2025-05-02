@@ -10,7 +10,7 @@ class LidlSpider(scrapy.Spider):
         products = response.xpath("//div[@class='product-item-info']")
         for product in products:
             product_url = product.xpath(".//a/@href").get()
-            yield response.follow(product_url, callback=self.parse_product)  
+            yield response.follow(product_url, callback=self.parse_product)
 
     def parse_product(self, response): 
         product_data = parse_products(response)  
