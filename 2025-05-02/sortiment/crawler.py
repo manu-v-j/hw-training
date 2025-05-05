@@ -1,30 +1,38 @@
 import requests
 from parsel import Selector
-import re
+from parser import parser
+import json
 
-def crawler(url):
-    response = requests.get(url)
-    selector = Selector(response.text)
 
-    unique_id = selector.xpath("//p[@class='sku text-gray']/text()").get()
-    if unique_id:
-        match = re.search(r'\d+', unique_id)
-        unique_id = match.group() if match else None
-    product_name=selector.xpath("//span[@class='base']//text()").get().strip()
-    price=selector.xpath("//strong[@class='pricefield__price']/@content").get()
-    image_url=selector.xpath("//img[@class='gallery-placeholder__image']/@src").getall()
-    currency=selector.xpath("//span[contains(@class,'price-currency')]/text()").get()
-    reviews=selector.xpath("//a[@class='action view']/span[1]//text()").get()
-    breadcrumps=[b.strip() for b in selector.xpath("//div[@class='breadcrumbs']/ul/li//text()").getall() if b.strip()]
-    description=" ".join(selector.xpath("//div[@class='col-left']/p[2]//text()").getall()).strip()
+class Lidlespider:
+    def __init__(self):
+        self.url = 'https://sortiment.lidl.ch/de/brot-backwaren#/'
+        self.productdata = []
 
-    return {
-        "Unique_id": unique_id,
-        "Product_name":product_name ,
-        "Price": price,
-        "Image_url" : image_url,
-        "Currency":currency,
-        "Reviews":reviews,
-        "Breadcrumps":breadcrumps ,
-        "description": description
-    }
+    def crawler(self):
+        response = requests.get(self.url)
+        selector = Selector(response.text)
+        products = selector.xpath("//div[@class='product-item-info']")
+
+        for product in products:
+            product_url = product.xpath(".//a/@href").get()
+            if product_url:
+                item = self.parser(product_url)
+                if item:
+                    self.productdata.append(item)
+
+        self.save_to_json()
+
+    def parser(self, url):
+        data = parser(url)
+        if data:
+            return data
+
+    def save_to_json(self):
+        with open('output.json', 'w', encoding='utf-8') as f:
+            json.dump(self.productdata, f, ensure_ascii=False, indent=4)
+
+
+
+spider = Lidlespider()
+spider.crawler()  
