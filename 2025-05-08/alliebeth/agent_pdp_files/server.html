@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://assets.adfenix.com/html/server.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+  <body>
+    <script>
+      (function() {
+        const prefix = "sessionAccessId-";
+        const connectId = prefix + "connected";
+        let listeners = [];
+
+        function getId(data) {
+          let id;
+
+          if (data && data.id && data.id.indexOf(prefix) >= 0) {
+            id = data.id;
+          }
+          return id;
+        }
+
+        function getItem(event, data) {
+          event.source.postMessage(
+            {
+              id: data.id,
+              type: "getItem",
+              key: data.key,
+              data: window.localStorage.getItem(data.key)
+            },
+            event.origin
+          );
+        }
+
+        function setItem(event, data) {
+          window.localStorage.setItem(data.key, data.value);
+          event.source.postMessage(
+            {
+              id: data.id,
+              type: "setItem"
+            },
+            event.origin
+          );
+        }
+
+        function removeItem(event, data) {
+          window.localStorage.removeItem(data.key, data.value);
+          event.source.postMessage(
+            {
+              id: data.id,
+              type: "removeItem"
+            },
+            event.origin
+          );
+        }
+
+        function connect(event) {
+          listeners.push({ source: event.source, origin: event.origin });
+          event.source.postMessage(
+            {
+              id: connectId,
+              type: "connect"
+            },
+            event.origin
+          );
+        }
+
+        function onStorageChange(event) {
+          listeners.forEach(function(listener) {
+            listener.source.postMessage(
+              {
+                id: connectId,
+                type: "storage",
+                key: event.key,
+                oldValue: event.oldValue,
+                newValue: event.newValue
+              },
+              listener.origin
+            );
+          });
+        }
+
+        const methods = {
+          getItem: getItem,
+          setItem: setItem,
+          connect: connect,
+          close: function() {
+            listeners = [];
+          }
+        };
+
+        function subscribe() {
+          function handleMessage(event) {
+            const data = event.data;
+            const id = getId(data);
+            if (!id) {
+              return;
+            }
+            const method = data.method;
+            methods[method](event, data);
+          }
+
+          window.addEventListener("message", handleMessage);
+          window.addEventListener("storage", onStorageChange);
+
+          const close = function() {
+            listeners = [];
+            window.removeEventListener("message", handleMessage);
+            window.removeEventListener("storage", onStorageChange);
+          };
+
+          return { close: close };
+        }
+
+        const handler = subscribe();
+        methods.close = handler.close;
+      })();
+    </script>
+  
+
+</body></html>

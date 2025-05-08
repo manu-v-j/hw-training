@@ -43,7 +43,7 @@ class Johnlewis:
             care_instructions=specifications[3]
             images=selector.xpath("//img[contains(@class,'ImageMagnifier_small-image')]/@src").getall()
             composition=specifications[1]
-            print(images)
+            print(unique_id)
 
 
 object = Johnlewis()
