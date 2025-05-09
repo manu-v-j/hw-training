@@ -1,31 +1,46 @@
-from urllib.parse import urljoin
+
+
 from parsel import Selector
-import requests
-from settings import headers
-
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from urllib.parse import urljoin
+from webdriver_manager.chrome import ChromeDriverManager
 from alliebeth_parser import parser 
-class Alliebeth:
-
-    def crawler(self):
-         all_data = []
-
-         with open("/home/user/Hashwave/2025-05-08/alliebeth/agent.html", 'r', encoding='utf-8') as file:
-             html_content = file.read()
-
-         selector = Selector(text=html_content)
-         agents_links = selector.xpath("//a[contains(@class, 'site-roster-card-image-link')]/@href").getall()
-
-         for agent in agents_links:
-             if agent:
-                 agent_url = urljoin('https://www.alliebeth.com', agent)
-                 data = parser(agent_url)
-                 if data:
-                     all_data.append(data)
-
-         return all_data
 
 
-obj = Alliebeth()
-data = obj.crawler()
-print(data)
+def crawler(url):
+    options = Options()
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--headless")  
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36")
+
+    # Setup driver
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+
+    try:
+        driver.get(url)
+
+        WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "site-roster-card-image-link"))
+        )
+
+        selector = Selector(text=driver.page_source)
+        agent_links = selector.xpath("//a[@class='site-roster-card-image-link']/@href").getall()
+
+        return [urljoin(url, link) for link in agent_links]
+
+    finally:
+        driver.quit()
+
+
+if __name__ == "__main__":
+    result = crawler("https://www.alliebeth.com/roster/Agents/0")
+    for link in result:
+        parser(link)
 
