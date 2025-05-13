@@ -4,7 +4,7 @@ import re
 
 class Markandspencer:
     def __init__(self):
-        self.url='https://www.marksandspencer.com/l/women/dresses'
+        self.url='  '
 
     def parser(self):
         response=requests.get(self.url)
