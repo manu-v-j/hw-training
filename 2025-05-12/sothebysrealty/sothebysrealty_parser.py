@@ -1,4 +1,3 @@
-from parsel import Selector
 from selenium import webdriver
 from urllib.parse import urljoin
 from selenium.webdriver.chrome.service import Service

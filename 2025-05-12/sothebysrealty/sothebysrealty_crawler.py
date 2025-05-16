@@ -1,13 +1,13 @@
 from parsel import Selector
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import urljoin
 from webdriver_manager.chrome import ChromeDriverManager
 from sothebysrealty_parser import parser
+from settings import *
 
 
 def crawler(url):
@@ -36,4 +36,4 @@ def crawler(url):
 
 
 
-obj=crawler('https://www.sothebysrealty.com/eng/associates/int')
+obj=crawler(baseurl)

@@ -3,6 +3,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 from sothebysrealty_parser import parser
 import time
+from settings import *
 
 
 def crawler(url):
@@ -32,4 +33,4 @@ def crawler(url):
         browser.close()
 
 
-crawler('https://www.sothebysrealty.com/eng/associates/int')
+crawler(baseurl)

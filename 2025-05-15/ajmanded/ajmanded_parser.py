@@ -1,96 +1,69 @@
+from curl_cffi import requests
+from parsel import Selector
+import logging
 from pymongo import MongoClient
+
+
 client=MongoClient("localhost",27017)
 db=client["ajmanded"]
 collection=db["trade"]
 
-def parser(url, page):
+def parser(link):
     try:
-        page.goto(url)
-        print(f"Opened URL: {url}")
+            response =  requests.get(link,impersonate="chrome", timeout=60)
+            if response.status_code == 200:
+                selector = Selector(response.text)
 
-        li_xpath = "//li[@class='res-item'][span[text()='License Number']]"
-        page.wait_for_selector(li_xpath, timeout=10000)
+                license_number_xpath = "//li[@class='res-item' and span[text()='License Number']]/text()"
+                license_type_xpath = "//li[@class='res-item' and span[text()='License Type']]/text()"
+                legal_form_xpath = "//li[@class='res-item' and span[text()='Legal Form']]/text()"
+                arabic_trade_name_xpath =  "//li[@class='res-item' and span[text()='Arabic Trade Name']]/text()"
+                english_trade_name_xapth = "//li[@class='res-item' and span[text()='English Trade Name']]/text()"
+                license_start_date_xpath = "///li[@class='res-item' and span[text()='License Start Date']]/text()"
+                license_expiry_date_xpath = "//li[@class='res-item' and span[text()='License Expiry Date']]/text()"
+                activities_xpath = "//h5[text()='Activities']/following-sibling::ul[1]/li[@class='res-item']/text()"
+                est_banning_status_xpath = "//li[@class='res-item' and span[text()='Establishment Banning Status']]/text()"
+                est_banning_reason_xpath="//li[@class='res-item' and span[text()='Establishment Banning Reason']]/text()"
+                area_xpath = "//li[@class='res-item' and span[text()='Area']]/text()"
+                building_name_xpath="//li[@class='res-item' and span[text()='Building Name']]/text()"
+                block_number_xpath="//li[@class='res-item' and span[text()='Block Number']]/text()"
+                unit_type_xpath="//li[@class='res-item' and span[text()='Unit Type']]/text()"
 
-        license_number = page.locator(li_xpath).evaluate(
-            "node => node.childNodes[1].textContent.trim()"
-        )
-        license_type = page.locator("//li[@class='res-item'][span[text()='License Type']]").evaluate("node => node.childNodes[1].textContent.trim()")
-        legal_form = page.locator("//li[@class='res-item'][span[text()='Legal Form']]").evaluate("node => node.childNodes[1].textContent.trim()")
-        arabic_trade_name = page.locator("//li[@class='res-item'][span[text()='Arabic Trade Name']]").evaluate("node => node.childNodes[1].textContent.trim()")
-        english_trade_name = page.locator("//li[@class='res-item'][span[text()='English Trade Name']]").evaluate("node => node.childNodes[1].textContent.trim()")
-        license_start_date = page.locator("//li[@class='res-item'][span[text()='License Start Date']]").evaluate("node => node.childNodes[1].textContent.trim()")
-        license_expiry_date = page.locator("//li[@class='res-item'][span[text()='License Expiry Date']]").evaluate("node => node.childNodes[1].textContent.trim()")
+                license_number = selector.xpath(license_number_xpath).get()
+                license_type = selector.xpath(license_type_xpath).get()
+                legal_form = selector.xpath(legal_form_xpath).get()
+                arabic_trade_name = selector.xpath(arabic_trade_name_xpath).get()
+                english_trade_name = selector.xpath(english_trade_name_xapth).get()
+                license_start_date = selector.xpath(license_start_date_xpath).get()
+                license_expiry_date = selector.xpath(license_expiry_date_xpath).get()
+                activities = selector.xpath(activities_xpath).getall()
+                est_banning_status = selector.xpath(est_banning_status_xpath).get()
+                area = selector.xpath(area_xpath).get()
+                est_banning_reason=selector.xpath(est_banning_reason_xpath).get()
+                building_name=selector.xpath(building_name_xpath).get()
+                block_number=selector.xpath(block_number_xpath).get()
+                unit_type=selector.xpath(unit_type_xpath).get()
 
-        activities = page.locator("//div[@class='result mt-4'][h5[text()='Activities']]//li[@class='res-item']")
-        activities = [activities.nth(i).inner_text() for i in range(activities.count())]
-
-        if page.locator("//li[@class='res-item'][span[text()='Establishment Banning Status']]").count() > 0:
-            banning_status_raw = page.locator("//li[@class='res-item'][span[text()='Establishment Banning Status']]").text_content()
-            banning_status = banning_status_raw.replace("Establishment Banning Status", "").strip()
-        else:
-            banning_status = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Establishment Banning Reason']]").count() > 0:
-            banning_reason_raw = page.locator("//li[@class='res-item'][span[text()='Establishment Banning Reason']]").text_content()
-            banning_reason = banning_reason_raw.replace("Establishment Banning Reason", "").strip()
-        else:
-            banning_reason = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Area']]").count() > 0:
-            area_raw = page.locator("//li[@class='res-item'][span[text()='Area']]").text_content()
-            area = area_raw.replace("Area", "").strip()
-        else:
-            area = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Pelvis Number']]").count() > 0:
-            pelvis_number_raw = page.locator("//li[@class='res-item'][span[text()='Pelvis Number']]").text_content()
-            pelvis_number = pelvis_number_raw.replace("Pelvis Number", "").strip()
-        else:
-            pelvis_number = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Block Number']]").count() > 0:
-            block_number_raw = page.locator("//li[@class='res-item'][span[text()='Block Number']]").text_content()
-            block_number = block_number_raw.replace("Block Number", "").strip()
-        else:
-            block_number = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Unit Type']]").count() > 0:
-            unit_type_raw = page.locator("//li[@class='res-item'][span[text()='Unit Type']]").text_content()
-            unit_type = unit_type_raw.replace("Unit Type", "").strip()
-        else:
-            unit_type = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Unit Number']]").count() > 0:
-            unit_number_raw = page.locator("//li[@class='res-item'][span[text()='Unit Number']]").text_content()
-            unit_number = unit_number_raw.replace("Unit Number", "").strip()
-        else:
-            unit_number = None
-
-        if page.locator("//li[@class='res-item'][span[text()='Makani Number']]").count() > 0:
-            makani_number_raw = page.locator("//li[@class='res-item'][span[text()='Makani Number']]").text_content()
-            makani_number = makani_number_raw.replace("Makani Number", "").strip()
-        else:
-            makani_number = None
-        
-        collection.insert_one({
-            'license_number':license_number,
-            'license_type':license_type,
-            'legal_form':legal_form,
-            'arabic_trade_name':arabic_trade_name,
-            'english_trade_name':english_trade_name,
-            'license_start_date':license_start_date,
-            'license_expiry_date':license_expiry_date,
-            'activities':activities,
-            'banning_status':banning_status,
-            'banning_reason':banning_reason,
-            'area':area,
-            'pelvis_number':pelvis_number,
-            'block_number':block_number,
-            'unit_type':unit_type,
-            'unit_number':unit_number,
-            'makani_number':makani_number
+                collection.insert_one({
+                    "real_estate_link":link,
+                    "license_number":license_number,
+                    "license_type":license_type,
+                    "legal_form":legal_form,
+                    "arabic_trade_name":arabic_trade_name,
+                    "english_trade_name":english_trade_name,
+                    "license_start_date":license_start_date,
+                    "license_expiry_date":license_expiry_date,
+                    "activities":activities,
+                    "est_banning_status":est_banning_status,
+                    "est_banning_status":est_banning_status,
+                    "area":area,
+                    "est_banning_reason":est_banning_reason,
+                    "building_name":building_name,
+                    "block_number":block_number,
+                    "unit_type":unit_type
+                    
         })
 
     except Exception as e:
-        print("Failed to extract license number:", e)
+        logging.error("Failed to extract license number:", e)
         return None
