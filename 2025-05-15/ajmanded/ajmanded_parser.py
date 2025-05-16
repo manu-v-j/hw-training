@@ -1,3 +1,8 @@
+from pymongo import MongoClient
+client=MongoClient("localhost",27017)
+db=client["ajmanded"]
+collection=db["trade"]
+
 def parser(url, page):
     try:
         page.goto(url)
@@ -67,6 +72,24 @@ def parser(url, page):
         else:
             makani_number = None
         
+        collection.insert_one({
+            'license_number':license_number,
+            'license_type':license_type,
+            'legal_form':legal_form,
+            'arabic_trade_name':arabic_trade_name,
+            'english_trade_name':english_trade_name,
+            'license_start_date':license_start_date,
+            'license_expiry_date':license_expiry_date,
+            'activities':activities,
+            'banning_status':banning_status,
+            'banning_reason':banning_reason,
+            'area':area,
+            'pelvis_number':pelvis_number,
+            'block_number':block_number,
+            'unit_type':unit_type,
+            'unit_number':unit_number,
+            'makani_number':makani_number
+        })
 
     except Exception as e:
         print("Failed to extract license number:", e)
