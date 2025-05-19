@@ -1,47 +1,52 @@
 from playwright.sync_api import sync_playwright
-from ajmanded_parser import start
 from settings import *
 
-def crawler(url):
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=100)
-        page = browser.new_page()
-        page.goto(url)
-        page.wait_for_selector(".selectize-control")
+class Crawler:
+    def __init__(self):
+        self.queue = ''
 
-        page.click(".selectize-control")
-        page.click("div[data-value='N']")
+    def start(self,url):
+        detail_urls = []  
 
-        page.wait_for_selector("#LicenseTradeName", state="visible")
-        page.fill("#LicenseTradeName", "realestate")
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=False, slow_mo=100)
+            page = browser.new_page()
+            page.goto(url)
+            page.wait_for_selector(".selectize-control")
 
-        print("Please solve the CAPTCHA manually in the browser.")
-        input("Press ENTER after solving CAPTCHA...")
+            page.click(".selectize-control")
+            page.click("div[data-value='N']")
 
-        page.click("button[type='submit']")      
-        page.wait_for_url("**/TradeLicense/Search**", timeout=15000)
-        print(f"Navigated to: {page.url}")     
+            page.wait_for_selector("#LicenseTradeName", state="visible")
+            page.fill("#LicenseTradeName", "realestate")
 
+            print("Please solve the CAPTCHA manually in the browser.")
+            input("Press ENTER after solving CAPTCHA...")
+
+            page.click("button[type='submit']")      
+            page.wait_for_url("**/TradeLicense/Search**", timeout=15000)
+            print(f"Navigated to: {page.url}")     
+
+            view_links = page.locator("//a[contains(@class, 'btn-view')]")
+            count = view_links.count()
+            print(f"Found {count} detail links")
+
+            for i in range(count):
+                link = view_links.nth(i)
+                try:
+                    href = link.get_attribute("href")
+                    if href:
+                        full_url = f"https://eservices.ajmanded.ae{href}"
+                        detail_urls.append(full_url)  
+                        
+                except Exception as e:
+                    print(f"Failed to get href for link {i}: {e}")
+
+            browser.close()
         
-        view_links=page.locator("//a[contains(@class, 'btn-view')]")
-        count = view_links.count()
-        print(f"Found {count} detail links")
+        return detail_urls 
 
-        for i in range(count):
-            link = view_links.nth(i)
-            try:
-                href = link.get_attribute("href")
-                if href:
-                    full_url = f"https://eservices.ajmanded.ae{href}"
-                    print(f"Opening detail page: {full_url}")
-                    detail_page = browser.new_page()
-                    start(full_url)
-                    detail_page.close()
-            except Exception as e:
-                print(f"Failed to get href for link {i}: {e}")
-        browser.close()
-
-        
 if __name__ == "__main__":
-    crawler(baseurl)
-
+    crawler=Crawler()
+    url=crawler.start(baseurl)
+    print(url)

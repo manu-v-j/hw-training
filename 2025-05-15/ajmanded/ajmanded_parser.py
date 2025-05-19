@@ -2,6 +2,8 @@ from curl_cffi import requests
 from parsel import Selector
 import logging
 from pymongo import MongoClient
+from ajmanded_crawler import Crawler 
+from settings import *
 
 
 client=MongoClient("localhost",27017)
@@ -13,12 +15,13 @@ class Parser:
     def __init__(self):
         self.queue = ''
         
-    def start(self, link):
-                
-                response =  requests.get(link,impersonate="chrome", timeout=60)
-                if response.status_code == 200:
-                    
-                    self.parse_item(link,response)
+    def start(self):
+                crawler=Crawler()
+                urls=crawler.start(baseurl)
+                for url in urls:
+                    response =  requests.get(url,impersonate="chrome", timeout=60)
+                    if response.status_code == 200:
+                        self.parse_item(url,response)
 
     def parse_item(self,link,response):
                     selector = Selector(response.text)
@@ -77,3 +80,4 @@ class Parser:
 
 if __name__ == "__main__":
     parser=Parser()
+    parser.start()
