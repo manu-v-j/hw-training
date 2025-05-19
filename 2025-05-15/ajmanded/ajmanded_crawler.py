@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-from ajmanded_parser import parser
+from ajmanded_parser import start
 from settings import *
 
 def crawler(url):
@@ -35,7 +35,7 @@ def crawler(url):
                     full_url = f"https://eservices.ajmanded.ae{href}"
                     print(f"Opening detail page: {full_url}")
                     detail_page = browser.new_page()
-                    parser(full_url)
+                    start(full_url)
                     detail_page.close()
             except Exception as e:
                 print(f"Failed to get href for link {i}: {e}")

@@ -1,69 +1,61 @@
-
+from alliebeth_crawler import Crawler
+from settings import *
+from parsel import Selector
+import cloudscraper
 from pymongo import MongoClient
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
 
-client = MongoClient("mongodb://localhost:27017/")
-db = client["alliebeth_agents"]          
-collection = db["agents"]  
+client=MongoClient("localhost",27017)
+db=client["alliebeth"]
+collection=db["agent"]
 
-def parser(url):
-   
-    options = Options()
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--headless")  
-    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36")
+class Parser:
 
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
+    def __init__(self):
+        self.mongo=''
 
-    try:
-        driver.get(url)
+    def start(self,baseurl):
+        crawler = Crawler()
+        agent_links = crawler.start(baseurl)
 
-        name_elem = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@class='site-info-contact']/h2"))
-        )
-        phone_elem = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@class='site-info-contact']/p[2]/a"))
-        )
-        address_elem = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@class='site-info-contact']/p[last()]"))
-        )
-        elements = driver.find_elements(By.XPATH, '//article[@class="int-prop"]/a')
-        hrefs = [el.get_attribute('href') for el in elements]
+       
+        for link in agent_links:
+            scraper = cloudscraper.create_scraper()  
+            url = link
+            response = scraper.get(url)
+            if response:
+                self.parse_item(response,url)
 
-        # about_elems = WebDriverWait(driver, 10).until(
-        # EC.presence_of_all_elements_located((By.XPATH, "//div[@class='site-about-column']/div/p"))
-        # )
-        # about = ' '.join([elem.text.strip() for elem in about_elems])
-        
-        name = name_elem.text.strip()
-        phone = phone_elem.text.strip()
-        address = address_elem.text.strip().replace('\n', ', ')
+    def parse_item(self,response,url):           
+        sel=Selector(response.text)
 
-        print("Name:", name)
-        print("Phone:", phone)
-        print("Address:", address)
-        print("Details links:", hrefs)
-        
+        # XPATH
+        name_xpath="//div[@class='site-info-contact']/h2/text()"
+        phone_xpath="//div[@class='site-info-contact']/p[2]/a/text()"
+        address_xpath="//div[@class='site-info-contact']/p[last()]//text()"
+        about_xpath="//div[@class='site-about-column']/div/p/text()"
+
+        # EXTRACT
+        url=url
+        name=sel.xpath(name_xpath).get()
+        phone=sel.xpath(phone_xpath).get()
+        address=sel.xpath(address_xpath).getall()
+        about=sel.xpath(about_xpath).getall()
+
+        # CLEAN
+        address = " ".join([t.strip() for t in address if t.strip()])
+        about = "".join([t.strip() for t in about if t.strip()])
 
         collection.insert_one({
-            "name": name,
-            "phone": phone,
-            "address": address,
-            "details_links": hrefs,
-            "profile_url": url
+            'url':url,
+            'name':name,
+            'phone':phone,
+            'address':address,
+            'about':about,
         })
 
-    except Exception as e:
-        print(f"[ERROR] Failed on {url}: {e}")
-    finally:
-        driver.quit()
 
-    return None
+if __name__ == "__main__":
+    parser=Parser()
+    parser.start(baseurl)
+
+

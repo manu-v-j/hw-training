@@ -1,39 +1,52 @@
+from playwright.sync_api import sync_playwright
 from parsel import Selector
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from urllib.parse import urljoin
-from webdriver_manager.chrome import ChromeDriverManager
-from sothebysrealty_parser import parser
 from settings import *
+from urllib.parse import urljoin
+
+class Crawler:
+
+    def __init__(self):
+        self.mongo = ''
+
+    def start(self, url):
+        all_agent_links = []
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=False)
+            context = browser.new_context(user_agent=Headers["User-Agent"])  
+            page = context.new_page()
+            page_count=0
+
+            while url and page_count<1:
+                page.goto(url, timeout=60000)
+
+                for _ in range(5):
+                    page.evaluate("window.scrollBy(0, window.innerHeight)")
+                    page.wait_for_timeout(10000)
+
+                response = page.content()
+                agent_links = self.parse_item(response, url)
+                all_agent_links.extend(agent_links)
+
+               
+                sel = Selector(text=response)
+                next_page = sel.xpath("//a[@class='pagination-item' and @aria-label='Next']/@href").get()
+                url = urljoin(url, next_page) if next_page else None
+                page_count+=1
+
+            browser.close()
+        return all_agent_links
+
+    def parse_item(self, response, url):
+        sel = Selector(text=response)
+        links = sel.xpath("//div[@class='m-agent-item-results__card']/a/@href").getall()
+        return [urljoin(url, link) for link in links]  
 
 
-def crawler(url):
-    service=Service(ChromeDriverManager().install())
-    driver=webdriver.Chrome(service=service)
 
-    driver.get(url)
-    while True:
-        WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.CLASS_NAME,"m-agent-item-results__card"))
-        )
-        selector=Selector(text=driver.page_source)
-        agent_links=selector.xpath("//div[@class='m-agent-item-results__card-details']/a/@href").getall()
-        agents=[urljoin(url,link) for link in agent_links] 
-        for agent in agents:
-            parser(agent)
-
-        try:
-            next_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[@class='pagination-item' and @title='Next']"))
-            )
-            driver.execute_script("arguments[0].click();", next_button)
-        except:
-            break
-
-
-
-
-obj=crawler(baseurl)
+if __name__ == "__main__":
+    crawler = Crawler()
+    result = crawler.start(baseurl)  
+    print(f"\nTotal agent links collected: {len(result)}")
+    for link in result:
+        print(link)
