@@ -6,8 +6,7 @@ from urllib.parse import urljoin
 class Crawler:
 
     def __init__(self):
-        self.mongo = ''
-
+        pass
     def start(self, url):
         all_agent_links = []
 

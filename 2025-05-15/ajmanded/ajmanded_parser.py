@@ -13,7 +13,7 @@ collection=db["trade"]
 class Parser:
 
     def __init__(self):
-        self.queue = ''
+        pass
         
     def start(self):
                 crawler=Crawler()

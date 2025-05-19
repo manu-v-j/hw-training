@@ -7,8 +7,7 @@ import logging
 class Crawler:
 
     def __init__(self):
-        self.mongo=''
-
+        pass
     def start(self,url):
         agent_links = []
 

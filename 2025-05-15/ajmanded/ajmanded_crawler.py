@@ -3,8 +3,7 @@ from settings import *
 
 class Crawler:
     def __init__(self):
-        self.queue = ''
-
+        pass
     def start(self,url):
         detail_urls = []  
 

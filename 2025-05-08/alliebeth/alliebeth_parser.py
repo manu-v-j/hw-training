@@ -11,7 +11,7 @@ collection=db["agent"]
 class Parser:
 
     def __init__(self):
-        self.mongo=''
+        pass
 
     def start(self,baseurl):
         crawler = Crawler()

@@ -2,52 +2,39 @@ from settings import *
 from parsel import Selector
 import requests
 from urllib.parse import urljoin
-import re
 
 class Crawler:
 
     def __init__(self):
-        self.mongo = ''  
+        pass
 
     def start(self, url):
         product_links = []
-        while url:
+        page_count = 0
+        while url and page_count < 2:
             print(f"Crawling: {url}")
             response = requests.get(url, headers=Headers)
-            sel = Selector(response.text)
-            products = sel.xpath("//article[@class='_63a946ba']")
-            for product in products:
-                product_url = product.xpath(".//div[@class='_70cdfb32']/a/@href").get()
-                if product_url:
-                    full_url = urljoin(url, product_url)
-                    product_links.append(full_url)
-                    self.parse_item(full_url)
-
-            # Uncomment for pagination:
-            # next_page = sel.xpath("//div[@title='Next']/ancestor::a/@href").get()
-            # if next_page:
-            #     url = urljoin(url, next_page)
-            # else:
-            #     break
-
-            break  
+            if response.status_code != 200:
+                print(f"Failed to fetch page: {url}")
+                break
+            
+            links, next_page_url = self.parse_item(url, response)
+            product_links.extend(links)
+            url = next_page_url
+            page_count += 1
 
         return product_links
 
-    def parse_item(self, url):
-        response = requests.get(url, headers=Headers)
-        if response.status_code != 200:
-            print(f"Failed to fetch product page: {url}")
-            return
+    def parse_item(self, url, response):
+        sel = Selector(text=response.text)
+        links_xpath = "//div[@class='_70cdfb32']/a/@href"
+        links = sel.xpath(links_xpath).getall()
+        full_links = [urljoin(url, link) for link in links]
 
-        sel = Selector(response.text)
-        price_text = sel.xpath("//div[@aria-label='Price']/span[1]/text()").get()
-        currency, price = None, None
-        if price_text:
-            match = re.match(r'^([A-Z]{3})\s([\d,]+)', price_text)
-            if match:
-                currency = match.group(1)
-                price = match.group(2)
+        next_page = sel.xpath("//div[@title='Next']/ancestor::a/@href").get()
+        next_page_url = urljoin(url, next_page) if next_page else None
+
+        return full_links, next_page_url
 
 if __name__ == "__main__":
     crawler = Crawler()
