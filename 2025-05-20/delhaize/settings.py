@@ -20,3 +20,4 @@ headers = {
 MONGO_URI="mongodb://localhost:27017/"
 DB_NAME='delhaize'
 COLLECTION="product_url"
+COLLEC_DETAIL="product_details"

@@ -50,16 +50,50 @@
 #     for link in result:
 #         print(link)
 
-from settings import baseurl, headers  
-from curl_cffi import requests
+from curl_cffi import requests  
 from parsel import Selector
 
-cookies="""AEC=AVcja2drEoqWnph2Vv_vPI3scGvRQSMko52wkG0SdPzfSbU8XgjDHVcVrQ; AMCV_14215E3D5995C57C0A495C55%40AdobeOrg=-637568504%7CMCIDTS%7C20226%7CMCMID%7C64151053155853075771210439835530696177%7CMCAAMLH-1748060094%7C12%7CMCAAMB-1748060094%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1747462494s%7CNONE%7CMCCIDH%7C1764610590%7CvVersion%7C5.1.1; APISID=vkjnvTHN5hIZt5Ou/A5W-N_u9jxXocwJJN; ASP.NET_SessionId=3by45uam2f2jlqcdtuv4hy0a; AnalyticsSyncHistory=AQI01kFC2-_nvAAAAZbkFURAMSO3gTRfydovqtdv9JYvQHlk6xYxscSxk4hznnSENhlTzgAhkEuOl1UgQ7Cn3Q; HSID=A89jOg-l4awZCrv4f; IDE=AHWqTUlAeUhvT7bhsziyqFbS6xRrACzphclSpv8GnMlDsSI1t_RILAya-tm3lisCLjE; LanguagePreference=eng; LastLocationGetter={"data":{"SeoPart":"/int"}}; NID=524=MpaUK-5tNNp2kplx74Ytfw8Gbf8JCEVGLNh3w5PUGxxeb1kSV16e0pLkZ4PyltajyI280QxUpRFZ_S0lm_Kb00PrX-5P7DNC5Htj77Eqjrap5lB3tnWiKF8C4HYe9PBMx-faKfCUh3cMWecbrwavFcrI7o_qhNvyiEQySGcKSFAZfTAFy8ctDDrGqOXanWiVsyeo9O52tVtidhsI88aNu9ve5l__HsG_CUBfwirQLLDEp7lxucUCAcULaKZIO-_Lpfg8AMRHBzqrVBMJ_CZf3FUm-B9XfWBMb9PFv9l4jh5L3_r9v5Suy9Hq19CriQwiKqDjEfenVtBXnLQepLZgweMqXG1WPkt2hRFAG3K63IXujmzOELAOd7iLxKnjHgUtc5bkgUIbkFa1SP1zHoelviJzUbgjXUcs-C6_n7Tzgv-zUz17WMqfQS_5HhgD_H8aqynIuUMWDUbzyNnR9ZRNIDNlToibUGJBV49mSDt3I2X4WzqyJzQVA15j6xnG7H_nfvD_4q2m7uoWE0H0ze6SEM6NRfPKoeGsxFblPD88nbMWsUHFq_hDpYSWo8IFbIErdrCGreBo-fPN6ZC2fz-oKUFezY0tmqgA3SsEdIl3XwBImNY7XmAU4-X1SQHUVzpd4VpmAzKWZzCnBy7-0f5RIXd5oBlb7QnfkMolAh2082J4XhGtzyrNYXw; SAPISID=npB9KzfDbggDAzQh/ASWli2qAGVxNwjms9; SEARCH_SAMESITE=CgQIhJ4B; SID=g.a000xAhTwgRqwC7j-0sO4mS6Wi5UqQ8VwdQtwh4QqZPWMzCdiCaYK0xdI5ZJ_jN89QuSgVO97QACgYKAeoSARUSFQHGX2Mi_GIkYulzX2B-YIBPty7QjRoVAUF8yKrXtUWDSXbgVumpdZ3SMl5l0076; SIDCC=AKEyXzUt5hOTo4q4K50Dzi2ToNLtcrzUYTA6K_sozoC_BsWKVOBMHj_xYSkWt2x4hqdRRPEcGg; SSID=A7QKnRfbDvrRbBHjn; TAsessionID=37632def-7aae-44f4-92da-f4253fb0ff0b|NEW; TDCPM=CAESFgoHc3Z4OXQ1MBILCNSt9tq2-P09EAUSFwoIcHVibWF0aWMSCwi6_M3q5sKDPhAFEhQKBXRhcGFkEgsI_qaj3Muyiz4QBRIWCgdydWJpY29uEgsI7t68xabrgz4QBRIVCgZnb29nbGUSCwi4nZ-Ct4eMPhAFEhcKCGFwcG5leHVzEgsItJnluciFhz4QBRIXCghsaXZlcmFtcBILCMqop4T5t_49EAUSGwoMc2hhcmV0aHJvdWdoEgsIopPn3r3ogz4QBRIYCgliaWRzd2l0Y2g
-"""
-response = requests.get(baseurl,headers=headers,impersonate="chrome110")
+baseurl = "https://www.sothebysrealty.com/eng/associates/int"
+
+
+headers = {
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-US,en;q=0.9",
+    "referer": "https://www.sothebysrealty.com/eng/associates/int",
+    "sec-ch-ua": '"Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"',
+    "sec-ch-ua-mobile": "?1",
+    "sec-ch-ua-platform": '"Android"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36"
+}
+
+cookies = {
+    "LanguagePreference": "eng",
+    "_gcl_au": "1.1.294586184.1747023417",
+    "_ga": "GA1.1.389935457.1747023417",
+    "_fbp": "fb.1.1747023420697.994819225374127257",
+    "notice_preferences": "2:",
+    "notice_gdpr_prefs": "0,1,2:",
+    "cmapi_gtm_bl": "",
+    "cmapi_cookie_privacy": "permit 1,2,3",
+    "LastLocationGetter": '{"data":{"SeoPart":"/int"}}',
+    "notice_behavior": "implied,us",
+    "ASP.NET_SessionId": "posgb1hsdpel1olvoyn4ldkn",
+    "userLocation": "nld",
+    "userLocationName": "Netherlands",
+    "_ga_07J12X0FK6": "GS2.1.s1747902307$o26$g0$t1747902307$j60$l0$h0$dVeWZWkrgHOE8p3k2lQrzlOt0s45lRc9-bA",
+    "aws-waf-token": "9e743767-d51f-4ed0-ae4f-58a9d7373872:BgoAmmo6JzlQAAAA:4PxBCunVgBTp27yV0Vdr72XC8VBKihAgW3RNsD9mcGg6e1eQw6EE0+SqAZpR9Lr/fbo/miQFMWIRJ8t4yb6qe0dQDjVm+DAgt3cUbYNVe+7bz+k5hON0XRT5Hwp+Y3tgBTZ7q56b2z09Mh7fApde4xNW+jpmJQCImjH8luhT0bT/ffrA2jkAy+9P03YMRjedjdBjX0E="
+}
+
+
+response = requests.get(baseurl, headers=headers, cookies=cookies, impersonate="chrome")
 
 if response.status_code == 200:
     selector = Selector(response.text)
     print(selector)
+    
 else:
     print(f"Request failed with status code {response.status_code}")
