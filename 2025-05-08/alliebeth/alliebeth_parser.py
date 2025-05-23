@@ -4,23 +4,20 @@ from parsel import Selector
 import cloudscraper
 from pymongo import MongoClient
 
-client=MongoClient("localhost",27017)
-db=client["alliebeth"]
-collection=db["agent"]
 
 class Parser:
 
     def __init__(self):
-        pass
+        self.client=MongoClient("localhost",27017)
+        self.db=self.client["alliebeth"]
+        self.collection=self.db["agent"]
+
 
     def start(self,baseurl):
-        crawler = Crawler()
-        agent_links = crawler.start(baseurl)
-
-       
-        for link in agent_links:
+        
+        for item in self.db[COLLECTION].find():
+            url=item.get("link")
             scraper = cloudscraper.create_scraper()  
-            url = link
             response = scraper.get(url)
             if response:
                 self.parse_item(response,url)
@@ -45,7 +42,7 @@ class Parser:
         address = " ".join([t.strip() for t in address if t.strip()])
         about = "".join([t.strip() for t in about if t.strip()])
 
-        collection.insert_one({
+        self.collection.insert_one({
             'url':url,
             'name':name,
             'phone':phone,
