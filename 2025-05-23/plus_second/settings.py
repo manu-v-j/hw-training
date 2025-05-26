@@ -1,4 +1,4 @@
-base_url="https://www.plus.nl/producten/kaas-vleeswaren-tapas/kaas"
+base_url="https://www.plus.nl/producten/snoep-koek-chocolade-chips-noten/chips-zoutjes"
 headers = {
     "accept": "application/json",
     "accept-encoding": "gzip, deflate, br, zstd",
@@ -8,7 +8,7 @@ headers = {
     "origin": "https://www.plus.nl",
     "outsystems-locale": "nl-NL",
     "priority": "u=1, i",
-    "referer": "https://www.plus.nl/producten/kaas-vleeswaren-tapas/kaas",
+    "referer": "https://www.plus.nl/producten/snoep-koek-chocolade-chips-noten/chips-zoutjes",
     'sec-ch-ua': '"Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"',
     'sec-ch-ua-mobile': '?1',
     'sec-ch-ua-platform': '"Android"',
@@ -19,8 +19,10 @@ headers = {
     'x-csrftoken': 'T6C+9iB49TLra4jEsMeSckDMNhQ='
 }
 
-url = "https://www.plus.nl/screenservices/ECP_Composition_CW/ProductLists/PLP_Content/DataActionGetProductListAndCategoryInfo"
+url_plp="https://www.plus.nl/screenservices/ECP_Composition_CW/ProductLists/PLP_Content/DataActionGetProductListAndCategoryInfo"
+url_pdp="https://www.plus.nl/screenservices/ECP_Product_CW/ProductDetails/PDPContent/DataActionGetProductDetailsAndAgeInfo"
 
-MONGO_URI="mongodb://localhost:27017/"
-DB_NAME='plus'
-COLLECTION="product_link"
+MONGO_URI="mongodb://localhost:27017"
+DB_NAME="plus"
+COLLECTION="product_link_cat2"
+COLLECTION_DETAIL="product_detail_cat2"

@@ -60,7 +60,7 @@ class Crawler:
             url = item.get("PLP_Str", {}).get("Slug")
             if url:
                 full_url = base_url + url
-                self.collection.insert_one({'link':full_url})
+                self.collection.insert_one({'link':full_url,'product_name':url})
            
 
 if __name__=="__main__":
