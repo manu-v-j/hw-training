@@ -37,10 +37,10 @@ class Parser:
 
         wine_producer = product_details.get("wineProducer")
         producer_name = ""
-        producer_address = "none"
+        producer_address = ""
 
         if isinstance(wine_producer, dict):
-            producer_name = wine_producer.get("name", "none")
+            producer_name = wine_producer.get("name", "")
             producer_address = wine_producer.get("street", "none").strip()
 
         grape_variety = ""

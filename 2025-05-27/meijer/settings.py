@@ -21,3 +21,4 @@ url="https://ac.cnstrc.com/browse/group_id/L1-918?c=ciojs-client-2.64.2&key=key_
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME="meijer"
 COLLECTION="product_link"
+COLLECTION_DETAIL="product_details"

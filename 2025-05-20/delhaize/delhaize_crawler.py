@@ -26,7 +26,7 @@ class Crawler:
         data = response.json()
         products = data.get("data", {}).get("categoryProductSearch", {}).get("products", [])
         for product in products:
-            product_url = product.get("url")
+            product_url = product.get("url",{})
             if product_url:
                 full_url = 'https://www.delhaize.be' + product_url
 
