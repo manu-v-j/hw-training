@@ -1,5 +1,6 @@
 from curl_cffi import requests
 from settings import *
+import re
 payload={
             "c": "ciojs-client-2.64.2",
             "key": "key_GdYuTcnduTUtsZd6",
@@ -27,4 +28,5 @@ for item in response_list:
     product_name=item.get("data",{}).get("summary")
     regular_price=item.get("data",{}).get("price")
     selling_price=item.get("data",{}).get("discountSalePriceValue")
-    
+    grammage_quantity=re.search(r'\d+(?=\D*$)',).group()
+    print(grammage_quantity)

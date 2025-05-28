@@ -48,7 +48,7 @@ class Parser:
         for attr in attributes:
             if isinstance(attr, dict) and attr.get("code") == "WINEGRAPE":
                 grape_variety = attr.get("value", "")
-                break
+                
 
         url = product_details.get("url", "")
         if url:
