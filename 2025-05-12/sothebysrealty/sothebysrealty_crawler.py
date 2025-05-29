@@ -1,60 +1,9 @@
-# from playwright.sync_api import sync_playwright
-# from parsel import Selector
-# from settings import *
-# from urllib.parse import urljoin
-# from pymongo import MongoClient
-
-# class Crawler:
-
-#     def __init__(self):
-#         self.clint=MongoClient(MONGO_URI)
-#         self.db=self.clint[DB_NAME]
-#         self.collection=self.db[COLLECTION]
-#     def start(self, url):
-
-#         with sync_playwright() as p:
-#             browser = p.chromium.launch(headless=False)
-#             context = browser.new_context(user_agent=headers["User-Agent"])  
-#             page = context.new_page()
-#             page_count=0
-
-#             while url and page_count<11:
-#                 page.goto(url, timeout=60000)
-
-#                 for _ in range(5):
-#                     page.evaluate("window.scrollBy(0, window.innerHeight)")
-#                     page.wait_for_timeout(10000)
-
-#                 response = page.content()
-#                 url,links=self.parse_item(response, url)
-#                 self.collection.insert_many([{"link": link} for link in links])
-               
-#                 page_count+=1
-
-#             browser.close()
-
-#     def parse_item(self, response, url):
-#         sel = Selector(text=response)
-#         links = sel.xpath("//div[@class='m-agent-item-results__card']/a/@href").getall()
-#         links=[urljoin(url, link) for link in links]
-
-#         next_page = sel.xpath("//a[@class='pagination-item' and @aria-label='Next']/@href").get()
-#         url = urljoin(url, next_page) if next_page else None
-
-#         return url,links
-    
-         
-
-# if __name__ == "__main__":
-#     crawler = Crawler()
-#     result = crawler.start(baseurl)  
-    
-
 from curl_cffi import requests  
 from parsel import Selector
+from urllib.parse import urljoin
+import json
 
 baseurl = "https://www.sothebysrealty.com/eng/associates/int"
-
 
 headers = {
     "accept": "*/*",
@@ -88,11 +37,49 @@ cookies = {
     "aws-waf-token": "9e743767-d51f-4ed0-ae4f-58a9d7373872:BgoAmmo6JzlQAAAA:4PxBCunVgBTp27yV0Vdr72XC8VBKihAgW3RNsD9mcGg6e1eQw6EE0+SqAZpR9Lr/fbo/miQFMWIRJ8t4yb6qe0dQDjVm+DAgt3cUbYNVe+7bz+k5hON0XRT5Hwp+Y3tgBTZ7q56b2z09Mh7fApde4xNW+jpmJQCImjH8luhT0bT/ffrA2jkAy+9P03YMRjedjdBjX0E="
 }
 
-import json
-response = requests.get(baseurl, headers=headers, cookies=cookies, impersonate="chrome")
+class Crawler:
+    def __init__(self):
+        self.clint=MongoClient(MONGO_URI)
+        self.db=self.clint[DB_NAME]
+        self.collection=self.db[COLLECTION]
+        
+    def start(self, baseurl):
+        url=baseurl
+        while url:
+            response = requests.get(url, headers=headers, cookies=cookies, impersonate="chrome")
+            if response.status_code != 200:
+                print(f"Failed to fetch {url} - status code {response.status_code}")
+                break
+            next_url=self.parse_item(response)
+            url=next_url
+    def parse_item(self, response):    
+        sel = Selector(response.text)
+        content = sel.xpath('//script[@id="__NEXT_DATA__" and @type="application/json"]/text()').get()
 
-if response.status_code == 200:
-    with open('result.json', 'w', encoding='utf-8') as f:
-        json.dump({"html": response.text}, f, indent=2)   
-else:
-    print(f"Request failed with status code {response.status_code}")
+        content_json = json.loads(content)
+        modules = content_json.get("props", {}).get("pageProps", {}).get("initialState", {}).get("PageStore", {}).get("modules", [])
+        
+        for module in modules:
+            if module.get("moduleName") == "agentitem":
+                agent_data = module.get("legacyData", {}).get("result", {}).get("agent", [])
+                agent_list = agent_data if isinstance(agent_data, list) else [agent_data]
+                
+                for agent_attrs in agent_list:
+                    canonical_data = agent_attrs.get("canonicalurldata", {})
+                    items = canonical_data.get("item", [])
+                    if items:
+                        item = items[0]
+                        url = item.get("_attributes", {}).get("url")
+                        if url:
+                            self.collection.insert_one({"link": url} )
+
+    
+        next_page = sel.xpath('//a[@class="pagination-item" and @aria-label="Next"]/@href').get()
+        if next_page:
+            return urljoin(baseurl, next_page)
+        return None
+
+
+if __name__ == "__main__":
+    crawler = Crawler()
+    result = crawler.start(baseurl)  

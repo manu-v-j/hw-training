@@ -26,6 +26,7 @@ class Parser:
                 self.parse_item(response, collection)
 
     def parse_item(self, response, collection):
+        
         data = response.json().get("data", {})
         product_details = data.get("productDetails", {})
 
@@ -35,36 +36,35 @@ class Parser:
         price = price_info.get("unitPrice")
         currency = price_info.get("currencySymbol")
 
-        wine_producer = product_details.get("wineProducer")
+        wine_producer = product_details.get("wineProducer","")
         producer_name = ""
         producer_address = ""
-
-        if isinstance(wine_producer, dict):
-            producer_name = wine_producer.get("name", "")
-            producer_address = wine_producer.get("street", "none").strip()
+        producer_name = wine_producer.get("name","") if wine_producer else ""
+        producer_address = wine_producer.get("street","").strip()  if wine_producer else ""
 
         grape_variety = ""
         attributes = product_details.get("mobileClassificationAttributes", [])
         for attr in attributes:
-            if isinstance(attr, dict) and attr.get("code") == "WINEGRAPE":
-                grape_variety = attr.get("value", "")
+            grape_variety = attr.get("value", "")
                 
 
         url = product_details.get("url", "")
         if url:
-            url = "https://www.delhaize.be/" + url
-        images = [img.get("url") for img in product_details.get("galleryImages", [])]
+            url = "" + url
+        images = [img.get("url","") for img in product_details.get("galleryImages", [])]
 
-        collection.insert_one({
-            "product_name": product_name,
-            "price": price,
-            "currency": currency,
-            "producer_name": producer_name,
-            "producer_address": producer_address,
-            "grape_variety": grape_variety,
-            "product_url": url,
-            "images":images
-        })
+        item={}
+      
+        item["product_name"]= product_name
+        item["price"]= price
+        item["currency"]= currency
+        item["producer_name"]=producer_name
+        item["producer_address"]=producer_address
+        item["grape_variety"]= grape_variety
+        item["product_url"]= url
+        item["images"]=images
+    
+        collection.insert_one(item)
 
 if __name__ == "__main__":
     parser=Parser()
