@@ -33,8 +33,11 @@ sel=Selector(text=response.text)
 product_name_xpath="//h1[@data-test='product-title']/text()"
 size_xpath="//li[@class='styles_ndsCarouselItem__dnUkr']/a/span/text()"
 breadcrumb_xpath="//a[@class='styles_ndsLink__GUaai styles_onLight__QKcK7']/text()"
+image_xpath="//div[@class='styles_zoomableImage__R_OOf']/img/@src"
 
-
+# description_xpath="//script[not(@*)]/text()"
 product_name=sel.xpath(product_name_xpath).get()
 size=sel.xpath(size_xpath).getall()
 breadcrumb=sel.xpath(breadcrumb_xpath).getall()
+image=sel.xpath(image_xpath).getall()
+# description=(sel.xpath(description_xpath))[5].get()
