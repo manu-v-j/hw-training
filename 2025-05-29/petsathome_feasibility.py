@@ -57,4 +57,4 @@ print(breadcrumb)
 
 ##############################FINDINGS##############################
 
-#product image in pdp is dynamic cannot get in normal request
+#product image in pdp is dynamic

@@ -33,7 +33,6 @@ cookies = {
     "aws-waf-token": "9e743767-d51f-4ed0-ae4f-58a9d7373872:BgoAmmo6JzlQAAAA:4PxBCunVgBTp27yV0Vdr72XC8VBKihAgW3RNsD9mcGg6e1eQw6EE0+SqAZpR9Lr/fbo/miQFMWIRJ8t4yb6qe0dQDjVm+DAgt3cUbYNVe+7bz+k5hON0XRT5Hwp+Y3tgBTZ7q56b2z09Mh7fApde4xNW+jpmJQCImjH8luhT0bT/ffrA2jkAy+9P03YMRjedjdBjX0E="
 }
 
-
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME='sothebysrealty'
 COLLECTION="agent_link"
