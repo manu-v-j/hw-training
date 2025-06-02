@@ -21,15 +21,13 @@ headers={
 
 
 ##############################CRAWLER##############################
+
 url='https://www.carrefouruae.com/mafuae/en/c/F1600000'
 response=requests.get(url,headers=headers)
 
 sel=Selector(response.text)
 script = sel.xpath("//script[contains(text(), 'adtechComponentApiResponse')]/text()").get()
 
-
-
-to_remove = r'self.__next_f.push([1,"11:["$","$L40",null,'
 match = re.search(r'\{.*\}', script, re.DOTALL)
 
 if match:
@@ -42,7 +40,7 @@ if match:
     for product in product_list:
         product_url = product.get("links", {}).get("productUrl", {}).get("href")
         url=f"https://www.carrefouruae.com{product_url}"
-
+    
  
  ##############################PARSER##############################
 
@@ -55,7 +53,11 @@ currency_xpath="//h2[@class='css-17ctnp']/text()[1]"
 grammage_quantity_xpath="//span[@class='css-t0sf5c']/span[2]/text()"
 country_of_origin_xpath="//div[@class='css-13w9ki7']/text()"
 breadcrumb_xpath="//div[@class='css-iamwo8']/a/text()"
-image_xapth=""
+storage_instructions_xpath="//h3[text()='Storage Condition']/following-sibling::div/text()"
+preparationinstructions_xpath="//h3[text()='Preparation and usage']/following-sibling::div/text()"
+product_description_xpath="//h3[text()='Brand Message']/following-sibling::div/text()"
+image_xapth="//img[@class='swiper-lazy']/@src"
+
 product_name=sel.xpath(product_name_xpath).get()
 selling_price=sel.xpath(selling_price_xpath).get()
 regular_price=sel.xpath(regular_price_xpath).get()
@@ -66,4 +68,11 @@ grammage_quantity = int(match.group(1))
 grammage_unit=match.group(2)
 country_of_origin=sel.xpath(country_of_origin_xpath).get()
 breadcrumb=sel.xpath(breadcrumb_xpath).getall()
-print(breadcrumb)
+storage_instructions=sel.xpath(storage_instructions_xpath).get()
+preparationinstructions=sel.xpath(preparationinstructions_xpath).get()
+product_description=sel.xpath(product_description_xpath).get()
+image=sel.xpath(image_xapth).getall()
+print(product_description)
+
+##############################FINDINGS##############################
+# Include the page number in the URL to move to the next page
