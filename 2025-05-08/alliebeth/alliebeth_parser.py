@@ -3,6 +3,7 @@ from settings import *
 from parsel import Selector
 import cloudscraper
 from pymongo import MongoClient
+from item import ProductItem
 
 
 class Parser:
@@ -42,13 +43,13 @@ class Parser:
         address = " ".join([t.strip() for t in address if t.strip()])
         about = "".join([t.strip() for t in about if t.strip()])
 
-        self.collection.insert_one({
-            'url':url,
-            'name':name,
-            'phone':phone,
-            'address':address,
-            'about':about,
-        })
+        item={}
+        item['url']=url
+        item['name']=name
+        item['phone']=phone
+        item['address']=address
+        item['about']=about
+        self.collection.insert_one(item)
 
 
 if __name__ == "__main__":

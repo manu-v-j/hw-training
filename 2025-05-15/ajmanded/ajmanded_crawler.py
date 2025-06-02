@@ -1,11 +1,13 @@
 from playwright.sync_api import sync_playwright
 from settings import *
+from pymongo import MongoClient
 
 class Crawler:
     def __init__(self):
-        pass
+        self.client=MongoClient(MONGO_URI)
+        self.db=self.client[DB_NAME]
+        self.collection=self.db[COLLECTION]
     def start(self,url):
-        detail_urls = []  
 
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=False, slow_mo=100)
@@ -36,14 +38,14 @@ class Crawler:
                     href = link.get_attribute("href")
                     if href:
                         full_url = f"https://eservices.ajmanded.ae{href}"
-                        detail_urls.append(full_url)  
+                        self.collection.insert_one({"link":full_url})
                         
                 except Exception as e:
                     print(f"Failed to get href for link {i}: {e}")
 
             browser.close()
         
-        return detail_urls 
+         
 
 if __name__ == "__main__":
     crawler=Crawler()

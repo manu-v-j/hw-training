@@ -2,42 +2,45 @@ from settings import *
 from parsel import Selector
 import requests
 from urllib.parse import urljoin
+from pymongo import MongoClient
 
 class Crawler:
 
     def __init__(self):
-        pass
+        self.client = MongoClient(MONGO_URI)
+        self.db = self.client[DB_NAME]
+        self.collection = self.db[COLLECTION]
 
     def start(self, url):
-        product_links = []
         page_count = 0
-        while url and page_count < 2:
+        while True:
             print(f"Crawling: {url}")
             response = requests.get(url, headers=Headers)
             if response.status_code != 200:
                 print(f"Failed to fetch page: {url}")
                 break
-            
-            links, next_page_url = self.parse_item(url, response)
-            product_links.extend(links)
+
+            next_page_url = self.parse_item(url, response)
+            if not next_page_url:
+                break
             url = next_page_url
             page_count += 1
 
-        return product_links
-
-    def parse_item(self, url, response):
+    def parse_item(self, base_url, response):
         sel = Selector(text=response.text)
         links_xpath = "//div[@class='_70cdfb32']/a/@href"
         links = sel.xpath(links_xpath).getall()
-        full_links = [urljoin(url, link) for link in links]
+
+        full_urls = [urljoin(base_url, link) for link in links]
+
+        for url in full_urls:
+            self.collection.insert_one({"link": url})
 
         next_page = sel.xpath("//div[@title='Next']/ancestor::a/@href").get()
-        next_page_url = urljoin(url, next_page) if next_page else None
+        next_page_url = urljoin(base_url, next_page) if next_page else None
 
-        return full_links, next_page_url
+        return next_page_url
 
 if __name__ == "__main__":
     crawler = Crawler()
-    product_links = crawler.start(baseurl_rent)
-    for link in product_links:
-        print(link)
+    crawler.start(baseurl_rent) 

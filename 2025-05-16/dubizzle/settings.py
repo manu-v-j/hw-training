@@ -5,6 +5,7 @@ Headers={
 
 MONGO_URI="mongodb://localhost:27017/"
 DB_NAME="dubizzle"
-COLLECTION="details"
+COLLECTION="link"
+COLLEC_DETAIL="details"
 FILE_HEADERS = ["website", "url", "price", "currency", "location", "bathroom", "bedroom", "area", "description", "breadcumb","images"]
 file_name="result.csv"

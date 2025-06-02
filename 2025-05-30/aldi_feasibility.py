@@ -57,4 +57,3 @@ breadcrumb_xpath="//li[@class='breadcrumbs__item']//text()"
 product_name=sel.xpath(product_name_xpath).get()
 price=sel.xpath(price_xpath).get()
 breadcrumb=sel.xpath(breadcrumb_xpath).getall()
-print(breadcrumb)

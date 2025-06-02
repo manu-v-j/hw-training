@@ -5,26 +5,23 @@ from settings import *
 import re
 from time import sleep
 import random
-
-
 from pymongo import MongoClient
-client = MongoClient(MONGO_URI)
-db = client[DB_NAME]
-collection = db[COLLECTION]
+
 
 class Parser:
 
     def __init__(self):
-        pass
+        self.client = MongoClient(MONGO_URI)
+        self.db = self.client[DB_NAME]
+        self.collection = self.db[COLLEC_DETAIL]
 
     def start(self):
-        crawler=Crawler()
-        links=crawler.start(baseurl_rent)
-        for link in links:
-            response=requests.get(link,headers=Headers)
+        for item in self.db[COLLECTION].find():
+            url=item.get("link")
+            response=requests.get(url,headers=Headers)
             wait_time = random.uniform(2, 5)
             sleep(wait_time)
-            self.parse_item(link,response)
+            self.parse_item(url,response)
 
     def parse_item(self,link,response):
             sel=Selector(response.text)
@@ -59,23 +56,20 @@ class Parser:
                     price = match.group(2)
 
             # ITEM YIELD
-            
-            collection.insert_one({
-                
-                "url": url,
-                "price": price,
-                "currency": currency,
-                "location": location,
-                "bathroom": bathroom,
-                "bedroom": bedroom,
-                "area": area,
-                "description": description,
-                "breadcrumb":breadcrumb,
-                "images": images
-            })
+            item={}
+           
+            item["url"]=url
+            item["price"]= price
+            item["currency"]= currency
+            item["location"]= location
+            item["bathroom"]= bathroom
+            item["bedroom"]= bedroom
+            item["area"]=area
+            item["description"]=description
+            item["breadcrumb"]=breadcrumb
+            item["images"]= images
 
-            
-
+            self.collection.insert_one(item)
 if __name__ == "__main__":
     parser=Parser()
     parser.start()
