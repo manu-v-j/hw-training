@@ -22,25 +22,29 @@ headers={
 
 ##############################CRAWLER##############################
 
-url='https://www.carrefouruae.com/mafuae/en/c/F1600000'
-response=requests.get(url,headers=headers)
+page=0
+while page<3:
+    url = f'https://www.carrefouruae.com/mafuae/en/c/F1600000?currentPage={page}'
+    response=requests.get(url,headers=headers)
 
-sel=Selector(response.text)
-script = sel.xpath("//script[contains(text(), 'adtechComponentApiResponse')]/text()").get()
+    sel=Selector(response.text)
+    script = sel.xpath("//script[contains(text(), 'adtechComponentApiResponse')]/text()").get()
 
-match = re.search(r'\{.*\}', script, re.DOTALL)
+    match = re.search(r'\{.*\}', script, re.DOTALL)
 
-if match:
-    json_str = match.group(0)
-    unescaped = json_str.encode().decode('unicode_escape')
+    if match:
+        json_str = match.group(0)
+        unescaped = json_str.encode().decode('unicode_escape')
 
-    data = json.loads(unescaped)
+        data = json.loads(unescaped)
 
-    product_list=data.get("products",[])
-    for product in product_list:
-        product_url = product.get("links", {}).get("productUrl", {}).get("href")
-        url=f"https://www.carrefouruae.com{product_url}"
-    
+        product_list=data.get("products",[])
+        for product in product_list:
+            product_url = product.get("links", {}).get("productUrl", {}).get("href")
+            url=f"https://www.carrefouruae.com{product_url}"
+            
+    page += 1
+   
  
  ##############################PARSER##############################
 
@@ -72,7 +76,6 @@ storage_instructions=sel.xpath(storage_instructions_xpath).get()
 preparationinstructions=sel.xpath(preparationinstructions_xpath).get()
 product_description=sel.xpath(product_description_xpath).get()
 image=sel.xpath(image_xapth).getall()
-print(product_description)
 
 ##############################FINDINGS##############################
 # Include the page number in the URL to move to the next page
