@@ -25,32 +25,36 @@ ean_lists=[76344107521,76344107491,76344108115,76344107538,76344118572,763441053
            76344116639,76344106661,64992523206,64992525200,64992523602,64992525118,64992714369,64992714376,
            5425039485256,5425039485010,5425039485263,5425039485034,5425039485317,5407009646591,5407009640353,
            5407009640391,5407009640636,5407009641022,3182551055672,3182551055788,3182551055719,3182551055825,
-           9003579008362,3182550704625,3182550706933,9003579013793,9003579013861]
-
+           9003579008362,3182550704625,3182550706933,9003579013793]
 count=0
 for ean in ean_lists:
+    page=0
+    while True:
         payload={
-        "requests": [
-            {
-            "indexName": "PRO_Products_NL_NL",
-            "params": f"facetFilters=[\"active:Yes\"]&facets=[\"active\",\"brand\",\"category0\",\"category1\",\"category2\",\"price\",\"promo_details_special_type\",\"sub_product_group\"]&highlightPostTag=__/ais-highlight__&highlightPreTag=__ais-highlight__&hitsPerPage=12&maxValuesPerFacet=10&page=0&query={ean}&ruleContexts=[\"magento_filters\"]&tagFilters="
-            }
-        ]
-        }
+                    "requests": [
+                        {
+                        "indexName": "PRO_Products_NL_NL",
+                        "params": f"facetFilters=[\"active:Yes\"]&facets=[\"active\",\"brand\",\"category0\",\"category1\",\"category2\",\"price\",\"promo_details_special_type\",\"sub_product_group\"]&highlightPostTag=__/ais-highlight__&highlightPreTag=__ais-highlight__&hitsPerPage=12&maxValuesPerFacet=10&page={page}&query={ean}&ruleContexts=[\"magento_filters\"]&tagFilters="
+                        }
+                    ]
+                    }
         url="https://c4jtu0l6zx-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%3B%20instantsearch.js%20(4.63.0)%3B%20Magento2%20integration%20(3.13.4)%3B%20JS%20Helper%20(3.16.1)"
         response=requests.post(url,headers=headers,json=payload)
         data=response.json()
-        if  not data:
-            break
         result_list=data.get("results",[])
+        if not result_list or not result_list[0].get("hits"):
+            break
         for result in result_list:
             hits_list=result.get("hits",[])
             for hits in hits_list:
                 url=hits.get("link","")
-                print(url)
-        
+                count+=1
+                print(url)  
+        page+=1
 
-##############################PARSER##############################
+print(count)     
+
+# ##############################PARSER##############################
 
 response=requests.get('https://www.petsplace.nl/wellness-core-grain-free-dog-small-breed-hondenvoer-m-076344107521-pps?flavor_calc=12435')
 sel=Selector(text=response.text)
@@ -75,6 +79,10 @@ reviews=sel.xpath("//span[@class='counter']//text()").get()
 
 
 
-##############################FINDINGS##############################
-# Success Percentage:83.33%
-# Failure Percentage:16.67%
+# ##############################FINDINGS##############################
+# # Success Percentage:83.33%
+# # Failure Percentage:16.67%
+
+
+
+     
