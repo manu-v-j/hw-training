@@ -21,49 +21,49 @@ headers = {
 }
 
 ##############################CRAWLER##############################
-ean_lists=[76344107521,76344107491,76344108115,76344107538,76344118572,76344105398,76344107262,76344108320,
-           76344116639,76344106661,64992523206,64992525200,64992523602,64992525118,64992714369,64992714376,
-           5425039485256,5425039485010,5425039485263,5425039485034,5425039485317,5407009646591,5407009640353,
-           5407009640391,5407009640636,5407009641022,3182551055672,3182551055788,3182551055719,3182551055825,
-           9003579008362,3182550704625,3182550706933,9003579013793]
-count=0
-for ean in ean_lists:
-    page=0
-    while True:
-        payload={
-                    "requests": [
-                        {
-                        "indexName": "PRO_Products_NL_NL",
-                        "params": f"facetFilters=[\"active:Yes\"]&facets=[\"active\",\"brand\",\"category0\",\"category1\",\"category2\",\"price\",\"promo_details_special_type\",\"sub_product_group\"]&highlightPostTag=__/ais-highlight__&highlightPreTag=__ais-highlight__&hitsPerPage=12&maxValuesPerFacet=10&page={page}&query={ean}&ruleContexts=[\"magento_filters\"]&tagFilters="
-                        }
-                    ]
-                    }
-        url="https://c4jtu0l6zx-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%3B%20instantsearch.js%20(4.63.0)%3B%20Magento2%20integration%20(3.13.4)%3B%20JS%20Helper%20(3.16.1)"
-        response=requests.post(url,headers=headers,json=payload)
-        data=response.json()
-        result_list=data.get("results",[])
-        if not result_list or not result_list[0].get("hits"):
-            break
-        for result in result_list:
-            hits_list=result.get("hits",[])
-            for hits in hits_list:
-                url=hits.get("link","")
-                count+=1
-                print(url)  
-        page+=1
+# ean_lists=[76344107521,76344107491,76344108115,76344107538,76344118572,76344105398,76344107262,76344108320,
+#            76344116639,76344106661,64992523206,64992525200,64992523602,64992525118,64992714369,64992714376,
+#            5425039485256,5425039485010,5425039485263,5425039485034,5425039485317,5407009646591,5407009640353,
+#            5407009640391,5407009640636,5407009641022,3182551055672,3182551055788,3182551055719,3182551055825,
+#            9003579008362,3182550704625,3182550706933,9003579013793]
+# count=0
+# for ean in ean_lists:
+#     page=0
+#     while True:
+#         payload={
+#                     "requests": [
+#                         {
+#                         "indexName": "PRO_Products_NL_NL",
+#                         "params": f"facetFilters=[\"active:Yes\"]&facets=[\"active\",\"brand\",\"category0\",\"category1\",\"category2\",\"price\",\"promo_details_special_type\",\"sub_product_group\"]&highlightPostTag=__/ais-highlight__&highlightPreTag=__ais-highlight__&hitsPerPage=12&maxValuesPerFacet=10&page={page}&query={ean}&ruleContexts=[\"magento_filters\"]&tagFilters="
+#                         }
+#                     ]
+#                     }
+#         url="https://c4jtu0l6zx-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.14.3)%3B%20Browser%3B%20instantsearch.js%20(4.63.0)%3B%20Magento2%20integration%20(3.13.4)%3B%20JS%20Helper%20(3.16.1)"
+#         response=requests.post(url,headers=headers,json=payload)
+#         data=response.json()
+#         result_list=data.get("results",[])
+#         if not result_list or not result_list[0].get("hits"):
+#             break
+#         for result in result_list:
+#             hits_list=result.get("hits",[])
+#             for hits in hits_list:
+#                 url=hits.get("link","")
+#                 count+=1
+#                 print(url)  
+#         page+=1
 
-print(count)     
+# print(count)     
 
 # ##############################PARSER##############################
 
-response=requests.get('https://www.petsplace.nl/wellness-core-grain-free-dog-small-breed-hondenvoer-m-076344107521-pps?flavor_calc=12435')
+response=requests.get('https://www.petsplace.nl/royal-canin-mini-adult-hondenvoer-m-3182551055672-pps?weight_calc=10558')
 sel=Selector(text=response.text)
 
 unique_id=sel.xpath("//td[@class='col data' and @data-td='EAN']//text()").get()
-product_name=sel.xpath("//span[@class='base']//text()").get()
+product_name=sel.xpath("//span[@class='base']/text()").get()
 brand=sel.xpath("//td[@class='col data' and @data-td='Merk']//text()").get()
-grammage_quantity=(re.search(r'\d+(?:\.\d+)',product_name)).group()
-grammage_unit=(re.search(r'\b(kg|g|ml|l)\b',product_name)).group()
+pdp_url=""
+grammage_quantity=(re.search(r'\d+(?:\.\d+)',product_name)).group() 
 instock=sel.xpath("//span[@class='in-stock-text']//text()").get()
 regular_price=sel.xpath("//span[@class='price']//text()").get()
 currency=sel.xpath("//span[@class='price-per_unit']//text()").get()
@@ -72,12 +72,13 @@ breadcrumb=sel.xpath("//div[@class='breadcrumbs']//li//span[@itemprop='name']//t
 description_list=sel.xpath("//div[@class='product attribute description']/div//text()").getall()
 description = ' '.join([x.strip() for x in description_list if x.strip()])
 material_composition=sel.xpath("//td[@class='col data' and @data-td='Samenstelling']//text()").get()
-vitamins=sel.xpath("//td[@class='col data' and @data-td='Analyse']//text()").get()
+feeding_recommendation=""
+nutritional_information=sel.xpath("//td[@class='col data' and @data-td='Analyse']//text()").get()
 feeding_recommendation=sel.xpath("//td[@class='col data' and @data-td='Aanbeveling']//text()").get()
 reviews=sel.xpath("//span[@class='counter']//text()").get()
 
 
-
+print(product_name)
 
 # ##############################FINDINGS##############################
 # # Success Percentage:83.33%

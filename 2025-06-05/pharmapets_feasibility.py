@@ -1,5 +1,6 @@
 import requests
 from parsel import Selector
+import re
 
 headers={
     'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -43,6 +44,18 @@ sel=Selector(text=response.text)
 unique_id=sel.xpath("//td[@data-th='Tom & Co sku']/text()").get()
 product_name=sel.xpath("//span[@class='base']//text()").get()
 brand=sel.xpath("//td[@data-th='Merk']/text()").get()
+grammage_quantity=(re.search('(\d+)',product_name)).group(1)
+grammage_unit=(re.search(r'(kg|g|ml|l)',product_name)).group(1)
 selling_price=sel.xpath("//meta[@itemprop='price']/@content").get()
 price_was=sel.xpath("//span[@data-price-type='oldPrice']/@data-price-amount").get()
-print(price_was)
+percentage_discount=re.search(r'(\d+%)',sel.xpath("//span[@class='promo-percentage']//text()").get()).group(1)
+currency=sel.xpath("//meta[@itemprop='priceCurrency']/@content").get()
+breadcrumb=sel.xpath("//div[@class='breadcrumbs breadcrumbs-mobile--compact']/ul/li//text()").getall()
+breadcrumb = [b.strip() for b in breadcrumb if b.strip()]
+product_description=sel.xpath("//div[@class='value reset-pagebuilder']/p//text()").getall()
+ingredients=sel.xpath("//div[@class='pagebuilder-accordion__content']//p[1]/text()").get()
+nutritional_information=sel.xpath("//div[@class='pagebuilder-accordion__content']//p[2]/text()").get()
+product_unique_key=sel.xpath("//td[@data-th='SKU']/text()").get()
+image_url=sel.xpath("//img[@class='gallery-placeholder__image']/@src").get()
+features=sel.xpath("//div[@class='block-content is-paws-list']/ul/li/text()").getall()
+print(grammage_unit)
