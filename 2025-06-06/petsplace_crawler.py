@@ -30,7 +30,7 @@ class Crawler:
                 if response.status_code == 200:
                     found = self.parse_item(response, ean)
                     if not found:
-                        break  # Stop paginating if no results
+                        break  
                     page += 1            
 
         print("Finished crawling.")
