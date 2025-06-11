@@ -20,7 +20,6 @@ headers={
 }
 
 ##############################CRAWLER##############################
-
 url = "https://noragardner.com/collections/dresses"
 
 while url:

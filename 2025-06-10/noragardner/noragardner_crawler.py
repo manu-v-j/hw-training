@@ -22,6 +22,7 @@ class Crawler:
         product_urls = sel.xpath("//a[contains(@class, 'grid-product__link')]/@href").getall()
         for product_url in product_urls:
             full_url = f"https://noragardner.com{product_url}"
+            
             self.collection.insert_one({'link':full_url})
             
 

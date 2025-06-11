@@ -24,7 +24,8 @@ class Crawler:
         sel = Selector(text=response.text)
 
         product_name = sel.xpath("//h1[@class='h2 product-single__title']/text()").get().strip()
-        sales_price= sel.xpath("//span[@class='product__price']/text()").get()
+        sales_price_raw= sel.xpath("//span[@class='product__price']/text()  | //span[@class='product__price product__price--compare']/text()").get().strip()
+        sales_price=re.search(r'\d+',sales_price_raw).group()
         script_content = sel.xpath('//script[@id="__st"]/text()').get()
         if script_content:
             rid_match = re.search(r'"rid":(\d+)', script_content)
@@ -62,26 +63,27 @@ class Crawler:
                 if reviews_list:
                     product_info = reviews_list[0].get('product',{})
                     total_number_of_reviews = product_info.get('review_count','')
-                    star_rating = product_info.get('star_rating','')
+                    if int(total_number_of_reviews)>0 :
+                        star_rating = product_info.get('star_rating','')
                     
-                    for item in reviews_list:
-                        review_title = item.get('title','')
-                        review_text = item.get('content','')
-                   
-     
+                        for item in reviews_list:
+                            review_title = item.get('title','')
+                            review_text = item.get('content','')
+                    
+        
 
-                        item={}
-                        item['url']=url
-                        item['product_name']=product_name
-                        item['sales_price']=sales_price
-                        item['product_sku']=product_sku
-                        item['brand']=brand
-                        item['total_number_of_reviews']=total_number_of_reviews
-                        item['star_rating']=star_rating
-                        item['review_title']=review_title
-                        item['review_text']=review_text
+                            item={}
+                            item['url']=url
+                            item['product_name']=product_name
+                            item['sales_price']=sales_price
+                            item['product_sku']=product_sku
+                            item['brand']=brand
+                            item['total_number_of_reviews']=total_number_of_reviews
+                            item['star_rating']=star_rating
+                            item['review_title']=review_title
+                            item['review_text']=review_text
 
-                        self.collection.insert_one(item)
+                            self.collection.insert_one(item)
 
 if __name__ == "__main__":
     crawler = Crawler()
