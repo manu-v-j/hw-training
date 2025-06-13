@@ -25,6 +25,9 @@ headers = {
     "upgrade-insecure-requests": "1",
     "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36"
 }
+
+##############################CRAWLER##############################
+
 count=0
 url="https://www.walgreens.com/shop"
 response=requests.get(url)
@@ -39,6 +42,7 @@ category=data.get("categories",[])
 for item in category:
     category_url=item.get("url","")
     full_url=f"https://www.walgreens.com{category_url}"
+    print(full_url)
     response=requests.get(full_url)
     sel=Selector(text=response.text)
     script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
@@ -52,113 +56,30 @@ for item in category:
             result_list=data.get("searchResult",{}).get("productList",[]) 
             for item in result_list:
                 product_url=item.get("productInfo",{}).get("productURL","")
-                print(f"https://www.walgreens.com{product_url}")
+                # print(f"https://www.walgreens.com{product_url}")
                 count+=1
                 print(count)
 
 
-# response=requests.get("https://www.walgreens.com/store/c/productlist/N=360545/1/ShopAll=360545")
-# sel=Selector(text=response.text)
-# print(sel)
-# # with open("result.html","w") as f:
-# #     f.write(response.text)
-# product_list = sel.xpath("//div[@class='product__text-title-contain']").getall()
-
-# for product_html in product_list:
-#     product_sel = Selector(text=product_html)
-#     product_link = product_sel.xpath(".//a[@class='color__text-black']/@href").get()
-#     print(f"https://www.walgreens.com{product_link}")
-
-
 ###############################PARSER##############################
-# response=requests.get("https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product")
-# sel=Selector(text=response.text)
-# script=sel.xpath("//script[@type='application/ld+json']/text()").get()
-# data=json.loads(script)
-# product_name=data.get("name","")
-# unique_id=data.get("prodID","")
-# product_sku=data.get("sku")
-# brand=data.get("brand",{}).get("name","")
-# brand_type=data.get("brand",{}).get("@type","")
-# offers_list=data.get("offers",[])
-# rating=data.get("aggregateRating",{}).get("ratingValue","")
-# review=data.get("aggregateRating",{}).get("reviewCount","")
-# image_url=data.get("image",[])
-# for item in offers_list:
-#     selling_price=item.get("price","")
-#     currency=item.get("priceCurrency","")
-#     pdp_url=item.get("url","")
-#     instock=item.get("availability","")
+response=requests.get("https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product")
+sel=Selector(text=response.text)
+script=sel.xpath("//script[@type='application/ld+json']/text()").get()
+data=json.loads(script)
+product_name=data.get("name","")
+unique_id=data.get("prodID","")
+product_sku=data.get("sku")
+brand=data.get("brand",{}).get("name","")
+brand_type=data.get("brand",{}).get("@type","")
+offers_list=data.get("offers",[])
+rating=data.get("aggregateRating",{}).get("ratingValue","")
+review=data.get("aggregateRating",{}).get("reviewCount","")
+image_url=data.get("image",[])
+for item in offers_list:
+    selling_price=item.get("price","")
+    currency=item.get("priceCurrency","")
+    pdp_url=item.get("url","")
+    instock=item.get("availability","")
 
 
 
-
-# url="https://www.walgreens.com/shop"
-# response=requests.get(url)
-# sel=Selector(text=response.text)
-# category_links=sel.xpath("//li[@class='labelledIconContainer']/a/@href").getall()
-
-# for idx, link in enumerate(category_links):
-#     match = re.search(r'ID=(\d+)', link)
-#     if match:
-#         id_value = match.group(1)
-#         if idx == 0:
-#             payload = {
-#                 "id": ["20003545", id_value]
-#             }
-#         else:
-#             payload = {
-#                 "id": [id_value]
-#             }
-
-#         category_links=[]
-#         response=requests.post('https://www.walgreens.com/productsearch/v1/categories',json=payload)
-#         data=response.json()
-#         category=data.get("categories",[])
-#         for item in category:
-#             category_url=item.get("url","")
-#             full_url=f"https://www.walgreens.com{category_url}"
-#             # print(full_url)
-#             response=requests.get(full_url)
-#             sel=Selector(text=response.text)
-#             product_list = sel.xpath("//div[@class='product__text-title-contain']").getall()
-
-#             for product_html in product_list:
-#                 product_sel = Selector(text=product_html)
-#                 product_link = product_sel.xpath(".//a[@class='color__text-black']/@href").get()
-#                 print(f"https://www.walgreens.com{product_link}")
-
-#         category_links=[]
-#         response=requests.post('https://www.walgreens.com/productsearch/v1/categories',json=payload)
-#         data=response.json()
-#         category=data.get("categories",[])
-#         for item in category:
-#             category_url=item.get("url","")
-#             full_url=f"https://www.walgreens.com{category_url}"
-#             print(full_url)
-#             response=requests.get(full_url)
-#             sel=Selector(text=response.text)
-#             product_list = sel.xpath("//div[@class='product__text-title-contain']").getall()
-
-#             for product_html in product_list:
-#                 product_sel = Selector(text=product_html)
-#                 product_link = product_sel.xpath(".//a[@class='color__text-black']/@href").get()
-#                 print(f"https://www.walgreens.com{product_link}")
-
-
-# response = requests.get("https://www.walgreens.com/store/c/allergy-medicine/ID=361485-tier3", headers=headers)
-# sel = Selector(text=response.text)
-
-# script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
-
-# if script_content:
-#     json_match = re.search(r'return\s*(\{.*})', script_content, re.DOTALL)
-#     match=json_match.group(1)
-#     if match.endswith('}'):
-#         match=match[:-1]
-#         data=json.loads(match)
-#         result_list=data.get("searchResult",{}).get("productList",[]) 
-#         for item in result_list:
-#             product_url=item.get("productInfo",{}).get("productURL","")
-#             print(product_url) 
-      
