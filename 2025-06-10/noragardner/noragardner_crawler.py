@@ -11,10 +11,11 @@ class Crawler:
         self.collection=self.db[COLLECTION]
 
     def start(self):
-        current_url=BASE_URL
-        while current_url:
-            response = requests.get(current_url, headers=headers)
-            current_url=self.parse_item(response)            
+        
+        while True:
+            response = requests.get(BASE_URL, headers=headers)
+            next_url=self.parse_item(response,BASE_URL)
+            BASE_URL=next_url            
 
     def parse_item(self,response):
         sel = Selector(text=response.text)
@@ -30,9 +31,10 @@ class Crawler:
         if pagination:
             next_page=f"https://noragardner.com{pagination}"
             return next_page
+            
         
         else:
-            return None
+            return False
     
 
 crawler=Crawler()

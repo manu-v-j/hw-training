@@ -1,4 +1,4 @@
-BASE_URL = "https://noragardner.com/collections/dresses"
+BASE_URL = "https://noragardner.com/collections/sheath-dresses"
 headers={
     'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-encoding':'gzip, deflate, br, zstd',
@@ -19,5 +19,5 @@ review_url="https://fast.a.klaviyo.com/reviews/api/client_reviews/6577894293598/
 
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME="noragardner"
-COLLECTION="product_link"
+COLLECTION="product_link2"
 COLLECTION_DETAIL="product_detail"
