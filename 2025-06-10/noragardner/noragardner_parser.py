@@ -1,10 +1,12 @@
 import requests
 from parsel import Selector
-from settings import *
+from settings import headers,MONGO_URI,DB_NAME,COLLECTION_DETAIL,COLLECTION
 from pymongo import MongoClient
 import json
 import re
 import logging
+logging.basicConfig(level=logging.INFO)
+
 
 class Crawler:
 
@@ -14,24 +16,24 @@ class Crawler:
         self.collection = self.db[COLLECTION_DETAIL]
 
     def start(self):
-        # for item in self.db[COLLECTION].find():
-        #     url = item.get("link") 
-            response = requests.get("https://noragardner.com/collections/sheath-dresses/products/donna-dress-teal", headers=headers)
+        for item in self.db[COLLECTION].find():
+            url = item.get("link") 
+            response = requests.get(url, headers=headers)
             if response.status_code == 200:
-                self.parse_item(response)      
+                self.parse_item(response,url)      
     
-    def parse_item(self, response):
+    def parse_item(self, response,url):
         sel = Selector(text=response.text)
 
         product_name = sel.xpath("//h1[@class='h2 product-single__title']/text()").get().strip()
         sales_price_raw= sel.xpath("//span[@class='product__price']/text()  | //span[@class='product__price product__price--compare']/text()").get().strip()
-        sales_price=re.search(r'\d+',sales_price_raw).group()
+        sales_price=sales_price_raw.replace('$',"")
         script_content = sel.xpath('//script[@id="__st"]/text()').get()
         if script_content:
             rid_match = re.search(r'"rid":(\d+)', script_content)
             product_id = rid_match.group(1) if rid_match else None
         else:
-            product_id = None
+            product_id =""
 
         script = sel.xpath("//script[@type='application/ld+json'][2]/text()").get()
         if script:
@@ -73,7 +75,7 @@ class Crawler:
         
 
                             item={}
-                            # item['url']=url
+                            item['url']=url
                             item['product_name']=product_name
                             item['sales_price']=sales_price
                             item['product_sku']=product_sku
@@ -82,10 +84,10 @@ class Crawler:
                             item['star_rating']=star_rating
                             item['review_title']=review_title
                             item['review_text']=review_text
-                            print(item)
+
                             logging.info(item)
 
-                            # self.collection.insert_one(item)
+                            self.collection.insert_one(item)
 
 if __name__ == "__main__":
     crawler = Crawler()

@@ -34,7 +34,7 @@ for item in category:
     category_url=item.get("url","")
     full_url=f"https://www.walgreens.com{category_url}"
     print(full_url)
-    response=requests.get(full_url,headers=headers,cookies=cookies)
+    response=requests.get(full_url,cookies=cookies)
     sel=Selector(text=response.text)
     script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
 
@@ -47,30 +47,30 @@ for item in category:
             result_list=data.get("searchResult",{}).get("productList",[]) 
             for item in result_list:
                 product_url=item.get("productInfo",{}).get("productURL","")
-                # print(f"https://www.walgreens.com{product_url}")
+                print(f"https://www.walgreens.com{product_url}")
                 count+=1
                 print(count)
 
 
 ###############################PARSER##############################
-response=requests.get("https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product")
-sel=Selector(text=response.text)
-script=sel.xpath("//script[@type='application/ld+json']/text()").get()
-data=json.loads(script)
-product_name=data.get("name","")
-unique_id=data.get("prodID","")
-product_sku=data.get("sku")
-brand=data.get("brand",{}).get("name","")
-brand_type=data.get("brand",{}).get("@type","")
-offers_list=data.get("offers",[])
-rating=data.get("aggregateRating",{}).get("ratingValue","")
-review=data.get("aggregateRating",{}).get("reviewCount","")
-image_url=data.get("image",[])
-for item in offers_list:
-    selling_price=item.get("price","")
-    currency=item.get("priceCurrency","")
-    pdp_url=item.get("url","")
-    instock=item.get("availability","")
+# response=requests.get("https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product")
+# sel=Selector(text=response.text)
+# script=sel.xpath("//script[@type='application/ld+json']/text()").get()
+# data=json.loads(script)
+# product_name=data.get("name","")
+# unique_id=data.get("prodID","")
+# product_sku=data.get("sku")
+# brand=data.get("brand",{}).get("name","")
+# brand_type=data.get("brand",{}).get("@type","")
+# offers_list=data.get("offers",[])
+# rating=data.get("aggregateRating",{}).get("ratingValue","")
+# review=data.get("aggregateRating",{}).get("reviewCount","")
+# image_url=data.get("image",[])
+# for item in offers_list:
+#     selling_price=item.get("price","")
+#     currency=item.get("priceCurrency","")
+#     pdp_url=item.get("url","")
+#     instock=item.get("availability","")
 
 
 # from curl_cffi import requests

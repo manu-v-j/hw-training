@@ -33,7 +33,6 @@ class Crawler:
                         break  
                     page += 1            
 
-        print("Finished crawling.")
 
     def parse_item(self, response, ean):
         data = response.json()

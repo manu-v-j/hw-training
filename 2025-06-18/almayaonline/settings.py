@@ -10,7 +10,10 @@ headers={
     'sec-fetch-user':'?1',
     'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36'
 }
-base_url="https://www.almayaonline.com/soft-drink-and-juices"
+url="https://www.almayaonline.com/"
+# base_url="https://www.almayaonline.com/soft-drink-and-juices"
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME='almayaonline'
 COLLECTION="product_link"
+COLLEC_DETAILS="product_details"
+CATEGORY="category_link"
