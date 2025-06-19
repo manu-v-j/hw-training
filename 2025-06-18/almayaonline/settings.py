@@ -15,5 +15,5 @@ url="https://www.almayaonline.com/"
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME='almayaonline'
 COLLECTION="product_link"
-COLLEC_DETAILS="product_details"
+COLLECTION_DETAILS="product_details"
 CATEGORY="category_link"

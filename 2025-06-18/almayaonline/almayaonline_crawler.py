@@ -21,6 +21,9 @@ class Crawler:
                     if not next_page:
                         break
                     base_url=next_page
+                else:
+                    if response.status_code==500:
+                        break
 
     def parse_item(self,response):
             sel=Selector(text=response.text)

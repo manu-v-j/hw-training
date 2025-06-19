@@ -1,9 +1,11 @@
 import requests
-from settings import *
+from settings import MONGO_URI,MONGO_DB,COLLECTION,COLLEC_DETAIL,headers
 from pymongo import MongoClient
 from parsel import Selector
 import json
 import re
+import logging
+logging.basicConfig(level=logging.INFO)
 
 class Parser:
 
@@ -13,14 +15,11 @@ class Parser:
         self.collection=self.db[COLLEC_DETAIL]
 
     def start(self):
-        for item in self.db[COLLECTION].find():
-            url = item.get("link", "")
-            match = re.search(r'ID=(prod\d+|\d+)', url)
-            if not match:
-                print(f"No product ID found in URL: {url}")
-                continue
-
-            product_id = match.group(1)
+        # for item in self.db[COLLECTION].find():
+            # url = item.get("link", "")
+            url="https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product"
+            product_id = url.split("ID=")[1].split("-")[0]
+            logging.info(product_id)
 
             payload = {
                 "passkey": "tpcm2y0z48bicyt0z3et5n2xf",
@@ -58,7 +57,7 @@ class Parser:
             result_list = json_data.get("BatchedResults", {}).get("q0", {}).get("Results", [])
             for item in result_list:
                  upc=item.get("UPCs",[])
-                 Product_description=item.get("Description","")
+                 product_description=item.get("Description","")
             item_list = breadcrumb_list.get("itemListElement",[])
             breadcrumb = [item.get("name", "") for item in breadcrumb_list.get("itemListElement", [])]
             product_sku = data.get("sku")
@@ -75,7 +74,7 @@ class Parser:
             item={}
             item['Retailer_ID']=retailer_id
             item['Product_name']=product_name
-            item['Product_description']=Product_description
+            item['Product_description']=product_description
             item['Grammage']=grammage
             item['UPC']=upc
             item['Ingredients']=ingredients
@@ -88,8 +87,9 @@ class Parser:
             item['Image_url']=image_url
             item['Retailer_URL']=retailer_url
             item['Selling_price']=selling_price
+            print(item)
 
-            self.collection.insert_one(item)
+            # self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()
