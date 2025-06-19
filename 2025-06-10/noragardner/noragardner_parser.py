@@ -57,9 +57,9 @@ class Crawler:
                 "tz": "Asia/Calcutta"
             }
             
-            response = requests.get(review_url, headers=headers, params=params)
-            if response.status_code == 200:
-                data = response.json()
+            response_json = requests.get(review_url, headers=headers, params=params)
+            if response_json.status_code == 200:
+                data = response_json.json()
                 reviews_list = data.get("reviews", [])
                 
                 if reviews_list:
