@@ -2,6 +2,7 @@ import requests
 from parsel import Selector
 import re
 import json
+import html
 
 cookies={
   "v2H": "t",
@@ -22,34 +23,34 @@ cookies={
 
 ##############################CRAWLER##############################
 
-count=0
-payload = {
-                "id": ["20003545", "360545"]
-        }
+# count=0
+# payload = {
+#                 "id": ["20003545", "360545"]
+#         }
 
-response=requests.post('https://www.walgreens.com/productsearch/v1/categories',json=payload)
-data=response.json()
-category=data.get("categories",[])
-for item in category:
-    category_url=item.get("url","")
-    full_url=f"https://www.walgreens.com{category_url}"
-    print(full_url)
-    response=requests.get(full_url,cookies=cookies)
-    sel=Selector(text=response.text)
-    script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
+# response=requests.post('https://www.walgreens.com/productsearch/v1/categories',json=payload)
+# data=response.json()
+# category=data.get("categories",[])
+# for item in category:
+#     category_url=item.get("url","")
+#     full_url=f"https://www.walgreens.com{category_url}"
+#     print(full_url)
+#     response=requests.get(full_url,cookies=cookies)
+#     sel=Selector(text=response.text)
+#     script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
 
-    if script_content:
-        json_match = re.search(r'return\s*(\{.*})', script_content, re.DOTALL)
-        match=json_match.group(1)
-        if match.endswith('}'):
-            match=match[:-1]
-            data=json.loads(match)
-            result_list=data.get("searchResult",{}).get("productList",[]) 
-            for item in result_list:
-                product_url=item.get("productInfo",{}).get("productURL","")
-                print(f"https://www.walgreens.com{product_url}")
-                count+=1
-                print(count)
+#     if script_content:
+#         json_match = re.search(r'return\s*(\{.*})', script_content, re.DOTALL)
+#         match=json_match.group(1)
+#         if match.endswith('}'):
+#             match=match[:-1]
+#             data=json.loads(match)
+#             result_list=data.get("searchResult",{}).get("productList",[]) 
+#             for item in result_list:
+#                 product_url=item.get("productInfo",{}).get("productURL","")
+#                 print(f"https://www.walgreens.com{product_url}")
+#                 count+=1
+#                 print(count)
 
 
 ###############################PARSER##############################
@@ -73,22 +74,51 @@ for item in category:
 #     instock=item.get("availability","")
 
 
-# from curl_cffi import requests
-# count=0
+import requests
+count=0
+payload={
+  "productId": "prod6335256",
+  "storeId": 15196,
+  "deliveredCity": "Chicago",
+  "deliveredState": "IL"
+}
+response=requests.get("https://www.walgreens.com/productapi/v1/products",params=payload)
+data=response.json()
+product_name=data.get("productInfo",{}).get("title","")
+selling_price=data.get("priceInfo",{}).get("substitutionprice","")
+product_description=data.get("prodDetails",{}).get("section",[])
+product_description_raw=product_description[0].get("description", {}).get("productDesc", "")
+text = re.sub(r'<[^>]+>', '\n', product_description_raw)
+text = html.unescape(text)
+product_decription = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+grammage=data.get("productInfo",{}).get("sizeCount","")
+upc=data.get("inventory",{}).get("upc","")
 
-# response=requests.get("https://www.walgreens.com/store/c/productlist/N=360545/1/ShopAll=360545",cookies=cookies)
-# sel=Selector(text=response.text)
-# script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
+sections = data.get("prodDetails", {}).get("section", [])
+for section in sections:
+  ingredient_info = section.get("ingredients", {}).get("ingredientGroups", [])
+  for group in ingredient_info:
+    for ingredient_type in group.get("ingredientTypes", []):
+      ingredients = ingredient_type.get("ingredients", [])
 
-# if script_content:
-#     json_match = re.search(r'return\s*(\{.*})', script_content, re.DOTALL)
-#     match=json_match.group(1)
-#     if match.endswith('}'):
-#         match=match[:-1]
-#         data=json.loads(match)
-#         result_list=data.get("searchResult",{}).get("productList",[]) 
-#         for item in result_list:
-#             product_url=item.get("productInfo",{}).get("productURL","")
-#             print(f"https://www.walgreens.com{product_url}")
-#             count+=1
-#             print(count)
+for section in sections:
+    product_warning = section.get("warnings", {}).get("productWarning", "")
+    if product_warning:
+      text = re.sub(r'<[^>]+>', '\n', product_warning)
+      text = html.unescape(text)
+      warning = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+
+product_sku=data.get("productInfo",{}).get("skuId","")
+brand=data.get("productInfo",{}).get("brandName","")
+for section in sections:
+  rating=section.get("reviews",{}).get("overallRating","")
+  review=section.get("reviews",{}).get("reviewCount","")
+
+image_url = []
+product_detail=data.get("productInfo", {}).get("filmStripUrl", [])
+
+for item in product_detail:
+    for key, value in item.items():
+        if key.startswith("largeImageUrl"):
+            image_url.append("https:" + value)
+print(selling_price)

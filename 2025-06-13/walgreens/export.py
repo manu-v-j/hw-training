@@ -18,7 +18,6 @@ class Export:
             UPC=item.get("UPC")
             Ingredients=item.get("Ingredients")
             Warning=item.get("Warning")
-            Breadcrumb=item.get("Breadcrumb")
             Product_sku=item.get("Product_sku")
             Brand=item.get("Brand")
             Rating=item.get("Rating")
@@ -35,7 +34,6 @@ class Export:
                 'UPC':UPC,
                 'Ingredients':Ingredients,
                 'Warning':Warning,
-                'Breadcrumb':Breadcrumb,
                 'Product_sku':Product_sku,
                 'Brand':Brand,
                 'Rating':Rating,
@@ -46,7 +44,7 @@ class Export:
             })
 
             fieldnames=[
-                'Retailer_ID','Product_name','Product_description','Grammage','UPC','Ingredients','Warning','Breadcrumb','Product_sku','Brand',
+                'Retailer_ID','Product_name','Product_description','Grammage','UPC','Ingredients','Warning','Product_sku','Brand',
                 'Rating','Review','Image_url','Retailer_URL','Selling_price'
             ]
 

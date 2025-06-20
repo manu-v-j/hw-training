@@ -5,6 +5,7 @@ from parsel import Selector
 import json
 import re
 import logging
+import html
 logging.basicConfig(level=logging.INFO)
 
 class Parser:
@@ -15,81 +16,79 @@ class Parser:
         self.collection=self.db[COLLEC_DETAIL]
 
     def start(self):
-        # for item in self.db[COLLECTION].find():
-            # url = item.get("link", "")
-            url="https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product"
+        for item in self.db[COLLECTION].find():
+            url = item.get("link", "")
             product_id = url.split("ID=")[1].split("-")[0]
-            logging.info(product_id)
 
-            payload = {
-                "passkey": "tpcm2y0z48bicyt0z3et5n2xf",
-                "apiversion": "5.5",
-                "displaycode": "2001-en_us",
-                "resource.q0": "products",
-                "filter.q0": f"id:eq:{product_id}",
-            }
+            payload={
+                    "productId": f"{product_id}",
+                   
+                    }
+            response=requests.get("https://www.walgreens.com/productapi/v1/products",params=payload)
+            if response.status_code==200:
+                 self.parse_item(response)
 
-            response = requests.get("https://api.bazaarvoice.com/data/batch.json", params=payload)
-            raw_text = response.text
+    def parse_item(self,response):
+        data=response.json()
+        product_name=data.get("productInfo",{}).get("title","")
+        selling_price=data.get("priceInfo",{}).get("substitutionprice","")
+        details_list=data.get("prodDetails",{}).get("section",[])
+        product_description_raw=details_list[0].get("description", {}).get("productDesc", "")
+        text = re.sub(r'<[^>]+>', '\n', product_description_raw)
+        text = html.unescape(text)
+        product_description = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+        grammage=data.get("productInfo",{}).get("sizeCount","")
+        upc=data.get("inventory",{}).get("upc","")
 
-            json_str = re.sub(r'^BV\._internal\.dataHandler0\((.*)\)$', r'\1', raw_text)
-            json_obj = json.loads(json_str)
+        ingredients = [] 
+        sections = data.get("prodDetails", {}).get("section", [])
+        for section in sections:
+            ingredient_info = section.get("ingredients", {}).get("ingredientGroups", [])
+            for group in ingredient_info:
+                for ingredient_type in group.get("ingredientTypes", []):
+                    if ingredient_type.get("typeName", "").lower() == "active":
+                        ingredients.extend(ingredient_type.get("ingredients", []))
 
-            response = requests.get(url, headers=headers)
-            self.parse_item(response, json_obj)
+        warning = ""       
+        for section in sections:
+            product_warning = section.get("warnings", {}).get("productWarning", "")
+            if product_warning:
+                text = re.sub(r'<[^>]+>', '\n', product_warning)
+            text = html.unescape(text)
+            warning = "\n".join(line.strip() for line in text.splitlines() if line.strip())
 
+        product_sku=data.get("productInfo",{}).get("skuId","")
+        brand=data.get("productInfo",{}).get("brandName","")
+        for section in sections:
+            rating=section.get("reviews",{}).get("overallRating","")
+        review=section.get("reviews",{}).get("reviewCount","")
 
-    def parse_item(self,response,json_data):
-            sel=Selector(text=response.text)
-            script_list=sel.xpath(".//script[@type='application/ld+json']/text()").getall()
+        image_url = []
+        product_detail=data.get("productInfo", {}).get("filmStripUrl", [])
 
-            script_one=script_list[0]
-            script_two=script_list[1]
+        for item in product_detail:
+            for key, value in item.items():
+                if key.startswith("largeImageUrl"):
+                    image_url.append("https:" + value)            
 
-            data=json.loads(script_one)
-            breadcrumb_list=json.loads(script_two)
+        item={}
+        item['Retailer_ID']=""
+        item['Product_name']=product_name
+        item['Product_description']=product_description
+        item['Grammage']=grammage
+        item['UPC']=upc
+        item['Ingredients']=ingredients
+        item['Warning']=warning
+        item['Product_sku']=product_sku
+        item['Brand']=brand
+        item['Rating']=rating
+        item['Review']=review
+        item['Image_url']=image_url
+        item['Retailer_URL']=""
+        item['Selling_price']=selling_price
+        logging.info(item)
 
-            retailer_id = ""
-            product_name = data.get("name","")
-            grammage = data.get("weight","")
-            ingredients = data.get("category",{}).get("activeIngredient","")
-            warning = data.get("category",{}).get("warning","")
-            result_list = json_data.get("BatchedResults", {}).get("q0", {}).get("Results", [])
-            for item in result_list:
-                 upc=item.get("UPCs",[])
-                 product_description=item.get("Description","")
-            item_list = breadcrumb_list.get("itemListElement",[])
-            breadcrumb = [item.get("name", "") for item in breadcrumb_list.get("itemListElement", [])]
-            product_sku = data.get("sku")
-            brand = data.get("brand",{}).get("name","")
-            rating = data.get("aggregateRating",{}).get("ratingValue","")
-            review = data.get("aggregateRating",{}).get("reviewCount","")
-            image_url = data.get("image",[])
-
-            offers_list=data.get("offers",[])
-            for item in offers_list:
-                retailer_url=item.get("url","")
-                selling_price=item.get("price","")
-
-            item={}
-            item['Retailer_ID']=retailer_id
-            item['Product_name']=product_name
-            item['Product_description']=product_description
-            item['Grammage']=grammage
-            item['UPC']=upc
-            item['Ingredients']=ingredients
-            item['Warning']=warning
-            item['Breadcrumb']=breadcrumb
-            item['Product_sku']=product_sku
-            item['Brand']=brand
-            item['Rating']=rating
-            item['Review']=review
-            item['Image_url']=image_url
-            item['Retailer_URL']=retailer_url
-            item['Selling_price']=selling_price
-            print(item)
-
-            # self.collection.insert_one(item)
+        self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()
