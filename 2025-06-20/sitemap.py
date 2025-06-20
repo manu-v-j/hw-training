@@ -16,8 +16,8 @@ if response.status_code == 200:
         if loc is not None:
             urls.append(loc.text)
 
-    # for link in urls:
-    #     print(link)
+    print(urls[0])
+   
 else:
     print(f"Failed to retrieve sitemap: {response.status_code}")
 

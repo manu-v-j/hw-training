@@ -16,6 +16,7 @@ class Parser:
     def start(self):
         for item in self.db[COLLECTION].find():
             url = item.get("link", "")
+            # url="https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product"
             product_id = url.split("ID=")[1].split("-")[0]
 
             payload={
@@ -28,24 +29,26 @@ class Parser:
 
     def parse_item(self,response):
         data=response.json()
-        product_name=data.get("productInfo",{}).get("title","")
+        title=data.get("productInfo",{}).get("title","")
+        grammage=data.get("productInfo",{}).get("sizeCount","")
+        product_name=','.join([title,grammage])
         selling_price=data.get("priceInfo",{}).get("substitutionprice","")
         details_list=data.get("prodDetails",{}).get("section",[])
         product_description_raw=details_list[0].get("description", {}).get("productDesc", "")
         text = re.sub(r'<[^>]+>', '\n', product_description_raw)
         text = html.unescape(text)
         product_description = "\n".join(line.strip() for line in text.splitlines() if line.strip())
-        grammage=data.get("productInfo",{}).get("sizeCount","")
         upc=data.get("inventory",{}).get("upc","")
 
-        ingredients = [] 
+        ingredients = ""
         sections = data.get("prodDetails", {}).get("section", [])
         for section in sections:
             ingredient_info = section.get("ingredients", {}).get("ingredientGroups", [])
             for group in ingredient_info:
                 for ingredient_type in group.get("ingredientTypes", []):
                     if ingredient_type.get("typeName", "").lower() == "active":
-                        ingredients.extend(ingredient_type.get("ingredients", []))
+                        ingredients_list=ingredient_type.get("ingredients", [])
+                        ingredients=','.join(ingredients_list)
 
         warning = ""       
         for section in sections:
@@ -69,21 +72,21 @@ class Parser:
                     image_url.append("https:" + value)            
 
         item={}
-        item['Retailer_ID']=""
-        item['Product_name']=product_name
-        item['Product_description']=product_description
-        item['Grammage']=grammage
-        item['UPC']=upc
-        item['Ingredients']=ingredients
-        item['Warning']=warning
-        item['Product_sku']=product_sku
-        item['Brand']=brand
-        item['Rating']=rating
-        item['Review']=review
-        item['Image_url']=image_url
-        item['Retailer_URL']=""
-        item['Selling_price']=selling_price
-        logging.info(item)
+        item['retailer_id']=""
+        item['product_name']=product_name
+        item['product_description']=product_description
+        item['grammage']=grammage
+        item['upc']=upc
+        item['ingredients']=ingredients
+        item['warning']=warning
+        item['product_sku']=product_sku
+        item['brand']=brand
+        item['rating']=rating
+        item['review']=review
+        item['image_url']=image_url
+        item['retailer_URL']=""
+        item['selling_price']=selling_price
+        logging.info(ingredients)
 
         self.collection.insert_one(item)
 
