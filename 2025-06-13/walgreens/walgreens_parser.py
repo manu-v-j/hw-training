@@ -63,7 +63,6 @@ class Parser:
 
         image_url = []
         product_detail=data.get("productInfo", {}).get("filmStripUrl", [])
-
         for item in product_detail:
             for key, value in item.items():
                 if key.startswith("largeImageUrl"):
@@ -86,7 +85,7 @@ class Parser:
         item['Selling_price']=selling_price
         logging.info(item)
 
-        # self.collection.insert_one(item)
+        self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()

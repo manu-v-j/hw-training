@@ -19,5 +19,5 @@ review_url="https://fast.a.klaviyo.com/reviews/api/client_reviews/6577894293598/
 
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME="noragardner"
-COLLECTION="product_link2"
+COLLECTION="product_link1"
 COLLECTION_DETAIL="product_detail"

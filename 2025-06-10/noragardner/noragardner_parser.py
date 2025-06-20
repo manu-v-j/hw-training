@@ -26,7 +26,12 @@ class Crawler:
         sel = Selector(text=response.text)
 
         product_name = sel.xpath("//h1[@class='h2 product-single__title']/text()").get().strip()
-        sales_price_raw= sel.xpath("//span[@class='product__price']/text()  | //span[@class='product__price product__price--compare']/text()").get().strip()
+        sales_price_raw= sel.xpath("//span[@class='product__price']/text()  | //span[@class='product__price product__price--compare']/text()").get()
+        if sales_price_raw:
+            sales_price_raw=sales_price_raw.strip()
+        else:
+            sales_price_raw=""
+
         sales_price=sales_price_raw.replace('$',"")
         script_content = sel.xpath('//script[@id="__st"]/text()').get()
         if script_content:
@@ -38,6 +43,7 @@ class Crawler:
         script = sel.xpath("//script[@type='application/ld+json'][2]/text()").get()
         if script:
             data = json.loads(script)
+            print(data)
             product_sku = data.get('sku','')
             brand = data.get("brand", {}).get('name','')
 
@@ -85,9 +91,9 @@ class Crawler:
                             item['review_title']=review_title
                             item['review_text']=review_text
 
-                            logging.info(item)
+                            # logging.info(item)
 
-                            self.collection.insert_one(item)
+                            # self.collection.insert_one(item)
 
 if __name__ == "__main__":
     crawler = Crawler()
