@@ -4,6 +4,8 @@ from settings import MONGO_URI,MONGO_DB,COLLECTION,headers
 import re
 import json
 from pymongo import MongoClient
+import logging
+logging.basicConfig(level=logging.INFO)
 
 class Crawler:
     def __init__(self):
@@ -25,7 +27,6 @@ class Crawler:
         for item in category:
             category_url=item.get("url","")
             full_url=f"https://www.walgreens.com{category_url}"
-            print(full_url)
             response_product=requests.get(full_url,headers=headers)
             sel=Selector(text=response_product.text)
             script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
@@ -40,8 +41,10 @@ class Crawler:
                     for item in result_list:
                         product_url=item.get("productInfo",{}).get("productURL","")
                         url=f"https://www.walgreens.com{product_url}"
-                        print(url)
-                        # self.collection.insert_one({'link':url})
+                        item={}
+                        item['link']=url
+                        logging.INFO(item)
+                        self.collection.insert_one({'link':url})
 
 
 if __name__=='__main__':

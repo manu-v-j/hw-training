@@ -1,8 +1,6 @@
 import requests
 from settings import MONGO_URI,MONGO_DB,COLLECTION,COLLEC_DETAIL,headers
 from pymongo import MongoClient
-from parsel import Selector
-import json
 import re
 import logging
 import html
@@ -24,7 +22,7 @@ class Parser:
                     "productId": f"{product_id}",
                    
                     }
-            response=requests.get("https://www.walgreens.com/productapi/v1/products",params=payload)
+            response=requests.get("https://www.walgreens.com/productapi/v1/products",params=payload,headers=headers)
             if response.status_code==200:
                  self.parse_item(response)
 
@@ -88,7 +86,7 @@ class Parser:
         item['Selling_price']=selling_price
         logging.info(item)
 
-        self.collection.insert_one(item)
+        # self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()
