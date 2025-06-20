@@ -14,9 +14,9 @@ class Parser:
         self.collection=self.db[COLLEC_DETAIL]
 
     def start(self):
-        for item in self.db[COLLECTION].find():
-            url = item.get("link", "")
-            # url="https://www.walgreens.com/store/c/walgreens-neti-pot-kit/ID=prod6335256-product"
+        # for item in self.db[COLLECTION].find():
+        #     url = item.get("link", "")
+            url="https://www.walgreens.com/store/c/pepsi-soda-2-liter-bottle/ID=prod6061637-product"
             product_id = url.split("ID=")[1].split("-")[0]
 
             payload={
@@ -86,9 +86,9 @@ class Parser:
         item['image_url']=image_url
         item['retailer_URL']=""
         item['selling_price']=selling_price
-        logging.info(ingredients)
+        logging.info(product_name)
 
-        self.collection.insert_one(item)
+        # self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()
