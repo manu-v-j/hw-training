@@ -25,7 +25,9 @@ class Crawler:
     def parse_item(self, response,url):
         sel = Selector(text=response.text)
 
-        product_name = sel.xpath("//h1[@class='h2 product-single__title']/text()").get().strip()
+        product_name = sel.xpath("//h1[@class='h2 product-single__title']/text()").get()
+        if product_name:
+            product_name=product_name.strip()
         sales_price_raw= sel.xpath("//span[@class='product__price']/text()  | //span[@class='product__price product__price--compare']/text()").get()
         if sales_price_raw:
             sales_price_raw=sales_price_raw.strip()
@@ -43,7 +45,6 @@ class Crawler:
         script = sel.xpath("//script[@type='application/ld+json'][2]/text()").get()
         if script:
             data = json.loads(script)
-            print(data)
             product_sku = data.get('sku','')
             brand = data.get("brand", {}).get('name','')
 
@@ -91,7 +92,7 @@ class Crawler:
                             item['review_title']=review_title
                             item['review_text']=review_text
 
-                            # logging.info(item)
+                            logging.info(item)
 
                             # self.collection.insert_one(item)
 
