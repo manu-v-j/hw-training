@@ -1,6 +1,7 @@
 import requests
 from settings import MONGO_URI,MONGO_DB,COLLECTION,COLLEC_DETAIL,headers
 from pymongo import MongoClient
+from walgreens_items import ProductItem
 import re
 import logging
 import html
@@ -14,9 +15,8 @@ class Parser:
         self.collection=self.db[COLLEC_DETAIL]
 
     def start(self):
-        # for item in self.db[COLLECTION].find():
-        #     url = item.get("link", "")
-            url="https://www.walgreens.com/store/c/pepsi-soda-2-liter-bottle/ID=prod6061637-product"
+        for item in self.db[COLLECTION].find():
+            url = item.get("link", "")
             product_id = url.split("ID=")[1].split("-")[0]
 
             payload={
@@ -86,9 +86,10 @@ class Parser:
         item['image_url']=image_url
         item['retailer_URL']=""
         item['selling_price']=selling_price
-        logging.info(product_name)
+        logging.info(item)
+        product_item=ProductItem(**item)
+        product_item.save()
 
-        # self.collection.insert_one(item)
 
 if __name__=='__main__':
     parser=Parser()

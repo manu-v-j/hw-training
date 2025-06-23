@@ -27,7 +27,6 @@ class Crawler:
         for item in category:
             category_url=item.get("url","")
             full_url=f"https://www.walgreens.com{category_url}"
-            print(full_url)
             response_product=requests.get(full_url,headers=headers)
             sel=Selector(text=response_product.text)
             script_content = sel.xpath('//script[contains(text(), "window.getInitialState")]/text()').get()
@@ -44,7 +43,7 @@ class Crawler:
                         url=f"https://www.walgreens.com{product_url}"
                         item={}
                         item['link']=url
-                        # logging.INFO(item)
+                        # logging.info(item)
                         # self.collection.insert_one({'link':url})
 
 
