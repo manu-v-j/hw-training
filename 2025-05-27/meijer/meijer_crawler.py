@@ -1,5 +1,5 @@
 import requests
-from settings import url, headers, MONGO_URI, DB_NAME, COLLECTION
+from settings import url, headers, MONGO_URI, DB_NAME, COLLECTION,COLLECTION_FAILED
 import unicodedata
 from pymongo import MongoClient
 import re
@@ -14,6 +14,7 @@ class Crawler:
         self.client = MongoClient(MONGO_URI)
         self.db = self.client[DB_NAME]
         self.collection = self.db[COLLECTION]
+        self.failed=self.db[COLLECTION_FAILED]
 
     def start(self):
             page=1
@@ -45,6 +46,8 @@ class Crawler:
                     has_items=self.parse_item(response)
                     if not has_items:
                         break
+                else:
+                    self.failed.insert_one({'link':url})
                     
                 page+=1
 
@@ -63,7 +66,10 @@ class Crawler:
             name = re.sub(r'[^\w\s-]', '', name)
             name = re.sub(r'[\s_]+', '-', name).lower()
             full_url = f"https://www.meijer.com/shopping/product/{name}/{id}.html"
-            self.collection.insert_one({"link": full_url})
+            item={}
+            item['link']=full_url
+            self.collection.insert_one(item)
+            logging.info(item)
             
         return True
         

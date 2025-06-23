@@ -2,6 +2,10 @@ import requests
 from settings import *
 from pymongo import MongoClient
 import re
+from meijer_items import ProductItem
+import logging
+logging.basicConfig(level=logging.INFO)
+
 
 class Parser:
 
@@ -50,7 +54,11 @@ class Parser:
         for item in response_list:
             unique_id=item.get("data",{}).get("id","")
             product_name=item.get("value","")
-            grammage_quantity=re.search(r'\d+(?:\.\d+)?(?=\D*$)',product_name).group()
+            grammage_quantity=re.search(r'\d+(?:\.\d+)?(?=\D*$)',product_name)
+            if grammage_quantity:
+                grammage_quantity=grammage_quantity.group()
+            else:
+                grammage_quantity=""
             match_unit=re.search(r'\b\d+(?:\.\d+)?\s*(ml|l|g|kg|oz|cl|fl)\b',product_name,re.IGNORECASE)
             grammage_unit=match_unit.group(1) if match_unit else None
             regular_price=item.get("data",{}).get("price","")
@@ -75,9 +83,11 @@ class Parser:
             item["image_url"]=image_url
             item["instock"]=instock
             item["netcontent"]=netcontent
+            
+            product_item=ProductItem(**item)
+            product_item.save()
+            logging.info(item)
 
-
-            self.collection.insert_one(item)
         return True    
 
 if __name__ == "__main__":

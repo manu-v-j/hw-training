@@ -12,7 +12,7 @@ class ProductItem(DynamicDocument):
     producer_address=StringField()
     grape_variety=StringField()
     product_url=StringField()
-    images=StringField()
+    images=ListField
 
 
 

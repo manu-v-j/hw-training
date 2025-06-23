@@ -3,6 +3,9 @@ from parsel import Selector
 from settings import *
 import re
 from pymongo import MongoClient
+import logging
+from petsplace_items import ProductItem
+logging.basicConfig(level=logging.INFO)
 
 
 class Parser:
@@ -57,8 +60,9 @@ class Parser:
         item['feeding_recommendation']=feeding_recommendation
         item['reviews']=reviews
 
-        self.collecton.insert_one(item)
-
+        product_item=ProductItem(**item)
+        product_item.save()
+        logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()

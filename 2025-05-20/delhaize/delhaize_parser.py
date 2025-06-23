@@ -1,7 +1,10 @@
 from settings import MONGO_URI, DB_NAME, COLLECTION, COLLEC_DETAIL
 from pymongo import MongoClient
+from delhaize_items import ProductItem
+import logging
 import re
 import requests
+logging.basicConfig(level=logging.INFO)
 
 
 class Parser:
@@ -64,7 +67,9 @@ class Parser:
         item["product_url"]= url
         item["images"]=images
     
-        collection.insert_one(item)
+        product_item=ProductItem(**item)
+        product_item.save()
+        logging.info(item)
 
 if __name__ == "__main__":
     parser=Parser()

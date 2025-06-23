@@ -33,6 +33,8 @@ class Crawler:
             product_url = product.get("url",{})
             if product_url:
                 full_url = 'https://www.delhaize.be' + product_url
+                print(full_url)
+                
 
                 self.collection.insert_one({"url":full_url})
 
