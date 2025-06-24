@@ -1,0 +1,1 @@
+/**/embedded_svc.liveAgentAPI.connection.handlePing({"messages":[{"type":"Availability", "message":{"results":[{"id":"5733i0000004sHA","isAvailable":true}]}}]});

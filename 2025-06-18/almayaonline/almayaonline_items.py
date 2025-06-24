@@ -1,6 +1,5 @@
 from mongoengine import DynamicDocument, StringField, BooleanField, DictField, ListField, IntField, FloatField,connect
-from settings import COLLECTION_DETAILS
-from settings import MONGO_URI, DB_NAME
+from settings import COLLECTION_DETAILS,MONGO_URI, DB_NAME
 
 class ProductItem(DynamicDocument):
     connect(DB_NAME, host=MONGO_URI, alias='default')

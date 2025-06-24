@@ -1,0 +1,441 @@
+:root {
+  --petco__dk-blue: #00205b;
+  --petco__lt-gray: #f2f2f2;
+  --petco__white: #fff;
+  --petco__black: #000;
+  --petco__box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px;
+
+  --petco__font-family: PetcoCircular, "Segoe UI", Roboto, Arial, sans-serif !important;
+  --petco__font-family-book: PetcoCircular-Book, "Segoe UI", Roboto, Arial,
+    sans-serif !important;
+  --petco__font-family-medium: PetcoCircular-Medium, "Segoe UI", Roboto, Arial,
+    sans-serif !important;
+  --petco__font-family-bold: PetcoCircular-Bold, "Segoe UI", Roboto, Arial,
+    sans-serif !important;
+  --petco__font-family-black: PetcoCircular-Black, "Segoe UI", Roboto, Arial,
+    sans-serif !important;
+  --petco__font-family-ultra: PetcoCircular-Ultra, "Segoe UI", Roboto, Arial,
+    sans-serif !important;
+  --petco__font-family-tiempos: "TiemposHeadline-RegularItalic",
+    "PetcoCircular-Italic", Arial, sans-serif !important;
+}
+
+/* quicktiles - primary v.1.0.0 */
+.site-qt--primary {
+  box-sizing: border-box;
+  max-width: 1440px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.site-qt--primary * {
+  box-sizing: border-box;
+}
+.site-qt--primary ul.quicktile__wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 152px;
+  padding: 0 10px;
+}
+.site-qt--primary li.quicktile {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  min-width: 152px;
+  max-width: 152px;
+  min-height: 152px;
+}
+.site-qt--primary .content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  background: var(--petco__white);
+  border-radius: 7.515px;
+  max-width: 138px;
+  margin: 10px;
+}
+.site-qt--primary a {
+  text-decoration: none;
+  border-radius: 7.515px;
+  border: 2px solid var(--petco__white);
+  box-shadow: var(--petco__box-shadow);
+  transition: 300ms ease-in-out;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.site-qt--primary a:hover {
+  border: 2px solid var(--petco__dk-blue);
+  box-shadow: var(--petco__box-shadow);
+}
+.site-qt--primary .img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 70px;
+  margin: 0 auto 10px auto;
+}
+.site-qt--primary .img-wrap:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.site-qt--primary .img-wrap img {
+  object-fit: contain;
+  max-height: 70px;
+  width: 100%;
+  height: auto;
+}
+.site-qt--primary .text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.site-qt--primary span.cta-text {
+  font-family: var(--petco__font-family) !important;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: var(--petco__black);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: balance;
+}
+.site-qt--primary .show-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: var(--petco__font-family-bold) !important;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  color: var(--petco__white);
+  background-color: var(--petco__dk-blue);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid var(--petco__dk-blue);
+  border-radius: 30px;
+  padding: 0px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  transition: all 0.3s ease;
+  height: 40px;
+  width: 150px;
+  margin: 10px auto 0 auto;
+}
+.site-qt--primary .show-all:visited,
+.site-qt--primary .show-all:active {
+  color: var(--petco__white);
+  background-color: var(--petco__dk-blue);
+}
+.site-qt--primary .show-all:hover {
+  background: transparent;
+  border: 2px solid var(--petco__dk-blue);
+  color: var(--petco__dk-blue);
+}
+@media screen and (max-width: 768px) {
+  .site-qt--primary ul.quicktile__wrap {
+    max-height: 130px;
+  }
+  .site-qt--primary li.quicktile {
+    min-width: 110px;
+    max-width: 110px;
+    min-height: 130px;
+  }
+  .site-qt--primary .img-wrap {
+    max-height: 48px;
+  }
+  .site-qt--primary .img-wrap img {
+    max-height: 48px;
+  }
+}
+
+/* quicktiles - circular v.1.0.0 */
+.site-qt--circular {
+  box-sizing: border-box;
+  max-width: 1440px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.site-qt--circular * {
+  box-sizing: border-box;
+}
+.site-qt--circular ul.quicktile__wrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 10px;
+}
+.site-qt--circular li.quicktile {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.site-qt--circular .content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  transition: 300ms ease-in-out;
+  margin: 10px;
+}
+.site-qt--circular a {
+  text-decoration: none;
+  transition: 300ms ease-in-out;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+}
+.site-qt--circular .img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--petco__white);
+  background-color: var(--petco__dk-blue);
+  border-radius: 50%;
+  transition: 300ms ease-in-out;
+  overflow: hidden;
+  max-height: 150px;
+  max-width: 150px;
+  margin: 0 auto 10px auto;
+}
+.site-qt--circular .img-wrap:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.site-qt--circular .content-wrap:hover .img-wrap {
+  border: 3px solid var(--petco__dk-blue);
+  box-shadow: var(--petco__box-shadow);
+  transform: scale(1.025);
+}
+.site-qt--circular .img-wrap img {
+  object-fit: cover;
+  max-height: 150px;
+  height: auto;
+  width: 100%;
+}
+.site-qt--circular .text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.site-qt--circular span.cta-text {
+  font-family: var(--petco__font-family) !important;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: var(--petco__black);
+  transition: 300ms ease-in-out;
+  text-wrap: balance;
+}
+.site-qt--circular .content-wrap:hover span.cta-text {
+  color: var(--petco__dk-blue);
+}
+.site-qt--circular .show-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: var(--petco__font-family-bold) !important;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  color: var(--petco__white);
+  background: var(--petco__dk-blue);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid var(--petco__dk-blue);
+  border-radius: 30px;
+  padding: 0px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  transition: all 0.3s ease;
+  height: 40px;
+  width: 150px;
+  margin: 10px auto 0 auto;
+}
+.site-qt--circular .show-all:visited,
+.site-qt--circular .show-all:active {
+  color: var(--petco__white);
+  background: var(--petco__dk-blue);
+}
+.site-qt--circular .show-all:hover {
+  background: transparent;
+  border: 2px solid var(--petco__dk-blue);
+  color: var(--petco__dk-blue);
+}
+@media screen and (max-width: 768px) {
+  .site-qt--circular ul.quicktile__wrap {
+    flex-wrap: wrap;
+    transition: max-height 0.3s ease;
+    max-height: 138px;
+  }
+  .site-qt--circular li.quicktile {
+    min-height: 138px;
+    min-width: 110px;
+    max-width: 110px;
+  }
+  .site-qt--circular span.cta-text {
+    font-size: 12px;
+    line-height: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* FAQs v.1.0.0 */
+.site-faqs {
+  max-width: 1440px !important;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.site-faqs *,
+.site-faqs *::before,
+.site-faqs *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.site-faqs .content-wrap {
+  margin: 0 16px;
+}
+.site-faqs h2 {
+  font-family: var(--petco__font-family-bold);
+  font-size: 25px;
+  line-height: 1.25;
+  color: var(--petco__black);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.site-faqs .faq-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.site-faqs dl {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  border: 2px solid var(--petco__white);
+  background-color: var(--petco__white);
+  box-sizing: border-box;
+  box-shadow: var(--petco__box-shadow);
+  transition: ease-in-out 300ms;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+.site-faqs dl.active,
+.site-faqs dl:hover {
+  border: 2px solid var(--petco__dk-blue);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
+  overflow: hidden;
+}
+.site-faqs dt {
+  display: flex;
+  align-items: center;
+  background-color: var(--petco__white);
+  cursor: pointer;
+  outline: none;
+  transition: ease-in-out 300ms;
+  padding: 8px 48px 8px 16px;
+  min-height: 60px;
+  position: relative;
+}
+.site-faqs dt:after {
+  content: url("https://assets.petco.com/petco/image/upload/w_20,f_auto,q_auto:best/icon__petco-down-arrow-00205b.png");
+  position: absolute;
+  right: 16px;
+  transition: all ease-in-out 0.3s;
+  transform: rotate(0);
+}
+.site-faqs dt.active:after {
+  transform: rotate(180deg);
+}
+.site-faqs dt button {
+  font-family: "PetcoCircular-Bold", Arial, sans-serif !important;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: 0.225px;
+  text-align: left;
+  color: #000;
+  background: transparent;
+  border: none;
+  user-select: none;
+  padding: 0;
+  margin: 0;
+}
+.site-faqs dd {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  color: var(--petco__black);
+  border-radius: 0 0 8px 8px;
+  border-color: transparent #00205b #00205b #00205b;
+}
+.site-faqs .panel-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 16px 16px;
+}
+.site-faqs dd .panel-body p,
+.site-faqs dd .panel-body ul li,
+.site-faqs dd .panel-body ol li {
+  font-family: var(--petco__font-family);
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: 0.5px;
+  color: var(--petco__black);
+  margin-bottom: 8px;
+}
+.site-faqs dd .panel-body p:last-of-type {
+  margin-bottom: 0px;
+}
+.site-faqs .panel-body ul,
+.site-faqs .panel-body ol {
+  margin: 8px 0 8px 32px;
+}
+.site-faqs dd .panel-body ul li:last-of-type,
+.site-faqs dd .panel-body ol li:last-of-type {
+  margin-bottom: 0px;
+}
+.site-faqs dd .panel-body a {
+  font-family: var(--petco__font-family);
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: 0.5px;
+  color: var(--petco__dk-blue);
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .site-faqs {
+    padding: 20px 0;
+  }
+  .site-faqs h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .site-faqs dt button {
+    font-size: 18px;
+  }
+}
