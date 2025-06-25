@@ -27,7 +27,8 @@ headers = {
 
 cookies = {
    
-    "datadome": "8oYDng_RWtB8zgovQ~e_bmqArH65WnZJI__I2f0qR9lCQjDHd6X4QAAVBdS~gZnsUuzl2EvAv5yDsdZsmDpi6P_~UrdnQqV5tACnGNr6S1LHuOPZSgPaTjAYrtfkgvvP"
+    "datadome": "SlTaq0PCBNQAQQ~UcyFWpjUfzGVbgH_isq16c1VKFUA6dAmgHxMFEPixWNPOGQS8DeS6oSzz0z5mx1OiOJJfrcpXehqn1_cRRLVc2Vm7sj_Gmj0vm9hwWJCOXpSBCgiq; Max-Age=31536000; Domain=.petco.com; Path=/; Secure; SameSite=Lax"
+
 
 }
 proxies = {
@@ -40,19 +41,4 @@ proxies = {
 url="https://www.petco.com/shop/en/petcostore/category/dog/dog-food"
 resp_post = requests.get(url,headers=headers,cookies=cookies,impersonate="chrome101",proxies=proxies)
 print(resp_post.status_code)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

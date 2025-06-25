@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import json
 import re
 import logging
+from noragardner_items import ProductItem
 logging.basicConfig(level=logging.INFO)
 
 
@@ -94,7 +95,9 @@ class Crawler:
 
                             logging.info(item)
 
-                            # self.collection.insert_one(item)
+                            product_item=ProductItem(**item)
+                            product_item.save()
+
 
 if __name__ == "__main__":
     crawler = Crawler()
