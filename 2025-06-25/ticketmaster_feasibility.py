@@ -40,7 +40,6 @@ for event in event_list:
        
     total.append(url)
 
-
 ###############################PARSER##############################
 headers={
     'c-tmpt':'0:32d0282981000000:1750840747:90b9cea3:f5986c6c5533969ddea657c52fbc6061:22993c5a2ca0791ba66293fd00dada6836a457fc5ed6a3e012892567006ee45c',
