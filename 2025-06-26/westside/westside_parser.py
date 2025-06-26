@@ -14,7 +14,10 @@ if regular_price_raw:
 regular_price=regular_price_raw.replace('₹','')
 currency=match = re.search(r"[^\d\s.,]+", regular_price_raw).group()
 breadcrumb=sel.xpath("//li[@class='breadcrumbs__item']/a/text()").getall()
+
 pdp_url=url
+color=sel.xpath("//div[@class='tooltip']/text()").getall()
+
 product_description=sel.xpath("//div[@class='features_discription']/p/text()").get()
 
 country_of_origin=sel.xpath("//div[@class='features' and b[text()='Country Of Origin:']]/text()[2]").get()
@@ -25,9 +28,9 @@ instructions=sel.xpath("//div[@class='features' and b[text()='Care Instruction:'
 if instructions:
     instructions=instructions.strip()
 
-material=sel.xpath("//div[@class='features' and b[text()='Fabric Composition:']]/text()[2]").get()
-if material:
-    material=material.strip()
+material_composition=sel.xpath("//div[@class='features' and b[text()='Fabric Composition:']]/text()[2]").get()
+if material_composition:
+    material_composition=material_composition.strip()
 
 size=sel.xpath("//label[@class='product_clr_variant' and @id='pdp-variant']/text()").getall()
 image_urls=sel.xpath("//div[@class='product__media media media--transparent']/img/@src").getall()
@@ -54,3 +57,4 @@ if product_dimensions:
 product_quantity=sel.xpath("//div[@class='features' and b[text()='Net Quantity:']]/text()[2]").get()
 if product_quantity:
     product_quantity=product_quantity.strip()
+
