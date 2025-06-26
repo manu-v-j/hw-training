@@ -28,8 +28,29 @@ if instructions:
 material=sel.xpath("//div[@class='features' and b[text()='Fabric Composition:']]/text()[2]").get()
 if material:
     material=material.strip()
-    
+
 size=sel.xpath("//label[@class='product_clr_variant' and @id='pdp-variant']/text()").getall()
 image_urls=sel.xpath("//div[@class='product__media media media--transparent']/img/@src").getall()
 
-print(image_urls)
+fit_guide=sel.xpath("//div[@class='features' and b[text()='Model Fit:']]/text()[2]").get()
+if fit_guide:
+    fit_guide=fit_guide.strip()
+
+body_fit=sel.xpath("//div[@class='features' and b[text()='Fit:']]/text()[2]").get()
+if body_fit:
+    body_fit=body_fit.strip()
+
+
+product_sku=sel.xpath("//div[@class='features' and b[text()='SKU:']]/text()[2]").get()
+if product_sku:
+    product_sku=product_sku.strip()
+
+manufacturer_address=sel.xpath("//div[@class='features' and b[text()='Manufactured and Marketed By:']]/p/text()").get()
+
+product_dimensions=sel.xpath("//div[@class='features' and b[text()='Dimensions:']]/text()[2]").get()
+if product_dimensions:
+    product_dimensions=product_dimensions.strip()
+
+product_quantity=sel.xpath("//div[@class='features' and b[text()='Net Quantity:']]/text()[2]").get()
+if product_quantity:
+    product_quantity=product_quantity.strip()
