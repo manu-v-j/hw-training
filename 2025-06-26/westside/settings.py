@@ -1,4 +1,4 @@
-url="https://www.westside.com/products/nuon-wine-solid-cotton-blend-shirt-301023377?variant=44556016615477"
+url="https://www.westside.com/products/gia-white-embellished-cotton-shirt-301024479?variant=44555990204469"
 headers={
     'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-encoding':'gzip, deflate, br, zstd',

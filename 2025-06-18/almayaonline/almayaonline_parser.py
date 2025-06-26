@@ -28,7 +28,6 @@ class Parser:
         product_decsription_xpath="//div[@class='full-description']/text()"
         image_url_xpath="//div[@class='picture']/img/@src"
 
-        # EXTRACT
         product_name=sel.xpath(product_name_xpath).get()
         price_raw=sel.xpath(price_raw_xpath).get()
         if not price_raw:
