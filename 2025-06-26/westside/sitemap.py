@@ -1,5 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
+product_link=[]
 product_list=[]
 url='https://www.westside.com/sitemap.xml'
 response=requests.get(url)
@@ -24,5 +25,6 @@ for url in product_list:
             lastmod = url.find('ns:lastmod', namespaces=namespace)
 
             if loc is not None:
-                product_url = loc.text
-                
+                product_link.append(loc.text)
+
+print(len(product_link))

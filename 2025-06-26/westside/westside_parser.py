@@ -1,18 +1,26 @@
 import requests
 from parsel import Selector
-from settings import url,headers
+from settings import headers,MONGO_URI,MONGO_DB,COLLECTION,COLLECTION_DETAILS
+from pymongo import MongoClient
+from westside_items import ProductItem
 import re
 import logging
 logging.basicConfig(level=logging.INFO)
 
 class Parser:
+    def __init__(self):
+        self.client=MongoClient(MONGO_URI)
+        self.db=self.client[MONGO_DB]
+        self.collection=self.db[COLLECTION_DETAILS]
 
-    def start(self,url):
-        response=requests.get(url,headers=headers)
-        if response.status_code==200:
-            self.parse_item(response)
+    def start(self):
+        for item in self.db[COLLECTION].find():
+            url=item.get('link','')
+            response=requests.get(url,headers=headers)
+            if response.status_code==200:
+                self.parse_item(response,url)
 
-    def parse_item(self,response):
+    def parse_item(self,response,url):
         sel=Selector(text=response.text)
 
         # XPATH
@@ -58,7 +66,7 @@ class Parser:
         if regular_price_raw:
             regular_price_raw=regular_price_raw.strip()
 
-        regular_price=regular_price_raw.replace('₹','')
+        regular_price=regular_price_raw.replace('₹','').strip()
         currency= re.search(r"[^\d\s.,]+", regular_price_raw).group()
 
         if country_of_origin:
@@ -106,8 +114,11 @@ class Parser:
         item['product_dimensions']=product_dimensions
         item['product_quantity']=product_quantity
 
+
+        product_item=ProductItem(**item)
+        product_item.save()
         logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()
-    parser.start(url)
+    parser.start()
