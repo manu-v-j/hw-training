@@ -4,6 +4,7 @@ from settings import headers,MONGO_URI,MONGO_DB,COLLECTION,COLLECTION_DETAILS
 from pymongo import MongoClient
 from westside_items import ProductItem
 import re
+import time
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -19,7 +20,7 @@ class Parser:
             response=requests.get(url,headers=headers)
             if response.status_code==200:
                 self.parse_item(response,url)
-
+            time.sleep(1)
     def parse_item(self,response,url):
         sel=Selector(text=response.text)
 
@@ -117,7 +118,7 @@ class Parser:
 
         product_item=ProductItem(**item)
         product_item.save()
-        logging.info(item)
+        # logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()
