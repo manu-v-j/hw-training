@@ -24,6 +24,11 @@ headers = {
     "upgrade-insecure-requests": "1",
     "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36"
 }
+cookies = {
+    "_ga": "GA1.1.1033835535.1751430732",
+    "_ga_GDQ94DH7QZ": "GS2.1.s1751599530$o4$g1$t1751599575$j15$l0$h0",
+    "JSESSIONID": "F2F6742AA57BD164C3FA5C4B923B9BC6"
+}
 
 # Step 1: Search request
 url = "https://maharera.maharashtra.gov.in/projects-search-result"
@@ -51,19 +56,65 @@ last_modified = sel.xpath('//div[text()="Last Modified"]/following-sibling::p/te
 details_url = sel.xpath("//a[contains(@class, 'click-projectmodal') and contains(@class, 'viewLink')]/@href").getall()
 
 # Step 2: Loop through detail URLs and fetch contact details
-for url in details_url:
-    project_id = re.search(r'/view/(\d+)', url).group(1)
-    print(f"Fetching contact for Project ID: {project_id}")
+# for url in details_url:
+#     print(url)
+    # project_id = re.search(r'/view/(\d+)', url).group(1)
+  
 
-    contact_api_url = "https://maharerait.maharashtra.gov.in/api/maha-rera-public-view-project-registration-service/public/projectregistartion/fetchPromoterPersonnelContactAddressDetails"
-    payload = {
-        "userProfileId": "121110",  # Make sure this ID is valid or required
-        "projectId": project_id
-    }
+import requests
+import urllib3
 
+# Disable SSL warnings
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+bearer_token = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzNHFoLWJQZ1Nyck5WdG92Z1FROUhuX3JfZHhGeV9mUDVJVjkzT1VXMVVjIn0.eyJleHAiOjE3NTE2MzQwNDksImlhdCI6MTc1MTYyODA0OSwianRpIjoiNjZhM2ZkYTktMzUyZi00YzEwLWE5M2QtMTgzYjZlMzI5Njg5IiwiaXNzIjoiaHR0cDovL2JhY2tlbmQtc3RhbmRhbG9uZS1rZXljbG9hay1zdmMtcHJvZDo4MDg5L2F1dGgvcmVhbG1zL2RlbW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiODJkMjlhYzktNDVlYi00YzI1LWJiOTAtZmRlYWJjZGU3OGZjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZGVtb2NsaWVudDEiLCJzZXNzaW9uX3N0YXRlIjoiMzQxZDIxMzItMTY0Mi00NmE4LTkzMzQtYTgwNWI3Mjg3MGZkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImFwcF9hZ2VudCIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiZGVtb2NsaWVudDEiOnsicm9sZXMiOlsiQUdFTlQiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiQG1haGFyZXJhX3B1YmxpY192aWV3In0.Qf4BfngYkHhqTRQQXAOK7sAx1cDSd1Bd52PcYP3pMru0nl23gGzZZy1prPi1jj2zx9xQFJ605aSczJt8r2_hL5BOLgKqY-PeQyTraw2AvNEtbTCIeISYpKFEuYt_tqN4Y9eXGIXEjzf50Qo7lQCSulV9qVgngLFsUx68yhNsTKFRzFz22Czb_HBzoMufOoXcILyVz8VUXErzDQD-iqsZrSMEjcjgOWx0fEHfFIPY8LJmhDKxQjXsp_n4VFMNAwk_uQSRMUADqNCUu1ysJedNokjbzeG7B_J0mJgnD1-3d0hDh34CbKHbwtl1S75hApXC3PwAqwTMV2MbxTgntQdEew"
+api_url = "https://maharerait.maharashtra.gov.in/api/maha-rera-public-view-project-registration-service/public/projectregistartion/getProjectAndAssociatedPromoterDetails"
+
+headers = {
+    "accept": "application/json, text/plain, */*",
+    "authorization": bearer_token,
+    "content-type": "application/json",
+    "origin": "https://maharerait.maharashtra.gov.in",
+    "referer": "https://maharerait.maharashtra.gov.in/public/project/view/1",
+    "user-agent": "Mozilla/5.0"
+}
+
+
+payload = {
+    "projectId": 3 
+}
+
+response = requests.post(api_url, headers=headers, json=payload, verify=False)
+if response.status_code==200:
     try:
-        response = requests.post(contact_api_url, headers=headers, json=payload, verify=False)
-        print("Status Code:", response.status_code)
-        print("Response JSON:", response.json())
+        data=response.json()
+        project_details=data.get("responseObject",{}).get("projectDetails",{})
+        project_registration_no=project_details.get("projectGeneralDetails",{}).get("projectRegistartionNo","")
+        date_of_registration=project_details.get("projectGeneralDetails",{}).get("reraRegistrationDate","")
+        project_name=project_details.get("projectGeneralDetails",{}).get("projectName","")
+        survey_nos_CTS_no=project_details.get("projectLegalLandAddressDetails",{}).get("addressLine","")
+        proposed_completion_date_orignal=project_details.get("projectGeneralDetails",{}).get("projectProposeComplitionDate","")
+        district=project_details.get("projectLegalLandAddressDetails",{}).get("districtName","")
+        taluka=project_details.get("projectLegalLandAddressDetails",{}).get("talukaName","")
+        village=project_details.get("projectLegalLandAddressDetails",{}).get("villageName","")
+        pincode=project_details.get("projectLegalLandAddressDetails",{}).get("pinCode","")
+        user_profile_id=project_details.get("projectGeneralDetails",{}).get("userProfileId","")
+        print(user_profile_id)
     except Exception as e:
-        print(f"Error for Project ID {project_id}: {e}")
+        print("Raw response:", response.text)
+
+
+api_url_two="https://maharerait.maharashtra.gov.in/api/maha-rera-public-view-project-registration-service/public/projectregistartion/getMigratedBuildingDetails"
+response = requests.post(api_url_two, headers=headers, json=payload, verify=False)
+if response.status_code==200:
+    data=response.json()
+    summary_appartment=data.get("responseObject",[])
+    for item in summary_appartment:
+        building_name=item.get("buildingNameNumber","")
+        apartment_type=item.get("apartmentType","")
+        carpet_area=item.get("carpetArea","")
+        number_apartment=item.get("numberOfApartment","")
+        number_booked_apartment=item.get("numberOfBookedApartments")
+        print(number_booked_apartment)
+    
+
