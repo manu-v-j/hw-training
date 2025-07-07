@@ -36,7 +36,7 @@ tokens = extract_tokens(sel)
 
 payload_area = {
     '__EVENTTARGET': 'txtAreaName',
-    '__EVENTARGUMENT': '',
+    '__EVENTARGUMENT': '',  
     '__LASTFOCUS': '',
     **tokens,
     'ddlFromYear': year,
@@ -127,8 +127,11 @@ payload= {
 
 
 
-response_index = session.post(url, headers=HEADERS, data=payload, verify=False)
 
-with open("indexII_result.html", "w", encoding="utf-8") as f:
-    f.write(response_index.text)
+# response_index = session.post(url, headers=HEADERS, data=payload, verify=False)
 
+# with open("indexII_result.html", "w", encoding="utf-8") as f:
+#     f.write(response_index.text)
+
+response=session.get('https://freesearchigrservice.maharashtra.gov.in/isaritaHTMLReportSuchiKramank2_RegLive.aspx',headers=HEADERS,verify=False)
+print(response.text)
