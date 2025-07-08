@@ -8,7 +8,7 @@ df['breadcrumbs']=df['breadcrumbs'].str.replace('""','"')
 df['breadcrumbs'] = df['breadcrumbs'].map(lambda x: ' > '.join(d['breadcrumbs'] for d in json.loads(x)) if pd.notnull(x) else x)
 df['warning']=df['warning'].str.replace('""','"')
 
-df['warning'] = df['warning'].map(lambda x: ' > '.join(d['warning'] for d in json.loads(x)) if pd.notnull(x) else x)
+df['warning'] = df['warning'].map(lambda x: ''.join(d['warning'] for d in json.loads(x)) if pd.notnull(x) else x)
 
 def parse_spec(val):
     try:
