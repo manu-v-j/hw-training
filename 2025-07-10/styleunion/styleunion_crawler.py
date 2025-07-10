@@ -12,15 +12,15 @@ class Crawler:
         self.collection=self.db[COLLECTION]
         self.count = 0
         self.seen = set()
-    def start(self):
         
+    def start(self):    
         for item in self.db[COLLECTION_CATEGORY].find():
             url=item.get('link')
             page = 1
 
             while url:
                 full_url=f"{url}?page={page}"
-                print(full_url)
+                logging.info(full_url)
                 response = requests.get(full_url, headers=headers)
                 if response.status_code==200:
                     has_item=self.parse_item(response)
@@ -42,7 +42,7 @@ class Crawler:
                 self.seen.add(full_url)
                 self.count += 1
                 logging.info(self.count)
-                print(full_url)
+                logging.info(full_url)
                 item={}
                 item['link']=full_url
                 self.collection.insert_one(item)
