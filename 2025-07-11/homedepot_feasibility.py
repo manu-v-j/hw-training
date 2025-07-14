@@ -1,7 +1,8 @@
-import requests
+from curl_cffi import requests
 from parsel import Selector
 import logging
 logging.basicConfig(level=logging.INFO)
+import json
 
 headers={
     'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -22,32 +23,89 @@ headers={
 }
 
 ###################CATEGORY###############################################
-# url='https://www.homedepot.com/b/Appliances/N-5yc1vZbv1w'
-# response=requests.get(url,headers=headers)
-# sel=Selector(text=response.text)
-# category_url=sel.xpath("//li[contains(@class, 'side-navigation__li')]//a/@href").getall()
-# print(category_url)
+
+final_category_urls = []
+visited = set()
+
+def explore_category(url):
+    if url in visited:
+        return
+    visited.add(url)
+
+    try:
+        print(f"[DEBUG] Exploring: {url}")
+        response = requests.get(url, headers=headers)
+        sel = Selector(text=response.text)
+
+        product_links = sel.xpath("//a[@class='sui-top-0 sui-left-0 sui-absolute sui-size-full sui-z-10']/@href").getall()
+        if product_links:
+            final_category_urls.append(url)
+            return 
+
+        subcategories = sel.xpath("//li[contains(@class, 'side-navigation__li')]//a/@href").getall()
+        subcategories = [f"https://www.homedepot.com{sub}" if sub.startswith('/') else sub for sub in subcategories]
+
+        for sub_url in subcategories:
+            explore_category(sub_url)
+
+    except Exception as e:
+        print(f"Error on {url}: {e}")
+
+start_url = 'https://www.homedepot.com/b/Appliances/N-5yc1vZbv1w'
+explore_category(start_url)
+
+for url in final_category_urls:
+    print(url)
 
 #############################CRAWLER#######################################
-count=0
-url='https://www.homedepot.com/b/Appliances-Kitchen-Appliance-Packages/N-5yc1vZ2fkpfuj'
+# page=0
+# count=0
+# product_url=[]
+# while True:
+#     url = f'https://www.homedepot.com/b/Appliances-Dishwashers/N-5yc1vZc3po?catStyle=ShowProducts&Nao={page}'
+#     response = requests.get(url, headers=headers)
+  
+#     sel = Selector(text=response.text)
+#     product_urls = sel.xpath("//a[@class='sui-top-0 sui-left-0 sui-absolute sui-size-full sui-z-10']/@href").getall()
+#     if not product_urls:
+#         print("No more products found.")
+#         break
 
-response = requests.get(url, headers=headers)
-sel = Selector(text=response.text)
+#     for product in product_urls:
+#         full_url = f"https://www.homedepot.com{product}"
+#         product_url.append(full_url)
+#         # count += 1
+#         # print(count, full_url)
+#         print(len(product_url))
 
-product_urls = sel.xpath("//a[@class='sui-top-0 sui-left-0 sui-absolute sui-size-full sui-z-10']/@href").getall()
+#     page += 24
 
-for product in product_urls:
-    full_url = f"https://www.homedepot.com{product}"
-    count += 1
-    print(count, full_url)
-    logging.info(full_url)
 
-next_page = sel.xpath("//a[contains(@class,'sui-lab-btn-base') and @aria-label='Skip to Next Page']/@href").get()
-print(next_page)
+###########################PARSER########################################
 
-    
-    # if next_page:
-    #     url = f"https://www.homedepot.com{next_page}"
-    # else:
-    #     break
+# for url in product_url:
+# # url="https://www.homedepot.com/p/Frigidaire-24-in-Stainless-Steel-Front-Control-Smart-Built-In-Tall-Tub-Dishwasher-FDPC4221AS/314298606"
+#     response=requests.get(url,headers=headers)
+#     sel=Selector(text=response.text)
+#     product_name=sel.xpath("//h1[contains(@class,'sui-h4-bold')]/text()").get()
+#     selling_price=sel.xpath("//span[@class='sui-font-display sui-leading-none sui-px-[2px] sui-text-9xl sui--translate-y-[0.5rem]']/text()").get()
+#     price_was_raw=sel.xpath("//span[@class='sui-line-through']//text()").get()
+#     price_was=price_was_raw.replace('$','')
+#     currency=sel.xpath("//span[@class='sui-font-display sui-leading-none sui-text-3xl']/text()").get()
+#     percentage_discount=sel.xpath("//span[@class='sui-text-success']/div/span/text()[2]").get()
+#     script=sel.xpath("//script[@id='thd-helmet__script--productStructureData']/text()").get()
+#     data=json.loads(script)
+#     product_description=data.get('description','')
+#     unique_id=data.get('productID','')
+#     product_sku=data.get('sku','')
+#     brand=data.get('brand',{}).get('name','')
+#     rating=data.get('aggregateRating',{}).get('ratingValue','')
+#     review=data.get('aggregateRating',{}).get('reviewCount','')
+#     color=data.get('color','')
+#     model_number=data.get('model','')
+#     depth=data.get('depth','')
+#     height=data.get('height','')
+#     width=data.get('width','')
+#     weight=data.get('weight','')
+#     image_url=data.get('image',[])
+#     print(product_name)
