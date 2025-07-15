@@ -84,9 +84,7 @@ for url in final_category_urls:
 ###########################PARSER########################################
 
 # for url in product_url:
-# # url="https://www.homedepot.com/p/Frigidaire-24-in-Stainless-Steel-Front-Control-Smart-Built-In-Tall-Tub-Dishwasher-FDPC4221AS/314298606"
-#     response=requests.get(url,headers=headers)
-#     sel=Selector(text=response.text)
+#
 #     product_name=sel.xpath("//h1[contains(@class,'sui-h4-bold')]/text()").get()
 #     selling_price=sel.xpath("//span[@class='sui-font-display sui-leading-none sui-px-[2px] sui-text-9xl sui--translate-y-[0.5rem]']/text()").get()
 #     price_was_raw=sel.xpath("//span[@class='sui-line-through']//text()").get()
