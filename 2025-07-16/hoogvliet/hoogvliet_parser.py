@@ -25,6 +25,7 @@ class Parser:
 
             #XPATH
             product_name_xpath="//div[@class='product-info']//h1/text()"
+            regular_price_xpath="//div[@class='price-display-container']//span//text()"
             grammage_quantity_raw_xpath="//div[@class='ratio-base-packing-unit']/span//text()"
             ingredients_xpath="//h3[contains(text(), 'Ingredi')]/ancestor::div[@class='accordion-item open']//div[@class='accordion-content']/p/text()"
             storage_instructions_xpath = "//h3[contains(text(), 'Bewaar en/of gebruiksadvies')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()"
@@ -36,6 +37,8 @@ class Parser:
             
             #EXTRACT
             product_name=sel.xpath(product_name_xpath).get()
+            regular_price=sel.xpath(regular_price_xpath).getall()
+            currency='Euro'
             grammage_quantity_raw=sel.xpath(grammage_quantity_raw_xpath).get()
             ingredients=sel.xpath(ingredients_xpath).get()
             storage_instructions=sel.xpath(storage_instructions_xpath).get()
@@ -48,6 +51,8 @@ class Parser:
             #CLEAN
             if product_name:
                 product_name=product_name.strip()
+
+            regular_price = ''.join(regular_price)
 
             if country_of_origin:
                 country_of_origin=country_of_origin.strip()
@@ -71,6 +76,8 @@ class Parser:
 
             item={}
             item['product_name']=product_name
+            item['regular_price']=regular_price
+            item['currency']=currency
             item['grammage_quantity']=grammage_quantity
             item['grammage_unit']=grammage_unit
             item['ingredients']=ingredients
@@ -84,7 +91,6 @@ class Parser:
 
             product_item=ProductItem(**item)
             product_item.save()
-            logging.info(item)
 
 
 if __name__=='__main__':

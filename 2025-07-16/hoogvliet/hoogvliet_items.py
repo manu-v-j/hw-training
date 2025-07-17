@@ -6,6 +6,8 @@ class ProductItem(DynamicDocument):
     meta={"db_alias":"default","collection":COLLECTION_DETAILS}
 
     product_name=StringField()
+    regular_price=StringField() 
+    currency=StringField()
     grammage_quantity=StringField()
     grammage_unit=StringField()
     ingredients=StringField()
