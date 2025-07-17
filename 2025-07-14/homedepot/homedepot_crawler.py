@@ -5,6 +5,8 @@ from settings import headers,CATEGORY_COLLECTION,MONGO_URI,MONGO_DB,COLLECTION
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 logging.basicConfig(level=logging.INFO)
+from pymongo.errors import DuplicateKeyError
+
 
 class Crawler:
     def __init__(self):

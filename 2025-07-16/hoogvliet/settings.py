@@ -21,3 +21,4 @@ MONGO_URI='mongodb://localhost:27017'
 MONGO_DB='hoogvliet'
 COLLECTION_CATEGORY="category_link"
 COLLECTION='product_link'
+COLLECTION_DETAILS="product_details"

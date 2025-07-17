@@ -27,11 +27,11 @@ class Parser:
         regular_price_raw_xpath="//span[contains(@class, 'price-item')]/text()"    
         size_list_xpath="//label[@class='swatches__form--label']/text()"
         color_xpath="//span[@class='swatches__color-name']/text()"
-        material_xpath="//div[@class='desc_inner acc__card active']/div[2]/strong/following-sibling::text()"
-        pattern_xpath="//div[@class='desc_inner acc__card active']/div[4]/strong/following-sibling::text()"  
-        length_xpath="//div[@class='desc_inner acc__card active']/div[5]/strong/following-sibling::text()"     
-        neck_style_xpath="//div[@class='desc_inner acc__card active']/div[6]/strong/following-sibling::text()"
-        clothing_fit_xpath="//div[@class='desc_inner acc__card active']/div[8]/strong/following-sibling::text()"
+        material_xpath="//div[@class='desc_inner acc__card active']//strong[text()='Fabric Type:']/following-sibling::text()"
+        pattern_xpath="//div[@class='desc_inner acc__card active']//strong[text()='Pattern:']/following-sibling::text()"  
+        length_xpath="//div[@class='desc_inner acc__card active']//strong[text()='Length:']/following-sibling::text()"    
+        neck_style_xpath="//div[@class='desc_inner acc__card active']//strong[text()='Neck/Collar Type:']/following-sibling::text()"  
+        clothing_fit_xpath="//div[@class='desc_inner acc__card active']//strong[text()='Fit:']/following-sibling::text()"
         product_description_xpath="//div[@class='acc__title'][h3[text()='Description']]/following-sibling::div[@class='acc__panel']//text()"
         care_instructions_xpath="//div[@class='acc__title'][h3[text()='Wash and Care']]/following-sibling::div[@class='acc__panel']//text()"
         image_url_xpath="//div[@class='box-ratio']/img/@src"
@@ -51,11 +51,13 @@ class Parser:
         care_instructions=sel.xpath(care_instructions_xpath).get()
         image_url=sel.xpath(image_url_xpath).getall()
         product_sku=sel.xpath(product_sku_xpath).get()
+        currency='INR'
 
         #CLEAN
         if regular_price_raw:
             regular_price = regular_price_raw.replace('₹', '').strip()  
-            currency=re.search('₹',regular_price_raw).group()
+            regular_price = "{:.2f}".format(float(regular_price.replace(',', '')))
+
         size=[item.strip() for item in size_list if item.strip()]
         if material:
             material=material.strip()
@@ -87,11 +89,12 @@ class Parser:
         item['product_description']=product_description
         item['care_instructions']=care_instructions
         item['image_url']=image_url
+        item['product_sku']=product_sku
 
-        product_item=ProductItem(**item)
-        product_item.save()
+        # product_item=ProductItem(**item)
+        # product_item.save()
 
-        logging.info(item)
+        logging.info(regular_price)
 
 if  __name__=='__main__':
     parser=Parser()

@@ -26,7 +26,7 @@ while True:
     url=f"https://www2.hm.com/en_in/women/shop-by-product/tops.html?productTypes=Top&page={page}"
     response=requests.get(url,headers=headers)
     sel=Selector(text=response.text)
-    product_urls=sel.xpath("//div[@class='e4889e']/a/@href").getall()
+    product_urls=sel.xpath("//a[@class='afcaaf']/@href").getall()
     if not product_urls:
         break
     for url in product_urls:

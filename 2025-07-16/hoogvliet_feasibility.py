@@ -40,29 +40,29 @@ while True:
 
 
 ######################################PARSER##################################
-# with open('/home/user/Hashwave/2025-07-16/product_link.json','r') as f:
-#         product_list = json.load(f)
-#         for url in product_list:
-#             response=requests.get(url,headers=headers)
-#             if response.status_code==200:
-#                 sel=Selector(text=response.text)
-#                 product_name=sel.xpath("//div[@class='product-info']//h1/text()").get()
-#                 grammage_quantity_raw=sel.xpath("//div[@class='ratio-base-packing-unit']/span//text()").get()
-#                 if grammage_quantity_raw:
-#                     grammage_quantity=re.sub(r'\s\w+','',grammage_quantity_raw)
-#                     grammage_unit=re.sub(r'\d+','',grammage_quantity_raw).strip()
-#                 ingredients=sel.xpath("//h3[contains(text(), 'Ingredi')]/ancestor::div[@class='accordion-item open']//div[@class='accordion-content']/p/text()").get()
-#                 storage_instructions = sel.xpath("//h3[contains(text(), 'Bewaar en/of gebruiksadvies')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
-#                 country_of_origin=sel.xpath("//h3[contains(text(), 'Land van herkomst:')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
-#                 distributor_address=sel.xpath("//h3[contains(text(), 'Leverancier:')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
-#                 nutritions={}
-#                 rows=sel.xpath("//div[@class='accordion-content nutritional-info']//tr")
-#                 for row in rows:
-#                     label = row.xpath(".//td[1]/text()").get().strip()
-#                     value = row.xpath(".//td[2]/text()").get().strip()
-#                     nutritions[label]=value
-#                 image_url=sel.xpath("//div[@class='product-image-container']/img/@src").get()
-#                 breadcrumbs_raw=sel.xpath("//li[contains(@class,'breadcrumbs-list')]//text()").getall()
-#                 breadcrumbs = [item.strip() for item in breadcrumbs_raw if item.strip() and item.strip() != '/']
+with open('/home/user/Hashwave/2025-07-16/product_link.json','r') as f:
+        product_list = json.load(f)
+        for url in product_list:
+            response=requests.get(url,headers=headers)
+            if response.status_code==200:
+                sel=Selector(text=response.text)
+                product_name=sel.xpath("//div[@class='product-info']//h1/text()").get()
+                grammage_quantity_raw=sel.xpath("//div[@class='ratio-base-packing-unit']/span//text()").get()
+                if grammage_quantity_raw:
+                    grammage_quantity=re.sub(r'\s\w+','',grammage_quantity_raw)
+                    grammage_unit=re.sub(r'\d+','',grammage_quantity_raw).strip()
+                ingredients=sel.xpath("//h3[contains(text(), 'Ingredi')]/ancestor::div[@class='accordion-item open']//div[@class='accordion-content']/p/text()").get()
+                storage_instructions = sel.xpath("//h3[contains(text(), 'Bewaar en/of gebruiksadvies')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
+                country_of_origin=sel.xpath("//h3[contains(text(), 'Land van herkomst:')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
+                distributor_address=sel.xpath("//h3[contains(text(), 'Leverancier:')]/ancestor::div[@class='accordion-item']//div[@class='accordion-content']/p/text()").get()
+                nutritions={}
+                rows=sel.xpath("//div[@class='accordion-content nutritional-info']//tr")
+                for row in rows:
+                    label = row.xpath(".//td[1]/text()").get().strip()
+                    value = row.xpath(".//td[2]/text()").get().strip()
+                    nutritions[label]=value
+                image_url=sel.xpath("//div[@class='product-image-container']/img/@src").get()
+                breadcrumbs_raw=sel.xpath("//li[contains(@class,'breadcrumbs-list')]//text()").getall()
+                breadcrumbs = [item.strip() for item in breadcrumbs_raw if item.strip() and item.strip() != '/']
 
 

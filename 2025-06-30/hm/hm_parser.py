@@ -15,7 +15,8 @@ class Parser:
 
     def start(self):
         for item in self.db[COLLECTION].find():
-            url=item.get("link","")
+            # url=item.get("link","")
+            url='https://api.hm.com/search-services/v1/en_in/recos/product-page?touchPoint=desktop&productKey=1089811035&pageSource=pdp'
             response=requests.get(url,headers=headers)
             if response.status_code==200:
                 sel=Selector(text=response.text)
@@ -23,7 +24,7 @@ class Parser:
                 self.collection_error.insert_one({'link':url})
             # XPATH
             product_name_xpath="//h1[@class='fe9348 bdb3fa d582fb']/text()"
-            regular_price_raw_xpath="//span[@class='e70f50 d7cab8 d9ca8b']/text()"
+            regular_price_raw_xpath="//span[@class='e31b97 ab087d d9ca8b']/text()"
             product_description_xpath="//p[@class='e95b5c f8c1e9 e2b79d']/text()"
             pdp_url=url
             size_xpath="//div[@class='ecc0f3']/dt[contains(text(), 'Size')]/following-sibling::dd/text()"
@@ -38,7 +39,8 @@ class Parser:
             material_xpath="//div[@class='ecc0f3']/dt[contains(text(), 'Material: ')]/following-sibling::dd/text()"
             care_instructions_xpath="//li[@class='e16073 fdbaf2']/text()"
             image_url_xpath="//div[@class='def5f0 fcc68c a33b36 f6e252']/span/img/@src"
-
+            color_xpath="//p[@class='bce387 b97b34']"
+            relative_color_xpath="//div[@class='be8654 fcc68c a33b36 f6e252']//img/@alt"
             # EXTRACT
             product_name=sel.xpath(product_name_xpath).get()
             regular_price_raw=sel.xpath(regular_price_raw_xpath).get()
@@ -55,6 +57,8 @@ class Parser:
             material=sel.xpath(material_xpath).get()
             care_instructions=sel.xpath(care_instructions_xpath).getall()
             image_url=sel.xpath(image_url_xpath).getall()
+            color=sel.xpath(color_xpath).get()
+            realtive_color=sel.xpath(relative_color_xpath).getall()
 
             # CLEAN
             regular_price=regular_price_raw.replace('Rs.','')
@@ -80,9 +84,12 @@ class Parser:
             item['material']=material
             item['care_instructions']=care_instructions
             item['image_url']=image_url
+            item['color']=color
+            item['relative_color']=realtive_color
 
             product_item=ProductItem(**item)
             product_item.save()
+            logging.info(realtive_color)
 
 if __name__=='__main__':
     parser=Parser()

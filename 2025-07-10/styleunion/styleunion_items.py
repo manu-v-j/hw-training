@@ -19,6 +19,7 @@ class ProductItem(DynamicDocument):
     product_description=StringField()
     care_instructions=StringField()
     image_url=ListField()
+    product_sku=StringField()
 
  
 
