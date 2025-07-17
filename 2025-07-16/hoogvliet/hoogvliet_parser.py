@@ -53,6 +53,7 @@ class Parser:
                 product_name=product_name.strip()
 
             regular_price = ''.join(regular_price)
+            regular_price = "{:.2f}".format(float(regular_price))
 
             if country_of_origin:
                 country_of_origin=country_of_origin.strip()
@@ -91,7 +92,7 @@ class Parser:
 
             product_item=ProductItem(**item)
             product_item.save()
-
+            logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()

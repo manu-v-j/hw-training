@@ -11,6 +11,8 @@ class Export:
     def start(self):
         for item in self.db[COLLECTION_DETAILS].find():
             product_name=item.get('product_name')
+            regular_price=item.get('regular_price')
+            currency=item.get('currency')
             grammage_quantity=item.get('grammage_quantity')
             grammage_unit=item.get('grammage_unit')
             ingredients=item.get('ingredients')
@@ -24,6 +26,8 @@ class Export:
 
             self.all_items.append({
                 'Product_name':product_name,
+                'Regular_price':regular_price,
+                'Currency':currency,
                 'Grammage_quantity':grammage_quantity,
                 'Grammage_unit':grammage_unit,
                 'Ingredients':ingredients,
@@ -35,7 +39,7 @@ class Export:
                 'Breadcrumbs':breadcrumbs
             })
 
-            field_names=['Product_name','Grammage_quantity','Grammage_unit','Ingredients','Pdp_url','Storage_instructions','Country_of_origin',
+            field_names=['Product_name','Regular_price','Currency','Grammage_quantity','Grammage_unit','Ingredients','Pdp_url','Storage_instructions','Country_of_origin',
                         'Nutritions','Image_url','Breadcrumbs']
             
             with open('hoogvilet_20250717.csv','w') as csv_file:
