@@ -15,9 +15,9 @@ class Parser:
         self.collection_error=self.db[COLLECTION_ERROR]
 
     def start(self):
-        # for item in self.db[COLLECTION].find():
-        #     url=item.get("link","")
-            url='https://www2.hm.com/en_in/productpage.1289929001.html'
+        for item in self.db[COLLECTION].find():
+            url=item.get("link","")
+            # url='https://www2.hm.com/en_in/productpage.1289929001.html'
             response=requests.get(url,headers=headers)
             if response.status_code==200:
                 sel=Selector(text=response.text)
@@ -101,9 +101,9 @@ class Parser:
             item['relative_color']=relative_color
             item['breadcrumb']=breadcrumb
 
-            # product_item=ProductItem(**item)
-            # product_item.save()
-            # logging.info(realtive_color)
+            product_item=ProductItem(**item)
+            product_item.save()
+            logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()
