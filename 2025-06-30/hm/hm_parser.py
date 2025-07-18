@@ -4,6 +4,7 @@ import re
 from settings import headers,MONGO_URI,MONGO_DB,COLLECTION,COLLECTION_ERROR
 from pymongo import MongoClient
 from hm_items import ProductItem
+import json
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -14,9 +15,9 @@ class Parser:
         self.collection_error=self.db[COLLECTION_ERROR]
 
     def start(self):
-        for item in self.db[COLLECTION].find():
-            # url=item.get("link","")
-            url='https://api.hm.com/search-services/v1/en_in/recos/product-page?touchPoint=desktop&productKey=1089811035&pageSource=pdp'
+        # for item in self.db[COLLECTION].find():
+        #     url=item.get("link","")
+            url='https://www2.hm.com/en_in/productpage.1289929001.html'
             response=requests.get(url,headers=headers)
             if response.status_code==200:
                 sel=Selector(text=response.text)
@@ -40,7 +41,9 @@ class Parser:
             care_instructions_xpath="//li[@class='e16073 fdbaf2']/text()"
             image_url_xpath="//div[@class='def5f0 fcc68c a33b36 f6e252']/span/img/@src"
             color_xpath="//p[@class='bce387 b97b34']"
-            relative_color_xpath="//div[@class='be8654 fcc68c a33b36 f6e252']//img/@alt"
+            script_xpath="//script[@id='__NEXT_DATA__']/text()"
+          
+                 
             # EXTRACT
             product_name=sel.xpath(product_name_xpath).get()
             regular_price_raw=sel.xpath(regular_price_raw_xpath).get()
@@ -58,13 +61,23 @@ class Parser:
             care_instructions=sel.xpath(care_instructions_xpath).getall()
             image_url=sel.xpath(image_url_xpath).getall()
             color=sel.xpath(color_xpath).get()
-            realtive_color=sel.xpath(relative_color_xpath).getall()
+            script=sel.xpath(script_xpath).get()
 
             # CLEAN
             regular_price=regular_price_raw.replace('Rs.','')
             if regular_price:
                 regular_price=regular_price.strip()
             currency=re.search(r'Rs',regular_price_raw).group()
+            data=json.loads(script)
+            breadcrumb_list=data.get('props',{}).get('pageProps',{}).get('productPageProps',{}).get('aemData',{}).get('breadcrumbs',[])
+            breadcrumb=[item.get('label','') for item in breadcrumb_list]
+
+            relative_color=[]
+            variations = data.get('props',{}).get('pageProps',{}).get('productPageProps',{}).get('aemData',{}).get('productArticleDetails',{}).get('variations',{})
+            for key, value in variations.items():
+                if "swatchDetails" in value:
+                    color_name = value["swatchDetails"].get("colorName")
+                    relative_color.append(color_name)
 
             item={}
             item['product_name']=product_name
@@ -85,11 +98,12 @@ class Parser:
             item['care_instructions']=care_instructions
             item['image_url']=image_url
             item['color']=color
-            item['relative_color']=realtive_color
+            item['relative_color']=relative_color
+            item['breadcrumb']=breadcrumb
 
-            product_item=ProductItem(**item)
-            product_item.save()
-            logging.info(realtive_color)
+            # product_item=ProductItem(**item)
+            # product_item.save()
+            # logging.info(realtive_color)
 
 if __name__=='__main__':
     parser=Parser()

@@ -22,5 +22,9 @@ class ProductItem(DynamicDocument):
     material=StringField()
     care_instructions=ListField()
     image_url=ListField()
+    color=StringField()
+    relative_color=ListField()
+    breadcrumb=ListField()
+
 
      
