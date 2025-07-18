@@ -28,6 +28,10 @@ class Export:
             material=item.get('material')
             care_instructions=item.get('care_instructions')
             image_url=item.get('image_url')
+            color=item.get('color')
+            relative_color=item.get('relative_color')
+            breadcrumbs=item.get('breadcrumbs')
+
 
             self.all_items.append({
                 'Product_name':product_name,
@@ -46,15 +50,20 @@ class Export:
                 'Material_composition':material_composition,
                 'Material':material,
                 'Care_instructions':care_instructions,
-                'Image_url':image_url
+                'Image_url':image_url,
+                'Color':color,
+                'Relative_color':relative_color,
+                'Breadcrumbs':breadcrumbs
+
             })
 
             fieldnames=[
                 'Product_name','Regular_price','Currency','Product_description','Pdp_url','Size','Clothing_length','Clothing_fit','Style',
-                'Neck_style','Country_of_origin','Manufacturer_address','Importer_address','Material_composition','Material','Care_instructions','Image_url'
+                'Neck_style','Country_of_origin','Manufacturer_address','Importer_address','Material_composition','Material','Care_instructions','Image_url',
+                'Color','Relative_color','Breadcrumbs'
             ]
 
-            with open('20250630.csv','w',newline='') as csv_file:
+            with open('hm_20250630.csv','w',newline='') as csv_file:
                 writer=csv.DictWriter(csv_file,fieldnames)
                 writer.writeheader()
                 writer.writerows(self.all_items)

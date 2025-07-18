@@ -24,7 +24,7 @@ class ProductItem(DynamicDocument):
     image_url=ListField()
     color=StringField()
     relative_color=ListField()
-    breadcrumb=ListField()
+    breadcrumbs=ListField()
 
 
      

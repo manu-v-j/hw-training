@@ -24,7 +24,7 @@ class Parser:
             else:
                 self.collection_error.insert_one({'link':url})
             # XPATH
-            product_name_xpath="//h1[@class='fe9348 bdb3fa d582fb']/text()"
+            product_name_xpath="//h1[@class='a269b3 cfe07d d582fb']/text()"
             regular_price_raw_xpath="//span[@class='e31b97 ab087d d9ca8b']/text()"
             product_description_xpath="//p[@class='e95b5c f8c1e9 e2b79d']/text()"
             pdp_url=url
@@ -40,7 +40,7 @@ class Parser:
             material_xpath="//div[@class='ecc0f3']/dt[contains(text(), 'Material: ')]/following-sibling::dd/text()"
             care_instructions_xpath="//li[@class='e16073 fdbaf2']/text()"
             image_url_xpath="//div[@class='def5f0 fcc68c a33b36 f6e252']/span/img/@src"
-            color_xpath="//p[@class='bce387 b97b34']"
+            color_xpath="//dt[contains(text(), 'Description')]/following-sibling::dd/text()"
             script_xpath="//script[@id='__NEXT_DATA__']/text()"
           
                  
@@ -70,7 +70,7 @@ class Parser:
             currency=re.search(r'Rs',regular_price_raw).group()
             data=json.loads(script)
             breadcrumb_list=data.get('props',{}).get('pageProps',{}).get('productPageProps',{}).get('aemData',{}).get('breadcrumbs',[])
-            breadcrumb=[item.get('label','') for item in breadcrumb_list]
+            breadcrumbs=[item.get('label','') for item in breadcrumb_list]
 
             relative_color=[]
             variations = data.get('props',{}).get('pageProps',{}).get('productPageProps',{}).get('aemData',{}).get('productArticleDetails',{}).get('variations',{})
@@ -99,11 +99,11 @@ class Parser:
             item['image_url']=image_url
             item['color']=color
             item['relative_color']=relative_color
-            item['breadcrumb']=breadcrumb
+            item['breadcrumbs']=breadcrumbs
 
             product_item=ProductItem(**item)
             product_item.save()
-            logging.info(item)
+            logging.info(product_name)
 
 if __name__=='__main__':
     parser=Parser()
