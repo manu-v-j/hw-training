@@ -2,3 +2,4 @@
 2.Developing the feasibility study of the tesco website.
 3.Task of doing extracting information tesco website used in crawler code.
 url=https://www.tesco.com/
+fields="requirement tech doc"

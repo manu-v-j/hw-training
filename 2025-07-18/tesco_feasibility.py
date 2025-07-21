@@ -22,27 +22,27 @@ headers={
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'
 }
 #######################################CRAWLER#########################################
-count=0
-page=1
+# count=0
+# page=1
 
-while True:
-    url=f"https://www.tesco.com/groceries/buylists/finest-food/all-products/finest-ready-meals?count=24&page={page}#top"
-    response=requests.get(url,headers=headers)
-    sel=Selector(text=response.text)
-    product_urls=sel.xpath("//a[contains(@class,'styled__ImageContainer-sc-1fweb41-0')]/@href").getall()
-    if not product_urls:
-        break
-    for url in product_urls:
-        logging.info(url)
-        count+=1
-        print(count)
-    page+=1
+# while True:
+#     url=f"https://www.tesco.com/groceries/buylists/finest-food/all-products/finest-ready-meals?count=24&page={page}#top"
+#     response=requests.get(url,headers=headers)
+#     sel=Selector(text=response.text)
+#     product_urls=sel.xpath("//a[contains(@class,'styled__ImageContainer-sc-1fweb41-0')]/@href").getall()
+#     if not product_urls:
+#         break
+#     for url in product_urls:
+#         logging.info(url)
+#         count+=1
+#         print(count)
+#     page+=1
 
 ###################################PARSER###########################################
 with open('/home/user/Hashwave/2025-07-18/product_link.json','r') as f:
         product_list = json.load(f)
         for url in product_list:
-        # url="https://www.tesco.com/groceries/en-GB/products/320557635"
+            url="https://www.tesco.com/groceries/en-GB/products/320592270?_gl=1*1i8bfcz*_up*MQ..*_ga*MTg4NDAzNTc2My4xNzUzMDc5Njk1*_ga_33B19D36CY*czE3NTMwNzk2OTQkbzEkZzAkdDE3NTMwNzk2OTQkajYwJGwwJGgyNTA2MDcwOTU."
             response=requests.get(url,headers=headers)
             sel=Selector(text=response.text)
             product_name=sel.xpath("//h1[@data-auto='pdp-product-title']/text()").get()
@@ -81,6 +81,9 @@ with open('/home/user/Hashwave/2025-07-18/product_link.json','r') as f:
             preparationinstructions=sel.xpath("//h3[contains(text(),'Cooking Instructions')]/following-sibling::div[@class='OobGYfu9hvCUvH6']//text()").getall()
             preparationinstructions=' '.join([instruction for instruction in preparationinstructions])
             recycling_information=sel.xpath("//div[@id='accordion-panel-recycling-info']//following-sibling::div[@class='OobGYfu9hvCUvH6']/text()").get()
+            color=sel.xpath("//img[contains(@class,'ac8f2b_o7KQoq_dataLayerimage')]/@alt").getall()
+            size=sel.xpath("//span[contains(@class,'ddsweb-button__inner-container b6325c_8WKJvW_container')]/text()").getall()
+            material=sel.xpath("//h3[contains(text(), 'Material')]/following-sibling::div/span[@class='QhtPR2LZPKOnKcE']/text()").get()
             address=sel.xpath("//h3[contains(text(),'Manufacturer Address')]/following-sibling::div[1]//span/text()").getall()
             manufacturer_address = ''.join([line.strip() for line in address if line.strip()])
             return_address=sel.xpath("//h3[contains(text(),'Return to')]/following-sibling::div[@class='OobGYfu9hvCUvH6']/span/text()").getall()
@@ -92,10 +95,10 @@ with open('/home/user/Hashwave/2025-07-18/product_link.json','r') as f:
             breadcrumbs=sel.xpath("//div[contains(@class,'ddsweb-breadcrumb__item')]//text()").getall()
             image_url=sel.xpath("//img[contains(@class,'ddsweb-responsive-image__image ')]/@src").get()
             date=sel.xpath("//p[contains(@class,'ddsweb-value-bar__terms fcea0c_l011wq_termsText')]/text()").get()
-            dates = re.findall(r"\d{2}/\d{2}/\d{4}", date)
+            # dates = re.findall(r"\d{2}/\d{2}/\d{4}", date)
 
-            if len(dates) == 2:
-                offer_valid_from = dates[0]
-                offer_valid_upto = dates[1]
+            # if len(dates) == 2:
+            #     offer_valid_from = dates[0]
+            #     offer_valid_upto = dates[1]
 
-            print(product_name)
+            print(material)

@@ -14,9 +14,11 @@ headers={
     'upgrade-insecure-requests':'1',
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'
 }
-base_url='https://www.tesco.com/groceries/en-GB'
+base_url='https://www.tesco.com/'
 
 MONGO_URL="mongodb://localhost:27017"
 MONGO_DB="tesco"
 CATEGORY_COLLECTION="category_link"
 COLLECTION="product_link"
+COLLECTION_DETAILS="product_details"
+COLLECTION_ERROR="error_link"
