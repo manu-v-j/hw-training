@@ -55,7 +55,6 @@ class Parser:
             agent_data = {
                 'title':title,
                 'office_name':'',
-                'full_name': full_name,
                 'first_name': first_name,
                 'middle_name': middle_name,
                 'last_name': last_name,

@@ -1,0 +1,24 @@
+1.Learning about the bot detection services
+2.Task of doing extracting information firstweber website to get fields of data.
+3.Learning about the bot detection Techniques
+url= https://www.firstweber.com  
+fields = 
+         title  
+         office_name  
+         address  
+         city  
+         state  
+         zipcode  
+         profile_url  
+         languages  
+         description  
+         first_name  
+         middle_name  
+         last_name  
+         website  
+         email  
+         image_url  
+         agent_phone_numbers  
+         office_phone_numbers  
+         social  
+         country  
