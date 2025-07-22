@@ -37,7 +37,7 @@ class Parser:
                 zipcode=city_state_zip[2]
             profile_url=''
             languages="English"
-            description=sel.xpath("//main[@class='rng-agent-profile-content']//p//text()").getall()
+            description = sel.xpath("//main[@class='rng-agent-profile-content']//p//text() | //main[@class='rng-agent-profile-content']/div/text() | //main[@class='rng-agent-profile-content']/div//text()").getall()
             website=sel.xpath("//li[@class='rng-agent-profile-contact-website']/a/@href").get()
             email=sel.xpath("//li[@class='rng-agent-profile-contact-email']/a/@href").get()
             image_url=sel.xpath("//img[@class='rng-agent-profile-photo']/@src").get()
