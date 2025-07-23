@@ -1,0 +1,17 @@
+1.Update the errors in the firstweber development.
+2.Learning about the bot detection Techniques
+3.Update the errors in the firstweber development.
+4.Site map to check the number of agents on the site.
+5.Task of extracting the required field from 2xlhome website using webscraper.
+
+url=https://2xlhome.com/
+
+fields to extract:
+url
+product name
+selling price
+regular price
+breadcrumbs
+promotion description
+image
+product description
