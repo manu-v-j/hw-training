@@ -43,8 +43,8 @@ class Parser:
                     city = state = zipcode = ""
 
             languages=sel.xpath("//p[@class='rng-agent-profile-languages']/text()").get() or""
-            description = sel.xpath("//main[@class='rng-agent-profile-content']//text()").getall()
-            description=''.join([des.strip() for des in description if des.strip()])
+            description = sel.xpath("//main[@class='rng-agent-profile-content']/div//text()").getall()
+            description=' '.join([des.strip() for des in description if des.strip()])
             website=sel.xpath("//li[@class='rng-agent-profile-contact-website']/a/@href").get() or ""
             email=""
             image_url=sel.xpath("//img[@class='rng-agent-profile-photo']/@src").get() or ""
