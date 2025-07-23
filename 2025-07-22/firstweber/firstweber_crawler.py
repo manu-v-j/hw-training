@@ -1,4 +1,3 @@
-# import cloudscraper
 from curl_cffi import requests
 import json
 from parsel import Selector
@@ -18,11 +17,12 @@ class Crawler:
         url = 'https://www.firstweber.com/CMS/CmsRoster/RosterSearchResults?layoutID=1126&pageSize=10&pageNumber=0&sortBy=firstname'
         # scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'mobile': False})
         # response = scraper.get(url,headers=headers)
-        response=requests.get(url,headers=headers)
+        response=requests.get(url,impersonate='chrome101')
         print(response.status_code)
         if response.status_code == 200:
-            self.parse_item(response,scraper)
-    def parse_item(self,response,scraper):
+            self.parse_item(response)
+
+    def parse_item(self,response):
         data = response.json() 
         data = json.loads(data) 
         html_data = data.get("Html", "")
@@ -31,15 +31,15 @@ class Crawler:
         agent_links=set(agent_links)
         for url in agent_links:
             full_url=f"https://www.firstweber.com{url}"
-            print(full_url)
-            response = scraper.get(full_url)
+            # print(full_url)
+            response = requests.get(full_url,impersonate='chrome')
             sel=Selector(text=response.text)
             agent_link=sel.xpath("//article[@class='rng-agent-roster-agent-card js-sort-item']/a/@href").getall()
             for url in agent_link:
                 try:
                     full_url=f"https://www.firstweber.com{url}"
                     # self.collection.insert_one({'link':full_url})
-                    # print(full_url)
+                    print(full_url)
                 except DuplicateKeyError:
                     logging.debug(f"Duplicate skipped: {full_url}")
 
