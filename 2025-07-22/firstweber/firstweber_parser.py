@@ -1,7 +1,7 @@
 from curl_cffi import requests
 from parsel import Selector
 from pymongo import MongoClient
-from settings import MONGO_URI,MONGO_DB,COLLECTION,COLLECTION_DETAILS,headers
+from settings import MONGO_URI,MONGO_DB,COLLECTION,COLLECTION_DETAILS,Headers
 import logging 
 import re
 import json
@@ -15,8 +15,7 @@ class Parser:
     def start(self):
         for item in self.db[COLLECTION].find():
             url=item.get('link')
-            # scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'mobile': False})
-            response = requests.get(url,impersonate='chrome')
+            response = requests.get(url,headers=Headers,impersonate='chrome')
             print(response.status_code)
             sel=Selector(text=response.text)
             title=sel.xpath("//p[small[text()='Designations']]/text()").get()

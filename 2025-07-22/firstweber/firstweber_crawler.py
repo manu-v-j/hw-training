@@ -2,7 +2,7 @@ from curl_cffi import requests
 import json
 from parsel import Selector
 from pymongo import MongoClient
-from settings import MONGO_URI,MONGO_DB,COLLECTION,headers
+from settings import MONGO_URI,MONGO_DB,COLLECTION,Headers
 from pymongo.errors import DuplicateKeyError
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -15,9 +15,7 @@ class Crawler:
 
     def start(self):
         url = 'https://www.firstweber.com/CMS/CmsRoster/RosterSearchResults?layoutID=1126&pageSize=10&pageNumber=0&sortBy=firstname'
-        # scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'mobile': False})
-        # response = scraper.get(url,headers=headers)
-        response=requests.get(url,impersonate='chrome101')
+        response=requests.get(url,headers=Headers,impersonate='chrome101')
         print(response.status_code)
         if response.status_code == 200:
             self.parse_item(response)
