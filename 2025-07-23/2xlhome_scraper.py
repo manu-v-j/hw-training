@@ -10,7 +10,7 @@ df['selling_price'] = df['selling_price'].str.replace(',', '', regex=True).astyp
 df['regular_price_clean'] = df['regular_price'].str.extract(r'Regular\s*Price\s*AED\s*([\d,]+)', flags=re.IGNORECASE)
 df['regular_price_clean'] = df['regular_price_clean'].str.replace(',', '', regex=True).astype(float)
 
-df['breadcrumbs'] = df['breadcrumbs'].fillna('').apply(lambda x: ' > '.join(part.strip() for part in x.split('>', 1)))
+df['breadcrumbs'] = df['breadcrumbs'].fillna('').apply(lambda x: x if '>' in x else ' > '.join(x.split(' ', 1)))
 
 df.rename(columns={
     'premotion_description': 'promotion_description',
