@@ -17,6 +17,7 @@ df.rename(columns={
     'product_liink_href': 'url',  
     'image_src': 'image'
 }, inplace=True)
+df['promotion_description'] = df['promotion_description'].str.replace(r"\(.*?\)", "", regex=True)
 
 df.drop(columns=['regular_price', 'web_scraper_order', 'web_scraper_start_url', 'product_liink'], errors='ignore', inplace=True)
 
@@ -30,4 +31,3 @@ df_final = df_final.head(50)
 output_file = '/home/user/Hashwave/2025-07-23/2xlhome_clean.csv'
 df_final.to_csv(output_file, index=False)
 
-print(df_final['breadcrumbs'])
