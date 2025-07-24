@@ -18,7 +18,6 @@ df.rename(columns={
     'image_src': 'image'
 }, inplace=True)
 df['promotion_description'] = df['promotion_description'].str.replace(r"\((.*?)\)", r"\1", regex=True)
-print(df['promotion_description'])
 df.drop(columns=['regular_price', 'web_scraper_order', 'web_scraper_start_url', 'product_liink'], errors='ignore', inplace=True)
 
 df_final = df[['url', 'product_name', 'selling_price', 'regular_price_clean', 'breadcrumbs',
