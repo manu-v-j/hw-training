@@ -10,7 +10,8 @@ df['selling_price'] = df['selling_price'].str.replace(',', '', regex=True).astyp
 df['regular_price_clean'] = df['regular_price'].str.extract(r'Regular\s*Price\s*AED\s*([\d,]+)', flags=re.IGNORECASE)
 df['regular_price_clean'] = df['regular_price_clean'].str.replace(',', '', regex=True).astype(float)
 
-df['breadcrumbs'] = df['breadcrumbs'].fillna('').apply(lambda x: [part.strip() for part in x.split(' ', 1)])
+df['breadcrumbs'] = df['breadcrumbs'].fillna('').apply(lambda x: ' > '.join(part.strip() for part in x.split('>', 1)))
+
 df.rename(columns={
     'premotion_description': 'promotion_description',
     'product_liink_href': 'url',  
@@ -29,3 +30,4 @@ df_final = df_final.head(50)
 output_file = '/home/user/Hashwave/2025-07-23/2xlhome_clean.csv'
 df_final.to_csv(output_file, index=False)
 
+print(df_final['breadcrumbs'])
