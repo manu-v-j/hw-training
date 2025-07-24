@@ -1,8 +1,12 @@
 from curl_cffi import requests
+import gzip
+import io
 from xml.dom.minidom import parseString
 import logging
 import json
 logging.basicConfig(level=logging.INFO)
+
+
 
 headers={
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
@@ -23,20 +27,19 @@ headers={
     'upgrade-insecure-requests':'1',
 
 }
-url = "https://www.macys.com/dyn_img/sitemap/mcom_sitemap_lily_group.xml"
-response = requests.get(url,headers=headers)
+url = "https://www.macys.com/dyn_img/sitemap/mcom_sitemap_pdp_ae.xml.gz"
+response = requests.get(url, headers=headers)
 
-# Decode response content (it's plain XML, not gzipped)
-xml_content = response.content.decode('utf-8')
+with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as gz:
+    xml_content = gz.read().decode('utf-8')
 
-# Parse XML
 dom = parseString(xml_content)
-product_list=[]
+
+product_list = []
 count = 1
 for loc in dom.getElementsByTagName("loc"):
     url_value = loc.firstChild.data
     logging.info(f"{count}: {url_value}")
-    product_list.append(url_value)
     count += 1
 
 
