@@ -27,7 +27,7 @@ headers={
     'upgrade-insecure-requests':'1',
 
 }
-url = "https://www.macys.com/dyn_img/sitemap/mcom_sitemap_pdp_ae.xml.gz"
+url = "https://www.macys.com/dyn_img/sitemap/mcom_sitemap_pdp_ad.xml.gz"
 response = requests.get(url, headers=headers)
 
 with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as gz:
