@@ -50,7 +50,7 @@ while url and len(product_links) < 100:
         break
 
 #################################PARSER#############################################
-url="https://www.macys.com/shop/product/blueberi-boulevard-baby-girls-daisy-trim-eyelet-sundress?ID=21481319"
+# url="https://www.macys.com/shop/product/blueberi-boulevard-baby-girls-daisy-trim-eyelet-sundress?ID=21481319"
 for url in product_links:
     response=requests.get(url,headers=headers)
     if response.status_code==200:
@@ -78,3 +78,4 @@ for url in product_links:
         script=sel.xpath("//script[@type='application/ld+json' and @id='productMktData']/text()").get()
         data=json.loads(script)
         image_url=data.get('image',[])
+        print(material)
