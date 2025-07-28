@@ -37,7 +37,8 @@ class Crawler:
       
         next_page = sel.xpath("//li[contains(@class,'chevron-next chevron-next')]/a/@href").get()
         if next_page:
-            return f"https://www.macys.com{next_page}"
+            base_url=f"https://www.macys.com{next_page}"
+            return base_url
         return None
 
 
