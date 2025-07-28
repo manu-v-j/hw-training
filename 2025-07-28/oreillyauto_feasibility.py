@@ -61,17 +61,17 @@ if response.status_code==200:
             if image_url.startswith("//"):
                 image_url = "https:" + image_url
 
-    script_content = sel.xpath("//script[contains(text(),'window._ost.epcAttributes')]/text()").get()
+    brand_information_js=sel.xpath("//script[contains(text(), 'brandInformation')]/text()").get()
+    brand_match = re.search(r"window\._ost\.brandInformation\s*=\s*'(.*?)';", brand_information_js, re.S)
+    brand_information = brand_match.group(1).replace("\\'", "'") if brand_match else ''  
 
-
-            
     breadcrumb_script=sel.xpath("//script[contains(text(),'breadcrumbs.push')]/text()").getall()
     breadcrumb= []
     for script in breadcrumb_script:
         matches = re.findall(r"'text':'([^']+)'", script)
         breadcrumb.extend(matches)
 
-
+    script_content = sel.xpath("//script[contains(text(),'window._ost.epcAttributes')]/text()").get()
     attr_match = re.search(r"window\._ost\.epcAttributes\s*=\s*(\[[^\]]+\]);", script_content, re.S)
     attributes_data = attr_match.group(1).strip() if attr_match else ""
 
