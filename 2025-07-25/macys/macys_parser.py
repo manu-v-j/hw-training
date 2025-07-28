@@ -29,13 +29,13 @@ class Parser:
                 PROMOTION_DESCRIPTION_XPATH="//span[contains(@class,'body-regular price-red')]/text()"
                 BREADCRUMB_XPATH="//li[@class='p-menuitem']/a/text()"
                 PRODUCT_DESCRIPTION_XPATH="//div[@class='long-description medium']/p/text()"
-                COLOR_XPATH="//img[@class='color-swatch-sprite']/@alt"
-                SIZE_XPATH="//label[@class='size-tile selection-tile']//text()"
+                COLOR_XPATH="//img[@class='color-swatch-sprite']/@alt | //span[contains(text(),'Color:')]/following-sibling::span/text()"
+                SIZE_XPATH="//label[@class='size-tile selection-tile']//text() "
                 RATING_XPATH="//span[contains(@class,'rating-average')]/text()"
                 REVIEW_XPATH="//span[@class='rating-description']/a/text()"
                 FEATURES_XPATH="//h4[contains(text(),'Product Features')]/following-sibling::div//span/text()"
                 MATERIAL_CARE_XPATH="//h4[contains(text(),' Materials & Care')]/following-sibling::ul//div/text()"
-                AVAILABILITY_XPATH="//div[@class='grid-y margin-bottom-m']/div/text()"
+                AVAILABILITY_XPATH="//div[@class='grid-y margin-bottom-m']/div/text()| //div[@class='error-color large']/text()"
                 SCRIPT_XPATH="//script[@type='application/ld+json' and @id='productMktData']/text()"
 
                 #EXTRACT
@@ -60,11 +60,11 @@ class Parser:
                 if match:
                     product_id = match.group(1)
                 if regular_price_raw:    
-                    regular_price=regular_price_raw.replace('INR','')
+                    regular_price=regular_price_raw.replace('INR','').strip()
                 if selling_price_raw:    
-                    selling_price=selling_price_raw.replace('INR','')
+                    selling_price=selling_price_raw.replace('INR','').strip()
                 if promotion_description_raw:
-                    promotion_description=re.sub(r'[\(\)]', '', promotion_description_raw)
+                    promotion_description=re.sub(r'[\(\)]', '', promotion_description_raw).strip()
                 breadcrumb='>'.join(breadcrumb_raw)
                 features=','.join(features)
                 material_care_instruction=','.join(material_care_instruction)
