@@ -4,3 +4,6 @@
 4.Task of doing extracting information mylittlesalesman website used in crawler code.
 5.Task of doing extracting information mylittlesalesman website used in parser code.
  url=https://www.mylittlesalesman.com/
+
+ Fields to extract : Price, description, specifications (don't need to be structured necessarily and could be appended to a description), 
+ images, location, contact info (name/phone/email).  We don't necessarily need all images, but the more the better
