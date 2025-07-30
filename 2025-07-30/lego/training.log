@@ -1,0 +1,19 @@
+1.Task of doing extracting information mylittlesalesman website used in parser code.
+2.Task of doing extracting information lego website used in crawler code.
+3.Task of doing extracting information lego website used in parser code.
+
+url=https://www.lego.com/
+fields : 
+unique_id
+competitor_name          
+product_name
+brand
+selling_price
+regular_price
+percentage_discount
+pdp_url
+features
+color
+product_description
+availability
+image
