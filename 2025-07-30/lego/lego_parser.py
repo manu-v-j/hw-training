@@ -1,6 +1,7 @@
 import requests
 from parsel import Selector
 from settings import headers
+import json
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -25,10 +26,15 @@ class Parser:
         product_name=sel.xpath(PRODUCT_NAME_XPATH).get()
         selling_price_raw=sel.xpath(SELLING_PRICE_XPATH_RAW).get()
         regular_price_raw=sel.xpath(REGULAR_PRICE_XPATH_RAW).get()
-        features=sel.xpath(FEATURES_XPATH).getall()
-        proudct_specification=sel.xpath(PRODUCT_DESCRIPTION_XPATH).getall()
+        # features=sel.xpath(FEATURES_XPATH).getall()
+        # proudct_specification=sel.xpath(PRODUCT_DESCRIPTION_XPATH).getall()
         script=sel.xpath("//script[@id='__NEXT_DATA__']/text()").get()
         logging.info(script)
+        data = json.loads(script)
+
+        output_file = "lego_data.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
 
 if __name__=='__main__':
     parser=Parser()
