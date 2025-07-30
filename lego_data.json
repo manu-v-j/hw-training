@@ -10014,7 +10014,7 @@
                         }
                     ]
                 },
-                "$ProductVariant:6470378.attributes": {
+                "$ProductVariant:.attributes6470378": {
                     "availabilityStatus": "K_SOLD_OUT",
                     "availabilityText": "Sold out",
                     "vipAvailabilityStatus": null,
