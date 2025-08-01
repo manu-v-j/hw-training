@@ -73,6 +73,7 @@ class Parser:
         item['brand']=brand
         item['grammage_quantity']=grammage_quantity
         item['grammage_unit']=grammage_unit
+        item['pdp_url']=url
         item['selling_price']=selling_price
         item['currency']='Euro'
         item['country_of_origin']=country_of_origin
@@ -82,7 +83,6 @@ class Parser:
         item['nutritions']=nutritions
         item['storage_instructions']=storage_instructions
         item['image_url']=image_url
-
 
 
 
