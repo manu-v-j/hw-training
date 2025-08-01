@@ -1,0 +1,18 @@
+1.Task of doing extracting information shop website used in crawler code.
+2.Extracting information from the robertsbrothers website uising webscraper.
+3.Task of doing extracting information shop website used in parser code.
+
+url = https://www.robertsbrothers.com/roster/Agents
+main_url = https://www.robertsbrothers.com
+
+fields = title  
+         office_name  
+         address  
+         profile_url  
+         description  
+         name  
+         website  
+         email  
+         agent_phone_numbers  
+         office_phone_numbers  
+         country 
