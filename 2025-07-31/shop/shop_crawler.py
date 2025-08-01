@@ -10,27 +10,33 @@ class Crawler:
         self.client=MongoClient(MONGO_URL)
         self.db=self.client[MONGO_DB]
         self.collection=self.db[COLLECTION]
+        self.collection.create_index('link',unique=True)
 
     def start(self):
         for item in self.db[COLLECTION_CATEGORY].find():
-            url = item.get('link')
-            while url:
-                response = requests.get(url, headers=headers,impersonate='chrome')  
-                
-                if response.status_code == 200:
-                    sel = Selector(text=response.text)
-                    
-                    product_urls = sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
-                    for product in product_urls:
-                        full_url = f'https://shop.rewe.de{product}'
-                        # print(full_url)
-                    
-                next_page = sel.xpath("//a[contains(@class,'plr-pagination__arrow--enabled')]/@href").get()
-                if next_page:
-                    url = f'https://shop.rewe.de{next_page}'
-                else:
+            base_url = item.get('link')
+            page = 1
+            while True:
+                url = f"{base_url}&page={page}"
+                response = requests.get(url, headers=headers, impersonate='chrome')
+                sel = Selector(text=response.text)
+                product_urls = sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
+
+                if not product_urls:
+                    print("No more products. Stopping.")
                     break
-              
+
+                print(f"Scraping: {url}")
+
+                for product in product_urls:
+                    full_url = f"https://shop.rewe.de{product}"
+                    try:
+                        self.collection.insert_one({'link': full_url})
+                        # logging.info(full_url)
+                    except:
+                        logging.warning(f"Duplicate skipped: {full_url}")
+
+                page += 1
 
 if __name__=='__main__':
     crawler=Crawler()

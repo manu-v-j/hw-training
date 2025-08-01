@@ -28,15 +28,20 @@ headers = {
 }
 
 ############################CRAWLER######################################
-product=[]
-url="https://shop.rewe.de/c/kochen-backen/?source=homepage-category"
-response=requests.get(url,headers=headers,impersonate='chrome')
-sel=Selector(text=response.text)
-product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
-for url in product_urls:
-    full_url=f'https://shop.rewe.de{url}'
-    print(full_url)
-    product.append(full_url)
+# product=[]
+# page=1
+# while True:
+#     url=f"https://shop.rewe.de/c/monatshighlights/?source=homepage-category&page={page}"
+#     response=requests.get(url,headers=headers,impersonate='chrome')
+#     sel=Selector(text=response.text)
+#     product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
+#     if not product_urls:
+#         break
+#     print(url)
+#     for url in product_urls:
+#         full_url=f'https://shop.rewe.de{url}'
+#         # print(full_url)
+#     page+=1
 
 ###########################PARSER##########################################
 url="https://shop.rewe.de/p/dr-oetker-schoko-wolke-backmischung-455g/730555?source=pl"
@@ -57,4 +62,3 @@ for row in rows:
     nutritions[key] = value
 storage_instructions=sel.xpath("//h3[contains(text(),'Aufbewahrungshinweise')]/following-sibling:: text()").get()
 image_url=sel.xpath("//div[@class='pdsr-ResponsiveImage']/picture/img/@src").getall()
-print(product_name)
