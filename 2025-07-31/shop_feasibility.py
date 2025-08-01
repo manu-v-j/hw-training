@@ -44,14 +44,14 @@ headers = {
 #     page+=1
 
 ###########################PARSER##########################################
-url="https://shop.rewe.de/p/dr-oetker-schoko-wolke-backmischung-455g/730555?source=pl"
+url="https://shop.rewe.de/p/faber-castell-bleistift-grip-2001-2-stueck/2140470"
 response=requests.get(url,headers=headers,impersonate='chrome')
 sel=Selector(text=response.text)
 product_name=sel.xpath("//h1[@class='pdpr-Title']/text()").get()
 brand=sel.xpath("//span[contains(@class,'pdpr-Brand__Link__Content')]/span/text()").get()
 country_of_origin=sel.xpath("//h3[contains(text(),'Ursprungsland')]/following-sibling::text() | //h3[contains(text(),'Ursprung')]/following-sibling::text()").get()
 selling_price=sel.xpath("//meso-data[@data-price]/@data-price").get()
-product_description=sel.xpath("//div[@class='pdpr-ArticleNumber']/text() | //div[@class='pdpr-ProductContent__Content']//text()").get()
+product_description= sel.xpath("//div[@class='pdpr-ArticleNumber']/text() | //div[@class='pdpr-ProductContent__Content']//text()").getall()
 breadcrumb=sel.xpath("//a[contains(@class,'lr-breadcrumbs__link')]//text()").getall()
 ingredients=sel.xpath("//h3[contains(text(),'Zutaten')]/following-sibling:: text()").get()
 nutritions={}
@@ -62,3 +62,4 @@ for row in rows:
     nutritions[key] = value
 storage_instructions=sel.xpath("//h3[contains(text(),'Aufbewahrungshinweise')]/following-sibling:: text()").get()
 image_url=sel.xpath("//div[@class='pdsr-ResponsiveImage']/picture/img/@src").getall()
+print(product_description)

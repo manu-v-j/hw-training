@@ -43,7 +43,7 @@ class Parser:
         brand=sel.xpath(BRAND_XPATH).get()
         country_of_origin=sel.xpath(COUNTRY_OF_ORIGIN_XPATH).get()
         selling_price_raw=sel.xpath(SELLING_PRICE_XPATH).get()
-        product_description=sel.xpath(PRODUCT_DESCRIPTION_XPATH).get()
+        product_description=sel.xpath(PRODUCT_DESCRIPTION_XPATH).getall()
         breadcrumb=sel.xpath(BREADCRUMB_XPATH).getall()
         ingredients=sel.xpath(INGREDIENTS_XPATH).get()
         rows=sel.xpath(ROWS_XPATH)
@@ -60,10 +60,11 @@ class Parser:
             grammage_unit = match.group(2)
         selling_price=selling_price_raw.replace('€','')
         breadcrumb='>'.join([item.strip() for item in breadcrumb])
+        product_description=','.join(product_description)
         nutritions={}
         for row in rows:
-            key = row.xpath("./td[1]/text()").get().strip()
-            value = row.xpath("./td[2]/text()").get().strip()
+            key = (row.xpath("./td[1]/text()").get() or "").strip()
+            value = (row.xpath("./td[2]/text()").get() or "").strip()
             nutritions[key] = value
         data=json.loads(script)
         image_url=data.get('image','')
