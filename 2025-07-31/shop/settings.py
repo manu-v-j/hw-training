@@ -28,3 +28,4 @@ MONGO_URL='mongodb://localhost:27017'
 MONGO_DB='shop'
 COLLECTION='product_link'
 COLLECTION_CATEGORY='category_link'
+COLLECTION_DETAILS="product_details"

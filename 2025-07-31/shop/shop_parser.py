@@ -4,6 +4,7 @@ from pymongo import MongoClient
 import json
 import re
 from settings import headers,MONGO_URL,MONGO_DB,COLLECTION
+from shop_items import Product_Item
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -84,6 +85,9 @@ class Parser:
         item['storage_instructions']=storage_instructions
         item['image_url']=image_url
 
+        product_item=Product_Item(**item)
+        product_item.save()
+        logging.info(item)
 
 
 if __name__=='__main__':
