@@ -28,24 +28,25 @@ headers = {
 }
 
 ############################CRAWLER######################################
-# product=[]
-# page=1
-# while True:
-#     url=f"https://shop.rewe.de/c/monatshighlights/?source=homepage-category&page={page}"
-#     response=requests.get(url,headers=headers,impersonate='chrome')
-#     sel=Selector(text=response.text)
-#     product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
-#     if not product_urls:
-#         break
-#     print(url)
-#     for url in product_urls:
-#         full_url=f'https://shop.rewe.de{url}'
-#         # print(full_url)
-#     page+=1
+product=[]
+page=1
+while True:
+    url=f"https://shop.rewe.de/c/monatshighlights/?source=homepage-category&page={page}"
+    response=requests.get(url,headers=headers,impersonate='chrome')
+    sel=Selector(text=response.text)
+    product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
+    if not product_urls:
+        break
+    print(url)
+    for url in product_urls:
+        full_url=f'https://shop.rewe.de{url}'
+        # print(full_url)
+    page+=1
 
 ###########################PARSER##########################################
 url="https://shop.rewe.de/p/faber-castell-bleistift-grip-2001-2-stueck/2140470"
 response=requests.get(url,headers=headers,impersonate='chrome')
+print(response.status_code)
 sel=Selector(text=response.text)
 product_name=sel.xpath("//h1[@class='pdpr-Title']/text()").get()
 brand=sel.xpath("//span[contains(@class,'pdpr-Brand__Link__Content')]/span/text()").get()

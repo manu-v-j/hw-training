@@ -22,21 +22,21 @@ headers={
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'
 }
 #######################################CRAWLER#########################################
-# count=0
-# page=1
+count=0
+page=1
 
-# while True:
-#     url=f"https://www.tesco.com/groceries/buylists/finest-food/all-products/finest-ready-meals?count=24&page={page}#top"
-#     response=requests.get(url,headers=headers)
-#     sel=Selector(text=response.text)
-#     product_urls=sel.xpath("//a[contains(@class,'styled__ImageContainer-sc-1fweb41-0')]/@href").getall()
-#     if not product_urls:
-#         break
-#     for url in product_urls:
-#         logging.info(url)
-#         count+=1
-#         print(count)
-#     page+=1
+while True:
+    url=f"https://www.tesco.com/groceries/buylists/finest-food/all-products/finest-ready-meals?count=24&page={page}#top"
+    response=requests.get(url,headers=headers)
+    sel=Selector(text=response.text)
+    product_urls=sel.xpath("//a[contains(@class,'styled__ImageContainer-sc-1fweb41-0')]/@href").getall()
+    if not product_urls:
+        break
+    for url in product_urls:
+        logging.info(url)
+        count+=1
+        print(count)
+    page+=1
 
 ###################################PARSER###########################################
 with open('/home/user/Hashwave/2025-07-18/product_link.json','r') as f:
