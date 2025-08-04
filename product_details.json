@@ -1,0 +1,939 @@
+{
+    "id": 658773,
+    "categoryId": "6311",
+    "categoryName": "Szeletelt és lapka sajtok",
+    "brandName": "Auchan",
+    "defaultVariant": {
+        "id": 4196163,
+        "name": "Auchan Tipp ömlesztett sajt toast 150 g",
+        "brandName": "Auchan",
+        "sku": "791178",
+        "price": {
+            "net": 449,
+            "gross": 449,
+            "currency": "HUF",
+            "decimalPlaces": 0,
+            "netDiscounted": 449,
+            "grossDiscounted": 449,
+            "discountPercentage": 0,
+            "discountDisplayPercentage": 0,
+            "isDiscounted": false
+        },
+        "productId": 658773,
+        "addedName": "",
+        "selectValue": 4196163,
+        "status": "none",
+        "unit": "db",
+        "eanCode": "5999086463340",
+        "aided": false,
+        "cartInfo": {
+            "quantitySteps": 24,
+            "quantityStepSize": 1,
+            "availability": "available"
+        },
+        "packageInfo": {
+            "packageUnit": "KG",
+            "packageSize": 0.15,
+            "unitPrice": {
+                "net": 2993,
+                "gross": 2993,
+                "currency": "HUF",
+                "decimalPlaces": 0,
+                "netDiscounted": 2993,
+                "grossDiscounted": 2993,
+                "discountPercentage": 0,
+                "discountDisplayPercentage": 0,
+                "isDiscounted": false
+            }
+        },
+        "loose": {
+            "loose": false,
+            "convertible": false,
+            "weightPerPiece": 0.158
+        },
+        "flags": [
+            {
+                "id": 68,
+                "flag": "105977611",
+                "name": "OKAuchan Ajánlat",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25139894/pig.svg",
+                "groupBackgroundColor": "#e10019ff"
+            },
+            {
+                "id": 40,
+                "flag": "103821373",
+                "name": "Auchan Tipp",
+                "iconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag/25193417/tipp_flag.svg",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25140035/logo.svg",
+                "groupBackgroundColor": "#ff0019ff"
+            },
+            {
+                "id": 18,
+                "flag": "1399",
+                "name": "Hűtött termék",
+                "iconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag/25193708/flag_hutott_termek.svg",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25139963/flag.svg",
+                "groupBackgroundColor": "#5972d2ff"
+            }
+        ],
+        "media": {
+            "images": [
+                "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_medium/product/34335275/01_158111662_front_1739969512.png"
+            ],
+            "videos": [],
+            "mainImage": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_medium/product/34335275/01_158111662_front_1739969512.png",
+            "listImage": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_list/product/34335275/01_158111662_front_1739969512.png"
+        },
+        "details": [
+            "description",
+            "parameterList",
+            "nutrition",
+            "ingredients",
+            "allergensDetailed"
+        ],
+        "isInVirtualStock": false,
+        "shoppingListsContain": [],
+        "offerType": "",
+        "isDataEraserNeeded": false,
+        "isLoyaltyPriceValid": false
+    },
+    "selectedVariant": {
+        "id": 4196163,
+        "name": "Auchan Tipp ömlesztett sajt toast 150 g",
+        "brandName": "Auchan",
+        "sku": "791178",
+        "price": {
+            "net": 449,
+            "gross": 449,
+            "currency": "HUF",
+            "decimalPlaces": 0,
+            "netDiscounted": 449,
+            "grossDiscounted": 449,
+            "discountPercentage": 0,
+            "discountDisplayPercentage": 0,
+            "isDiscounted": false
+        },
+        "productId": 658773,
+        "addedName": "",
+        "selectValue": 4196163,
+        "status": "none",
+        "unit": "db",
+        "eanCode": "5999086463340",
+        "aided": false,
+        "cartInfo": {
+            "quantitySteps": 24,
+            "quantityStepSize": 1,
+            "availability": "available"
+        },
+        "packageInfo": {
+            "packageUnit": "KG",
+            "packageSize": 0.15,
+            "unitPrice": {
+                "net": 2993,
+                "gross": 2993,
+                "currency": "HUF",
+                "decimalPlaces": 0,
+                "netDiscounted": 2993,
+                "grossDiscounted": 2993,
+                "discountPercentage": 0,
+                "discountDisplayPercentage": 0,
+                "isDiscounted": false
+            }
+        },
+        "loose": {
+            "loose": false,
+            "convertible": false,
+            "weightPerPiece": 0.158
+        },
+        "flags": [
+            {
+                "id": 68,
+                "flag": "105977611",
+                "name": "OKAuchan Ajánlat",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25139894/pig.svg",
+                "groupBackgroundColor": "#e10019ff"
+            },
+            {
+                "id": 40,
+                "flag": "103821373",
+                "name": "Auchan Tipp",
+                "iconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag/25193417/tipp_flag.svg",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25140035/logo.svg",
+                "groupBackgroundColor": "#ff0019ff"
+            },
+            {
+                "id": 18,
+                "flag": "1399",
+                "name": "Hűtött termék",
+                "iconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag/25193708/flag_hutott_termek.svg",
+                "groupIconUrl": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/flag_group/25139963/flag.svg",
+                "groupBackgroundColor": "#5972d2ff"
+            }
+        ],
+        "media": {
+            "images": [
+                "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_medium/product/34335275/01_158111662_front_1739969512.png"
+            ],
+            "videos": [],
+            "mainImage": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_medium/product/34335275/01_158111662_front_1739969512.png",
+            "listImage": "https://ahuazurewebblob0-d2geauehc9ekc7ey.z01.azurefd.net/auchan/cache/product_list/product/34335275/01_158111662_front_1739969512.png"
+        },
+        "details": [
+            "description",
+            "parameterList",
+            "nutrition",
+            "ingredients",
+            "allergensDetailed"
+        ],
+        "isInVirtualStock": false,
+        "shoppingListsContain": [],
+        "offerType": "",
+        "isDataEraserNeeded": false,
+        "isLoyaltyPriceValid": false
+    },
+    "eancode": "5999086463340",
+    "usedItem": {
+        "canReturn": false,
+        "return": false
+    },
+    "reviewable": "login",
+    "reviewSum": {
+        "sumCount": 0,
+        "average": 0
+    },
+    "categories": [
+        {
+            "id": 14479,
+            "level": 0,
+            "name": "Friss élelmiszer",
+            "imageUrl": "",
+            "thumbnailUrl": "https://ahuazurewebblob0.blob.core.windows.net/auchan/cache/category_thumbnail/category/26089307/gyumolcs.jpg",
+            "mobileImageUrl": "https://ahuazurewebblob0.blob.core.windows.net/auchan/cache/category_mobile/category/26089304/Zo%CC%88ldse%CC%81g%20-%20gyu%CC%88mo%CC%88lcs.png",
+            "productCount": 3084,
+            "comparable": false,
+            "discountedCount": 423,
+            "childCount": 5,
+            "children": [],
+            "boutique": false,
+            "slug": "friss-elelmiszer"
+        },
+        {
+            "id": 5559,
+            "level": 1,
+            "name": "Tejtermék, tojás, sajt",
+            "imageUrl": "",
+            "thumbnailUrl": "https://ahuazurewebblob0.blob.core.windows.net/auchan/cache/category_thumbnail/category/28659296/tejterm%C3%A9k%2C%20toj%C3%A1s%2C%20sajt.webp",
+            "mobileImageUrl": "https://ahuazurewebblob0.blob.core.windows.net/auchan/cache/category_mobile/category/11516395/Tejterme%CC%81k%2C%20toja%CC%81s%2C%20sajt.png",
+            "productCount": 1413,
+            "comparable": false,
+            "discountedCount": 215,
+            "childCount": 9,
+            "children": [],
+            "boutique": false,
+            "slug": "tejtermek-tojas-sajt",
+            "productContentId": [
+                4091
+            ]
+        },
+        {
+            "id": 5680,
+            "level": 2,
+            "name": "Csomagolt sajtok",
+            "imageUrl": "",
+            "thumbnailUrl": "https://ahuazurewebblob0.blob.core.windows.net/auchan/cache/category_thumbnail/category/28659314/csomagolt%20sajtok.webp",
+            "mobileImageUrl": "",
+            "productCount": 509,
+            "comparable": false,
+            "discountedCount": 61,
+            "childCount": 10,
+            "children": [],
+            "boutique": false,
+            "slug": "csomagolt-sajtok",
+            "productContentId": [
+                4091
+            ]
+        },
+        {
+            "id": 6311,
+            "level": 3,
+            "name": "Szeletelt és lapka sajtok",
+            "imageUrl": "",
+            "thumbnailUrl": "",
+            "mobileImageUrl": "",
+            "productCount": 71,
+            "comparable": false,
+            "discountedCount": 12,
+            "childCount": 0,
+            "children": [],
+            "boutique": false,
+            "slug": "szeletelt-es-lapka-sajtok",
+            "productContentId": [
+                4091
+            ]
+        }
+    ],
+    "inCategories": [
+        6311
+    ],
+    "isNewProduct": false,
+    "stockInfos": [
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00201",
+                "name": "Auchan Budaörs",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2040",
+                    "city": "Budaörs",
+                    "district": null,
+                    "streetName": "Sport ",
+                    "streetType": "utca",
+                    "streetNo": "2-4.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "low",
+            "stock": 0,
+            "store": {
+                "id": "HUN00301",
+                "name": "Auchan Soroksár",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "1239",
+                    "city": "Budapest",
+                    "district": null,
+                    "streetName": "Bevásárló ",
+                    "streetType": "utca",
+                    "streetNo": "2.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00401",
+                "name": "Auchan Dunakeszi",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2120",
+                    "city": "Dunakeszi",
+                    "district": null,
+                    "streetName": "Nádas ",
+                    "streetType": "utca",
+                    "streetNo": "6.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00501",
+                "name": "Auchan Székesfehérvár",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "8000",
+                    "city": "Székesfehérvár",
+                    "district": null,
+                    "streetName": "Holland ",
+                    "streetType": "fasor",
+                    "streetNo": "2.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00601",
+                "name": "Auchan Kecskemét",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "6000",
+                    "city": "Kecskemét",
+                    "district": null,
+                    "streetName": "Dunaföldvári ",
+                    "streetType": "utca",
+                    "streetNo": "2.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00701",
+                "name": "Auchan Szigetszentmiklós",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2310",
+                    "city": "Szigetszentmiklós",
+                    "district": null,
+                    "streetName": "Háros ",
+                    "streetType": "utca",
+                    "streetNo": "120.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00801",
+                "name": "Auchan Csömör",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2141",
+                    "city": "Csömör",
+                    "district": null,
+                    "streetName": "Határ ",
+                    "streetType": "út",
+                    "streetNo": "6.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN00901",
+                "name": "Auchan Aquincum Óbuda",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "1033",
+                    "city": "Budapest",
+                    "district": null,
+                    "streetName": "Szentendrei ",
+                    "streetType": "út",
+                    "streetNo": "115.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01001",
+                "name": "Auchan Savoya Park",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "1117",
+                    "city": "Budapest",
+                    "district": null,
+                    "streetName": "Hunyadi János",
+                    "streetType": "utca",
+                    "streetNo": "19.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01201",
+                "name": "Auchan Pilis Solymár",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2083",
+                    "city": "Solymár",
+                    "district": null,
+                    "streetName": "Szent Flórián",
+                    "streetType": "utca",
+                    "streetNo": "2-4.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01401",
+                "name": "Auchan Miskolc",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "3527",
+                    "city": "Miskolc",
+                    "district": null,
+                    "streetName": "József Attila",
+                    "streetType": "utca",
+                    "streetNo": "87.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01501",
+                "name": "Auchan Maglód",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2234",
+                    "city": "Maglód",
+                    "district": null,
+                    "streetName": "Eszterházy János",
+                    "streetType": "utca",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01601",
+                "name": "Auchan Fót",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2151",
+                    "city": "Fót",
+                    "district": null,
+                    "streetName": "Fehérkő ",
+                    "streetType": "utca",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01801",
+                "name": "Auchan Szeged",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "6728",
+                    "city": "Szeged",
+                    "district": null,
+                    "streetName": "Zápor ",
+                    "streetType": "út",
+                    "streetNo": "4.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN01901",
+                "name": "Auchan Szolnok",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "5000",
+                    "city": "Szolnok",
+                    "district": null,
+                    "streetName": "Felső Szandai",
+                    "streetType": "rét",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN02001",
+                "name": "Auchan Debrecen",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "4031",
+                    "city": "Debrecen",
+                    "district": null,
+                    "streetName": "Kishatár ",
+                    "streetType": "utca",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN02101",
+                "name": "Auchan Miskolc Dél",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "3516",
+                    "city": "Miskolc",
+                    "district": null,
+                    "streetName": "Pesti ",
+                    "streetType": "út",
+                    "streetNo": "9.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN02201",
+                "name": "Auchan Törökbálint",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2045",
+                    "city": "Törökbálint",
+                    "district": null,
+                    "streetName": "Torbágy ",
+                    "streetType": "utca",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN02301",
+                "name": "Auchan Budakalász",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "2011",
+                    "city": "Budakalász",
+                    "district": null,
+                    "streetName": "Omszk ",
+                    "streetType": "park",
+                    "streetNo": "1.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN12001",
+                "name": "Auchan Szekszárd",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "7100",
+                    "city": "Szekszárd",
+                    "district": null,
+                    "streetName": "Liszt Ferenc",
+                    "streetType": "tér",
+                    "streetNo": "2-4.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN12101",
+                "name": "Auchan Újhegy",
+                "description": "",
+                "phoneNumber": " (06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "1103",
+                    "city": "Budapest",
+                    "district": null,
+                    "streetName": "Gyömrői ",
+                    "streetType": "út",
+                    "streetNo": "99.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN12201",
+                "name": "Auchan Győr",
+                "description": "",
+                "phoneNumber": "(06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "9024",
+                    "city": "Győr",
+                    "district": null,
+                    "streetName": "Vasvári Pál",
+                    "streetType": "utca",
+                    "streetNo": "1/a",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN12301",
+                "name": "Auchan Zalaegerszeg",
+                "description": "",
+                "phoneNumber": "(06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "8900",
+                    "city": "Zalaegerszeg",
+                    "district": null,
+                    "streetName": "Stadion ",
+                    "streetType": "utca",
+                    "streetNo": "5.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        },
+        {
+            "id": 0,
+            "stockLevel": "average",
+            "stock": 0,
+            "store": {
+                "id": "HUN12401",
+                "name": "Auchan Sopron",
+                "description": "",
+                "phoneNumber": "(06-80) 10-90-10",
+                "address": {
+                    "countryCode": null,
+                    "coordinates": [],
+                    "isCorrect": true,
+                    "postCode": "9400",
+                    "city": "Sopron",
+                    "district": null,
+                    "streetName": "Lackner K.",
+                    "streetType": "utca",
+                    "streetNo": "31.",
+                    "building": null,
+                    "floor": null,
+                    "door": null,
+                    "staircase": null,
+                    "elevator": false
+                }
+            }
+        }
+    ],
+    "adultsOnly": false,
+    "shipmentDays": 0,
+    "ageConfirmed": false,
+    "isNonFood": false,
+    "type": "food",
+    "isDataEraserNeeded": false,
+    "documents": [],
+    "highlightedParameters": [],
+    "creditStatus": 0,
+    "creditTypes": []
+}
