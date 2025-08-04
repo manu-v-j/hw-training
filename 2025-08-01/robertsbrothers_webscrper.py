@@ -2,7 +2,7 @@ import pandas as pd
 import re
 import json
 
-df = pd.read_csv('/home/user/Hashwave/2025-08-01/robertsbrothers_site.csv')
+df = pd.read_csv('/home/toshiba/Hashwave/2025-08-01/robertsbrothers_site.csv')
 df = df.drop(columns=['web-scraper-order','website'])
 df = df.rename(columns={'web-scraper-start-url': 'profile_url','website-href':'website'})
 df['name'] = df['name'].str.split('\n').str[0].str.strip()
@@ -21,5 +21,4 @@ with open(data, 'r', encoding='utf-8') as f:
     for line in f:
         data.append(json.loads(line))
 
-# Print as a list of dicts
 print(result)
