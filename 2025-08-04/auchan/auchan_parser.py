@@ -39,10 +39,7 @@ class Parser:
        
         pattern = r'\d+(?:[.,]\d+)?\s*(ml|l|g|kg)'
         match = re.findall(pattern, product_name.lower())
-
         uom = match[-1] if match else ''
-        print(uom)
-
 
         item={}
         item['unique_id']=unique_id
