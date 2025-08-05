@@ -58,6 +58,8 @@ class Parser:
         if match:
             id=match.group()
         product_description=product_details.get('featuresText','')
+        if product_description:
+            product_description=product_description.strip()
         desc_selector = Selector(text=product_description)
         product_description = " ".join(desc_selector.xpath("//p/text() | //li/text()").getall()).strip()
         product_attribute=data.get('props',{}).get('pageProps',{}).get('__APOLLO_STATE__',{}).get(f'ProductVariant:{id}',{})
@@ -91,7 +93,7 @@ class Parser:
         product_item=Product_Item(**item)
         product_item.save()
 
-        logging.info(item)
+        logging.info(product_description)
 
 if __name__=='__main__':
     parser=Parser()

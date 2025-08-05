@@ -1,0 +1,16 @@
+1.working of the pagination in website using webscraper
+2.Learning about the selectors in webscraper.
+3.working of the pagination in website marksandspencer using webscraper
+4.Task of doing extracting information auchan website used in crawler code.
+url=https://auchan.hu/
+
+category - dairy products
+
+unique_id
+product_name
+regular_price
+selling_price
+percentage_discount
+breadcrumb
+pdp_url
+uom

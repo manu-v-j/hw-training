@@ -25,25 +25,25 @@ class Export:
             image = item.get('image')
 
             self.all_items.append({
-                'Unique_id': unique_id,
-                'Competitor_name': competitor_name,
-                'Product_name': product_name,
-                'Brand': brand,
-                'Selling_price': selling_price,
-                'Regular_price': regular_price,
-                'Percentage_discount': percentage_discount,
-                'Pdp_url': pdp_url,
-                'Features': features,
-                'Color': color,
-                'Product_description': product_description,
-                'Availability': availability,
-                'Image': image
+                'unique_id': unique_id,
+                'competitor_name': competitor_name,
+                'product_name': product_name,
+                'brand': brand,
+                'selling_price': selling_price,
+                'regular_price': regular_price,
+                'percentage_discount': percentage_discount,
+                'pdp_url': pdp_url,
+                'features': features,
+                'color': color,
+                'product_description': product_description,
+                'availability': availability,
+                'image': image
             })
 
         field_names = [
-            'Unique_id', 'Competitor_name', 'Product_name', 'Brand', 'Selling_price',
-            'Regular_price', 'Percentage_discount', 'Pdp_url', 'Features', 'Color',
-            'Product_description', 'Availability', 'Image'
+            'unique_id', 'competitor_name', 'product_name', 'brand', 'selling_price',
+            'regular_price', 'percentage_discount', 'pdp_url', 'features', 'color',
+            'product_description', 'availability', 'image'
         ]
 
         with open('lego_20250730.csv', 'w', newline='', encoding='utf-8') as csv_file:

@@ -40,27 +40,27 @@ while True:
     print(url)
     for url in product_urls:
         full_url=f'https://shop.rewe.de{url}'
-        # print(full_url)
+        print(full_url)
     page+=1
 
 ###########################PARSER##########################################
-url="https://shop.rewe.de/p/faber-castell-bleistift-grip-2001-2-stueck/2140470"
-response=requests.get(url,headers=headers,impersonate='chrome')
-print(response.status_code)
-sel=Selector(text=response.text)
-product_name=sel.xpath("//h1[@class='pdpr-Title']/text()").get()
-brand=sel.xpath("//span[contains(@class,'pdpr-Brand__Link__Content')]/span/text()").get()
-country_of_origin=sel.xpath("//h3[contains(text(),'Ursprungsland')]/following-sibling::text() | //h3[contains(text(),'Ursprung')]/following-sibling::text()").get()
-selling_price=sel.xpath("//meso-data[@data-price]/@data-price").get()
-product_description= sel.xpath("//div[@class='pdpr-ArticleNumber']/text() | //div[@class='pdpr-ProductContent__Content']//text()").getall()
-breadcrumb=sel.xpath("//a[contains(@class,'lr-breadcrumbs__link')]//text()").getall()
-ingredients=sel.xpath("//h3[contains(text(),'Zutaten')]/following-sibling:: text()").get()
-nutritions={}
-rows=sel.xpath("//table[contains(@class,'pdpr-NutritionTable')]//tbody/tr")
-for row in rows:
-    key = row.xpath("./td[1]/text()").get().strip()
-    value = row.xpath("./td[2]/text()").get().strip()
-    nutritions[key] = value
-storage_instructions=sel.xpath("//h3[contains(text(),'Aufbewahrungshinweise')]/following-sibling:: text()").get()
-image_url=sel.xpath("//div[@class='pdsr-ResponsiveImage']/picture/img/@src").getall()
-print(product_description)
+# url="https://shop.rewe.de/p/faber-castell-bleistift-grip-2001-2-stueck/2140470"
+# response=requests.get(url,headers=headers,impersonate='chrome')
+# print(response.status_code)
+# sel=Selector(text=response.text)
+# product_name=sel.xpath("//h1[@class='pdpr-Title']/text()").get()
+# brand=sel.xpath("//span[contains(@class,'pdpr-Brand__Link__Content')]/span/text()").get()
+# country_of_origin=sel.xpath("//h3[contains(text(),'Ursprungsland')]/following-sibling::text() | //h3[contains(text(),'Ursprung')]/following-sibling::text()").get()
+# selling_price=sel.xpath("//meso-data[@data-price]/@data-price").get()
+# product_description= sel.xpath("//div[@class='pdpr-ArticleNumber']/text() | //div[@class='pdpr-ProductContent__Content']//text()").getall()
+# breadcrumb=sel.xpath("//a[contains(@class,'lr-breadcrumbs__link')]//text()").getall()
+# ingredients=sel.xpath("//h3[contains(text(),'Zutaten')]/following-sibling:: text()").get()
+# nutritions={}
+# rows=sel.xpath("//table[contains(@class,'pdpr-NutritionTable')]//tbody/tr")
+# for row in rows:
+#     key = row.xpath("./td[1]/text()").get().strip()
+#     value = row.xpath("./td[2]/text()").get().strip()
+#     nutritions[key] = value
+# storage_instructions=sel.xpath("//h3[contains(text(),'Aufbewahrungshinweise')]/following-sibling:: text()").get()
+# image_url=sel.xpath("//div[@class='pdsr-ResponsiveImage']/picture/img/@src").getall()
+# print(product_description)

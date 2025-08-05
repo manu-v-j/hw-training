@@ -20,7 +20,7 @@ class Crawler:
             params = {
                 "page": page,
                 "itemsPerPage": 12,
-                "categoryId": 5680,
+                "categoryId": 5669,
                 "cacheSegmentationCode": "",
                 "hl": "hu"
             }
@@ -43,7 +43,7 @@ class Crawler:
                     slug = name.lower().replace(" ", "-").replace(",", "").replace(".", "")
                     product_url = f"https://auchan.hu/shop/{slug}.p-{sku}"
                     try:
-                        self.collection.insert_one({'link': product_url})
+                        self.collection.insert_one({'link': product_url,'sku':sku})
                         logging.info(f"Inserted: {product_url}")
                     except DuplicateKeyError:
                         logging.warning(f"Duplicate link skipped: {product_url}")
