@@ -35,14 +35,13 @@ class Parser:
         regular_price=f"{float(regular_price):.2f}"
         breadcrumb=[]
         breadcrumb = '>'.join(['Főoldal', 'Online áruház'] + [category.get('name', '') for category in category_list] + [product_name])
-        uom=product_name.rsplit(' ', 1)
 
-        pattern = r'\b(ml|l|g|kg)\b'
+       
+        pattern = r'\d+(?:[.,]\d+)?\s*(ml|l|g|kg)'
         match = re.findall(pattern, product_name.lower())
-        if match:
-            uom=match[-1].strip()
-        else:
-            uom=''
+
+        uom = match[-1] if match else ''
+        print(uom)
 
 
         item={}
