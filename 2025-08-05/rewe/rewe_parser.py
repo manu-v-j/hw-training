@@ -15,7 +15,7 @@ class Parser:
         
 
     def start(self):
-        for item in self.db[COLLECTION].find().limit(10):
+        for item in self.db[COLLECTION].find().limit(30):
             url=item.get('link')
             response=requests.get(url,headers=headers,impersonate='chrome')
             if response.status_code==200:
@@ -35,7 +35,7 @@ class Parser:
         INGREDIENTS_XPATH="//h3[contains(text(),'Zutaten')]/following-sibling:: text()"
         ROWS_XPATH="//table[contains(@class,'pdpr-NutritionTable')]//tbody/tr"
         STORAGE_INSTRUCTIONS_XPATH="//h3[contains(text(),'Aufbewahrungshinweise')]/following-sibling:: text()"
-        SCRIPT_XPATH="//script[@type='application/ld+json']/text()"
+        SCRIPT_XPATH="//script[contains(@id,'pdpr-propstore')]/text()"
 
         #CLEAN
         unique_id_raw=sel.xpath(UNIQUE_ID).get()
@@ -60,14 +60,23 @@ class Parser:
             grammage_unit = match.group(2)
         selling_price=selling_price_raw.replace('€','')
         breadcrumb='>'.join([item.strip() for item in breadcrumb])
-        product_description=','.join(product_description)
+        cleaned_desc = []
+        for desc in product_description:
+            if desc and desc.strip():
+                text = ' '.join(desc.split())
+                cleaned_desc.append(text)
+        product_description=','.join(cleaned_desc).replace("\n","") if product_description else ""
         nutritions={}
         for row in rows:
             key = (row.xpath("./td[1]/text()").get() or "").strip()
             value = (row.xpath("./td[2]/text()").get() or "").strip()
             nutritions[key] = value
         data=json.loads(script)
-        image_url=data.get('image','')
+        selling_price=data.get('productData',{}).get('pricing',{}).get('price','')
+        selling_price = f"{float(selling_price):.2f}" if selling_price else ''
+        information_list=data.get('productData',{}).get('mediaInformation',[])
+        for list in information_list:
+            image_url=list.get('mediaUrl','')
 
         item={}
         item['unique_id']=unique_id
@@ -89,7 +98,7 @@ class Parser:
 
         product_item=Product_Item(**item)
         product_item.save()
-        logging.info(item)
+        logging.info(product_description)
 
 
 if __name__=='__main__':

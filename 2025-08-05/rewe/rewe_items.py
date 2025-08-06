@@ -13,7 +13,6 @@ class Product_Item(DynamicDocument):
     pdp_url=StringField()
     selling_price=StringField()
     regular_price=StringField()
-    promotion_description=StringField()
     currency=StringField()
     country_of_origin=StringField()
     product_description=StringField()

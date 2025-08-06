@@ -1,0 +1,537 @@
+{
+    "productData": {
+        "productId": "8186850",
+        "articleId": "3073781106350",
+        "listingId": "13-3073781106350-7ceab582-b1a1-3ead-bb2a-63fd63735141",
+        "listingVersion": "1200006",
+        "productGroupId": "8186850",
+        "productGroupSlug": "mini-babybel-original-kaese-snack-9-stueck-180g",
+        "slug": "mini-babybel-original-kaese-snack-9-stueck-180g",
+        "articleGroupId": "3073781106350",
+        "gtin": "3073781106350",
+        "storeServiceType": "PICKUP",
+        "marketCode": "830838",
+        "nan": "8186850",
+        "productName": "Mini Babybel Original Käse-Snack 9 Stück 180g",
+        "categories": [
+            "3832",
+            "3897",
+            "3896",
+            "3835",
+            "3458"
+        ],
+        "categorySlug": "fruehstueck-fuer-kinder",
+        "tags": [
+            "Vegetarian"
+        ],
+        "allergenStatement": "Enthält: Milch und Milcherzeugnisse (einschließlich Lactose).",
+        "ingredientStatement": "pasteurisierte MILCH, Speisesalz, MILCHsäurebakterien, mikrobielles Lab.",
+        "tradeItemMarketingMessage": "Snack nicht irgendwas. Snack Babybel! Ohne Gentechnik\nLaktosefrei",
+        "regulatedProductName": "Halbfester Schnittkäse 45% Fett i. Tr.",
+        "mediaInformation": [
+            {
+                "type": "image",
+                "mediaUrl": "https://img.rewe-static.de/8186850/51250863_digital-image.png",
+                "dimensions": {
+                    "width": 1600,
+                    "height": 1600
+                }
+            },
+            {
+                "type": "image",
+                "mediaUrl": "https://img.rewe-static.de/8186850/50018529_digital-image.png",
+                "dimensions": {
+                    "width": 1600,
+                    "height": 1600
+                }
+            }
+        ],
+        "bio": false,
+        "new": false,
+        "qsCertificationMark": false,
+        "nutritionFacts": [
+            {
+                "preparationState": {
+                    "code": "UNPREPARED",
+                    "text": "Unzubereitet"
+                },
+                "nutrientInformation": [
+                    {
+                        "nutrientType": {
+                            "code": "ENER-",
+                            "text": "Energie"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 1225,
+                            "uom": "KJO",
+                            "uomShortText": "kJ",
+                            "uomLongText": "kJ"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "ENER-",
+                            "text": "Energie"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 295,
+                            "uom": "E14",
+                            "uomShortText": "kcal",
+                            "uomLongText": "kcal"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "FAT",
+                            "text": "Fett"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 23,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "FASAT",
+                            "text": "Fett, davon gesättigte Fettsäuren"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 15.5,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "CHOAVL",
+                            "text": "Kohlenhydrate"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 0.01,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "SUGAR-",
+                            "text": "Kohlenhydrate, davon Zucker"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 0.01,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "PRO-",
+                            "text": "Eiweiß"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 22,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "SALTEQ",
+                            "text": "Salz"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 1.7,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "CA",
+                            "text": "Calcium"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 680,
+                            "uom": "ME",
+                            "uomShortText": "mg",
+                            "uomLongText": "Milligramm"
+                        }
+                    }
+                ],
+                "servingSize": {
+                    "value": 100,
+                    "uom": "GR",
+                    "uomShortText": "g",
+                    "uomLongText": "Gramm"
+                }
+            },
+            {
+                "preparationState": {
+                    "code": "UNPREPARED",
+                    "text": "Unzubereitet"
+                },
+                "nutrientInformation": [
+                    {
+                        "nutrientType": {
+                            "code": "ENER-",
+                            "text": "Energie"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 245,
+                            "uom": "KJO",
+                            "uomShortText": "kJ",
+                            "uomLongText": "kJ"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "ENER-",
+                            "text": "Energie"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 59,
+                            "uom": "E14",
+                            "uomShortText": "kcal",
+                            "uomLongText": "kcal"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "FAT",
+                            "text": "Fett"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 4.6,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "FASAT",
+                            "text": "Fett, davon gesättigte Fettsäuren"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 3.1,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "CHOAVL",
+                            "text": "Kohlenhydrate"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 0.01,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "SUGAR-",
+                            "text": "Kohlenhydrate, davon Zucker"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 0.01,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "PRO-",
+                            "text": "Eiweiß"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 4.4,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "SALTEQ",
+                            "text": "Salz"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 0.34,
+                            "uom": "GR",
+                            "uomShortText": "g",
+                            "uomLongText": "Gramm"
+                        }
+                    },
+                    {
+                        "nutrientType": {
+                            "code": "CA",
+                            "text": "Calcium"
+                        },
+                        "measurementPrecision": {
+                            "code": "APPROXIMATELY",
+                            "text": "ungefähr"
+                        },
+                        "quantityContained": {
+                            "value": 136,
+                            "uom": "ME",
+                            "uomShortText": "mg",
+                            "uomLongText": "Milligramm"
+                        }
+                    }
+                ],
+                "servingSize": {
+                    "value": 20,
+                    "uom": "GR",
+                    "uomShortText": "g",
+                    "uomLongText": "Gramm"
+                }
+            }
+        ],
+        "packaging": {
+            "weightPerPiece": 180,
+            "volumeCode": "STK"
+        },
+        "pricing": {
+            "grammage": "180g (1 kg = 23,28 €)",
+            "price": 419,
+            "regularPrice": 419
+        },
+        "limitations": {
+            "orderLimit": 99,
+            "regularOrderLimit": 99
+        },
+        "merchant": {
+            "name": "REWE",
+            "type": "REWE",
+            "mediaInformation": {
+                "logo": {
+                    "defaultUrl": "https://a.rewe-static.de/partnerlogos/rewe/REWE_mp.png"
+                }
+            },
+            "address": {
+                "city": "Cologne",
+                "companyName": "Rewe",
+                "country": "Germany",
+                "houseNumber": "20",
+                "street": "Domstraße",
+                "zipCode": "50668"
+            }
+        },
+        "brandKey": "Babybel",
+        "manufacturer": {
+            "name": "BEL, B.P. 114",
+            "communicationAddress": "92151 SURESNES CEDEX - France"
+        },
+        "attributeGroups": [
+            {
+                "label": "Hinweise",
+                "attributes": [
+                    {
+                        "name": "CompulsoryAdditivesLabelInformation",
+                        "showLabel": false,
+                        "value": "Information: Laktosegehalt < 0,1g/100g\r\nEltern aufgepasst: Um Erstickungsgefahr bei Kindern unter vier Jahren zu vermeiden, schneiden Sie mundgerechte Stücke. Kinder sollten nicht unbeaufsichtigt essen.",
+                        "index": 1
+                    },
+                    {
+                        "name": "ConsumerStorageInstructionsStaR",
+                        "label": "Aufbewahrungshinweise",
+                        "showLabel": true,
+                        "value": "Nach dem Kauf gekühlt aufbewahren.\r\nMindestens haltbar bis: siehe Verpackungsaufdruck",
+                        "index": 4
+                    }
+                ],
+                "index": 5
+            },
+            {
+                "label": "Artikeldetails",
+                "attributes": [
+                    {
+                        "name": "BrandId",
+                        "label": "Marke",
+                        "showLabel": true,
+                        "value": "Babybel",
+                        "index": 3
+                    },
+                    {
+                        "name": "CustomProductFlags",
+                        "label": "Eigenschaften",
+                        "showLabel": true,
+                        "value": "Vegetarisch",
+                        "index": 7
+                    },
+                    {
+                        "name": "NumberOfServingsPerPackage",
+                        "label": "Anzahl der Portionen pro Packung",
+                        "showLabel": true,
+                        "value": "9",
+                        "index": 9
+                    },
+                    {
+                        "name": "TradeItemCountryOfOrigin",
+                        "label": "Ursprungsland",
+                        "showLabel": true,
+                        "value": "Slowakei",
+                        "index": 19
+                    }
+                ],
+                "index": 6
+            },
+            {
+                "label": "Kontakt",
+                "attributes": [
+                    {
+                        "name": "ContactName",
+                        "label": "Kontaktname",
+                        "showLabel": true,
+                        "value": "BEL, B.P. 114",
+                        "index": 1
+                    },
+                    {
+                        "name": "CommunicationAddress",
+                        "label": "Kontaktadresse",
+                        "showLabel": true,
+                        "value": "92151 SURESNES CEDEX - France",
+                        "index": 2
+                    }
+                ],
+                "index": 8
+            }
+        ],
+        "isBuyable": false,
+        "isMarketSelected": false,
+        "noIndex": false,
+        "productDetailsLink": "/p/mini-babybel-original-kaese-snack-9-stueck-180g/8186850"
+    },
+    "metaData": {
+        "serviceTypes": [],
+        "showPrice": false,
+        "noIndex": false
+    },
+    "internalData": {
+        "context": "product-detail",
+        "testGroups": [
+            "abt-pdp-combined-description",
+            "category-overview-renderer",
+            "category-overview-renderer-reload",
+            "checkout-mls-customer-assignment",
+            "hide-payback",
+            "offer-details-tracking",
+            "payback-card-change",
+            "payback-ecoupon-api",
+            "payback-evoucher",
+            "payback-rewe-newsletter",
+            "payback-targeted-bonus-coupon",
+            "payback-targeted-burn",
+            "payment-enable-google-pay",
+            "prefilled-lowrate",
+            "rewe-sso",
+            "sfs-pickup-staggering-infobox",
+            "sps-stock",
+            "troy"
+        ],
+        "isBot": false,
+        "pathPrefix": ""
+    },
+    "viewData": {
+        "imageSlider": {
+            "page": {
+                "imageSliderIndex": 0
+            }
+        },
+        "breakpoints": {
+            "values": {
+                "mobile": 320,
+                "tablet": 768,
+                "desktop": 991
+            }
+        },
+        "device": {
+            "isTouch": false
+        },
+        "basket": {
+            "status": null,
+            "quantity": 0
+        },
+        "type": "Details"
+    }
+}
