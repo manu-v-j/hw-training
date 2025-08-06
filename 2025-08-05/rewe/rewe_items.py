@@ -1,4 +1,4 @@
-from mongoengine import DynamicDocument,StringField,IntField,ListField,DictField,connect
+from mongoengine import DynamicDocument,StringField,IntField,ListField,DictField,DynamicField,connect
 from settings import MONGO_URL,MONGO_DB,COLLECTION_DETAILS
 
 class Product_Item(DynamicDocument):
@@ -18,7 +18,7 @@ class Product_Item(DynamicDocument):
     product_description=StringField()
     breadcrumb=StringField()
     ingredients=StringField()
-    nutritions=DictField()
+    nutritions=DynamicField()
     storage_instructions=StringField()
     image_url=StringField()
 

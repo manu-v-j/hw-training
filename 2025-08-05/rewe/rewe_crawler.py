@@ -32,7 +32,7 @@ class Crawler:
                     full_url = f"https://shop.rewe.de{product}"
                     try:
                         self.collection.insert_one({'link': full_url})
-                        # logging.info(full_url)
+                        logging.info(full_url)
                     except:
                         logging.warning(f"Duplicate skipped: {full_url}")
 

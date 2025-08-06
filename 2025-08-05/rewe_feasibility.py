@@ -20,21 +20,21 @@ headers = {
 }
 
 ###################################################CRAWLER#########################
-# product=[]
-# page=1
-# while True:
-#     url=f'https://shop.rewe.de/c/fleisch-fisch/?page={page}'
-#     print(url)
-#     response=requests.get(url,headers=headers,impersonate='chrome')
-#     sel=Selector(text=response.text)
-#     product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
-#     if not product_urls:
-#         break
-#     for link in product_urls:
-#         full_url=f'https://shop.rewe.de{link}'
-#         product.append(full_url)
-#         # print(full_url)
-#     page+=1
+product=[]
+page=1
+while True:
+    url=f'https://shop.rewe.de/c/fleisch-fisch/?page={page}'
+    print(url)
+    response=requests.get(url,headers=headers,impersonate='chrome')
+    sel=Selector(text=response.text)
+    product_urls=sel.xpath("//a[contains(@class,'productDetailsLink')]/@href").getall()
+    if not product_urls:
+        break
+    for link in product_urls:
+        full_url=f'https://shop.rewe.de{link}'
+        product.append(full_url)
+        # print(full_url)
+    page+=1
 
 ##############################################PARSER#################################
 url='https://shop.rewe.de/p/mini-babybel-original-kaese-snack-9-stueck-180g/8186850'

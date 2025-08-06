@@ -15,7 +15,7 @@ class Parser:
         
 
     def start(self):
-        for item in self.db[COLLECTION].find().limit(30):
+        for item in self.db[COLLECTION].find().limit(20):
             url=item.get('link')
             response=requests.get(url,headers=headers,impersonate='chrome')
             if response.status_code==200:
@@ -71,6 +71,8 @@ class Parser:
             key = (row.xpath("./td[1]/text()").get() or "").strip()
             value = (row.xpath("./td[2]/text()").get() or "").strip()
             nutritions[key] = value
+        nutritions = nutritions if nutritions else ''
+
         data=json.loads(script)
         selling_price=data.get('productData',{}).get('pricing',{}).get('price','')
         selling_price = f"{float(selling_price):.2f}" if selling_price else ''

@@ -18,7 +18,6 @@ class Category:
             self.parse_item(response)
 
     def parse_item(self,response):
-        sel=Selector(text=response.text)
         urls = re.findall(r"piShopUrl\('(.*?)'\)", response.text)
         urls=urls[0:22]
         for url in urls:
