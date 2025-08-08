@@ -28,10 +28,10 @@
 
 from curl_cffi import requests
 import random
-proxies = {
-    "http": "http://134.209.29.120:80",
-    "https": "http://134.209.29.120:80"
-}
+# proxies = {
+#     "http": "http://45.38.107.97:6014",
+#     "https": "http://45.38.107.97:6014"
+# }
 USER_AGENTS = [
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
@@ -45,7 +45,6 @@ headers = {
     'accept': 'application/json',
     'accept-language': 'en-US,en;q=0.9',
     'content-type': 'application/json',
-    'enabled-feature-flags': 'add_to_favourites,use_food_basket_service,use_food_basket_service_v3,ads_conditionals,findability_v5,show_static_cnc_messaging,fetch_future_slot_weeks,click_and_collect_promo_banner,cookie_law_link,citrus_banners,citrus_favourites_trio_banners,offers_trio_banners_single_call,special_logo,custom_product_messaging,promotional_link,promotional_link2,findability_search,findability_autosuggest,findability_orchestrator,fto_header_flag,recurring_slot_skip_opt_out,first_favourite_oauth_entry_point,seasonal_favourites,cnc_start_amend_order_modal,slot_confirmation_board,favourites_product_cta_alt,get_favourites_from_v2,krang_alternatives,offers_config,alternatives_modal,relevancy_rank,changes_to_trolley,nectar_destination_page,meal_deal_live,browse_pills_nav_type,zone_featured,use_cached_findability_results,event_zone_list,cms_carousel_zone_list,show_ynp_change_slot_banner,recipe_scrapbooks_enabled,event_carousel_skus,split_savings,trolley_nectar_card,favourites_magnolia,homepage,taggstar,meal_deal_cms_template_ids,pdp_accordions,pdp_meta_desc_template,grouped_meal_deals,hide_desc_mobile,pci_phase_2,enable_favourites_priority,meal_deal_builder_nectar_widget,new_favourites_filter,occasions_navigation,rokt,sales_window,resting_search,brands_background,brands_background_config,taggstar_config,all_ad_components_enabled,byg_ab_test_products_display_2,new_global_header,new_filter_pages,recipe_reviews_enabled,sponsored_drawer,frequently_bought_together,product_tile_experiment,pci_phase_3,show_ynp_opt_in_ui_elements,fetch_ynp_opt_ins,resting_search_v2,bop_enabled,favourites_boards,mobile_nav_2,should_not_scroll_into_view_fbt,show_popular_categories,track_remove_scroll_experiment,favourites_grouped_by_top_category,track_group_by_top_category,ynpoptin_national_launch,booking_confirmation_content_and_button,call_bcs,catchweight_dropdown,citrus_preview_new,citrus_search_trio_banners,citrus_xsell,compare_seasonal_favourites,constant_commerce_v2,ctt_ynp_products,desktop_interstitial_variant,disable_product_cache_validation,event_dates,favourites_pill_nav,favourites_whole_service,fbt_on_search,fbt_on_search_tracking,first_favourites_static,foodmaestro_modal,golui_payment_cards,hfss_restricted,interstitial_variant,kg_price_label,krang_recommendations,meal_planner,meganav,mobile_interstitial_variant,multi_styling,my_nectar_migration,nectar_card_associated,nectar_prices,new_favourites_service,new_filters,new_page_header,ni_brexit_banner,occasions,optimised_product_tile,promo_lister_page,recipes_ingredients_modal,review_syndication,sale_january,show_hd_xmas_slots_banner,similar_products,slot_v2,sponsored_featured_tiles,xmas_dummy_skus,ynp_np_zonalpage,your_nectar_prices',
     'priority': 'u=1, i',
     'referer': 'https://www.sainsburys.co.uk/gol-ui/groceries/fruit-and-vegetables/flowers-and-plants/c:1020005',
     'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
@@ -75,6 +74,7 @@ impersonate_list = [
 ]
 
 impersonate=random.choice(impersonate_list)
+
 session = requests.Session()
 homepage_url = "https://www.sainsburys.co.uk"
 
@@ -89,10 +89,9 @@ response = session.get(
     url,
     headers=headers,
     cookies=session.cookies.get_dict(),
-    impersonate=impersonate
+    impersonate='chrome'
 )
 print(response.status_code)
-
 
 
 
@@ -108,3 +107,44 @@ print(response.status_code)
 # )
 
 # print(response.text)
+
+# from curl_cffi import requests
+# import random
+
+
+# USER_AGENTS = [
+#     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
+#     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
+#     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+#     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+#     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0",
+#     "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
+# ]
+# user_agent = random.choice(USER_AGENTS)
+# session = requests.Session()
+
+# session.headers.update( {
+#     'accept': 'application/json',
+#     'accept-language': 'en-US,en;q=0.9',
+#     'content-type': 'application/json',
+#     'enabled-feature-flags': 'add_to_favourites,use_food_basket_service,use_food_basket_service_v3,ads_conditionals,findability_v5,show_static_cnc_messaging,fetch_future_slot_weeks,click_and_collect_promo_banner,cookie_law_link,citrus_banners,citrus_favourites_trio_banners,offers_trio_banners_single_call,special_logo,custom_product_messaging,promotional_link,promotional_link2,findability_search,findability_autosuggest,fto_header_flag,recurring_slot_skip_opt_out,seasonal_favourites,cnc_start_amend_order_modal,slot_confirmation_board,favourites_product_cta_alt,get_favourites_from_v2,krang_alternatives,offers_config,alternatives_modal,relevancy_rank,changes_to_trolley,nectar_destination_page,meal_deal_live,browse_pills_nav_type,zone_featured,use_cached_findability_results,event_zone_list,cms_carousel_zone_list,show_ynp_change_slot_banner,recipe_scrapbooks_enabled,event_carousel_skus,split_savings,trolley_nectar_card,favourites_magnolia,homepage,taggstar,meal_deal_cms_template_ids,pdp_accordions,pdp_meta_desc_template,grouped_meal_deals,hide_desc_mobile,pci_phase_2,enable_favourites_priority,meal_deal_builder_nectar_widget,new_favourites_filter,occasions_navigation,rokt,sales_window,resting_search,brands_background,brands_background_config,taggstar_config,all_ad_components_enabled,byg_ab_test_products_display_2,new_global_header,new_filter_pages,recipe_reviews_enabled,sponsored_drawer,frequently_bought_together,product_tile_experiment,pci_phase_3,show_ynp_opt_in_ui_elements,fetch_ynp_opt_ins,resting_search_v2,bop_enabled,favourites_boards,mobile_nav_2,should_not_scroll_into_view_fbt,show_popular_categories,lp_ab_test_display,lp_interstitial_grid_config,track_remove_scroll_experiment,favourites_grouped_by_top_category,track_group_by_top_category,track_boards_experiment,ynpoptin_national_launch,booking_confirmation_content_and_button,call_bcs,catchweight_dropdown,citrus_preview_new,citrus_search_trio_banners,citrus_xsell,compare_seasonal_favourites,constant_commerce_v2,ctt_ynp_products,desktop_interstitial_variant,disable_product_cache_validation,event_dates,favourites_pill_nav,favourites_whole_service,fbt_on_search,fbt_on_search_tracking,first_favourites_static,foodmaestro_modal,golui_payment_cards,hfss_restricted,interstitial_variant,kg_price_label,krang_recommendations,meal_planner,meganav,mobile_interstitial_variant,multi_styling,my_nectar_migration,nectar_card_associated,nectar_prices,new_favourites_service,new_filters,new_page_header,ni_brexit_banner,occasions,optimised_product_tile,promo_lister_page,recipes_ingredients_modal,review_syndication,sale_january,show_hd_xmas_slots_banner,similar_products,slot_v2,sponsored_featured_tiles,xmas_dummy_skus,ynp_np_zonalpage,your_nectar_prices',
+#     'priority': 'u=1, i',
+#     'referer': 'https://www.sainsburys.co.uk/gol-ui/groceries/fruit-and-vegetables/flowers-and-plants/c:1020005',
+#     'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
+#     'sec-ch-ua-mobile': '?0',
+#     'sec-ch-ua-platform': '"Linux"',
+#     'sec-fetch-dest': 'empty',
+#     'sec-fetch-mode': 'cors',
+#     'sec-fetch-site': 'same-origin',
+#     'traceparent': '00-f456ca76376466c60c33d96fdfbcf020-a7446ac61edb2641-01',
+#     'tracestate': '2092320@nr=0-1-1782819-181742266-a7446ac61edb2641----1754585623464',
+#     'user-agent': user_agent,
+#     'wcauthtoken': '',
+# })
+# session.get("https://www.sainsburys.co.uk")
+
+# response = session.get(
+#     'https://www.sainsburys.co.uk/groceries-api/gol-services/product/v1/product?filter[keyword]=&filter[category]=188701&browse=true&hfss_restricted=false&categoryId=188701&sort_order=FAVOURITES_FIRST&favouritesPriority=true&include[PRODUCT_AD]=citrus&citrus_placement=category-only&salesWindow=1',
+#     impersonate='chrome' 
+# )
+# print(response.status_code)

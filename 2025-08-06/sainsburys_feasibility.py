@@ -7,26 +7,30 @@ client=MongoClient(MONGO_URL)
 db=client[MONGO_DB]
 collection=db[COLLECTION]
 collection_details=db[COLLECTION_DETAILS]
+
 # proxies = {
-#     "http": "http://62.255.223.195:8080",
-#     "https": "http://62.255.223.195:8080",
+#     "http": "http://8.211.195.139:6379",
+#     "https": "http://8.211.195.139:6379"
 # }
+
 cookies = {
-    'JSESSIONID': '0000ME2-jHyUUrzPcKOv3ilxH0w:1h17gkrm5',
-    'AWSALBCORS': 'rZuDcNesVVRWHCP4sN1/G6YnhdUXpBV2hI9Db1SEF9oVNaqUwoBPqd0cVsx3U/SQQ0INvu3dtVZt3onx3dkd3XyvjvV9RIyBupiVfKK0mzMhIud18aBv6HdIGFMr',
-    'AWSALB': 'rZuDcNesVVRWHCP4sN1/G6YnhdUXpBV2hI9Db1SEF9oVNaqUwoBPqd0cVsx3U/SQQ0INvu3dtVZt3onx3dkd3XyvjvV9RIyBupiVfKK0mzMhIud18aBv6HdIGFMr',
-    'akaas_gol_global': '1762344265~rv=38~id=29ee9622285b2d8061e297354c501309',
-    '_abck': 'CE5ED87AC3AE4B71A0D80835EB612C25~0~YAAQGYR7XCtCImGYAQAA2g9rhA5qgHz9iaGqT5Ujw725XDMmfZ1DtUl96jwZmXF17L9BykMMcK6EeZr5qfeOZXqQ//wqj8/UOSmO597JUai2MpBloiiaq5gCmGUZ+6FAGZ1BQrWyM1qcWZWRZOEs7C9Llfxjo7DJHcbk63NLSTyPSEbwKcC14i9aco8bsig+Bz70jprTFDR2L5NArhlPYL47QMdjGExlFJUKmO1kp18iLqwgD1SZYc7G5a6qIj3/ipBrWQ/ujfh3WZ+/u+8R8Y4+j6W77+9ReO8KhxdDwURYxN6QnyzfgX1yuHPwtD1LSr+IZKZRnM2E7q07+vKrjFaAtcFdMj/y6g1mwxPzN/DDtnPRqwwI/W5Fb2CVTo+zbWXgNBZScP2tzHkhqectAn+dVlclMBz8Mr+XrAMarCjmY5LQ+OC/Ayr9Q8pw3lH/KF4WGehSl6JSDOL3A/lusbrh0PhMjYt5me+S1zXsIyDybCpwYObT2wSv4VVWhSTRSKtdWCEN2P+3C4C5yajCI5FosGUG0yGzF5zB1nYiBfZ/TXA6johleM3cem5AfBKUWfUKaF82vOoBeQq/jomtmvKU2ltzWUuryNxhH8a0A+/d5PCUOCR9rdNVVBv0pA7zvvkMeubEZX0gXaMtg0KtNpsnKtibp+90AaJkwDRY8/fYkqlARMhdygs9701Elp5/jB9kKFZ6JS/+lAF/HD9tgg2tv+s18FpTjNNlVQ0HfA5dnFgsvEXl/4ZMC3QzIA5DQSQsgQd4kIGUrA5uRZWRZPTM8iFUQ4Zo9evTvzJbMvYgMxfy8xElTVEy2Jy+H5ZuDLLSRY4xyDCioNqZJ0SfjlYIYwG801DS0qqCIYn5EZcSOpigfa1p8VzKcJOtWIH7ovweISNeQCJWsa2+Ny9OcVQ2DWc4bHr2/XdrL4U6tTmQUTfZP27wRz9CkoAHt3YTgPp+L3hQdHKOXIfExN1+RXkHqZSY5U7LHvEbtypaVnvu5MWEfDUr4T6G3akDdJsWWOkmJCyMr0pE7HSQ6ybyzW5T6spOTb9Pke5En0Q=~-1~-1~-1',
-    'bm_sv': '60511916F389F3D0A2779BA74920AAFE~YAAQGYR7XC9CImGYAQAA2w9rhBx1t4IqZF7Ig06Ov4iA3SQfb07OI7cWfuxM9/t2UIaxnW97PDYhl5V8mxJBENYFY4mwt6CkBRuyB8zqdPVC9bSixENxEvTIPpPx+680NvvUxt+Src6NQczGAUWrrEIg/mycEgTGSUbaE6vXzeNxLe0i5t7Qkucis8bb6iIhWwtADnnuIxBZwwdJXYrwPu/PAWkh67Lz7fuu8dStXZxdvBzReIF9+xcLGNriyvTCBiaKc0Vn~1',
-    'akaas_gol_random': '34',
-    'akavpau_vpc_gol_default': '1754568641~id=78b2c23f1f5dce0d2aca1b72a45f8690',
-    'ak_bmsc': '972CD538263C76EB005DEC2AA47BED7D~000000000000000000000000000000~YAAQCoR7XB4XhFyYAQAA6ThshBxeD13qetm9mTCqbZYvKTTC0gXbuP3YPjEkW7NZLEWTecqFfQFPtuOiDI5pdHwuHdJw+7ZTun7lt3FSQcxWV3+ZedYiJ12n58je/oTLvsGPK+aA8m5FBuWTUjgi8Co98PwZ18GkW77QI4OvA88Lbp9Eqin5RUusKWG+cRvRt5wE5zluEMGBFwReSVx4D9O10jgiNMhY/GqScL3zzKbAhXcbHqIojOT9CnuG/xSpPdT83KkVlNzrk+Y0vKYNKQpPPoBUF/bvE13rZIPxiJU8ZQ4ZjBe9fYYOb8N8YKvonURy4CFnFfLe+BPkJKDfzECoQ0X8KxoOm67Bm+Mdbtv6MivMu9RgVwZiLzuFZQYMeRWGSknvosmo1UOsaxsz',
-    'bm_sz': 'EB1EFAF72782077EF1AEB27993779665~YAAQCoR7XB8XhFyYAQAA6ThshBxwtD7kmUZ5SLKt4NhFdZ87XdEVzmiN1NvGPilwfujbqbpEFe+bC1S54eezX9pBGWJM7kRD+ScHl1Lkllj/PByEdaLN1EyrhXCRlmmfXz7XOR9r5YPFtuLvrDSiy9U3WbM42HP2Q8rcmK3O03Ytbxgxe7AjRtbTFUoyrEqGCNKfzg2TRlX3LlDZvM/PCdY+j8pKL/nRBfDh07CJZHRb0o1SMTo0+6ac5+tmizWwG2Ub2nZCDm2QNiAhuimtsMJQB1GzH/VxNOGrfMUTljGjW7FNawvmgxDhj/Bqv/NQWJP+FHSbuI7mhdhzENWboC2XWth+ISu8KGMfQJykebB/4bmcsqoevxVnb74OZWSdYssu3NZRFBiZAQvkJJ8o7AvG5ajMSPDcGpuqRjELjQ==~3293491~3293762',
-    'utag_main': 'v_id:01987efa2d0b00506ef793cc16a805065001d05d00bd0$_sn:9$_ss:0$_st:1754570142381$dc_visit:5$ses_id:1754568260761%3Bexp-session$_pn:2%3Bexp-session$previousPageName:web%3Agroceries%3Abrowse%3Afruit%20and%20vegetables%3Aflowers%20and%20plants%3Bexp-session$previousPageType:shelf%3Bexp-session$previousSiteSection:browse%3Bexp-session$previousPagePath:%2Fgol-ui%2Fgroceries%2Ffruit-and-vegetables%2Fflowers-and-plants%2Fc%3A1020005%3Bexp-session',
-    'RT': '"z=1&dm=www.sainsburys.co.uk&si=8b55f566-c225-4027-9ddb-f22198a68699&ss=me1cn06a&sl=1&tt=2hh&bcn=%2F%2F0217991a.akstat.io%2F&ld=1ver"',
-    'OptanonAlertBoxClosed': '2025-08-07T12:05:45.559Z',
-    'OptanonConsent': 'isGpcEnabled=0&datestamp=Thu+Aug+07+2025+17%3A35%3A45+GMT%2B0530+(India+Standard+Time)&version=202501.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=283272da-bd95-4009-b92b-e71fcf60da12&interactionCount=5&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C2%3A0%2C3%3A0%2C4%3A0&intType=2&geolocation=IN%3BKL&AwaitingReconsent=false',
+    'akaas_gol_random': '83',
+    'ak_bmsc': '40FDC69ACAD0F1B84B2B5665C5AF1BAA~000000000000000000000000000000~YAAQtULHF2qHCn+YAQAArIf5hxwf9odi/i7N7ZAOnMFlNRgCh4S2gWEQPz/Nq3nahM7vqhiNgjtoHMuMomPUSdk/J7twtzzNid7wTsdtp1KB4UHVVLVCJvG12EoY0fzMhnoZH+WDHwCDfy4gjB1gmdMHPlpjUxx6ZZT+9GloWCRq1m7JpnGfxD+UvCo6z+hGVKl/juhFA8Y7VIuJ7Z/TWARD9k3Nz9xVH0j+SzAjLdQFHsW4fYMz2QOLDN8ySoxemXvDCBAHLKXLcTZFoWiQuJL88x33SGG5d/IOBQKvYvjhUM665Qxt/kcwlsppTf+6Mh5RhNdRymAyajdyGasJ8GcwNnwJvLZW1g0584ln6G4SC92rol5cDe14NFo9zSB0yl665QBehKP/2l3OIp5GtOBfhkpbUTSCZsXQ7zCOo2LFHcOzYZ1fCx0=',
     'last_button_track': 'false',
+    'AWSALB': 'mmv9XcsQBI4Lax3P0UchE4prRF6wi+e0TADktDu3wawwnxWYeGBP4cyon9+MEI5HK479ljEssYFqkMllhFHVQ+TrsJeLJauYpibWhkGnevai4LcIMBO+gh92Q8wB',
+    'JSESSIONID': '00001XcysqT5b1jXIUUEgEmK8Bb:1iodtp52s',
+    'AWSALBCORS': 'mmv9XcsQBI4Lax3P0UchE4prRF6wi+e0TADktDu3wawwnxWYeGBP4cyon9+MEI5HK479ljEssYFqkMllhFHVQ+TrsJeLJauYpibWhkGnevai4LcIMBO+gh92Q8wB',
+    'Apache': '10.8.240.11.1754627939914929',
+    'search_redirect_flag': '0',
+    'OptanonAlertBoxClosed': '2025-08-08T04:39:01.196Z',
+    'bm_sz': '0BF366C8BFACE17BADA9BCF15775A147~YAAQtULHF/mOCn+YAQAAC8T5hxzOtgoDIgxDNLwzsXowTCoMR4vgbPu+2KWRppnNssv6wJxTXhlfNyNREnc6Sg1K1jeZQrzPcgG8uyHlFKAGxnuiaJleo3AAvuZmN+sbn0obgPQDRhCPtQo5gy73pN/eTYGOMKCgUYJz/x2qvmPv3DlIUu/cazeS78U7EpJ3q7WizoXHkD0r7+4k+Sx2RLjR5quG/Z18HwpgiSF3C/+b0Qkcq3mIGbVqK44siAb5cLMu7mWRpNWOXwwEeyfhGyohKdEZ2p28TvCSDa6HjL7YD+//jlH3k/AJCNmqR6M9mOP3Sex6K+aSbaI2tR8/qO0BYz9xENLH8P8d2oFEgnJsLt9dNt3w57azdjy9A3xw3iyy4Uo7OU/QIxVCh2gR2JGTYjPiWMWHFBlZBU7uzj1MnjPmlQ0W81x3nWKXb61dte9Ebdn9wng=~3749172~3551793',
+    '_abck': 'B879324683358F9747471803B0C4C94B~0~YAAQtULHFxiPCn+YAQAAmsT5hw43P68vuptrqkRbWilQ4SwvXtOckgqFU2cZlvVufqxKWKcEXmZSvyQdk8TMg6S6kshE8If5HzJ0QsIQIT7SEFiC27iJ46BS+2H3Jr10pkAEEzpoJjLjHURlK+aAhWtUXn3yY28+L0XliXdbxBIEIRE9d0GjGdC0jasXSwe72+tAH+Ju5dTQffKc0KtDVt1xtgcKz5hbiTr2HIDS9U6kB+hg/nbkFsGJi/44no5s9k/g6kb0+4jYy4w8RlnjZrUjHSuAPghWt31lb370k4Ud2UZyc8PIaAF6E6WGsT3xI49XN2J2dAuEF3sCDxZcoFbzrzKex+Gs8tG2mYguqGS/nfSh77KZqXyLCKZ9giy3Pu6a0OP/mQntJegWWP/bbO4zdJ6mC9wq5bTM2bNSiCROqOrt1EytWobx/NIfejlp88qO0evwJSd7FTvHVMUDStu9WxJGgS0ZROx4X69gDTFGdJjXN7TAQvu3eglYSw9Do/YNT1xVKSp0PccjUaOExZutEYs1j+DGch1aB5MITU5ftMPMOb39jTRDAn++XYnC9UtzM8P0Qf+Dm5WzGQ+QBNzTkX4+n///RWFgIlYbgDeRCed4sxGyy0Llwqi+44fkKG8=~-1~-1~-1',
+    'RT': '"z=1&dm=www.sainsburys.co.uk&si=0bdbea7a-844c-428f-a6d7-1ed1f7b83fa8&ss=me2c61yb&sl=1&tt=795&bcn=%2F%2F684d0d4c.akstat.io%2F"',
+    'utag_main': 'v_id:019887f98e9d001dcef93cba82b705065005f05d00bd0$_sn:1$_ss:0$_st:1754629749998$ses_id:1754627935905%3Bexp-session$_pn:2%3Bexp-session$previousPageName:web%3Agroceries%3Abrowse%3Afruit%20and%20vegetables%3Aflowers%20and%20plants%3Bexp-session$previousPageType:shelf%3Bexp-session$previousSiteSection:browse%3Bexp-session$previousPagePath:%2Fgol-ui%2Fgroceries%2Ffruit-and-vegetables%2Fflowers-and-plants%2Fc%3A1020005%3Bexp-session',
+    'OptanonConsent': 'isGpcEnabled=0&datestamp=Fri+Aug+08+2025+10%3A09%3A10+GMT%2B0530+(India+Standard+Time)&version=202501.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=643466be-2f02-4db3-9860-509718733e6a&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C2%3A0%2C3%3A0%2C4%3A0&intType=2&geolocation=IN%3BKL&AwaitingReconsent=false',
+    'akavpau_vpc_gol_default': '1754628251~id=ddc6a26ee6c36ed0f5803c62d755ebb3',
+    'akaas_gol_global': '1762403951~rv=11~id=8a9dcc3dae62a97605ec2f163e80b042',
+    'bm_sv': 'BDD449DCF4C531A67E73DBAA8FF6AE7F~YAAQtULHF/CPCn+YAQAAasr5hxyksxwLQ0wxxh92JZ9EJqh1HthuzhrHNej+Imxg9fVkDEr4yAxumSIq4kTDAAs9lK2Mqi5ije7zBjKkFfi6oKwdYSr+iBoc1bWzJ0epY62w+urirkyK3GLMQGiWs2mSnZDBgaww07uINs0V4Gjve+Yo5n5acUvCHQrW8bUtnwRS31KUQWjlJxdZ/uVI7RMxfV4bduqarH08MZ9FIzT0LcRc8wTgEuQVRe5jLwWeXQK7wIDu~1',
 }
 
 USER_AGENTS = [
@@ -43,10 +47,8 @@ impersonate_list = [
     'chrome100',
     'chrome101',
     'chrome104',
-    'chrome105',
     'chrome106',
     'chrome107',
-    'chrome108',
     'chrome109',
     'chrome110',
     'chrome99_android',
@@ -59,7 +61,6 @@ headers = {
     'accept': 'application/json',
     'accept-language': 'en-US,en;q=0.9',
     'content-type': 'application/json',
-    'enabled-feature-flags': 'add_to_favourites,use_food_basket_service,use_food_basket_service_v3,ads_conditionals,findability_v5,show_static_cnc_messaging,fetch_future_slot_weeks,click_and_collect_promo_banner,cookie_law_link,citrus_banners,citrus_favourites_trio_banners,offers_trio_banners_single_call,special_logo,custom_product_messaging,promotional_link,promotional_link2,findability_search,findability_autosuggest,findability_orchestrator,fto_header_flag,recurring_slot_skip_opt_out,first_favourite_oauth_entry_point,seasonal_favourites,cnc_start_amend_order_modal,slot_confirmation_board,favourites_product_cta_alt,get_favourites_from_v2,krang_alternatives,offers_config,alternatives_modal,relevancy_rank,changes_to_trolley,nectar_destination_page,meal_deal_live,browse_pills_nav_type,zone_featured,use_cached_findability_results,event_zone_list,cms_carousel_zone_list,show_ynp_change_slot_banner,recipe_scrapbooks_enabled,event_carousel_skus,split_savings,trolley_nectar_card,favourites_magnolia,homepage,taggstar,meal_deal_cms_template_ids,pdp_accordions,pdp_meta_desc_template,grouped_meal_deals,hide_desc_mobile,pci_phase_2,enable_favourites_priority,meal_deal_builder_nectar_widget,new_favourites_filter,occasions_navigation,rokt,sales_window,resting_search,brands_background,brands_background_config,taggstar_config,all_ad_components_enabled,byg_ab_test_products_display_2,new_global_header,new_filter_pages,recipe_reviews_enabled,sponsored_drawer,frequently_bought_together,product_tile_experiment,pci_phase_3,show_ynp_opt_in_ui_elements,fetch_ynp_opt_ins,resting_search_v2,bop_enabled,favourites_boards,mobile_nav_2,should_not_scroll_into_view_fbt,show_popular_categories,lp_ab_test_display,lp_interstitial_grid_config,track_remove_scroll_experiment,track_group_by_top_category,track_boards_experiment,ynpoptin_national_launch,booking_confirmation_content_and_button,call_bcs,catchweight_dropdown,citrus_preview_new,citrus_search_trio_banners,citrus_xsell,compare_seasonal_favourites,constant_commerce_v2,ctt_ynp_products,desktop_interstitial_variant,disable_product_cache_validation,event_dates,favourites_pill_nav,favourites_whole_service,fbt_on_search,fbt_on_search_tracking,first_favourites_static,foodmaestro_modal,golui_payment_cards,hfss_restricted,interstitial_variant,kg_price_label,krang_recommendations,meal_planner,meganav,mobile_interstitial_variant,multi_styling,my_nectar_migration,nectar_card_associated,nectar_prices,new_favourites_service,new_filters,new_page_header,ni_brexit_banner,occasions,optimised_product_tile,promo_lister_page,recipes_ingredients_modal,review_syndication,sale_january,show_hd_xmas_slots_banner,similar_products,slot_v2,xmas_dummy_skus,ynp_np_zonalpage,your_nectar_prices',
     'origin': 'https://www.sainsburys.co.uk',
     'priority': 'u=1, i',
     'referer': 'https://www.sainsburys.co.uk/gol-ui/groceries',
@@ -80,7 +81,7 @@ session = requests.Session()
 response = session.get(
     'https://www.sainsburys.co.uk/groceries-api/gol-services/product/v1/product?filter[keyword]=&filter[category]=188701&browse=true&hfss_restricted=false&categoryId=188701&page_number=1&sort_order=FAVOURITES_FIRST&favouritesPriority=true&include[PRODUCT_AD]=citrus&citrus_placement=category-only&salesWindow=1',
     cookies=cookies,
-    headers=headers,impersonate='chrome110',
+    headers=headers,impersonate=impersonate
 )
 print(response.status_code)
 
