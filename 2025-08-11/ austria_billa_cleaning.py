@@ -32,4 +32,4 @@ df.loc[df['site_shown_uom'].isin(keywords_three), 'grammage_unit'] = 'stuck'
 df['competitor_name']=df['competitor_name'].replace('billaa','billa',regex=False)
 df['currency']=df['currency'].replace('eur','EUR',regex=False)
 
-# df.to_csv("/home/toshiba/Hashwave/2025-08-11/DataHut_AT_Billa_PriceExtractions_20250811.csv", index=False)
+df.to_csv("/home/toshiba/Hashwave/2025-08-11/DataHut_AT_Billa_PriceExtractions_20250811.csv", index=False)
