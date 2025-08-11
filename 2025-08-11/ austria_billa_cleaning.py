@@ -9,7 +9,6 @@ df['selling_price'] = df['selling_price'].astype(float).apply(lambda x: f"{x:.2f
 
 print(df[['regular_price', 'selling_price']].tail())
 
-# Check the data types
 print(df[['regular_price', 'selling_price']].dtypes)
 df['price_per_unit'] = df['price_per_unit'].str.replace(',', '', regex=False)
 df["breadcrumb"] = df["breadcrumb"].replace("", pd.NA)
