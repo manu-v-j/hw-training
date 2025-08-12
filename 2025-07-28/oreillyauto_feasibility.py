@@ -25,20 +25,31 @@ headers={
 }
 
 ############################################CRAWLER########################################
-page=1
+page = 1
+last_first_link = None
+
 while True:
-    url=f'https://www.oreillyauto.com/shop/b/battery---accessories/batteries/31624da3221a?page={page}'
-    print(page)
-    response=requests.get(url,headers=headers)
-    sel=Selector(text=response.text)
-    product_urls=sel.xpath("//a[@class='js-product-link product__link']/@href").getall()
+    url = f'https://www.oreillyauto.com/shop/b/tools---equipment/work-wear---gloves/protective-apparel/e61b5707187d?page={page}'
+    print(f"Page {page}")
+    
+    response = requests.get(url, headers=headers)
+    sel = Selector(text=response.text)
+
+    product_urls = sel.xpath("//a[@class='js-product-link product__link']/@href").getall()
     if not product_urls:
+        break  
+
+    if last_first_link == product_urls[0]:
+        print("Detected repeat of first page — stopping.")
         break
-    for url in product_urls:
-        full_url=f"https://www.oreillyauto.com{url}"
+
+    last_first_link = product_urls[0]
+
+    for p_url in product_urls:
+        full_url = f"https://www.oreillyauto.com{p_url}"
         print(full_url)
-        
-    page+=1
+
+    page += 1
 
 
 ###########################################PARSER$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
