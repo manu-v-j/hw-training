@@ -35,7 +35,8 @@ class Parser:
         specification={}
         for row in specification_raw:
             key=row.xpath("./th/text()").get()
-            value=row.xpath("./td//text()").get() or ''
+            value=row.xpath("./td//text()").get()
+            value = value if value else ''
             specification[key]=value
 
         images=sel.xpath("//a[@data-fancybox='gallery']/@href").getall()
