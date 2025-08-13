@@ -7,7 +7,7 @@ class Product_Item(DynamicDocument):
 
     product_name=StringField()
     product_description=StringField()
-    upc=IntField()
+    upc=StringField()
     brand=StringField()
     selling_price=StringField()
     regular_price=StringField()

@@ -14,7 +14,7 @@ class Parser:
         self.collection=self.db[COLLECTION_DETAILS]
 
     def start(self):
-        for item in self.db[COLLECTION].find().limit(200):
+        for item in self.db[COLLECTION].find().limit(1000):
             url=item.get('link')
             response=requests.get(url,headers=headers)
             if response.status_code==200:
@@ -71,7 +71,6 @@ class Parser:
             regular_price = f"{float(regular_price):.2f}"
 
         json_data_one = json.loads(script_one)
-        product_description = json_data_one.get('description', '')
         upc=json_data_one.get('sku','')
         brand=json_data_one.get('brand',{}).get('name','')
 
@@ -85,15 +84,30 @@ class Parser:
                 else:
                     image_url = "https://images.oreillyauto.com" + image_url
 
+        description_script = sel.xpath("//script[contains(text(),'window._ost.description')]/text()").get()
+        product_description = ''
+        if description_script:
+            match = re.search(r"window\._ost\.description\s*=\s*'([^']*)'", description_script)
+            if match:
+                raw_desc = match.group(1)
+                raw_desc = raw_desc.replace("\\/", "/").replace('\\"', '"')
+                raw_desc = re.sub(r"<\s*li\s*>", ", ", raw_desc, flags=re.IGNORECASE)
+                product_description= Selector(text=raw_desc).xpath("string(.)").get()
+                product_description = re.sub(r"\s*,\s*", ", ", product_description).strip()
 
-        breadcrumb= []
+
+        desired_order = [-1000, 3500, 3501, 4000]
+
+        breadcrumbs = {}
+
         for script in breadcrumb_script:
-            matches = re.findall(r"'text':'([^']+)'", script)
-            breadcrumb.extend(matches)
-        if breadcrumb and breadcrumb[0] != 'Home':
-            breadcrumb = breadcrumb[::-1]
-        # item_to_move = breadcrumb.pop(2)
-        # breadcrumb.append(item_to_move)
+            matches = re.findall(r"'sequenceNumber':(-?\d+).*?'text':'([^']+)'", script, re.DOTALL)
+            for seq, text in matches:
+                seq = int(seq)
+                if seq in desired_order:
+                    breadcrumbs[seq] = text
+
+        breadcrumb = [breadcrumbs[seq] for seq in desired_order if seq in breadcrumbs]
         breadcrumb='>'.join(breadcrumb)
 
         warranty_json = html.unescape(warranty_raw)
@@ -116,7 +130,7 @@ class Parser:
         product_item=Product_Item(**item)
         product_item.save()
 
-        logging.info(breadcrumb)
+        logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()

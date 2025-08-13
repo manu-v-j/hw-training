@@ -82,5 +82,5 @@ class Crawler:
 
 
 if __name__ == '__main__':
-    subcategory = Crawler()
-    subcategory.start()
+    crawler = Crawler()
+    crawler.start()
