@@ -1,0 +1,18 @@
+1.Developing the feasibility study of equipmenttrader website.
+2.Different properties to check the data in the sublime.
+3.Developing the feasibility study of zara website.
+4.Different properties to check the data in the sublime.
+
+url=https://www.zara.com/ae
+
+requirements
+
+Fields  - 
+
+prices,
+product_id,
+product_description,
+color,
+department
+sub department
+product type

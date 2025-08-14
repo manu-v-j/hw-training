@@ -8,16 +8,22 @@ cookies = {
     'UAITXID': 'ee7e4b878bdb2fc67d242e515e49cc3248effd2cc1dd5d5318b1104c0bc97ce4',
     'FPID': 'FPID2.2.TVIWqysY0ITFmgkuME3T6%2BId9Z0WfxBS5avitilC1PQ%3D.1755148206',
     '_gtmeec': 'e30%3D',
-  
-    'bm_sz': '46B7D52A6E2DCFF8A34AF74564F3E912~YAAQTdcLF2uZN5yYAQAAPprYpxz3dkZgVj2/eoWyhMgpG+cTBZZKEHHyhkhmPM2+58TXC3c+EpraK9AB5jDLAirWLoP5+Wb4VHtyKlO2vK7XLJZ7sqyrPBU6lzZOYsNwJjwLaxxIDp035vh5j0qSxH8FJBBLvGw4JnyfFyQAlLVlv+fOUQb0TEE1n55rgf5wyk9PxPFkGfdcsNg7liv0jNLPSUCPEDFR1Gw2XCUvRnbuOfjPzjTjw8SJlUUF6J7liUXnN17zjhu4jt0ePoPiy1jOO1QM6Sg/93oCjLL0lRbxflXRf7IJeGRtTWCpf7BzQvKsi5G6Y7HRjPttIV3W0KBVI3Y3F54rU7qNiIHtojhpnfoSouj+dA/ED2S0L+aJmohaRTnhBlPA7pDta/y/fGbOP44nB3bH4GFWEVbrGp8FLkz5k119g5bthSugBDQ0nKrCBCAs5Lv/9iq6E4mgEhIkZK2RSb0hgNAXR+VhzjfQwefAnGPSZIAKJiUhcKW5BCDVegAGTbK8VTl1v+RgMB3y83XOS7HlolsijRyaEOM/Oyv6XRbjkNQcc3FpBx6BBfEFi9l7nVj58Z9uvYiabNmOcwuLRjoFlm+rirgf6TD1V2REMKK+/GEKaFl+lRn5~3488055~3487045',
-    'OptanonAlertBoxClosed': '2025-08-14T09:10:48.841Z',
-    'TS0122c9b6': '011e7fa59d45b7a880cffcacb89357659d8accb1221f57ae0503ee6ea629cf88ff37b98d41c274faef0114cd51d0b89805f7b34f3b',
-    'lastRskxRun': '1755163329003',
-    'OptanonConsent': 'isGpcEnabled=0&datestamp=Thu+Aug+14+2025+14%3A52%3A09+GMT%2B0530+(India+Standard+Time)&version=202505.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=39b813ef-0a6c-4154-9761-7957e4afb484&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&intType=1&geolocation=IN%3BKA&AwaitingReconsent=false',
-    '_ga_HCEXQGE0MW': 'GS2.1.s1755160276$o2$g1$t1755163350$j3$l0$h0',
-    '_abck': '9FF0DC407AB009278480DED2A06EECA4~0~YAAQLmbJFx32xp+YAQAAdFbjpw4FNPoVSS2HKN2DjPl8b5LZbQnfzJrt2F6FOiRmh7jDHnFQ5PUqwsDkdRXCb3NLawhW7Q+h8IBIEOu3X9R9nZr9OSgVL64vkOB6SXEsY2wX9V4Bp+9TNfR9PVSRXasS2HqIWQzIkxa/8KUBNUDqdLZ0knbA1qanpl/RhMCmBZkS3oXswmGZTnsnWQ33i8PZOv2LfYTeRaMPPVK2qgxllYhZF4kKEWlJAd/xyJDMlPrO9p0Jd4TGB7Ur8YPi53cqUZLtK6XkWIEs+6lyWz0arCE7WDWdnru0Q5OBklEX+cqnyjAwm5A1x00ym2CE6x3IZtgRaKLiJ5lznVJKfGyTwCJBMxfiooa0eyJC7CqT+NEPuDwtOZ8NPAktDVsYfDDhB9Dn6IfQzmy1kDLCyKzCTyp5bHvChy6POsA18MHDSPb8A/XWvVugz2/Xs0ns4xM5LexuVnEi1oax6jHd5LVRxg2zquU/ux59OyLIAMhheCJQ0lP7XPY6WgPcz9a3VnhFGUCAI53UEO8RcD6YA2gdXfTD/NwyTo3DatnU517AClEFrGDGw7uF8eIVSyJSrqGSkrR/pE2tMPkMvt+/ad1TNKluMzylUogPUVtAfU7iEYoTco+EaMAhA8MM+rhWB/1/fVsjObl8/EvxMb11JLuXCGXlVhbz9hNyVLAuRF8Z976YbPKYu65r4AppFODQVnauCqmXSIn6RCvawe0=~-1~-1~1755166110',
-    '_ga_NOTFORGA4TRACKING': 'GS2.1.s1755160269$o2$g1$t1755163653$j60$l0$h1590916913',
-    'ak_bmsc': '1B4E682703D5AB43B9E2FCA3CA33F708~000000000000000000000000000000~YAAQLmbJFxYPx5+YAQAAXPznpxx7aMBRXAn20kJXSK6gflN+PmWK6uKGTQxFMwJJw7w97fJVDcIqwuDMO5+Ln+yjo7lwJxmajhrjAcfxACWVZ/8oxQT9WfPckp80Zm3gq0Bq525uCE/JClnm1Rz7gEPsCRjjbE6hLABRyng8l/7i0HwAVi5EitbJ2kXKDTY8OFb0+fHiqaY3SnR/33NpchRghxpAuFDTszE9N6Cp3TsX3b7tpk13f3QLzrSDZPAf9wD7D8Wxcxxzh8eRaL1zSVk5BqOhzOGFbakCtXJh2WZ8Jj7RPXBzfVPypwJQdUw3bwl2Br41HwQnN8xe+qYdiCO8LHU3M8xZoBuRRkj3vCQYcPqpUCix/fLH86VSRdtAH8gCTah+IKSmfB+eEvczCsxmcuMn1fC95diIYW6uGn6eJxzM96KXZd8ohdxOD7byPB5XQuB3EdO7BEQmS9iUTe8jXpyiR6w8j6p5gBA7QAh2j2Xwhly0',
+    'FPLC': '%2Bzp79MNCKViYdj8sU3RTN5wcmhbk5%2B%2FfTDgxOp7G0R0dRnlZT%2FGe6S9hq0xUma2yeh4zXOA1z0zkELEu25DDxx9dAIOC29fteJmcxKFrTyyFnS1EW5nIqIyLjeGpNg%3D%3D',
+    '_fbp': 'fb.1.1755148212229.1139399720',
+    'cart-was-updated-in-standard': 'true',
+    '_UserReference': '925faa3ff1a057b4b3ed01fdb1ce2a40',
+    'bm_sz': '46B7D52A6E2DCFF8A34AF74564F3E912~YAAQVbxWaNRhw6aYAQAAWyM4qBwmaC3H5H1bM5wS9CfVDMwLCg0YcSHM+Z5LvNTFiZUCIu7qBWCnYmELtw2JtaPQRLMwXMC2gxJmrpVu5PBDyKweCG3TbsmyiDUXmGW8jzdPCTF1QlHukZo84jyF9w6EVdfT3aUrsmM42z0Zdwb1QBPf69Qk2zhhMoZ6AnjFvZX2c+jm+s+aOqK1URuvFGi0jeoILfeZigVXkpFKVeHkZWARNMd0dGBjBZ7Dr2kpLirQ/DI6RzfkZBErQSpNBkzTbmFOFygc1NCGzm4eA8kgzL3KO2Wfn8pvuAaEIuz5aet1Q/2MfS5QmFZgjxiOYKQUrsaY4jtwU/Yc3Dh/nPfuolrhjjfkWw0DcFdR3LNKI4GxCOHz/XFjVZo1gCmQaIOZNUBrJvNgxdEtJb4aNVXmmCzTc/vyXdK7/wenQMJde7gOAPKu13/gUwNU6Yqe10JA1MYC9Ub4ucp4ezaNmT55j+EBKHHzCZa1a7p26OnHcUNon3YjtF/tI4YPT3y900ZZCBW8EFYdPrAxeQkN3QaktXbrxOZf+yUOyeKESCZim96ORMqF6sPCEco5ix0zVDY0D0PlfqJIJtb5dVQkTzQkHvwoCIbHSYi9Cs8=~3488055~3487045',
+    'IDROSTA': 'e55c311e84d8:21534c69461706520c46d903e',
+    'ITXSESSIONID': 'a75ef285bb7b15a35c8f46d3090823f6',
+    'OptanonAlertBoxClosed': '2025-08-14T11:32:17.547Z',
+    'TS0122c9b6': '01bad81f5b6e557dfc2028c8fbc3a34c7e7ced1ca9af0e024abb218fbdff308aa2ba152c146e50b359d85df3ffca693cafbc2c4994',
+    '_abck': '9FF0DC407AB009278480DED2A06EECA4~0~YAAQVbxWaD17w6aYAQAAKipaqA5T0RdLsAeLbfU+RATYK5dj7KhkTa8GXGB5mz72tiGl+tyWnd0MO8oDX2A8zmYA4IH3umGXAmxHA68FRtuqhbzpmsnIqjqcru0PPzJ7fqC8X20zWBnLhBqYMKcNdqtuWncZhj0zMjh9/ODj/sCNV+gdpduT/E98X6nGv8pqED1R3qSr4BDjRG7PhZHrAj48/hpZT1FkPOZLugJxIkp8jimbQGOZLidbgXokycbk2fju9GjiQosir50IZFJ9pnxmBTHctxv+RU2kMPvGljEhexFlCvBWpl3mdq4bpZVW0UY/ZNDXIPvGMJRV8bmeEw1Ce9+kpgGCer3BGtepwSKLxQiCSkfcr3QLXO5ST/zHw09f23PM+g/l2uyCI3aJRfft4qIscNBFDPeFepnHmt1J57g+FPaY61ZBOkI8ENJokr4Giz43wkqY8ef7oxrLEnFoKqP/5wWZUYUdHAmVg826vRifsGF/X067Ln8wxgp627Zw7/jC0A6rRZhy4toIMgoAk2aIwgik8fJAt1ovqs+g5TpZ0G3elu62ewDqL3120NnRDeAPxh/LvM5/durHbXJl+F34bOQ1rhEBCDAAxTx1bjJVItdsOqTPI7R3KjlXTfzTcGnfpqMFoxt7u90ragJbZepOYDFa76DnqKjAhFgu3+4+SEeCL2+tXuNPVLIDDmatpgz5pMILD6qwBYDYlCICoTKLYONESCde2Yg=~-1~-1~1755173315',
+    'bm_sv': '14839182B5A3D8E10751FFA77E88E9D3~YAAQVbxWaD57w6aYAQAAKypaqBxJkfSFef2K9bag2dtgfspgXZpoiTbvCFrI5/PhOsydHpLlGdC5XnqK9vmTLhJNwLIn4mi8P3xPi7rTZCzsvCU+NovkjFsFHYebqSVDIpEX3Xz5qx916pSby/jfmc2sIjVaeYt7DnzaUK43txTIvaxDF2AhfnDFIEMC2WsbJRDHS7FReEUYGXgG3j8puB+TZIIjdOgF7yaZwp9Hrq9+5CaUc1QISOypgvdGcA==~1',
+    'OptanonConsent': 'isGpcEnabled=0&datestamp=Thu+Aug+14+2025+17%3A02%3A18+GMT%2B0530+(India+Standard+Time)&version=202505.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=39b813ef-0a6c-4154-9761-7957e4afb484&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&intType=1&geolocation=IN%3BKA&AwaitingReconsent=false',
+    'lastRskxRun': '1755171138760',
+    '_ga_NOTFORGA4TRACKING': 'GS2.1.s1755171135$o4$g1$t1755171218$j60$l0$h1668692215',
+    '_ga_HCEXQGE0MW': 'GS2.1.s1755171135$o3$g1$t1755171218$j60$l0$h0',
+    'ak_bmsc': '332F3CB033331A4B2B6C523FCC3C8507~000000000000000000000000000000~YAAQVbxWaHN8w6aYAQAARGxbqBxo+0qd9AP36iKxzcGjUt1HOdsI88HRBSH7WAa7MsL43a9Q6REMvCLlSQQRZhn94zRf7YTiI65Di0X6tzm+ZaouSO9WY/hxvYMxEM06igiKVeFtr7wqp6PpchDB18Vr/L8wRh71SLS8UkVKDafxk3EyBlFKyYAoh16d/rRainNzyw0qWAv/OiT4+M1YHPYMtzdO1/5gm/15YdU4tkAKBQHhC7Rp7KSo0J9xU5XkFlQ67m7qLQ1sUr3j15PegnqxSvJoLwOwzmbGUmNjs/Qe4FKDv+rNUlRjy7JNWIOG+2tW7U/QbD2H3IPH5iVwxS9GMjo+0Np4rfZkyMorgxRpoxnCNi4ozauV0JvbMAZFj6fxCm6rN1ntZ9/d0K8pG2iz3GMEbX+NhTXZLbDJfv7sjoOUZXH5uQcpofiLrS288r0Nc+8NTZvVt5NMXp0kdYwu5/n0J998mhm79M5bCvu+BNIACRFF',
 }
 headers = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -74,7 +80,7 @@ if response.status_code==200:
     department=''
     if category_match:
         department = category_match.group(1)
-    department=''
+    sub_department=''
     product_description=sel.xpath("//div[@class='expandable-text__inner-content']/p/text()").get()
     color=sel.xpath("//p[contains(@class,'product-color-extended-name ')]/text()").get()
     product_type=''
