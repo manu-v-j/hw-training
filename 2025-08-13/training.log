@@ -1,0 +1,8 @@
+1.Task of doing extracting information oreillyauto website used in parser code.
+2.Developing the feasibility study of mylittlesalesman website.
+3.Developing the feasibility study of equipmenttrader website.
+
+categories =farm equipment, construction equipment, trucking (trucks, rvs, and trailers), aircraft, and livestock industries 
+fields=Price, description, specifications, images, location, contact info (name/phone/email)
+url=https://www.equipmenttrader.com/
+url=https://www.mylittlesalesman.com/
