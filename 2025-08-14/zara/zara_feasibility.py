@@ -71,12 +71,13 @@ if response.status_code==200:
     if match:
         product_id = match.group(1)
     category_match=re.search(r'"section":"([^"]+)"', script_text)
-    category=''
+    department=''
     if category_match:
-        category = category_match.group(1)
-  
+        department = category_match.group(1)
+    department=''
     product_description=sel.xpath("//div[@class='expandable-text__inner-content']/p/text()").get()
     color=sel.xpath("//p[contains(@class,'product-color-extended-name ')]/text()").get()
+    product_type=''
 
 
 
