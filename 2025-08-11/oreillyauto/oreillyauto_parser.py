@@ -127,10 +127,10 @@ class Parser:
         item['breadcrumb']=breadcrumb
         item['image_url']=image_url
 
-        # product_item=Product_Item(**item)
-        # product_item.save()
+        product_item=Product_Item(**item)
+        product_item.save()
 
-        logging.info(product)
+        logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()
