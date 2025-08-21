@@ -1,0 +1,16 @@
+1.Learning more about the bot detection Techniques and services.
+2.Discussed about the task
+3.Task of doing extracting information zara website used in crawler code.
+4.Task of doing extracting information zara website used in parser code.
+
+https://www.zara.com/ae       
+
+Fields  - 
+
+prices,
+product_id,
+product_description,
+color,
+department
+sub department
+product type
