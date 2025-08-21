@@ -55,32 +55,32 @@ headers = {
 
 #########################CATEGORY##############################################
 
-# with requests.Session() as s:
-#     url = "https://www.zara.com/ae"
-#     response = bypass_akamai(s, url, headers)
-#     sel=Selector(text=response.text)
-#     category_urls=sel.xpath("//li[contains(@class,'layout-categories-category') and contains(@data-layout,'products-category-view')]/a/@href").getall()
-#     print(category_urls)
+with requests.Session() as s:
+    url = "https://www.zara.com/ae"
+    response = bypass_akamai(s, url, headers)
+    sel=Selector(text=response.text)
+    category_urls=sel.xpath("//li[contains(@class,'layout-categories-category') and contains(@data-layout,'products-category-view')]/a/@href").getall()
+    print(category_urls)
 
 
 
 #########################CRAWLER###############################################
-# product_link=[]
-# page=1
-# while True:
-#     with requests.Session() as s:
-#         url=f"https://www.zara.com/ae/en/man-shirts-l737.html?page={page}"
-#         response = bypass_akamai(s, url, headers)
-#         sel=Selector(text=response.text)
-#         product_urls=sel.xpath("//a[contains(@class,'product-grid-product__link link')]/@href").getall()
-#         print(len(product_urls))
-#         if not product_urls:
-#             break
-#         print(url)
-#         for url in product_urls:
-#             product_link.append(url)
+product_link=[]
+page=1
+while True:
+    with requests.Session() as s:
+        url=f"https://www.zara.com/ae/en/man-shirts-l737.html?page={page}"
+        response = bypass_akamai(s, url, headers)
+        sel=Selector(text=response.text)
+        product_urls=sel.xpath("//a[contains(@class,'product-grid-product__link link')]/@href").getall()
+        print(len(product_urls))
+        if not product_urls:
+            break
+        print(url)
+        for url in product_urls:
+            product_link.append(url)
 
-#         page+=1
+        page+=1
 
 
 ########################PARSER###############
