@@ -74,7 +74,7 @@ class Parser:
         if prices_raw:
             prices=prices_raw.replace(' AED','').replace(',','')
             prices=f"{float(prices):.2f}"
-        product_description=','.join(product_description)
+        product_description=' '.join(product_description)
         match = re.search(r'"productId":(\d+)', script_text)
         product_id=''
         if match:
