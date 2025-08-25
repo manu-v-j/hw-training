@@ -16,9 +16,9 @@ class Parser:
             url = item.get('link')
             response=requests.get(url,headers=headers)
             if response.status_code==200:
-                self.parse_item(response)
+                self.parse_item(response,url)
             
-    def parse_item(self,response):
+    def parse_item(self,response,url):
         sel=Selector(text=response.text)
 
         #XPATH
@@ -46,12 +46,10 @@ class Parser:
         grammage_quantity = ''
         grammage_unit = ''
 
-        if grammage_raw:
-            match = re.search(r'\d+', grammage_raw)
-            if match:
-                grammage_quantity = match.group()
-
-            grammage_unit = grammage_raw.replace(grammage_quantity or '', '').strip()
+        match = re.search(r'(\d+(?:\.\d+)?)\s*(fl\s*oz|oz|lb|g|kg|ml|l)', product_name, re.IGNORECASE)
+        if match:
+            grammage_quantity = match.group(1)
+            grammage_unit = match.group(2)
         breadcrumb=' > '.join(breadcrumb)
 
         item={}
@@ -60,8 +58,9 @@ class Parser:
         item['brand']=brand
         item['grammage_quantity']=grammage_quantity
         item['grammage_unit']=grammage_unit
+        item['pdp_url']=url
         item['selling_price']=selling_price
-        item['regualar_price']=selling_price
+        item['regular_price']=selling_price
         item['currency']=currency
         item['breadcrumb']=breadcrumb
         item['country_of_origin']=country_of_origin

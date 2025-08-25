@@ -12,7 +12,7 @@ class Category:
         self.collection=self.db[COLLECTION_CATEGORY]
 
     def start(self):
-        response = requests.get('https://api.aldi.us/v2/service-points?addressZipcode=60113&serviceType=pickup&includeNearbyServicePoints=true', headers=headers)
+        response = requests.get('https://api.aldi.us/v2/service-points?addressZipcode=93611&serviceType=pickup&includeNearbyServicePoints=true', headers=headers)
         data_json=json.loads(response.text)
         store_id = data_json.get('data',[])[0].get('id','')
         response=requests.get(f'https://api.aldi.us/v2/product-category-tree?serviceType=pickup&servicePoint={store_id}',headers=headers)
