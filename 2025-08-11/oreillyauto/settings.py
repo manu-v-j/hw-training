@@ -40,3 +40,5 @@ MONGO_DB='oreillyauto'
 CATAEGORY_COLLECTION='category_link'
 COLLECTION='product_link'
 COLLECTION_DETAILS="product_details"
+COLLECTION_INPUT='input'
+COLLECTION_FAILED='part_number'
