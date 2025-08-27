@@ -16,5 +16,5 @@ class Product_Item(DynamicDocument):
     warranty=StringField()
     breadcrumb=StringField()
     image_url=StringField()
-
+    match_reason=StringField()
     

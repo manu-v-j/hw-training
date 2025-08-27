@@ -4,7 +4,7 @@ from settings import headers,MONGO_URL,MONGO_DB,COLLECTION,COLLECTION_DETAILS,co
 from oreillyauto_items import Product_Item
 from pymongo import MongoClient
 import json,re,html
-import logging
+import logging,time
 logging.basicConfig(level=logging.INFO)
 
 class Parser:
@@ -14,12 +14,13 @@ class Parser:
         self.collection=self.db[COLLECTION_DETAILS]
 
     def start(self):
-        for item in self.db[COLLECTION].find().limit(1000):
+        for item in self.db[COLLECTION].find():
             url=item.get('link')
+            reason=item.get('matched')
             response=requests.get(url,headers=headers)
             if response.status_code==200:
-                self.parse_item(response,url)
-    def parse_item(self,response,url):
+                self.parse_item(response,url,reason)
+    def parse_item(self,response,url,reason):
         sel=Selector(text=response.text)
 
         #XPATH
@@ -55,14 +56,15 @@ class Parser:
                     },
                 ],
             }
-        response = requests.post(
+        res = requests.post(
         'https://www.oreillyauto.com/product/pricing-availability/v2',
         cookies=cookies,
         headers=headers,
         json=payload,
         )
-        data = response.json()
+        data = res.json()
         key = f"{line}-{part}"
+
         selling_price = data.get("pricingMap", {}).get(key, {}).get("salePrice", "")
         if selling_price:
             selling_price = f"{float(selling_price):.2f}"
@@ -70,9 +72,11 @@ class Parser:
         if regular_price:    
             regular_price = f"{float(regular_price):.2f}"
 
+
         json_data_one = json.loads(script_one)
         upc=json_data_one.get('sku','')
         brand=json_data_one.get('brand',{}).get('name','')
+        # product_description=json_data_one.get('description','')
 
         image_url = ''
         if image:
@@ -86,29 +90,36 @@ class Parser:
 
         description_script = sel.xpath("//script[contains(text(),'window._ost.description')]/text()").get()
         product_description = ''
+
         if description_script:
-            match = re.search(r"window\._ost\.description\s*=\s*'([^']*)'", description_script)
+            match = re.search(r"window\._ost\.description\s*=\s*'(.*?)';", description_script, re.DOTALL)
             if match:
                 raw_desc = match.group(1)
+
                 raw_desc = raw_desc.replace("\\/", "/").replace('\\"', '"')
+
                 raw_desc = re.sub(r"<\s*li\s*>", ", ", raw_desc, flags=re.IGNORECASE)
-                product_description= Selector(text=raw_desc).xpath("string(.)").get()
-                product_description = re.sub(r"\s*,\s*", ", ", product_description).strip()
+                raw_desc = re.sub(r"</?\s*(p|ul|li)\s*>", " ", raw_desc, flags=re.IGNORECASE)
+
+                product_description = Selector(text=raw_desc).xpath("string(.)").get()
+
+                product_description = re.sub(r"\s*,\s*", " ", product_description).strip()
+                product_description = re.sub(r"\s+", " ", product_description).strip()
 
 
-        desired_order = [-1000, 3500, 3501, 4000]
+        desired_order = [-1000, -500, 2500,2501,2502, 4000]
 
         breadcrumbs = {}
-
         for script in breadcrumb_script:
-            matches = re.findall(r"'sequenceNumber':(-?\d+).*?'text':'([^']+)'", script, re.DOTALL)
+            matches = re.findall(r"sequenceNumber':(-?\d+).*?'text':'([^']+)'", script, re.DOTALL)
             for seq, text in matches:
                 seq = int(seq)
                 if seq in desired_order:
+                    if seq == -500:
+                        text = f"search for '{text}'"
                     breadcrumbs[seq] = text
-
         breadcrumb = [breadcrumbs[seq] for seq in desired_order if seq in breadcrumbs]
-        breadcrumb='>'.join(breadcrumb)
+        breadcrumb = ' > '.join(breadcrumb)
 
         warranty_json = html.unescape(warranty_raw)
         warranty_data = json.loads(warranty_json)
@@ -126,11 +137,12 @@ class Parser:
         item['warranty']=warranty
         item['breadcrumb']=breadcrumb
         item['image_url']=image_url
+        item['match_reason']=reason
 
         product_item=Product_Item(**item)
         product_item.save()
 
-        logging.info(item)
+        logging.info(product_description)
 
 if __name__=='__main__':
     parser=Parser()

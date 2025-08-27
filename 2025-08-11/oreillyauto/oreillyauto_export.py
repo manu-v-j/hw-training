@@ -1,6 +1,6 @@
 from settings import MONGO_URL, MONGO_DB, COLLECTION_DETAILS
 from pymongo import MongoClient
-import csv
+import csv,re
 
 class Export:
     def __init__(self):
@@ -21,6 +21,9 @@ class Export:
             warranty=item.get('warranty')
             breadcrumb=item.get('breadcrumb')
             image_url=item.get('image_url')
+            match_reason=item.get('match_reason')
+
+            product_description=re.sub(r"\\'", "", product_description)
 
             self.all_items.append({
                 'product_name':product_name,
@@ -33,14 +36,15 @@ class Export:
                 'pdp_url':pdp_url,
                 'warranty':warranty,
                 'breadcrumb':breadcrumb,
-                'image_url':image_url
+                'image_url':image_url,
+                'match_reason':match_reason
             })
 
             headers=['product_name','product_description','upc','brand','selling_price','regular_price','currency',
-                     'pdp_url','warranty','breadcrumb','image_url']
+                     'pdp_url','warranty','breadcrumb','image_url','match_reason']
             
-            with open('oreillyauto_20250812.csv', 'w', newline='', encoding='utf-8') as csv_file:
-                writer = csv.DictWriter(csv_file, fieldnames=headers)
+            with open('oreillyauto_20250827.csv', 'w', newline='', encoding='utf-8') as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=headers,delimiter='|')
                 writer.writeheader()
                 writer.writerows(self.all_items)
 
