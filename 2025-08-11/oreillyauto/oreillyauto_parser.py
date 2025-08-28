@@ -76,7 +76,6 @@ class Parser:
         json_data_one = json.loads(script_one)
         upc=json_data_one.get('sku','')
         brand=json_data_one.get('brand',{}).get('name','')
-        # product_description=json_data_one.get('description','')
 
         image_url = ''
         if image:
