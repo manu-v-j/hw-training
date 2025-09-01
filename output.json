@@ -1,0 +1,2632 @@
+{
+    "id": 470762761,
+    "type": "BundleBean",
+    "state": "visible",
+    "name": "Short leather effect jacket with pockets",
+    "nameEn": "Short leather effect jacket with pockets",
+    "image": null,
+    "backSoon": "1",
+    "unitsLot": 1,
+    "isTop": 1,
+    "subFamily": "106",
+    "productType": "Clothing",
+    "bundleColors": [
+        {
+            "id": 1,
+            "name": "Black"
+        },
+        {
+            "id": 400,
+            "name": "Brown"
+        }
+    ],
+    "tags": [
+        {
+            "category": {
+                "id": 1020583244,
+                "identifier": "STR_CORTO_INV_NUEVO_NEW_LABEL_NUEVOEMPATHY_VER_TODO_TESTAB_VISUAL_FILTER_TEXT",
+                "name": "See all",
+                "urlCategory": true
+            },
+            "attachments": [
+                {
+                    "id": "1020174001",
+                    "name": "subheaderColor",
+                    "path": "#FFFFFF",
+                    "type": "LABEL"
+                },
+                {
+                    "id": "1020011501",
+                    "name": "New",
+                    "path": "nada",
+                    "type": "LABEL"
+                }
+            ]
+        }
+    ],
+    "attributes": [
+        {
+            "id": "7020000000002106126",
+            "name": "C-CAZADORA",
+            "type": "DYNAMICGRIDSFILTER_PRODUCT_TYPE"
+        },
+        {
+            "id": "7020000000001976123",
+            "name": "UNISEX",
+            "type": "STYLING_INFO"
+        },
+        {
+            "id": "175671122869193506",
+            "name": "UNISEX",
+            "value": "UNISEX",
+            "type": "UNISEX"
+        },
+        {
+            "id": "7000000000000020035",
+            "name": "g-Negro",
+            "value": "Black",
+            "type": "XCOLFILTER"
+        }
+    ],
+    "relatedCategories": [
+        {
+            "id": 1020583244,
+            "identifier": "STR_CORTO_INV_NUEVO_NEW_LABEL_NUEVOEMPATHY_VER_TODO_TESTAB_VISUAL_FILTER_TEXT",
+            "name": "See all",
+            "urlCategory": true
+        },
+        {
+            "id": 1020583245,
+            "identifier": "STR_CORTO_INV_NUEVO_ROPA_TESTAB_VISUAL_FILTER_TEXT",
+            "name": "Clothing",
+            "urlCategory": true
+        }
+    ],
+    "attachments": [],
+    "bundleProductSummaries": [
+        {
+            "id": 451598628,
+            "type": "ProductBean",
+            "name": "Short leather effect jacket with pockets",
+            "nameEn": "Short leather effect jacket with pockets",
+            "backSoon": "1",
+            "unitsLot": 1,
+            "isTop": 1,
+            "sizeSystem": "10036",
+            "subFamily": "106",
+            "productType": "Clothing",
+            "bundleColors": [],
+            "tags": [],
+            "attributes": [
+                {
+                    "id": "7020000000001364429",
+                    "name": "COATING",
+                    "value": "COATING",
+                    "type": "ACABADO"
+                },
+                {
+                    "id": "17567112286915472",
+                    "name": "PU[2357][1]",
+                    "value": "PU[2357][1]",
+                    "type": "COMMERCIAL_ATTRIBUTE_LEVEL_1"
+                },
+                {
+                    "id": "175671122869164597",
+                    "name": "MID WINTER[8840][1]",
+                    "value": "MID WINTER[8840][1]",
+                    "type": "COMMERCIAL_ATTRIBUTE_LEVEL_2"
+                },
+                {
+                    "id": "7020000000001364431",
+                    "name": "UPLOADED",
+                    "value": "UPLOADED",
+                    "type": "CUELLO/TALLE"
+                },
+                {
+                    "id": "7020000000001364434",
+                    "name": "Long sleeves",
+                    "value": "Long sleeves",
+                    "type": "LARGO_MANGAS/PIERNA"
+                },
+                {
+                    "id": "7020000000001364435",
+                    "name": "PU",
+                    "value": "PU",
+                    "type": "MATERIAL"
+                },
+                {
+                    "id": "7020000000001364437",
+                    "name": "HUNTRESS",
+                    "value": "HUNTRESS",
+                    "type": "TIPO_DE_PRODUCTO"
+                },
+                {
+                    "id": "17567112286918510",
+                    "name": "XMANUFACTURER",
+                    "value": "XMANUFACTURER",
+                    "type": "XMANUFACTURER"
+                },
+                {
+                    "id": "175671122869110377",
+                    "name": "XMAN_DATE",
+                    "value": "XMAN_DATE",
+                    "type": "XMAN_DATE"
+                }
+            ],
+            "relatedCategories": [],
+            "attachments": [],
+            "bundleProductSummaries": [],
+            "detail": {
+                "description": "",
+                "longDescription": "Short jacket made of leather effect fabric. Lapel collar and long sleeves with elastic cuffs. Chest patch pockets with buttoned flaps and contrast ribbed knit trims. Front metal zip fastening.",
+                "reference": "05632719-I2025",
+                "displayReference": "5632/719",
+                "defaultImageType": null,
+                "composition": [
+                    {
+                        "part": "1",
+                        "composition": [
+                            {
+                                "name": "viscose",
+                                "description": "14",
+                                "percentage": "14"
+                            }
+                        ]
+                    },
+                    {
+                        "part": "1",
+                        "composition": [
+                            {
+                                "name": "polyurethane",
+                                "description": "40",
+                                "percentage": "40"
+                            }
+                        ]
+                    },
+                    {
+                        "part": "1",
+                        "composition": [
+                            {
+                                "name": "polyester",
+                                "description": "45",
+                                "percentage": "45"
+                            }
+                        ]
+                    },
+                    {
+                        "part": "1",
+                        "composition": [
+                            {
+                                "name": "elastane",
+                                "description": "1",
+                                "percentage": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "part": "2",
+                        "composition": [
+                            {
+                                "id": "2547",
+                                "name": "polyester",
+                                "description": "100",
+                                "percentage": "100"
+                            }
+                        ]
+                    },
+                    {
+                        "part": "3",
+                        "composition": [
+                            {
+                                "id": "2547",
+                                "name": "polyester",
+                                "description": "100",
+                                "percentage": "100"
+                            }
+                        ]
+                    }
+                ],
+                "compositionByZone": [
+                    {
+                        "part": "1",
+                        "zones": [
+                            {
+                                "zone": "17",
+                                "zoneName": "BASE FABRIC",
+                                "composition": [
+                                    {
+                                        "id": "2550",
+                                        "name": "viscose",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            },
+                            {
+                                "zone": "16",
+                                "zoneName": "COATING",
+                                "composition": [
+                                    {
+                                        "id": "2556",
+                                        "name": "polyurethane",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            },
+                            {
+                                "zone": "28",
+                                "zoneName": "DETAILS",
+                                "composition": [
+                                    {
+                                        "id": "2547",
+                                        "name": "polyester",
+                                        "description": "98",
+                                        "percentage": "98"
+                                    }
+                                ]
+                            },
+                            {
+                                "zone": "28",
+                                "zoneName": "DETAILS",
+                                "composition": [
+                                    {
+                                        "id": "2558",
+                                        "name": "elastane",
+                                        "description": "2",
+                                        "percentage": "2"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "care": [
+                    {
+                        "id": "7000000000000014503",
+                        "name": "7",
+                        "description": "MACHINE WASH UP TO 30ºC/86ºF GENTLE CYCLE",
+                        "type": 0
+                    },
+                    {
+                        "id": "7000000000000014504",
+                        "name": "14",
+                        "description": "DO NOT BLEACH",
+                        "type": 0
+                    },
+                    {
+                        "id": "7000000000000014501",
+                        "name": "19",
+                        "description": "DO NOT IRON",
+                        "type": 0
+                    },
+                    {
+                        "id": "7000000000000014502",
+                        "name": "28",
+                        "description": "DO NOT DRY CLEAN",
+                        "type": 0
+                    },
+                    {
+                        "id": "7000000000000014505",
+                        "name": "35",
+                        "description": "DO NOT TUMBLE DRY",
+                        "type": 0
+                    }
+                ],
+                "purchaser": [
+                    {
+                        "level": "[comp_lvl_1]",
+                        "value": "CHAQUETAS"
+                    }
+                ],
+                "colors": [
+                    {
+                        "id": "001",
+                        "catentryId": 470762761,
+                        "reference": "C0563271900150-I2025",
+                        "name": "Black",
+                        "modelHeigh": null,
+                        "modelName": null,
+                        "modelSize": null,
+                        "image": {
+                            "timestamp": "1755848014281",
+                            "url": "/2025/I/0/1/p/5632/719/001/5632719001",
+                            "aux": [
+                                "1",
+                                "2",
+                                "3",
+                                "15"
+                            ],
+                            "type": [
+                                "1",
+                                "2",
+                                "3",
+                                "6",
+                                "7",
+                                "8"
+                            ],
+                            "style": [
+                                "50",
+                                "51"
+                            ],
+                            "availableEstilismo": false
+                        },
+                        "sizes": [
+                            {
+                                "sku": 451598634,
+                                "name": "XS",
+                                "description": null,
+                                "partnumber": "0563271900101-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "101",
+                                "position": 2,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 48.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 63.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 37.5,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 50.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869351822",
+                                        "name": "8447355641144",
+                                        "value": "8447355641144",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869364750",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869359026",
+                                        "name": "XECOMLOAD_SIZE_GROUP_48",
+                                        "value": "XECOMLOAD_SIZE_GROUP_48",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598631,
+                                "name": "S",
+                                "description": null,
+                                "partnumber": "0563271900102-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "102",
+                                "position": 3,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 50.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 64.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 39.0,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 51.0,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869381654",
+                                        "name": "8447355641151",
+                                        "value": "8447355641151",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869366348",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869335021",
+                                        "name": "XECOMLOAD_SIZE_GROUP_50",
+                                        "value": "XECOMLOAD_SIZE_GROUP_50",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598632,
+                                "name": "M",
+                                "description": null,
+                                "partnumber": "0563271900103-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "103",
+                                "position": 4,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 52.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 40.5,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 51.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869461385",
+                                        "name": "8447355641168",
+                                        "value": "8447355641168",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869449000",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869444624",
+                                        "name": "XECOMLOAD_SIZE_GROUP_51",
+                                        "value": "XECOMLOAD_SIZE_GROUP_51",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598629,
+                                "name": "L",
+                                "description": null,
+                                "partnumber": "0563271900104-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "104",
+                                "position": 5,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 55.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 42.7,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 52.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869476230",
+                                        "name": "8447355641175",
+                                        "value": "8447355641175",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "17567112286947605",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869433381",
+                                        "name": "XECOMLOAD_SIZE_GROUP_52",
+                                        "value": "XECOMLOAD_SIZE_GROUP_52",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598630,
+                                "name": "XL",
+                                "description": null,
+                                "partnumber": "0563271900105-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "105",
+                                "position": 6,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 57.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 44.2,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 53.0,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SOLD_OUT",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869483496",
+                                        "name": "8447355641182",
+                                        "value": "8447355641182",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869436162",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869438977",
+                                        "name": "XECOMLOAD_SIZE_GROUP_53",
+                                        "value": "XECOMLOAD_SIZE_GROUP_53",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            }
+                        ],
+                        "isContinuity": false,
+                        "composition": [
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "viscose",
+                                        "description": "14",
+                                        "percentage": "14"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "polyurethane",
+                                        "description": "40",
+                                        "percentage": "40"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "polyester",
+                                        "description": "45",
+                                        "percentage": "45"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "elastane",
+                                        "description": "1",
+                                        "percentage": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "2",
+                                "composition": [
+                                    {
+                                        "id": "2547",
+                                        "name": "polyester",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "3",
+                                "composition": [
+                                    {
+                                        "id": "2547",
+                                        "name": "polyester",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            }
+                        ],
+                        "compositionByZone": [
+                            {
+                                "part": "1",
+                                "zones": [
+                                    {
+                                        "zone": "17",
+                                        "zoneName": "BASE FABRIC",
+                                        "composition": [
+                                            {
+                                                "id": "2550",
+                                                "name": "viscose",
+                                                "description": "100",
+                                                "percentage": "100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "16",
+                                        "zoneName": "COATING",
+                                        "composition": [
+                                            {
+                                                "id": "2556",
+                                                "name": "polyurethane",
+                                                "description": "100",
+                                                "percentage": "100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "28",
+                                        "zoneName": "DETAILS",
+                                        "composition": [
+                                            {
+                                                "id": "2547",
+                                                "name": "polyester",
+                                                "description": "98",
+                                                "percentage": "98"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "28",
+                                        "zoneName": "DETAILS",
+                                        "composition": [
+                                            {
+                                                "id": "2558",
+                                                "name": "elastane",
+                                                "description": "2",
+                                                "percentage": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "compositionDetail": {
+                            "parts": [
+                                {
+                                    "id": "1",
+                                    "description": "OUTER SHELL",
+                                    "areas": [
+                                        {
+                                            "id": "17",
+                                            "description": "BASE FABRIC",
+                                            "percentageArea": "14%",
+                                            "components": [
+                                                {
+                                                    "id": 2550,
+                                                    "material": "viscose",
+                                                    "percentage": "100%"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "16",
+                                            "description": "COATING",
+                                            "percentageArea": "40%",
+                                            "components": [
+                                                {
+                                                    "id": 2556,
+                                                    "material": "polyurethane",
+                                                    "percentage": "100%"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "28",
+                                            "description": "DETAILS",
+                                            "percentageArea": "46%",
+                                            "components": [
+                                                {
+                                                    "id": 2547,
+                                                    "material": "polyester",
+                                                    "percentage": "98%"
+                                                },
+                                                {
+                                                    "id": 2558,
+                                                    "material": "elastane",
+                                                    "percentage": "2%"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "components": [],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                },
+                                {
+                                    "id": "2",
+                                    "description": "LINING",
+                                    "areas": [],
+                                    "components": [
+                                        {
+                                            "id": 2547,
+                                            "material": "polyester",
+                                            "percentage": "100%"
+                                        }
+                                    ],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                },
+                                {
+                                    "id": "3",
+                                    "description": "FILLING",
+                                    "areas": [],
+                                    "components": [
+                                        {
+                                            "id": 2547,
+                                            "material": "polyester",
+                                            "percentage": "100%"
+                                        }
+                                    ],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                }
+                            ],
+                            "exceptions": []
+                        },
+                        "colFilter": [],
+                        "sustainability": {
+                            "show": false,
+                            "syntheticFiberPercentage": {
+                                "name": ""
+                            }
+                        },
+                        "traceability": {
+                            "show": false,
+                            "paragraph": "",
+                            "weaving": {
+                                "name": "",
+                                "country": []
+                            },
+                            "dyeingPrinting": {
+                                "name": "",
+                                "country": []
+                            },
+                            "confection": {
+                                "name": "",
+                                "country": []
+                            },
+                            "assembly": {
+                                "name": "",
+                                "country": []
+                            },
+                            "pricking": {
+                                "name": "",
+                                "country": []
+                            },
+                            "finish": {
+                                "name": "",
+                                "country": []
+                            }
+                        },
+                        "certifiedMaterials": {
+                            "show": false,
+                            "materials": []
+                        },
+                        "relations": [
+                            {
+                                "ids": [
+                                    453369295,
+                                    470763269,
+                                    460749695,
+                                    453402443,
+                                    470114142
+                                ],
+                                "type": "PACMAN-LOOK"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "400",
+                        "catentryId": 451602339,
+                        "reference": "C05632719400-I2025",
+                        "name": "Brown",
+                        "modelHeigh": null,
+                        "modelName": null,
+                        "modelSize": null,
+                        "image": {
+                            "timestamp": "1755673207076",
+                            "url": "/2025/I/0/1/p/5632/719/400/5632719400",
+                            "aux": [
+                                "1",
+                                "2",
+                                "3",
+                                "15"
+                            ],
+                            "type": [
+                                "1",
+                                "2",
+                                "3",
+                                "6",
+                                "7"
+                            ],
+                            "style": [],
+                            "availableEstilismo": false
+                        },
+                        "sizes": [
+                            {
+                                "sku": 451598638,
+                                "name": "XS",
+                                "description": null,
+                                "partnumber": "0563271940001-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "101",
+                                "position": 2,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 48.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 63.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 37.5,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 50.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869581414",
+                                        "name": "8447355641199",
+                                        "value": "8447355641199",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869530611",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869590576",
+                                        "name": "XECOMLOAD_SIZE_GROUP_48",
+                                        "value": "XECOMLOAD_SIZE_GROUP_48",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598636,
+                                "name": "S",
+                                "description": null,
+                                "partnumber": "0563271940002-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "102",
+                                "position": 3,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 50.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 64.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 39.0,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 51.0,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869569992",
+                                        "name": "8447355641205",
+                                        "value": "8447355641205",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869536219",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "17567112286953451",
+                                        "name": "XECOMLOAD_SIZE_GROUP_50",
+                                        "value": "XECOMLOAD_SIZE_GROUP_50",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598637,
+                                "name": "M",
+                                "description": null,
+                                "partnumber": "0563271940003-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "103",
+                                "position": 4,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 52.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 40.5,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 51.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869579395",
+                                        "name": "8447355641212",
+                                        "value": "8447355641212",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869522080",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869588064",
+                                        "name": "XECOMLOAD_SIZE_GROUP_51",
+                                        "value": "XECOMLOAD_SIZE_GROUP_51",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598633,
+                                "name": "L",
+                                "description": null,
+                                "partnumber": "0563271940004-I2025",
+                                "isBuyable": true,
+                                "backSoon": "0",
+                                "mastersSizeId": "104",
+                                "position": 5,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 55.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 42.7,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 52.5,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "SHOW",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869522153",
+                                        "name": "8447355641229",
+                                        "value": "8447355641229",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "175671122869545495",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869590530",
+                                        "name": "XECOMLOAD_SIZE_GROUP_52",
+                                        "value": "XECOMLOAD_SIZE_GROUP_52",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            },
+                            {
+                                "sku": 451598635,
+                                "name": "XL",
+                                "description": null,
+                                "partnumber": "0563271940005-I2025",
+                                "isBuyable": true,
+                                "backSoon": "1",
+                                "mastersSizeId": "105",
+                                "position": 6,
+                                "price": "29900",
+                                "oldPrice": null,
+                                "sizeType": "regular",
+                                "skuDimensions": [
+                                    {
+                                        "dimensionId": "3",
+                                        "value": 57.0,
+                                        "dimensionName": "BUST"
+                                    },
+                                    {
+                                        "dimensionId": "24",
+                                        "value": 65.5,
+                                        "dimensionName": "SLEEVE LENGTH"
+                                    },
+                                    {
+                                        "dimensionId": "65",
+                                        "value": 44.2,
+                                        "dimensionName": "BACK WIDTH"
+                                    },
+                                    {
+                                        "dimensionId": "120",
+                                        "value": 53.0,
+                                        "dimensionName": "FRONT LENGTH"
+                                    }
+                                ],
+                                "visibilityValue": "COMING_SOON",
+                                "weight": "904.0",
+                                "sizeSystem": "10036",
+                                "attributes": [
+                                    {
+                                        "id": "175671122869647047",
+                                        "name": "8447355641236",
+                                        "value": "8447355641236",
+                                        "type": "GTINCODE"
+                                    },
+                                    {
+                                        "id": "17567112286963484",
+                                        "name": "PACKAGING",
+                                        "value": "PACKAGING",
+                                        "type": "PACKAGING"
+                                    },
+                                    {
+                                        "id": "175671122869669647",
+                                        "name": "XECOMLOAD_SIZE_GROUP_53",
+                                        "value": "XECOMLOAD_SIZE_GROUP_53",
+                                        "type": "SIZE_GROUP_FILTER"
+                                    }
+                                ],
+                                "priceIdentifier": "000005Zkfd"
+                            }
+                        ],
+                        "isContinuity": false,
+                        "composition": [
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "viscose",
+                                        "description": "14",
+                                        "percentage": "14"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "polyurethane",
+                                        "description": "40",
+                                        "percentage": "40"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "polyester",
+                                        "description": "45",
+                                        "percentage": "45"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "1",
+                                "composition": [
+                                    {
+                                        "name": "elastane",
+                                        "description": "1",
+                                        "percentage": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "2",
+                                "composition": [
+                                    {
+                                        "id": "2547",
+                                        "name": "polyester",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            },
+                            {
+                                "part": "3",
+                                "composition": [
+                                    {
+                                        "id": "2547",
+                                        "name": "polyester",
+                                        "description": "100",
+                                        "percentage": "100"
+                                    }
+                                ]
+                            }
+                        ],
+                        "compositionByZone": [
+                            {
+                                "part": "1",
+                                "zones": [
+                                    {
+                                        "zone": "17",
+                                        "zoneName": "BASE FABRIC",
+                                        "composition": [
+                                            {
+                                                "id": "2550",
+                                                "name": "viscose",
+                                                "description": "100",
+                                                "percentage": "100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "16",
+                                        "zoneName": "COATING",
+                                        "composition": [
+                                            {
+                                                "id": "2556",
+                                                "name": "polyurethane",
+                                                "description": "100",
+                                                "percentage": "100"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "28",
+                                        "zoneName": "DETAILS",
+                                        "composition": [
+                                            {
+                                                "id": "2547",
+                                                "name": "polyester",
+                                                "description": "98",
+                                                "percentage": "98"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "zone": "28",
+                                        "zoneName": "DETAILS",
+                                        "composition": [
+                                            {
+                                                "id": "2558",
+                                                "name": "elastane",
+                                                "description": "2",
+                                                "percentage": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "compositionDetail": {
+                            "parts": [
+                                {
+                                    "id": "1",
+                                    "description": "OUTER SHELL",
+                                    "areas": [
+                                        {
+                                            "id": "17",
+                                            "description": "BASE FABRIC",
+                                            "percentageArea": "14%",
+                                            "components": [
+                                                {
+                                                    "id": 2550,
+                                                    "material": "viscose",
+                                                    "percentage": "100%"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "16",
+                                            "description": "COATING",
+                                            "percentageArea": "40%",
+                                            "components": [
+                                                {
+                                                    "id": 2556,
+                                                    "material": "polyurethane",
+                                                    "percentage": "100%"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "28",
+                                            "description": "DETAILS",
+                                            "percentageArea": "46%",
+                                            "components": [
+                                                {
+                                                    "id": 2547,
+                                                    "material": "polyester",
+                                                    "percentage": "98%"
+                                                },
+                                                {
+                                                    "id": 2558,
+                                                    "material": "elastane",
+                                                    "percentage": "2%"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "components": [],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                },
+                                {
+                                    "id": "2",
+                                    "description": "LINING",
+                                    "areas": [],
+                                    "components": [
+                                        {
+                                            "id": 2547,
+                                            "material": "polyester",
+                                            "percentage": "100%"
+                                        }
+                                    ],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                },
+                                {
+                                    "id": "3",
+                                    "description": "FILLING",
+                                    "areas": [],
+                                    "components": [
+                                        {
+                                            "id": 2547,
+                                            "material": "polyester",
+                                            "percentage": "100%"
+                                        }
+                                    ],
+                                    "microcontents": [],
+                                    "reinforcements": []
+                                }
+                            ],
+                            "exceptions": []
+                        },
+                        "colFilter": [],
+                        "sustainability": {
+                            "show": false,
+                            "syntheticFiberPercentage": {
+                                "name": ""
+                            }
+                        },
+                        "traceability": {
+                            "show": false,
+                            "paragraph": "",
+                            "weaving": {
+                                "name": "",
+                                "country": []
+                            },
+                            "dyeingPrinting": {
+                                "name": "",
+                                "country": []
+                            },
+                            "confection": {
+                                "name": "",
+                                "country": []
+                            },
+                            "assembly": {
+                                "name": "",
+                                "country": []
+                            },
+                            "pricking": {
+                                "name": "",
+                                "country": []
+                            },
+                            "finish": {
+                                "name": "",
+                                "country": []
+                            }
+                        },
+                        "certifiedMaterials": {
+                            "show": false,
+                            "materials": []
+                        },
+                        "relations": [
+                            {
+                                "ids": [
+                                    451729078,
+                                    454679576,
+                                    469068654,
+                                    446347052,
+                                    455019956,
+                                    456886982,
+                                    458158844
+                                ],
+                                "type": "PACMAN-LOOK"
+                            }
+                        ]
+                    }
+                ],
+                "relatedProducts": [],
+                "xmediaDefaultSet": null,
+                "xmedia": [
+                    {
+                        "path": "/2025/I/0/1/p/5632/719/001",
+                        "xmediaItems": [
+                            {
+                                "medias": [
+                                    {
+                                        "format": 1,
+                                        "clazz": 3,
+                                        "idMedia": "5632719001_3_1_",
+                                        "timestamp": 1752649661757,
+                                        "extraInfo": {
+                                            "originalName": "r1",
+                                            "assetId": "716918c80c684a1e8afbc596cfac9f0b",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "deliveryPath": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "url": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_1_",
+                                        "timestamp": 1752765212187,
+                                        "extraInfo": {
+                                            "originalName": "s1",
+                                            "assetId": "88b94a1ce404406ca75012876de6620d",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "deliveryPath": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "url": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_2_",
+                                        "timestamp": 1752765217747,
+                                        "extraInfo": {
+                                            "originalName": "s2",
+                                            "assetId": "4829c5923a2744bf94312b98b3ce33ee",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "deliveryPath": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "url": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_3_",
+                                        "timestamp": 1752765219700,
+                                        "extraInfo": {
+                                            "originalName": "s3",
+                                            "assetId": "34b274d8539b41a7be28cfee15486157",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "deliveryPath": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "url": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 6,
+                                        "idMedia": "5632719001_6_1_",
+                                        "timestamp": 1752765239764,
+                                        "extraInfo": {
+                                            "originalName": "m1",
+                                            "assetId": "fada560363e94134a67c3949a3061aae",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "deliveryPath": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "url": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 2,
+                                        "idMedia": "5632719001_2_1_",
+                                        "timestamp": 1755673199077,
+                                        "extraInfo": {
+                                            "originalName": "a1",
+                                            "assetId": "f58b921bb268492589ae22b426819ef3",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/f58b/921b/b268492589ae/22b426819ef3/05632719001-a1/05632719001-a1.jpg?ts=1755673135735",
+                                            "deliveryPath": "assets/public/f58b/921b/b268492589ae/22b426819ef3/05632719001-a1/05632719001-a1.jpg?ts=1755673135735",
+                                            "url": "assets/public/f58b/921b/b268492589ae/22b426819ef3/05632719001-a1/05632719001-a1.jpg?ts=1755673135735&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/f58b/921b/b268492589ae/22b426819ef3/05632719001-a1/05632719001-a1.jpg?ts=1755673135735",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/f58b/921b/b268492589ae/22b426819ef3/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 22,
+                                        "idMedia": "5632719001_2_2_",
+                                        "timestamp": 1755673199693,
+                                        "extraInfo": {
+                                            "originalName": "a2",
+                                            "assetId": "c8c5433d412847039ef4760bf0e134a5",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/c8c5/433d/412847039ef4/760bf0e134a5/05632719001-a2/05632719001-a2.jpg?ts=1755673136273",
+                                            "deliveryPath": "assets/public/c8c5/433d/412847039ef4/760bf0e134a5/05632719001-a2/05632719001-a2.jpg?ts=1755673136273",
+                                            "url": "assets/public/c8c5/433d/412847039ef4/760bf0e134a5/05632719001-a2/05632719001-a2.jpg?ts=1755673136273&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/c8c5/433d/412847039ef4/760bf0e134a5/05632719001-a2/05632719001-a2.jpg?ts=1755673136273",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/c8c5/433d/412847039ef4/760bf0e134a5/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_1_1_",
+                                        "timestamp": 1755673200782,
+                                        "extraInfo": {
+                                            "originalName": "c1",
+                                            "assetId": "827ccd911fbf484ebacb085134ddbcae",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/827c/cd91/1fbf484ebacb/085134ddbcae/05632719001-c1/05632719001-c1.jpg?ts=1755673136036",
+                                            "deliveryPath": "assets/public/827c/cd91/1fbf484ebacb/085134ddbcae/05632719001-c1/05632719001-c1.jpg?ts=1755673136036",
+                                            "url": "assets/public/827c/cd91/1fbf484ebacb/085134ddbcae/05632719001-c1/05632719001-c1.jpg?ts=1755673136036&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/827c/cd91/1fbf484ebacb/085134ddbcae/05632719001-c1/05632719001-c1.jpg?ts=1755673136036",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/827c/cd91/1fbf484ebacb/085134ddbcae/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 23,
+                                        "idMedia": "5632719001_2_3_",
+                                        "timestamp": 1755673201565,
+                                        "extraInfo": {
+                                            "originalName": "a3",
+                                            "assetId": "68dd6c73ad274c0e97bb76fb9f6e2c2c",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/68dd/6c73/ad274c0e97bb/76fb9f6e2c2c/05632719001-a3/05632719001-a3.jpg?ts=1755673136152",
+                                            "deliveryPath": "assets/public/68dd/6c73/ad274c0e97bb/76fb9f6e2c2c/05632719001-a3/05632719001-a3.jpg?ts=1755673136152",
+                                            "url": "assets/public/68dd/6c73/ad274c0e97bb/76fb9f6e2c2c/05632719001-a3/05632719001-a3.jpg?ts=1755673136152&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/68dd/6c73/ad274c0e97bb/76fb9f6e2c2c/05632719001-a3/05632719001-a3.jpg?ts=1755673136152",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/68dd/6c73/ad274c0e97bb/76fb9f6e2c2c/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 25,
+                                        "idMedia": "5632719001_2_15_",
+                                        "timestamp": 1755673204883,
+                                        "extraInfo": {
+                                            "originalName": "a15",
+                                            "assetId": "a363b986ebe546b9aef8475730761dcd",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/a363/b986/ebe546b9aef8/475730761dcd/05632719001-a15/05632719001-a15.jpg?ts=1755673136317",
+                                            "deliveryPath": "assets/public/a363/b986/ebe546b9aef8/475730761dcd/05632719001-a15/05632719001-a15.jpg?ts=1755673136317",
+                                            "url": "assets/public/a363/b986/ebe546b9aef8/475730761dcd/05632719001-a15/05632719001-a15.jpg?ts=1755673136317&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/a363/b986/ebe546b9aef8/475730761dcd/05632719001-a15/05632719001-a15.jpg?ts=1755673136317",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/a363/b986/ebe546b9aef8/475730761dcd/meta.json"
+                                    }
+                                ],
+                                "set": 0
+                            },
+                            {
+                                "medias": [
+                                    {
+                                        "format": 1,
+                                        "clazz": 3,
+                                        "idMedia": "5632719001_3_1_",
+                                        "timestamp": 1752649661757,
+                                        "extraInfo": {
+                                            "originalName": "r",
+                                            "assetId": "716918c80c684a1e8afbc596cfac9f0b",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "url": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 6,
+                                        "idMedia": "5632719001_6_1_",
+                                        "timestamp": 1752765239764,
+                                        "extraInfo": {
+                                            "originalName": "m1",
+                                            "assetId": "fada560363e94134a67c3949a3061aae",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "url": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_1_",
+                                        "timestamp": 1752765212187,
+                                        "extraInfo": {
+                                            "originalName": "s1",
+                                            "assetId": "88b94a1ce404406ca75012876de6620d",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "url": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_2_",
+                                        "timestamp": 1752765217747,
+                                        "extraInfo": {
+                                            "originalName": "s2",
+                                            "assetId": "4829c5923a2744bf94312b98b3ce33ee",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "url": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_3_",
+                                        "timestamp": 1752765219700,
+                                        "extraInfo": {
+                                            "originalName": "s3",
+                                            "assetId": "34b274d8539b41a7be28cfee15486157",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "url": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 25,
+                                        "idMedia": "5632719001_2_15_",
+                                        "timestamp": 1755846655977,
+                                        "extraInfo": {
+                                            "originalName": "a15",
+                                            "assetId": "b009dc67fca242e593cbf54fa396fdd5",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/b009/dc67/fca242e593cb/f54fa396fdd5/05632719001-50-a15/05632719001-50-a15.jpg?ts=1755846597697",
+                                            "deliveryPath": "assets/public/b009/dc67/fca242e593cb/f54fa396fdd5/05632719001-50-a15/05632719001-50-a15.jpg?ts=1755846597697",
+                                            "url": "assets/public/b009/dc67/fca242e593cb/f54fa396fdd5/05632719001-50-a15/05632719001-50-a15.jpg?ts=1755846597697&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/b009/dc67/fca242e593cb/f54fa396fdd5/05632719001-50-a15/05632719001-50-a15.jpg?ts=1755846597697",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/b009/dc67/fca242e593cb/f54fa396fdd5/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 22,
+                                        "idMedia": "5632719001_2_2_",
+                                        "timestamp": 1755847974499,
+                                        "extraInfo": {
+                                            "originalName": "a2",
+                                            "assetId": "3476e6f946e3449dbcf5301a6614670a",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/3476/e6f9/46e3449dbcf5/301a6614670a/05632719001-50-a2/05632719001-50-a2.jpg?ts=1755847957947",
+                                            "deliveryPath": "assets/public/3476/e6f9/46e3449dbcf5/301a6614670a/05632719001-50-a2/05632719001-50-a2.jpg?ts=1755847957947",
+                                            "url": "assets/public/3476/e6f9/46e3449dbcf5/301a6614670a/05632719001-50-a2/05632719001-50-a2.jpg?ts=1755847957947&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/3476/e6f9/46e3449dbcf5/301a6614670a/05632719001-50-a2/05632719001-50-a2.jpg?ts=1755847957947",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/3476/e6f9/46e3449dbcf5/301a6614670a/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_1_1_",
+                                        "timestamp": 1755847975035,
+                                        "extraInfo": {
+                                            "originalName": "c1",
+                                            "assetId": "3f8de68f93d24e20b8c511a42d51dabe",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/3f8d/e68f/93d24e20b8c5/11a42d51dabe/05632719001-50-c/05632719001-50-c.jpg?ts=1755847958119",
+                                            "deliveryPath": "assets/public/3f8d/e68f/93d24e20b8c5/11a42d51dabe/05632719001-50-c/05632719001-50-c.jpg?ts=1755847958119",
+                                            "url": "assets/public/3f8d/e68f/93d24e20b8c5/11a42d51dabe/05632719001-50-c/05632719001-50-c.jpg?ts=1755847958119&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/3f8d/e68f/93d24e20b8c5/11a42d51dabe/05632719001-50-c/05632719001-50-c.jpg?ts=1755847958119",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/3f8d/e68f/93d24e20b8c5/11a42d51dabe/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 23,
+                                        "idMedia": "5632719001_2_3_",
+                                        "timestamp": 1755847976690,
+                                        "extraInfo": {
+                                            "originalName": "a3",
+                                            "assetId": "7d322a45229b445eaf3a9f09b4e42f40",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/7d32/2a45/229b445eaf3a/9f09b4e42f40/05632719001-50-a3/05632719001-50-a3.jpg?ts=1755847958163",
+                                            "deliveryPath": "assets/public/7d32/2a45/229b445eaf3a/9f09b4e42f40/05632719001-50-a3/05632719001-50-a3.jpg?ts=1755847958163",
+                                            "url": "assets/public/7d32/2a45/229b445eaf3a/9f09b4e42f40/05632719001-50-a3/05632719001-50-a3.jpg?ts=1755847958163&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/7d32/2a45/229b445eaf3a/9f09b4e42f40/05632719001-50-a3/05632719001-50-a3.jpg?ts=1755847958163",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/7d32/2a45/229b445eaf3a/9f09b4e42f40/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 2,
+                                        "idMedia": "5632719001_2_1_",
+                                        "timestamp": 1755847979318,
+                                        "extraInfo": {
+                                            "originalName": "a1",
+                                            "assetId": "dff1a2c3c2a844228e1ab1804c90c73f",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/dff1/a2c3/c2a844228e1a/b1804c90c73f/05632719001-50-a1/05632719001-50-a1.jpg?ts=1755847958328",
+                                            "deliveryPath": "assets/public/dff1/a2c3/c2a844228e1a/b1804c90c73f/05632719001-50-a1/05632719001-50-a1.jpg?ts=1755847958328",
+                                            "url": "assets/public/dff1/a2c3/c2a844228e1a/b1804c90c73f/05632719001-50-a1/05632719001-50-a1.jpg?ts=1755847958328&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/dff1/a2c3/c2a844228e1a/b1804c90c73f/05632719001-50-a1/05632719001-50-a1.jpg?ts=1755847958328",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/dff1/a2c3/c2a844228e1a/b1804c90c73f/meta.json"
+                                    }
+                                ],
+                                "set": 50
+                            },
+                            {
+                                "medias": [
+                                    {
+                                        "format": 1,
+                                        "clazz": 3,
+                                        "idMedia": "5632719001_3_1_",
+                                        "timestamp": 1752649661757,
+                                        "extraInfo": {
+                                            "originalName": "r",
+                                            "assetId": "716918c80c684a1e8afbc596cfac9f0b",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                            "url": "assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/05632719001-r/05632719001-r.jpg?ts=1752649638786",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/7169/18c8/0c684a1e8afb/c596cfac9f0b/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 6,
+                                        "idMedia": "5632719001_6_1_",
+                                        "timestamp": 1752765239764,
+                                        "extraInfo": {
+                                            "originalName": "m1",
+                                            "assetId": "fada560363e94134a67c3949a3061aae",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                            "url": "assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/05632719001-m/05632719001-m.jpg?ts=1752764794279",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/fada/5603/63e94134a67c/3949a3061aae/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_1_",
+                                        "timestamp": 1752765212187,
+                                        "extraInfo": {
+                                            "originalName": "s1",
+                                            "assetId": "88b94a1ce404406ca75012876de6620d",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                            "url": "assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/05632719001-s1/05632719001-s1.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/88b9/4a1c/e404406ca750/12876de6620d/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_2_",
+                                        "timestamp": 1752765217747,
+                                        "extraInfo": {
+                                            "originalName": "s2",
+                                            "assetId": "4829c5923a2744bf94312b98b3ce33ee",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                            "url": "assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/05632719001-s2/05632719001-s2.jpg?ts=1752764793778",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/4829/c592/3a2744bf9431/2b98b3ce33ee/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_7_3_",
+                                        "timestamp": 1752765219700,
+                                        "extraInfo": {
+                                            "originalName": "s3",
+                                            "assetId": "34b274d8539b41a7be28cfee15486157",
+                                            "isLargeAndSmallDifferentResourcesValidForBothViews": false,
+                                            "deliveryPath": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                            "url": "assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/05632719001-s3/05632719001-s3.jpg?ts=1752764794187",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/34b2/74d8/539b41a7be28/cfee15486157/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 8,
+                                        "idMedia": "5632719001_8_1_",
+                                        "timestamp": 1755846678997,
+                                        "extraInfo": {
+                                            "originalName": "d1",
+                                            "assetId": "9e3de3e9a7d7410fb9badaaeefe0ef1d",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/9e3d/e3e9/a7d7410fb9ba/daaeefe0ef1d/05632719001-51-d1/05632719001-51-d1.jpg?ts=1755846644285",
+                                            "deliveryPath": "assets/public/9e3d/e3e9/a7d7410fb9ba/daaeefe0ef1d/05632719001-51-d1/05632719001-51-d1.jpg?ts=1755846644285",
+                                            "url": "assets/public/9e3d/e3e9/a7d7410fb9ba/daaeefe0ef1d/05632719001-51-d1/05632719001-51-d1.jpg?ts=1755846644285&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/9e3d/e3e9/a7d7410fb9ba/daaeefe0ef1d/05632719001-51-d1/05632719001-51-d1.jpg?ts=1755846644285",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/9e3d/e3e9/a7d7410fb9ba/daaeefe0ef1d/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 22,
+                                        "idMedia": "5632719001_2_2_",
+                                        "timestamp": 1755848011749,
+                                        "extraInfo": {
+                                            "originalName": "a2",
+                                            "assetId": "29c3d68a515c4cb9bccc33099a575fab",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/29c3/d68a/515c4cb9bccc/33099a575fab/05632719001-51-a2/05632719001-51-a2.jpg?ts=1755847995725",
+                                            "deliveryPath": "assets/public/29c3/d68a/515c4cb9bccc/33099a575fab/05632719001-51-a2/05632719001-51-a2.jpg?ts=1755847995725",
+                                            "url": "assets/public/29c3/d68a/515c4cb9bccc/33099a575fab/05632719001-51-a2/05632719001-51-a2.jpg?ts=1755847995725&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/29c3/d68a/515c4cb9bccc/33099a575fab/05632719001-51-a2/05632719001-51-a2.jpg?ts=1755847995725",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/29c3/d68a/515c4cb9bccc/33099a575fab/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 23,
+                                        "idMedia": "5632719001_2_3_",
+                                        "timestamp": 1755848012267,
+                                        "extraInfo": {
+                                            "originalName": "a3",
+                                            "assetId": "6dda80df00384be6a44cddf6e9fce3b9",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/6dda/80df/00384be6a44c/ddf6e9fce3b9/05632719001-51-a3/05632719001-51-a3.jpg?ts=1755847995816",
+                                            "deliveryPath": "assets/public/6dda/80df/00384be6a44c/ddf6e9fce3b9/05632719001-51-a3/05632719001-51-a3.jpg?ts=1755847995816",
+                                            "url": "assets/public/6dda/80df/00384be6a44c/ddf6e9fce3b9/05632719001-51-a3/05632719001-51-a3.jpg?ts=1755847995816&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/6dda/80df/00384be6a44c/ddf6e9fce3b9/05632719001-51-a3/05632719001-51-a3.jpg?ts=1755847995816",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/6dda/80df/00384be6a44c/ddf6e9fce3b9/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719001_1_1_",
+                                        "timestamp": 1755848012809,
+                                        "extraInfo": {
+                                            "originalName": "c1",
+                                            "assetId": "fb3ec882c4684f82829b8b8b2dcd61bf",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/fb3e/c882/c4684f82829b/8b8b2dcd61bf/05632719001-51-c/05632719001-51-c.jpg?ts=1755847995872",
+                                            "deliveryPath": "assets/public/fb3e/c882/c4684f82829b/8b8b2dcd61bf/05632719001-51-c/05632719001-51-c.jpg?ts=1755847995872",
+                                            "url": "assets/public/fb3e/c882/c4684f82829b/8b8b2dcd61bf/05632719001-51-c/05632719001-51-c.jpg?ts=1755847995872&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/fb3e/c882/c4684f82829b/8b8b2dcd61bf/05632719001-51-c/05632719001-51-c.jpg?ts=1755847995872",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/fb3e/c882/c4684f82829b/8b8b2dcd61bf/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 2,
+                                        "idMedia": "5632719001_2_1_",
+                                        "timestamp": 1755848014281,
+                                        "extraInfo": {
+                                            "originalName": "a1",
+                                            "assetId": "0fd0c842272648d2bd98c6496461a67a",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/0fd0/c842/272648d2bd98/c6496461a67a/05632719001-51-a1/05632719001-51-a1.jpg?ts=1755847995724",
+                                            "deliveryPath": "assets/public/0fd0/c842/272648d2bd98/c6496461a67a/05632719001-51-a1/05632719001-51-a1.jpg?ts=1755847995724",
+                                            "url": "assets/public/0fd0/c842/272648d2bd98/c6496461a67a/05632719001-51-a1/05632719001-51-a1.jpg?ts=1755847995724&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/0fd0/c842/272648d2bd98/c6496461a67a/05632719001-51-a1/05632719001-51-a1.jpg?ts=1755847995724",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/0fd0/c842/272648d2bd98/c6496461a67a/meta.json"
+                                    }
+                                ],
+                                "set": 51
+                            }
+                        ],
+                        "colorCode": "001",
+                        "xmediaLocations": [
+                            {
+                                "locations": [
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_3_1_",
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 3
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_15_",
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 0
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_15_",
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 1
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 4
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_",
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 6
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_"
+                                        ],
+                                        "location": 8
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 7
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 2
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_"
+                                        ],
+                                        "location": 5
+                                    }
+                                ],
+                                "set": 0
+                            },
+                            {
+                                "locations": [
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_3_1_",
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 3
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_",
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 6
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 7
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_15_",
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 0
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_15_",
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 1
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 4
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_"
+                                        ],
+                                        "location": 8
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 2
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_"
+                                        ],
+                                        "location": 5
+                                    }
+                                ],
+                                "set": 50
+                            },
+                            {
+                                "locations": [
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_3_1_",
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 3
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_",
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 6
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_6_1_"
+                                        ],
+                                        "location": 7
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_8_1_",
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 0
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_2_2_",
+                                            "5632719001_2_3_",
+                                            "5632719001_7_1_",
+                                            "5632719001_7_2_",
+                                            "5632719001_7_3_"
+                                        ],
+                                        "location": 1
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_",
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 4
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_7_1_"
+                                        ],
+                                        "location": 8
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_2_1_",
+                                            "5632719001_1_1_"
+                                        ],
+                                        "location": 2
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719001_1_1_",
+                                            "5632719001_2_1_"
+                                        ],
+                                        "location": 5
+                                    }
+                                ],
+                                "set": 51
+                            }
+                        ]
+                    },
+                    {
+                        "path": "/2025/I/0/1/p/5632/719/400",
+                        "xmediaItems": [
+                            {
+                                "medias": [
+                                    {
+                                        "format": 1,
+                                        "clazz": 3,
+                                        "idMedia": "5632719400_3_1_",
+                                        "timestamp": 1752649662814,
+                                        "extraInfo": {
+                                            "originalName": "r1",
+                                            "assetId": "042d4508ba324107a65b8618e029e2e4",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/042d/4508/ba324107a65b/8618e029e2e4/05632719400-r/05632719400-r.jpg?ts=1752649639285",
+                                            "deliveryPath": "assets/public/042d/4508/ba324107a65b/8618e029e2e4/05632719400-r/05632719400-r.jpg?ts=1752649639285",
+                                            "url": "assets/public/042d/4508/ba324107a65b/8618e029e2e4/05632719400-r/05632719400-r.jpg?ts=1752649639285&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/042d/4508/ba324107a65b/8618e029e2e4/05632719400-r/05632719400-r.jpg?ts=1752649639285",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/042d/4508/ba324107a65b/8618e029e2e4/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719400_7_1_",
+                                        "timestamp": 1752765252830,
+                                        "extraInfo": {
+                                            "originalName": "s1",
+                                            "assetId": "4e0f2e5789d3414faa7588c949451bba",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/4e0f/2e57/89d3414faa75/88c949451bba/05632719400-s1/05632719400-s1.jpg?ts=1752764795893",
+                                            "deliveryPath": "assets/public/4e0f/2e57/89d3414faa75/88c949451bba/05632719400-s1/05632719400-s1.jpg?ts=1752764795893",
+                                            "url": "assets/public/4e0f/2e57/89d3414faa75/88c949451bba/05632719400-s1/05632719400-s1.jpg?ts=1752764795893&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/4e0f/2e57/89d3414faa75/88c949451bba/05632719400-s1/05632719400-s1.jpg?ts=1752764795893",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/4e0f/2e57/89d3414faa75/88c949451bba/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719400_7_2_",
+                                        "timestamp": 1752765257299,
+                                        "extraInfo": {
+                                            "originalName": "s2",
+                                            "assetId": "c7b87bba666c45cf82ec2f29bb2abdd6",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/c7b8/7bba/666c45cf82ec/2f29bb2abdd6/05632719400-s2/05632719400-s2.jpg?ts=1752764795693",
+                                            "deliveryPath": "assets/public/c7b8/7bba/666c45cf82ec/2f29bb2abdd6/05632719400-s2/05632719400-s2.jpg?ts=1752764795693",
+                                            "url": "assets/public/c7b8/7bba/666c45cf82ec/2f29bb2abdd6/05632719400-s2/05632719400-s2.jpg?ts=1752764795693&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/c7b8/7bba/666c45cf82ec/2f29bb2abdd6/05632719400-s2/05632719400-s2.jpg?ts=1752764795693",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/c7b8/7bba/666c45cf82ec/2f29bb2abdd6/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 6,
+                                        "idMedia": "5632719400_6_1_",
+                                        "timestamp": 1752765262305,
+                                        "extraInfo": {
+                                            "originalName": "m1",
+                                            "assetId": "b1b98b687ebb4f41b02795081d00a722",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/b1b9/8b68/7ebb4f41b027/95081d00a722/05632719400-m/05632719400-m.jpg?ts=1752764796118",
+                                            "deliveryPath": "assets/public/b1b9/8b68/7ebb4f41b027/95081d00a722/05632719400-m/05632719400-m.jpg?ts=1752764796118",
+                                            "url": "assets/public/b1b9/8b68/7ebb4f41b027/95081d00a722/05632719400-m/05632719400-m.jpg?ts=1752764796118&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/b1b9/8b68/7ebb4f41b027/95081d00a722/05632719400-m/05632719400-m.jpg?ts=1752764796118",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/b1b9/8b68/7ebb4f41b027/95081d00a722/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719400_7_3_",
+                                        "timestamp": 1752765270269,
+                                        "extraInfo": {
+                                            "originalName": "s3",
+                                            "assetId": "052173336bf441b3b9bcf083d58b91f7",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/0521/7333/6bf441b3b9bc/f083d58b91f7/05632719400-s3/05632719400-s3.jpg?ts=1752764795544",
+                                            "deliveryPath": "assets/public/0521/7333/6bf441b3b9bc/f083d58b91f7/05632719400-s3/05632719400-s3.jpg?ts=1752764795544",
+                                            "url": "assets/public/0521/7333/6bf441b3b9bc/f083d58b91f7/05632719400-s3/05632719400-s3.jpg?ts=1752764795544&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/0521/7333/6bf441b3b9bc/f083d58b91f7/05632719400-s3/05632719400-s3.jpg?ts=1752764795544",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/0521/7333/6bf441b3b9bc/f083d58b91f7/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 2,
+                                        "idMedia": "5632719400_2_1_",
+                                        "timestamp": 1755673200151,
+                                        "extraInfo": {
+                                            "originalName": "a1",
+                                            "assetId": "6de09d891d52478086d41abffec3f7ff",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/6de0/9d89/1d52478086d4/1abffec3f7ff/05632719400-a1/05632719400-a1.jpg?ts=1755673136436",
+                                            "deliveryPath": "assets/public/6de0/9d89/1d52478086d4/1abffec3f7ff/05632719400-a1/05632719400-a1.jpg?ts=1755673136436",
+                                            "url": "assets/public/6de0/9d89/1d52478086d4/1abffec3f7ff/05632719400-a1/05632719400-a1.jpg?ts=1755673136436&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/6de0/9d89/1d52478086d4/1abffec3f7ff/05632719400-a1/05632719400-a1.jpg?ts=1755673136436",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/6de0/9d89/1d52478086d4/1abffec3f7ff/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 22,
+                                        "idMedia": "5632719400_2_2_",
+                                        "timestamp": 1755673205714,
+                                        "extraInfo": {
+                                            "originalName": "a2",
+                                            "assetId": "1c91395e226246e0b59c1b7ae3b470b7",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/1c91/395e/226246e0b59c/1b7ae3b470b7/05632719400-a2/05632719400-a2.jpg?ts=1755673137042",
+                                            "deliveryPath": "assets/public/1c91/395e/226246e0b59c/1b7ae3b470b7/05632719400-a2/05632719400-a2.jpg?ts=1755673137042",
+                                            "url": "assets/public/1c91/395e/226246e0b59c/1b7ae3b470b7/05632719400-a2/05632719400-a2.jpg?ts=1755673137042&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/1c91/395e/226246e0b59c/1b7ae3b470b7/05632719400-a2/05632719400-a2.jpg?ts=1755673137042",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/1c91/395e/226246e0b59c/1b7ae3b470b7/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 23,
+                                        "idMedia": "5632719400_2_3_",
+                                        "timestamp": 1755673206153,
+                                        "extraInfo": {
+                                            "originalName": "a3",
+                                            "assetId": "19f3b4baf3ea45219d86ce82c78ec49e",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/19f3/b4ba/f3ea45219d86/ce82c78ec49e/05632719400-a3/05632719400-a3.jpg?ts=1755673137756",
+                                            "deliveryPath": "assets/public/19f3/b4ba/f3ea45219d86/ce82c78ec49e/05632719400-a3/05632719400-a3.jpg?ts=1755673137756",
+                                            "url": "assets/public/19f3/b4ba/f3ea45219d86/ce82c78ec49e/05632719400-a3/05632719400-a3.jpg?ts=1755673137756&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/19f3/b4ba/f3ea45219d86/ce82c78ec49e/05632719400-a3/05632719400-a3.jpg?ts=1755673137756",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/19f3/b4ba/f3ea45219d86/ce82c78ec49e/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 1,
+                                        "idMedia": "5632719400_1_1_",
+                                        "timestamp": 1755673206603,
+                                        "extraInfo": {
+                                            "originalName": "c1",
+                                            "assetId": "a71a78e3266349a6903ed324e4f80a11",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/a71a/78e3/266349a6903e/d324e4f80a11/05632719400-c1/05632719400-c1.jpg?ts=1755673138522",
+                                            "deliveryPath": "assets/public/a71a/78e3/266349a6903e/d324e4f80a11/05632719400-c1/05632719400-c1.jpg?ts=1755673138522",
+                                            "url": "assets/public/a71a/78e3/266349a6903e/d324e4f80a11/05632719400-c1/05632719400-c1.jpg?ts=1755673138522&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/a71a/78e3/266349a6903e/d324e4f80a11/05632719400-c1/05632719400-c1.jpg?ts=1755673138522",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/a71a/78e3/266349a6903e/d324e4f80a11/meta.json"
+                                    },
+                                    {
+                                        "format": 1,
+                                        "clazz": 25,
+                                        "idMedia": "5632719400_2_15_",
+                                        "timestamp": 1755673207076,
+                                        "extraInfo": {
+                                            "originalName": "a15",
+                                            "assetId": "7b5fe116ed8841cd83e5206fe397df50",
+                                            "deliveryUrl": "https://static.e-stradivarius.net/assets/public/7b5f/e116/ed8841cd83e5/206fe397df50/05632719400-a15/05632719400-a15.jpg?ts=1755673138615",
+                                            "deliveryPath": "assets/public/7b5f/e116/ed8841cd83e5/206fe397df50/05632719400-a15/05632719400-a15.jpg?ts=1755673138615",
+                                            "url": "assets/public/7b5f/e116/ed8841cd83e5/206fe397df50/05632719400-a15/05632719400-a15.jpg?ts=1755673138615&w=:width:"
+                                        },
+                                        "url": "https://static.e-stradivarius.net/assets/public/7b5f/e116/ed8841cd83e5/206fe397df50/05632719400-a15/05632719400-a15.jpg?ts=1755673138615",
+                                        "metaUrl": "https://static.e-stradivarius.net/assets/public/7b5f/e116/ed8841cd83e5/206fe397df50/meta.json"
+                                    }
+                                ],
+                                "set": 0
+                            }
+                        ],
+                        "colorCode": "400",
+                        "xmediaLocations": [
+                            {
+                                "locations": [
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_3_1_",
+                                            "5632719400_6_1_"
+                                        ],
+                                        "location": 3
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_2_15_",
+                                            "5632719400_1_1_",
+                                            "5632719400_2_1_",
+                                            "5632719400_2_2_",
+                                            "5632719400_2_3_",
+                                            "5632719400_7_1_",
+                                            "5632719400_7_2_",
+                                            "5632719400_7_3_"
+                                        ],
+                                        "location": 0
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_2_15_",
+                                            "5632719400_1_1_",
+                                            "5632719400_2_1_",
+                                            "5632719400_2_2_",
+                                            "5632719400_2_3_",
+                                            "5632719400_7_1_",
+                                            "5632719400_7_2_",
+                                            "5632719400_7_3_"
+                                        ],
+                                        "location": 1
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_7_1_",
+                                            "5632719400_2_1_",
+                                            "5632719400_1_1_"
+                                        ],
+                                        "location": 4
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_6_1_",
+                                            "5632719400_7_1_",
+                                            "5632719400_2_1_",
+                                            "5632719400_1_1_"
+                                        ],
+                                        "location": 6
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_7_1_"
+                                        ],
+                                        "location": 8
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_6_1_"
+                                        ],
+                                        "location": 7
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_2_1_",
+                                            "5632719400_1_1_"
+                                        ],
+                                        "location": 2
+                                    },
+                                    {
+                                        "mediaLocations": [
+                                            "5632719400_1_1_",
+                                            "5632719400_2_1_"
+                                        ],
+                                        "location": 5
+                                    }
+                                ],
+                                "set": 0
+                            }
+                        ]
+                    }
+                ],
+                "relatedElements": [],
+                "ingredients": [],
+                "warnings": [],
+                "familyInfo": {
+                    "familyId": 1348,
+                    "familyCode": 6,
+                    "familyName": "Jackets"
+                },
+                "subfamilyInfo": {
+                    "subFamilyId": 3902,
+                    "subFamilyCode": 106,
+                    "subFamilyName": "Jackets"
+                },
+                "joinLife": "",
+                "joinType": "",
+                "isJoinLife": false,
+                "compositionDetail": {
+                    "parts": [
+                        {
+                            "id": "1",
+                            "description": "OUTER SHELL",
+                            "areas": [
+                                {
+                                    "id": "17",
+                                    "description": "BASE FABRIC",
+                                    "percentageArea": "14%",
+                                    "components": [
+                                        {
+                                            "id": 2550,
+                                            "material": "viscose",
+                                            "percentage": "100%"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "16",
+                                    "description": "COATING",
+                                    "percentageArea": "40%",
+                                    "components": [
+                                        {
+                                            "id": 2556,
+                                            "material": "polyurethane",
+                                            "percentage": "100%"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "28",
+                                    "description": "DETAILS",
+                                    "percentageArea": "46%",
+                                    "components": [
+                                        {
+                                            "id": 2547,
+                                            "material": "polyester",
+                                            "percentage": "98%"
+                                        },
+                                        {
+                                            "id": 2558,
+                                            "material": "elastane",
+                                            "percentage": "2%"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "components": [],
+                            "microcontents": [],
+                            "reinforcements": []
+                        },
+                        {
+                            "id": "2",
+                            "description": "LINING",
+                            "areas": [],
+                            "components": [
+                                {
+                                    "id": 2547,
+                                    "material": "polyester",
+                                    "percentage": "100%"
+                                }
+                            ],
+                            "microcontents": [],
+                            "reinforcements": []
+                        },
+                        {
+                            "id": "3",
+                            "description": "FILLING",
+                            "areas": [],
+                            "components": [
+                                {
+                                    "id": 2547,
+                                    "material": "polyester",
+                                    "percentage": "100%"
+                                }
+                            ],
+                            "microcontents": [],
+                            "reinforcements": []
+                        }
+                    ],
+                    "exceptions": []
+                },
+                "promotions": [],
+                "country": "",
+                "relations": []
+            },
+            "field5": "001#1755848201793",
+            "section": "1",
+            "family": "1348",
+            "sectionName": "",
+            "sectionNameEN": "WOMEN",
+            "familyName": "Jackets",
+            "familyNameEN": "Jackets",
+            "subFamilyName": "Jackets",
+            "subFamilyNameEN": "Jackets",
+            "startDate": "",
+            "productUrl": "short-leather-effect-jacket-with-pockets-l05632719",
+            "productUrlParam": "451598628",
+            "gridElemType": "PRODUCT",
+            "availabilityDate": "2025-08-22 00:00:00",
+            "isBuyable": true,
+            "onSpecial": false
+        }
+    ],
+    "detail": {
+        "description": "",
+        "longDescription": "Short jacket made of leather effect fabric. Lapel collar and long sleeves with elastic cuffs. Chest patch pockets with buttoned flaps and contrast ribbed knit trims. Front metal zip fastening.",
+        "additionalInfo": "",
+        "reference": "C0563271900150-I2025",
+        "displayReference": "5632/719",
+        "defaultImageType": null,
+        "composition": [],
+        "compositionByZone": [],
+        "care": [],
+        "purchaser": [],
+        "colors": [],
+        "relatedProducts": [],
+        "xmediaDefaultSet": 50,
+        "relatedElements": [],
+        "warnings": [],
+        "familyInfo": {
+            "familyId": 1348,
+            "familyCode": 6,
+            "familyName": "Jackets"
+        },
+        "subfamilyInfo": {
+            "subFamilyId": 3902,
+            "subFamilyCode": 106,
+            "subFamilyName": "Jackets"
+        },
+        "promotions": [],
+        "relations": []
+    },
+    "field5": "001#1755848201793",
+    "section": "1",
+    "family": "1348",
+    "sectionNameEN": "WOMEN",
+    "familyName": "Jackets",
+    "familyNameEN": "Jackets",
+    "subFamilyName": "Jackets",
+    "subFamilyNameEN": "Jackets",
+    "startDate": "",
+    "keywords": "",
+    "mainColorid": "001",
+    "familyCode": "6",
+    "subFamilyCode": "106",
+    "productUrl": "short-leather-effect-jacket-with-pockets-l05632719",
+    "productUrlParam": "470762761",
+    "gridElemType": "ESTILISMO",
+    "availabilityDate": "2025-08-22 00:00:00",
+    "visibilityValue": "SHOW",
+    "alternativeProductId": 451598628,
+    "isBuyable": true,
+    "onSpecial": true
+}
