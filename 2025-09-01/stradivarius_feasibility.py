@@ -35,50 +35,50 @@ headers = {
 
 
 # ###############CRAWLER#####################################################
-params = {
-    'languageId': '-1',
-    'showProducts': 'false',
-    'priceFilter': 'true',
-    'appId': '1',
-}
-response = requests.get(
-    'https://www.stradivarius.com/itxrest/3/catalog/store/55009581/50331096/category/1020629924/product',
-    params=params,
-    headers=headers,
-)
-response.raise_for_status()
-data = response.json()
+# params = {
+#     'languageId': '-1',
+#     'showProducts': 'false',
+#     'priceFilter': 'true',
+#     'appId': '1',
+# }
+# response = requests.get(
+#     'https://www.stradivarius.com/itxrest/3/catalog/store/55009581/50331096/category/1020629924/product',
+#     params=params,
+#     headers=headers,
+# )
+# response.raise_for_status()
+# data = response.json()
 
-element_list = data.get('gridElements', [])
-all_pids = []
-for item in element_list:
-    product_ids = item.get('ccIds', [])
-    all_pids.extend(product_ids)
+# element_list = data.get('gridElements', [])
+# all_pids = []
+# for item in element_list:
+#     product_ids = item.get('ccIds', [])
+#     all_pids.extend(product_ids)
 
-for pid in all_pids:
-    params = {
-        'languageId': '-1',
-        'categoryId': '1390584',
-        'productIds': str(pid),   
-        'appId': '1',
-    }
+# for pid in all_pids:
+#     params = {
+#         'languageId': '-1',
+#         'categoryId': '1390584',
+#         'productIds': str(pid),   
+#         'appId': '1',
+#     }
 
-    response = requests.get(
-        'https://www.stradivarius.com/itxrest/3/catalog/store/55009581/50331096/productsArray',
-        params=params,
-        headers=headers,
-    )
-    response.raise_for_status()
-    data = response.json()
+#     response = requests.get(
+#         'https://www.stradivarius.com/itxrest/3/catalog/store/55009581/50331096/productsArray',
+#         params=params,
+#         headers=headers,
+#     )
+#     response.raise_for_status()
+#     data = response.json()
 
-    product_list = data.get('products', [])
-    for product in product_list:
-        summary_list = product.get('bundleProductSummaries', [])
-        for item in summary_list:
-            url = item.get('productUrl', '').lstrip('/')
-            if url:
-                full_url = f"https://www.stradivarius.com/ae/{url}"
-                print(full_url)
+#     product_list = data.get('products', [])
+#     for product in product_list:
+#         summary_list = product.get('bundleProductSummaries', [])
+#         for item in summary_list:
+#             url = item.get('productUrl', '').lstrip('/')
+#             if url:
+#                 full_url = f"https://www.stradivarius.com/ae/{url}"
+#                 print(full_url)
                
 #######################PARSER#####################################
 params = {
@@ -87,20 +87,24 @@ params = {
 }
 
 response = requests.get(
-    'https://www.stradivarius.com/itxrest/2/catalog/store/55009581/50331096/category/0/product/450828950/detail',
+    'https://www.stradivarius.com/itxrest/2/catalog/store/55009581/50331096/category/0/product/455321208/detail',
     params=params,
     headers=headers,
 )
 
 data=response.json()
+with open("output.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
 product_id=data.get('id','')
 product_summary_list=data.get('bundleProductSummaries',[])
 for item in product_summary_list:
     product_description=item.get('detail',{}).get('longDescription','')
-
+color=[]
 color_list=data.get('bundleColors',[])
-for list in color_list:
-    color=list.get('name','')
+for c in color_list:
+    colors = c.get('name', '')
+    color.append(colors)
+print(color)
 
 for item in product_summary_list:
     color_list = item.get('detail',{}).get('colors', [])
@@ -108,3 +112,4 @@ for item in product_summary_list:
         sizes = color.get('sizes', [])
         for size in sizes:
             price = size.get('price', '')
+
