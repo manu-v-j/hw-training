@@ -13,7 +13,8 @@ class Parser:
         self.db=self.client[MONGO_DB]
 
     def start(self):
-        for item in self.db[COLLECTION].find():
+        for item in self.db[COLLECTION].find().limit(500):
+            pdp_url=item.get('link','')
             id=item.get('id','')
             params = {
                 'languageId': '-1',
@@ -30,11 +31,13 @@ class Parser:
             product_id=data.get('id','')
             product_summary_list=data.get('bundleProductSummaries',[])
             for item in product_summary_list:
-                product_description=item.get('detail',{}).get('longDescription','')
-
+                product_description = (
+                    item.get('detail', {}).get('longDescription') or item.get('detail', {}).get('description', ''))
+            color=[]
             color_list=data.get('bundleColors',[])
-            for list in color_list:
-                color=list.get('name','')
+            for c in color_list:
+                colors = c.get('name', '')
+                color.append(colors)
 
             for item in product_summary_list:
                 colors = item.get('detail',{}).get('colors', [])
@@ -48,6 +51,7 @@ class Parser:
             item['product_id']=product_id
             item['product_description']=product_description
             item['color']=color
+            item['pdp_url']=pdp_url
             item['department']=''
             item['sub_department']=''
             item['product_type']=''

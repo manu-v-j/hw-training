@@ -12,6 +12,8 @@ class Crawler:
         self.db=self.client[MONGO_DB]
         self.collection=self.db[COLLECTION]
         self.collection.create_index("id", unique=True)
+        self.collection.create_index("link", unique=True)
+
 
     def start(self):
         for item in self.db[COLLECTION_CATEGORY].find():
