@@ -6,6 +6,7 @@ class Product_Item(DynamicDocument):
     connect(MONGO_DB,host=MONGO_URL,alias='default')
     meta={"db_alias":"default",'collection':COLLECTION_DETAILS}
 
+    product_name=StringField()
     prices=FloatField()
     product_id=IntField()
     product_description=StringField()

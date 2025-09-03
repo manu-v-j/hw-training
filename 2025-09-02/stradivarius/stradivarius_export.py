@@ -11,11 +11,12 @@ class Export:
 
     def start(self):
         for item in self.db[COLLECTION_DETAILS].find():
+            product_name=item.get('product_name')
+            pdp_url=item.get('pdp_url')
             prices=item.get('prices')
             product_id=item.get('product_id')
             product_description=item.get('product_description')
             color=item.get('color')
-            pdp_url=item.get('pdp_url')
             department=item.get('department')
             sub_department=item.get('sub_department')
             product_type=item.get('product_type')
@@ -27,17 +28,18 @@ class Export:
 
 
             self.all_items.append({
+                'product_name':product_name,
+                'pdp_url':pdp_url,
                 'prices':prices,
                 'product id':product_id,
                 'product description':product_description,
                 'color':color,
-                'pdp_url':pdp_url,
                 'department':department,
                 'sub department':sub_department,
                 'product type':product_type
             })
 
-            headers=['prices','product id','product description','color','pdp_url','department','sub department','product type']
+            headers=['product_name','pdp_url','prices','product id','product description','color','department','sub department','product type']
 
             with open(file_name, 'w', newline='', encoding='utf-8') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=headers)

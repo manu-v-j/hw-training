@@ -87,14 +87,13 @@ params = {
 }
 
 response = requests.get(
-    'https://www.stradivarius.com/itxrest/2/catalog/store/55009581/50331096/category/0/product/455321208/detail',
+    'https://www.stradivarius.com/itxrest/2/catalog/store/55009581/50331096/category/0/product/451729066/detail',
     params=params,
     headers=headers,
 )
 
 data=response.json()
-with open("output.json", "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+name=data.get('name','')
 product_id=data.get('id','')
 product_summary_list=data.get('bundleProductSummaries',[])
 for item in product_summary_list:
@@ -104,7 +103,6 @@ color_list=data.get('bundleColors',[])
 for c in color_list:
     colors = c.get('name', '')
     color.append(colors)
-print(color)
 
 for item in product_summary_list:
     color_list = item.get('detail',{}).get('colors', [])
