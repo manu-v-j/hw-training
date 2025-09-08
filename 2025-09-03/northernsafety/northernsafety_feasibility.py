@@ -15,92 +15,113 @@ headers = {
     'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"Linux"',
-    'x-algolia-api-key': 'NGFlNjBlNzU0OTUxZmY2Nzc3YThiZTFmODQxNzMwYzZmNWQ3MjFiNjQ2NTM0NDE0YmU3ZjQ1Y2RjZDMwZDkxM2ZpbHRlcnM9SXNQcml2YXRlJTNBZmFsc2UmdmFsaWRVbnRpbD0xNzU2OTY2MjQ2',
+    'x-algolia-api-key': 'ZmUxYjcxZjZmZDg0M2QzYmVkNzc3ZjhkY2EyOWEyODkxMzg0YmVlOTgwODBhYzQ4MDM5M2QxN2E4NjVkYTM5OWZpbHRlcnM9SXNQcml2YXRlJTNBZmFsc2UmdmFsaWRVbnRpbD0xNzU3Mzg5MTk1',
     'x-algolia-application-id': 'I45I79OC23',
 }
 
 
-# response = requests.get('https://www.northernsafety.com/All-Categories', headers=headers)
-# # sel=Selector(text=response.text)
-# print(response.status_code)
 
 
 ##########################CRAWLER#######################
-# page = 0
-
-# while True:
-#     payload = {
-#         "requests": [
-#             {
-#                 "indexName": "WebProd",
-#                 "params": f"clickAnalytics=true&facetFilters=%5B%5B%22Categories.lvl2%3ASafety%20Products%20%3E%20Clothing%20%3E%20Chemical%20Resistant%20Clothing%20%26%20Accessories%22%5D%5D&facets=%5B%22*%22%5D&highlightPostTag=__%2Fais-highlight__&highlightPreTag=__ais-highlight__&hitsPerPage=24&maxValuesPerFacet=1000&page={page}&query=&userToken=anonymous-6d272426-caf9-4dd0-9955-a16888c27f25&analytics=true"
-#             },
-#         ]
-#     }
-
-#     response = requests.post(
-#         'https://i45i79oc23-1.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.23.2)%3B%20Browser',
-#         headers=headers,
-#         data=json.dumps(payload),
-#     )
-#     data = response.json()
-#     result_list=data.get('results',[])
-#     for list in result_list:
-#         hits_list=list.get('hits',[])
-#         for item in hits_list:
-#             product_url=item.get('MaterialDetailPageURL','')
-#             full_url=f"https://www.northernsafety.com{product_url}"
-#             print(full_url)
-#             print(page)
-#     page+=1
-
-######################################PARSER########################
+import urllib.parse
+import re
 import requests
-cookies = {
-    '_hjSessionUser_2090991': 'eyJpZCI6IjE1OGRiMDJlLTk3MTMtNThlNS1iMmNkLTE4ZjhiZWJkMTc1YSIsImNyZWF0ZWQiOjE3NTY4ODQ4MDcwMjksImV4aXN0aW5nIjp0cnVlfQ==',
-    'CustomerTrackingId': 'bd8934b1-e4e0-4507-89e8-db34b33f5f89',
-    'ai_user': '2F/DR|2025-09-03T08:50:23.924Z',
-    '_ga': 'GA1.1.1389151866.1756889426',
-    '_hjSession_2090991': 'eyJpZCI6IjM1ZTY0OWEyLWZhZTQtNDlkYS1iNGViLTA4MTRmN2NjYjlkZiIsImMiOjE3NTY4ODk0MjY1NTYsInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=',
-    '_hjHasCachedUserAttributes': 'true',
-    '__hstc': '209817226.1a35dc325ff892026c129cd6a1406618.1756889428337.1756889428337.1756889428337.1',
-    'hubspotutk': '1a35dc325ff892026c129cd6a1406618',
-    '__hssrc': '1',
-    '_gcl_au': '1.1.162117646.1756889428',
-    '_ALGOLIA': 'anonymous-1fbeff5e-5573-44f7-a7e8-83dc7e7bc75d',
-    '_uetsid': '0c1c9ca088a311f0b633bf35da9119eb',
-    '_uetvid': '0c1ce53088a311f09f62075d2ab2d171',
-    'LPVID': 'I4MDIxNzY2NmY1NmYyMTZk',
-    'LPSID-43298048': 'UKwtUb7fTxy4rjr8JhDLDg',
-    '_fbp': 'fb.1.1756889432163.331157913252849878',
-    '_ga_M67V68CZMT': 'GS2.1.s1756889425$o1$g1$t1756889643$j55$l0$h0',
-}
+product_links=[]
+url = "https://www.northernsafety.com/Search/Safety-Products/Clothing/Chemical-Resistant-Clothing---Accessories"
+parts = [s for s in url.split("/") if s][3:]
 
-headers = {
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0',
-    'priority': 'u=0, i',
-    'referer': 'https://www.northernsafety.com/Search/Safety-Products/Clothing/Chemical-Resistant-Clothing---Accessories',
-    'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Linux"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
-}
+category, subcategory, product = parts
 
-url = "https://www.northernsafety.com/Product/155930/NSI-ActivGARD/6-mil-35-x-55-Blue-Vinyl-Sewn-Edge-Apron-Dozen"
+product_text = product.replace("---", " & ")
+
+category_text = category.replace("-", " ")
+subcategory_text = subcategory.replace("-", " ")
+product_text = product_text.replace("-", " ")
+
+page = 0
+while True:
+    
+    facet_string = f"Categories.lvl2:{category_text} > {subcategory_text} > {product_text}"
+
+    facet_encoded = urllib.parse.quote(facet_string)
+    print(facet_encoded)
+    payload = {
+        "requests": [
+            {
+                "indexName": "WebProd",
+                "params": f"clickAnalytics=true&facetFilters=%5B%5B%22{facet_encoded}%22%5D%5D"
+                          f"&facets=%5B%22*%22%5D&highlightPostTag=__%2Fais-highlight__"
+                          f"&highlightPreTag=__ais-highlight__&hitsPerPage=24"
+                          f"&maxValuesPerFacet=1000&page={page}&query="
+                          f"&userToken=anonymous-1fbeff5e-5573-44f7-a7e8-83dc7e7bc75d&analytics=true"
+            }
+        ]
+    }
+
+    response = requests.post(
+        "https://i45i79oc23-1.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.23.2)%3B%20Browser",
+        headers=headers,
+        json=payload)  
+
+    data = response.json()
+    result_list = data.get('results', [])
+
+    for list in result_list:
+        hits_list = list.get('hits', [])
+        for item in hits_list:
+            hits_found = True
+            product_url = item.get('MaterialDetailPageURL', '')
+            full_url = f"https://www.northernsafety.com{product_url}"
+            print(full_url)
+            product_links.append(full_url)
+
+    if not hits_list:
+        break  
+    page += 1
+    print("Page:", page)
+
+print(len(product_links))
+######################################PARSER########################
+import requests,re
+
+url = "https://www.northernsafety.com/Product/17571/rubbermaid-caution-wet-floor-sign-2sided-26l-x-11w-x-12h"
 response = requests.get(url,headers=headers)
-print(response.status_code)
+sel=Selector(text=response.text)
 
+Company_Name='northernsafety'
+Manufacturer_Name=''
+script=sel.xpath("//script[contains(text(),'productDetails:')]/text()").get()
+product_details_json=re.search(r'productDetails:\s*(\{.*\})',script)
+if product_details_json:
+    text=product_details_json.group(1)
+    data=json.loads(text)
+    Brand_Name=data.get('brand','')
+    name=data.get('materialName','')
+    Item_Name=f"{Brand_Name}{name}"
 
+    lowest_price=data.get('lowestPrice','')
+    highest_price=data.get('highestPrice','')
+    Price=f"{lowest_price}-{highest_price}"
 
+    vendor_part_number_list=data.get('vendorPartNumbers',[])
+    for item in vendor_part_number_list:
+        vendor_part_number=item.get('partNumber','')
 
-
-
-
-
+    product_description=data.get('bulletPoints',[])
+    category_list=data.get('breadcrumbsInfo',{}).get('breadcrumbs',[])
+    product_category=category_list[0].get('title','')
+    status_list=data.get('stockStatuses',[])
+    for s in status_list:
+        Availability=s.get('isAvailable','')
+    Unit_of_Issue=Price
+    QTY_Per_UOI = ''
+    for item in data.get("availablePrices", []):
+        for p in item.get("pricings", []):
+            if p.get("quantityRange") == "1-5":
+                QTY_Per_UOI = p.get('price','')
+    Manufacturer_Name=Brand_Name
+    Manufacturer_Part_Number=''
+    Country_of_Origin=''
+    UPC=''
+    Model_Number=''    
+                
