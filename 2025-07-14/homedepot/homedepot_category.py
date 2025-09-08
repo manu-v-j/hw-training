@@ -18,7 +18,6 @@ class Category:
 
             product_links = sel.xpath("//a[@class='sui-top-0 sui-left-0 sui-absolute sui-size-full sui-z-10']/@href").getall()
             if product_links:
-                print(url)  
                 self.collection.insert_one({'link':url})               
 
             subcategories = [
