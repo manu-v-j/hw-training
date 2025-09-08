@@ -1,6 +1,8 @@
 from curl_cffi import requests
 import json
 from parsel import Selector
+import logging
+logging.basicConfig(level=logging.INFO)
 headers = {
     'Accept': '*/*',
     'Accept-Language': 'en-US,en;q=0.9',
@@ -44,7 +46,6 @@ while True:
     facet_string = f"Categories.lvl2:{category_text} > {subcategory_text} > {product_text}"
 
     facet_encoded = urllib.parse.quote(facet_string)
-    print(facet_encoded)
     payload = {
         "requests": [
             {
@@ -82,50 +83,51 @@ while True:
 
 print(len(product_links))
 ######################################PARSER########################
-# import requests,re
+import requests,re
 
-# url = "https://www.northernsafety.com/Product/27504/NSI-Ruf-flex-Lite/Black-Rubber-Palm-Coated-Nylon-String-Knit-Gloves"
-# response = requests.get(url,headers=headers)
-# sel=Selector(text=response.text)
+url = "https://www.northernsafety.com/Product/27504/NSI-Ruf-flex-Lite/Black-Rubber-Palm-Coated-Nylon-String-Knit-Gloves"
+response = requests.get(url,headers=headers)
+sel=Selector(text=response.text)
 
-# Company_Name='northernsafety'
-# Manufacturer_Name=''
-# script=sel.xpath("//script[contains(text(),'productDetails:')]/text()").get()
-# product_details_json=re.search(r'productDetails:\s*(\{.*\})',script)
-# if product_details_json:
-#     text=product_details_json.group(1)
-#     data=json.loads(text)
-#     Brand_Name=data.get('brand','')
-#     name=data.get('materialName','')
-#     Item_Name=f"{Brand_Name}{name}"
+Company_Name='northernsafety'
+Manufacturer_Name=''
+script=sel.xpath("//script[contains(text(),'productDetails:')]/text()").get()
+product_details_json=re.search(r'productDetails:\s*(\{.*\})',script)
+if product_details_json:
+    text=product_details_json.group(1)
+    data=json.loads(text)
+    Brand_Name=data.get('brand','')
+    name=data.get('materialName','')
+    Item_Name=f"{Brand_Name}{name}"
 
-#     lowest_price=data.get('lowestPrice','')
-#     highest_price=data.get('highestPrice','')
-#     Price=f"{lowest_price}-{highest_price}"
+    lowest_price=data.get('lowestPrice','')
+    highest_price=data.get('highestPrice','')
+    Price=f"{lowest_price}-{highest_price}"
 
-#     vendor_part_number_list=data.get('vendorPartNumbers',[])
-#     for item in vendor_part_number_list:
-#         vendor_part_number=item.get('partNumber','')
+    vendor_part_number_list=data.get('vendorPartNumbers',[])
+    for item in vendor_part_number_list:
+        vendor_part_number=item.get('partNumber','')
 
-#     product_description=data.get('bulletPoints',[])
-#     category_list=data.get('breadcrumbsInfo',{}).get('breadcrumbs',[])
-#     product_category=category_list[0].get('title','')
+    product_description=data.get('bulletPoints',[])
+    category_list=data.get('breadcrumbsInfo',{}).get('breadcrumbs',[])
+    product_category=category_list[0].get('title','')
 
-#     status_list=data.get('stockStatuses',[])
-#     for s in status_list:
-#         if s.get('isAvailable',''):
-#             Availability="In Stock"
-#         else:
-#             Availability="Out of Stock"
-#     Unit_of_Issue=Price
-#     QTY_Per_UOI = ''
-#     for item in data.get("availablePrices", []):
-#         for p in item.get("pricings", []):
-#             quantity_range = p.get("quantityRange", "")
-#             if quantity_range.startswith("1-"):
-#                 QTY_Per_UOI = p.get('price','')
-#     Manufacturer_Name=Brand_Name
-#     Manufacturer_Part_Number=''
-#     Country_of_Origin=''
-#     UPC=''
-#     Model_Number=''    
+    status_list=data.get('stockStatuses',[])
+    for s in status_list:
+        if s.get('isAvailable',''):
+            Availability="In Stock"
+        else:
+            Availability="Out of Stock"
+    Unit_of_Issue=Price
+    QTY_Per_UOI = ''
+    for item in data.get("availablePrices", []):
+        for p in item.get("pricings", []):
+            quantity_range = p.get("quantityRange", "")
+            if quantity_range.startswith("1-"):
+                QTY_Per_UOI = p.get('price','')
+    Manufacturer_Name=Brand_Name
+    Manufacturer_Part_Number=''
+    Country_of_Origin=''
+    UPC=''
+    Model_Number=''    
+    logging.info(Brand_Name)

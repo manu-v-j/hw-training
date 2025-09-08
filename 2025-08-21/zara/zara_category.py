@@ -40,7 +40,6 @@ class Category:
 
         vr = session.post(verify_url, headers=headers, data=json.dumps(payload), impersonate="chrome")
         
-        # print(" Verification POST:", vr.status_code, session.cookies.get_dict())
         
         r2 = session.get(url, headers=headers, impersonate="chrome")
         return r2
