@@ -1,0 +1,18 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "6 mil 35\" x 55\" Blue Vinyl Sewn Edge Apron, Dozen",
+    "image": "https://nsimagescdn.azureedge.net/image400/material/234390.jpg",
+    "description": "Soft material offers easy wear 6 dozen per case",
+    "brand": {
+        "@type": "Brand",
+        "name": "NSI ActivGARD®"
+    },
+    "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+            "price": "24.15",
+            "priceCurrency": "USD"
+        }
+    }
+}
