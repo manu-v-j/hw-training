@@ -1,8 +1,6 @@
 from curl_cffi import requests
 import json
 from parsel import Selector
-import logging
-logging.basicConfig(level=logging.INFO)
 headers = {
     'Accept': '*/*',
     'Accept-Language': 'en-US,en;q=0.9',
@@ -130,4 +128,4 @@ if product_details_json:
     Country_of_Origin=''
     UPC=''
     Model_Number=''    
-    logging.info(Brand_Name)
+
