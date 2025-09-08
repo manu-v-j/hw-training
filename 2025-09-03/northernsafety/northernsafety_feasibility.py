@@ -23,68 +23,68 @@ headers = {
 
 
 ##########################CRAWLER#######################
-import urllib.parse
-import re
-import requests
-product_links=[]
-url = "https://www.northernsafety.com/Search/Safety-Products/Clothing/Chemical-Resistant-Clothing---Accessories"
-parts = [s for s in url.split("/") if s][3:]
+# import urllib.parse
+# import re
+# import requests
+# product_links=[]
+# url = "https://www.northernsafety.com/Search/Safety-Products/Clothing/Chemical-Resistant-Clothing---Accessories"
+# parts = [s for s in url.split("/") if s][3:]
 
-category, subcategory, product = parts
+# category, subcategory, product = parts
 
-product_text = product.replace("---", " & ")
+# product_text = product.replace("---", " & ")
 
-category_text = category.replace("-", " ")
-subcategory_text = subcategory.replace("-", " ")
-product_text = product_text.replace("-", " ")
+# category_text = category.replace("-", " ")
+# subcategory_text = subcategory.replace("-", " ")
+# product_text = product_text.replace("-", " ")
 
-page = 0
-while True:
+# page = 0
+# while True:
     
-    facet_string = f"Categories.lvl2:{category_text} > {subcategory_text} > {product_text}"
+#     facet_string = f"Categories.lvl2:{category_text} > {subcategory_text} > {product_text}"
 
-    facet_encoded = urllib.parse.quote(facet_string)
-    print(facet_encoded)
-    payload = {
-        "requests": [
-            {
-                "indexName": "WebProd",
-                "params": f"clickAnalytics=true&facetFilters=%5B%5B%22{facet_encoded}%22%5D%5D"
-                          f"&facets=%5B%22*%22%5D&highlightPostTag=__%2Fais-highlight__"
-                          f"&highlightPreTag=__ais-highlight__&hitsPerPage=24"
-                          f"&maxValuesPerFacet=1000&page={page}&query="
-                          f"&userToken=anonymous-1fbeff5e-5573-44f7-a7e8-83dc7e7bc75d&analytics=true"
-            }
-        ]
-    }
+#     facet_encoded = urllib.parse.quote(facet_string)
+#     print(facet_encoded)
+#     payload = {
+#         "requests": [
+#             {
+#                 "indexName": "WebProd",
+#                 "params": f"clickAnalytics=true&facetFilters=%5B%5B%22{facet_encoded}%22%5D%5D"
+#                           f"&facets=%5B%22*%22%5D&highlightPostTag=__%2Fais-highlight__"
+#                           f"&highlightPreTag=__ais-highlight__&hitsPerPage=24"
+#                           f"&maxValuesPerFacet=1000&page={page}&query="
+#                           f"&userToken=anonymous-1fbeff5e-5573-44f7-a7e8-83dc7e7bc75d&analytics=true"
+#             }
+#         ]
+#     }
 
-    response = requests.post(
-        "https://i45i79oc23-1.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.23.2)%3B%20Browser",
-        headers=headers,
-        json=payload)  
+#     response = requests.post(
+#         "https://i45i79oc23-1.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.23.2)%3B%20Browser",
+#         headers=headers,
+#         json=payload)  
 
-    data = response.json()
-    result_list = data.get('results', [])
+#     data = response.json()
+#     result_list = data.get('results', [])
 
-    for list in result_list:
-        hits_list = list.get('hits', [])
-        for item in hits_list:
-            hits_found = True
-            product_url = item.get('MaterialDetailPageURL', '')
-            full_url = f"https://www.northernsafety.com{product_url}"
-            print(full_url)
-            product_links.append(full_url)
+#     for list in result_list:
+#         hits_list = list.get('hits', [])
+#         for item in hits_list:
+#             hits_found = True
+#             product_url = item.get('MaterialDetailPageURL', '')
+#             full_url = f"https://www.northernsafety.com{product_url}"
+#             print(full_url)
+#             product_links.append(full_url)
 
-    if not hits_list:
-        break  
-    page += 1
-    print("Page:", page)
+#     if not hits_list:
+#         break  
+#     page += 1
+#     print("Page:", page)
 
-print(len(product_links))
+# print(len(product_links))
 ######################################PARSER########################
 import requests,re
 
-url = "https://www.northernsafety.com/Product/17571/rubbermaid-caution-wet-floor-sign-2sided-26l-x-11w-x-12h"
+url = "https://www.northernsafety.com/Product/27504/NSI-Ruf-flex-Lite/Black-Rubber-Palm-Coated-Nylon-String-Knit-Gloves"
 response = requests.get(url,headers=headers)
 sel=Selector(text=response.text)
 
@@ -112,16 +112,20 @@ if product_details_json:
     product_category=category_list[0].get('title','')
     status_list=data.get('stockStatuses',[])
     for s in status_list:
-        Availability=s.get('isAvailable','')
+        if s.get('isAvailable',''):
+            Availability="In Stock"
+        else:
+            Availability="Out of Stock"
     Unit_of_Issue=Price
     QTY_Per_UOI = ''
     for item in data.get("availablePrices", []):
         for p in item.get("pricings", []):
-            if p.get("quantityRange") == "1-5":
+            quantity_range = p.get("quantityRange", "")
+            if quantity_range.startswith("1-"):
                 QTY_Per_UOI = p.get('price','')
     Manufacturer_Name=Brand_Name
     Manufacturer_Part_Number=''
     Country_of_Origin=''
     UPC=''
     Model_Number=''    
-                
+    print(Availability)
