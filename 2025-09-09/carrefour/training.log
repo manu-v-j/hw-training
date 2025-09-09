@@ -1,0 +1,41 @@
+1.Task of doing converting json data in csv file in the walmart site.
+2.Task of doinig quality analysis of the century21global website
+3.Task of doing crawbility check of the carirefour website.
+4.Task extracting sample data in the carirefour website.
+
+Target sites
+https://www.carrefour.fr
+
+Category
+https://www.carrefour.fr/r/epicerie-sucree/biscuits     •   https://www.carrefour.fr/r/epicerie-sucree/chocolats-et-bonbons     •   https://www.carrefour.fr/r/epicerie-sucree/gateaux-moelleux     •   https://www.carrefour.fr/r/epicerie-sucree/compotes-fruits-au-sirop-et-cremes-desserts  •   https://www.carrefour.fr/r/epicerie-salee/pour-laperitif    •   https://www.carrefour.fr/r/fruits-et-legumes/fruits-et-legumes-secs
+
+Frequency
+One time 
+
+Fields to extract
+Using this example:
+
+https://www.carrefour.fr/p/dattes-deglet-nour-la-favorite-3068232250003?t=1908
+
+We would like to extract the following:
+
+1. Brand (e.g. LA FAVORITE)
+
+2. Product Name (e.g. Dattes Deglet Nour LA FAVORITE)
+
+3. Pack Size (e.g. La barquette de 250g)
+
+4. Price per Pack (e.g. €1.40)
+
+5. Price per Kg or L (e.g. €5.60)
+
+6. Promotion (e.g. Yes – le 2ème -68%)
+
+7. Product Description
+
+8. Ingredients
+
+9. Legal Name (Nom légal)
+
+Data format
+CSV
