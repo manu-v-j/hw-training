@@ -37,8 +37,16 @@ for item in db[COLLECTION].find().limit(1):
     modules = data.get('props', {}).get('pageProps', {}).get('initialData', {})\
     .get('data', {}).get('seoItemMetaData',{})
     breadcrumb=modules.get('breadCrumbs',[])
-    producthierarchy_level1=breadcrumb[0].get('name','')
-    producthierarchy_level2=breadcrumb[1].get('name','')
-    producthierarchy_level3=breadcrumb[2].get('name','')
-    
+    producthierarchy_level1 = breadcrumb[0].get('name', '') if len(breadcrumb) > 0 else ''
+    producthierarchy_level2 = breadcrumb[1].get('name', '') if len(breadcrumb) > 1 else ''
+    producthierarchy_level3 = breadcrumb[2].get('name', '') if len(breadcrumb) > 2 else ''
+    producthierarchy_level4 = breadcrumb[3].get('name', '') if len(breadcrumb) > 3 else ''
+    producthierarchy_level5 = breadcrumb[4].get('name', '') if len(breadcrumb) > 4 else ''
+    producthierarchy_level6 = breadcrumb[5].get('name', '') if len(breadcrumb) > 5 else ''
+    producthierarchy_level7 = breadcrumb[6].get('name', '') if len(breadcrumb) > 6 else ''
+
+    regular_price=
+
+
+
     
