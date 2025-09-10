@@ -2,7 +2,7 @@ import requests
 from settings import headers,cookies
 from parsel import Selector
 import json,re
-base_url="https://www.carrefour.fr/p/tablette-de-chocolat-noisette-kitkat-3800020491409?t=2237"
+base_url="https://www.carrefour.fr/p/dattes-deglet-nour-la-favorite-3068232250003?t=1908"
 response=requests.get(base_url,headers=headers,cookies=cookies)
 sel=Selector(text=response.text)
 script=sel.xpath("//script[@type='application/ld+json'][2]/text()").get()
@@ -15,8 +15,11 @@ price_per_pack=data.get('offers',{}).get('offers',[])
 price_per_pack=price_per_pack[0].get('price','')
 
 price_per_raw=sel.xpath("//p[contains(@class,'roduct-title__per-unit-label')]/text()").get()
-price_per=re.search(r'\d+(\.\d+)?', price_per_raw)
-price_per = price_per.group() if price_per else ''
+price_per=''
+if price_per_raw:
+    price_per=re.search(r'\d+(\.\d+)?', price_per_raw)
+    price_per = price_per.group() if price_per else ''
+
 promotion_available=sel.xpath("//span[contains(@class,'promotion-label-refonte__label')]/text()").getall()
 promotion="Yes" if promotion_available else "No"
 
@@ -67,8 +70,8 @@ for item_html in nutritional_values:
     percent = item_sel.xpath("//td[2]/span/text()").get()
     percent = percent.strip() if percent else ""
 
-    nutritional[f"{name}_Valeurs nutritionnelles pour 33 g"]=value
-    nutritional[f"{name}_Taux d'apports journaliers pour 33 g ﹡"]=percent
+    nutritional[f"{name}_Valeurs nutritionnelles"]=value
+    nutritional[f"{name}_Taux d'apports journaliers"]=percent
 
 manufacture=brand
 labels=sel.xpath("//div[contains(@class,'pdp-hero__tag')]/div//text()").get()
@@ -100,4 +103,4 @@ item['Nutritional Values'] = nutritional
 item['Manufacturer or Distributor'] = brand
 item['Additional Claims or Labels'] = labels
 
-print(item)
+print(item['Nutritional Values'])
