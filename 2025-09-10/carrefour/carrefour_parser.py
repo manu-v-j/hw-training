@@ -2,7 +2,7 @@ import requests
 from settings import headers,cookies
 from parsel import Selector
 import json,re
-base_url="https://www.carrefour.fr/p/dattes-deglet-nour-la-favorite-3068232250003?t=1908"
+base_url="https://www.carrefour.fr/p/tablette-de-chocolat-noisette-kitkat-3800020491409?t=2237"
 response=requests.get(base_url,headers=headers,cookies=cookies)
 sel=Selector(text=response.text)
 script=sel.xpath("//script[@type='application/ld+json'][2]/text()").get()
