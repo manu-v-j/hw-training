@@ -1,20 +1,45 @@
 import requests
-from settings import headers,cookies
+from settings import headers,cookies,MONGO_URL,MONGO_DB,COLLECTION,COLLECTION_DETAILS,COLLECTION_ERROR
 from parsel import Selector
 import json,re
+import logging
+import pandas as pd
+from pymongo import MongoClient
+logging.basicConfig(level=logging.INFO)
 
 class Parser:
 
     def __init__(self):
-        pass
+        self.client=MongoClient(MONGO_URL)
+        self.db=self.client[MONGO_DB]
+        self.collection=self.db[COLLECTION_DETAILS]
+        self.collection_error=self.db[COLLECTION_ERROR]
+        self.fieldnames = ['Pdp Url','Country', 'Retail Chain', 'Brand', 'Product Name', 'Pack Size',
+            'Price per Pack', 'Price per Kg or L', 'Promotion (Yes/No)',
+            'Promotion Description', 'Product Description', 'Ingredients',
+            'Legal Name', 'Category Path', 'Product Image URL',
+            'Product Code (EAN/GTIN)', 'Unit Count or Quantity',
+            'Private Label (Yes/No)', 'Promotion Start Date',
+            'Promotion End Date', 'Promotion Type', 'Store or Region',
+            'Allergen & Dietary Claims', 'Nutritional Values',
+            'Manufacturer or Distributor', 'Additional Claims or Labels'
+        ]
+
+        self.items = []
 
     def start(self):
-        base_url="https://www.carrefour.fr/p/tablette-de-chocolat-noisette-kitkat-3800020491409?t=2237"
-        response=requests.get(base_url,headers=headers,cookies=cookies)
-        if response.status_code==200:
-            self.parse_item(response)
+        for item in self.db[COLLECTION].find().limit(200):
+            base_url=item.get('link')
+            response=requests.get(base_url,headers=headers,cookies=cookies)
+            if response.status_code==200:
+                self.parse_item(response,base_url)
+            else:
+                self.collection_error.insert_one({'link':base_url})
 
-    def parse_item(self,response):
+        df = pd.DataFrame(self.items, columns=self.fieldnames)
+        df.to_csv('carrefour_20250911.csv', index=False, encoding='utf-8')
+
+    def parse_item(self,response,base_url):
         sel=Selector(text=response.text)
 
         #XPATH
@@ -27,6 +52,7 @@ class Parser:
         LEGAL_NAME_XPATH="//p[contains(text(),'Nom légal')]/ancestor::div[@class='product-content__title']/following-sibling::div//div/text()"
         CATEGORY_PATH_XPATH="//li[contains(@class,'c-breadcrumbs__breadcrumb')]//a//text()"
         NUTRITIONAL_VALUES_XPATH="//tr[contains(@class,'nutritional-details__value')]"
+        LABELS_XPATH="//div[contains(@class,'pdp-hero__tag')]/div//text()"
 
         #EXTARCT
         script=sel.xpath(SCRIPT_XPATH).get()
@@ -37,7 +63,6 @@ class Parser:
         pack_size=data.get('description','')
         price_per_pack=data.get('offers',{}).get('offers',[])
         price_per_pack=price_per_pack[0].get('price','')
-        LABELS_XPATH="//div[contains(@class,'pdp-hero__tag')]/div//text()"
 
 
         price_per_raw=sel.xpath(PRICE_PER_RAW_XAPTH).get()
@@ -81,11 +106,23 @@ class Parser:
         promotion_end=data.get('offers',{}).get('offers',[])[0].get('priceValidUntil','')
 
 
+        values = sel.xpath("//th[contains(@class, 'nutritional-details__header--column-title')]/span/text()").getall()
+        values = [h.strip().replace('\n', ' ') for h in values]
+
+        value_1 = ""
+        value_2 = ""
+
+        for h in values:
+            if "Valeurs nutritionnelles" in h and "Taux" not in h:
+                value_1 = h
+            elif "Taux d'apports journaliers" in h:
+                value_2 = h
+
         nutritional = {}
 
         for item_html in nutritional_values:
             item_sel = Selector(text=item_html)
-            
+                    
             name = item_sel.xpath(".//th//text()").get()
             name = name.strip() if name else ""
 
@@ -94,14 +131,19 @@ class Parser:
 
             percent = item_sel.xpath(".//td[2]//text()").get()
             percent = percent.strip() if percent else ""
-
             if name:
-                nutritional[f"{name}_Valeurs nutritionnelles"] = value
-                nutritional[f"{name}_Taux d'apports journaliers"] = percent
+                if value_1:
+                    key_value = f"{name}_{value_1}"
+                    nutritional[key_value] = value
+                
+                if value_2:
+                    key_percent = f"{name}_{value_2}"
+                    nutritional[key_percent] = percent
 
 
 
         item={}
+        item['Pdp Url']=base_url
         item['Country'] = country
         item['Retail Chain'] = ''
         item['Brand'] = brand
@@ -128,9 +170,9 @@ class Parser:
         item['Manufacturer or Distributor'] = brand
         item['Additional Claims or Labels'] = labels
 
-        print(item)
+        self.items.append(item)
 
-
+        logging.info(item)
 
 if __name__=='__main__':
     parser=Parser()
