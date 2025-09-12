@@ -20,45 +20,47 @@ headers = {
 
 #########################################CRAWLER###############################
 
-products = []
-page = 1
+# products = []
+# page = 1
 
-while len(products) < 300:
-    base_url = f'https://www.auchan.fr/jouets-jeux-video-loisirs/jeux-jouets/ca-6856153?page={page}'
-    print(f"Scraping page {page}: {base_url}")
+# while len(products) < 300:
+#     base_url = f'https://www.auchan.fr/jouets-jeux-video-loisirs/jeux-jouets/ca-6856153?page={page}'
+#     # print(f"Scraping page {page}: {base_url}")
     
-    response = requests.get(base_url, headers=headers)
-    sel = Selector(text=response.text)
+#     response = requests.get(base_url, headers=headers)
+#     sel = Selector(text=response.text)
     
-    product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
-    print(f"Found {len(product_urls)} products on page {page}")
+#     product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
+#     # print(f"Found {len(product_urls)} products on page {page}")
     
-    if not product_urls:
-        print("No more products found, stopping.")
-        break
+#     if not product_urls:
+#         print("No more products found, stopping.")
+#         break
     
-    for url in product_urls:
-        full_url = f"https://www.auchan.fr{url}"
-        if full_url not in products:
-            products.append(full_url)
-        if len(products) >= 300:
-            break
+#     for url in product_urls:
+#         full_url = f"https://www.auchan.fr{url}"
+#         if full_url not in products:
+#             print(full_url)
+#             products.append(full_url)
+#         if len(products) >= 300:
+#             break
     
-    page += 1
+#     page += 1
 
-print(f"\nCollected {len(products)} product URLs.")
+# print(f"\nCollected {len(products)} product URLs.")
 
 #############PARSER##################################################
-base_url="https://www.auchan.fr/playmobil-71077-couple-de-maries/pr-C1599023"
+base_url="https://www.auchan.fr/tendre-plus-brochettes-de-boeuf-extra-tendre/pr-C1195849"
 response=requests.get(base_url,headers=headers)
 sel=Selector(text=response.text)
-country=''
+scrape_date=''
+country=sel.xpath("//span[contains(text(),'Origine')]/following-sibling::div/span/text()").get()
 retail_chain=''
 brand=sel.xpath("//bold[@class='offer-selector__brand']/text()").get()
 product_name=sel.xpath("//div[@class='offer-selector__name--large']/h1/text()").get()
 pack_size=''
 price_per_pack=sel.xpath("//div[contains(@class,'product-price--large')]/text()").get()
-price_per_kg_l=''
+price_per_kg_l=sel.xpath("//div[contains(@class,'product-price--smaller')]/span/text()").get()
 promotion_description=sel.xpath("//span[@class='product-discount-old-price__sticker']/text()").get()
 product_description=sel.xpath("//div[@class='product-description__content-wrapper']/div/text()").get()
 
@@ -90,4 +92,4 @@ for row in raws:
 
     # print(f"{key}: {label_one} | {label_two}")
 
-print(product_name)
+print(country)
