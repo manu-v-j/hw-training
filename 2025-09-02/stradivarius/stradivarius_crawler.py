@@ -66,7 +66,7 @@ class Crawler:
                                 item={}
                                 item['id']=pid
                                 item['link']=full_url
-                                # self.collection.insert_one(item)    
+                                self.collection.insert_one(item)    
                                 print(item)   
                             except errors.DuplicateKeyError:
                                 logging.info(f"Duplicate: {pid}")               

@@ -20,39 +20,74 @@ headers = {
 
 #########################################CRAWLER###############################
 
-# products = []
-# page = 1
+products = []
+page = 1
 
-# while len(products) < 300:
-#     base_url = f'https://www.auchan.fr/pain-patisserie/pains-patisseries-fraiches/ca-n120301?page={page}'
-#     print(f"Scraping page {page}: {base_url}")
+while len(products) < 300:
+    base_url = f'https://www.auchan.fr/jouets-jeux-video-loisirs/jeux-jouets/ca-6856153?page={page}'
+    print(f"Scraping page {page}: {base_url}")
     
-#     response = requests.get(base_url, headers=headers)
-#     sel = Selector(text=response.text)
+    response = requests.get(base_url, headers=headers)
+    sel = Selector(text=response.text)
     
-#     product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
-#     print(f"Found {len(product_urls)} products on page {page}")
+    product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
+    print(f"Found {len(product_urls)} products on page {page}")
     
-#     if not product_urls:
-#         print("No more products found, stopping.")
-#         break
+    if not product_urls:
+        print("No more products found, stopping.")
+        break
     
-#     for url in product_urls:
-#         full_url = f"https://www.auchan.fr{url}"
-#         if full_url not in products:
-#             products.append(full_url)
-#         if len(products) >= 300:
-#             break
+    for url in product_urls:
+        full_url = f"https://www.auchan.fr{url}"
+        if full_url not in products:
+            products.append(full_url)
+        if len(products) >= 300:
+            break
     
-#     page += 1
+    page += 1
 
-# print(f"\nCollected {len(products)} product URLs.")
+print(f"\nCollected {len(products)} product URLs.")
 
 #############PARSER##################################################
-base_url="https://www.auchan.fr/pain-frais-cultivons-le-bon-baguette-saveur-tradition/pr-C1321584"
+base_url="https://www.auchan.fr/playmobil-71077-couple-de-maries/pr-C1599023"
 response=requests.get(base_url,headers=headers)
 sel=Selector(text=response.text)
 country=''
+retail_chain=''
 brand=sel.xpath("//bold[@class='offer-selector__brand']/text()").get()
 product_name=sel.xpath("//div[@class='offer-selector__name--large']/h1/text()").get()
+pack_size=''
+price_per_pack=sel.xpath("//div[contains(@class,'product-price--large')]/text()").get()
+price_per_kg_l=''
+promotion_description=sel.xpath("//span[@class='product-discount-old-price__sticker']/text()").get()
+product_description=sel.xpath("//div[@class='product-description__content-wrapper']/div/text()").get()
+
+ingredients=sel.xpath("//h5[contains(text(),'Ingrédients')]/following-sibling::div/span/text()").get()
+legal_name=sel.xpath("//h5[contains(text(),'Dénomination légale de vente')]/following-sibling::div/span/text()").get()
+
+category_path=sel.xpath("//span[@class='site-breadcrumb__item']/a/text()").getall()
+category_path=' '.join(category_path)
+product_image_url=sel.xpath("//div[@class='product-zoom__item galleryItem selected']/img/@src").get()
+texts = sel.xpath("//span[contains(text(),'Réf / EAN :')]/following-sibling::div//text()").getall()
+product_code = " ".join(t.strip() for t in texts if t.strip())
+
+values=sel.xpath("//tr[@class='nutritionals__row nutritionals__row--header']/th/text()").getall()
+if values:
+    value_1=values[0]
+    value_2=values[1]
+    value_3=values[2]
+
+nutritional={}
+raws=sel.xpath("//tr[@class='nutritionals__row']")
+for row in raws:
+    key=row.xpath('./td[@scope="row"]/text()').get()
+    label_one=row.xpath('./td[@class="nutritionals__cell"][2]/text()').get()
+    label_two=row.xpath('./td[@class="nutritionals__cell"][3]/text()').get()
+
+    key = key.strip() if key else ''
+    label_one = label_one.strip() if label_one else ''
+    label_two = label_two.strip() if label_two else ''
+
+    # print(f"{key}: {label_one} | {label_two}")
+
 print(product_name)
