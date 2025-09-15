@@ -20,34 +20,32 @@ headers = {
 
 #########################################CRAWLER###############################
 
-# products = []
-# page = 1
+base_url = 'https://www.auchan.fr/jouets-jeux-video-loisirs/jeux-jouets/ca-6856153'
 
-# while len(products) < 300:
-#     base_url = f'https://www.auchan.fr/jouets-jeux-video-loisirs/jeux-jouets/ca-6856153?page={page}'
-#     # print(f"Scraping page {page}: {base_url}")
+while True:
+    print(f"Scraping page : {base_url}")
     
-#     response = requests.get(base_url, headers=headers)
-#     sel = Selector(text=response.text)
+    response = requests.get(base_url, headers=headers)
+    sel = Selector(text=response.text)
     
-#     product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
-#     # print(f"Found {len(product_urls)} products on page {page}")
+    product_urls = sel.xpath("//a[contains(@class,'product-thumbnail__details-wrapper--column')]/@href").getall()
+    # print(f"Found {len(product_urls)} products on page {page}")
     
-#     if not product_urls:
-#         print("No more products found, stopping.")
-#         break
+    if not product_urls:
+        break
     
-#     for url in product_urls:
-#         full_url = f"https://www.auchan.fr{url}"
-#         if full_url not in products:
-#             print(full_url)
-#             products.append(full_url)
-#         if len(products) >= 300:
-#             break
-    
-#     page += 1
+    for url in product_urls:
+        full_url = f"https://www.auchan.fr{url}"
+        print(full_url)
 
-# print(f"\nCollected {len(products)} product URLs.")
+    next_page = sel.xpath("//a[contains(@class,'pagination-adjacent__link') and contains(@aria-label,'suivante')]/@href").get()
+    if next_page:
+        base_url=f"https://www.auchan.fr/boucherie-volaille-poissonnerie/volaille-lapin/ca-n0202{next_page}"
+        print(f"Next page: {base_url}")
+    else:
+        print("No next page found, stopping.")
+        break
+        
 
 #############PARSER##################################################
 base_url="https://www.auchan.fr/tendre-plus-brochettes-de-boeuf-extra-tendre/pr-C1195849"
