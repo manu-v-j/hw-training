@@ -21,7 +21,7 @@ headers = {
 
 
 MONGO_URL="mongodb://localhost:27017"
-MONGO_DB=' stradivarius'
+MONGO_DB='stradivarius'
 COLLECTION_CATEGORY="category_id"
 COLLECTION='product_link'
 COLLECTION_DETAILS='product_details'

@@ -1,0 +1,13 @@
+1.Learning about the monogdb query operations.
+2.Learning about better coding in python requests.
+3.Developing the feasibility study of the portwest website.
+4.Learning about better coding in python requests.
+5.Checking the updation occured on the oreillyauto website.
+
+url=www.portwest.com
+
+fields:
+product characteristics (product name, size, colour, brand…)
+images
+documents (safety data sheets, technical sheets…)
+General and logistic data: GTIN, MPN, UoM, Quantities, Intrastat code
