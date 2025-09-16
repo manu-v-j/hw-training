@@ -141,7 +141,6 @@ class Parser:
         product_item=Product_Item(**item)
         product_item.save()
 
-        logging.info(product_description)
 
 if __name__=='__main__':
     parser=Parser()
