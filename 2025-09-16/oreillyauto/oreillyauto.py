@@ -4,23 +4,23 @@ from settings import headers,cookies
 import json,re,html
 
 
-# products=[]
-# page=1
-# max_page=20
-# while page<=max_page:
-#     base_url = f'https://www.oreillyauto.com/shop/b/ignition---tune-up/spark-plugs/b14eb31b13d7?page={page}'
-#     response = requests.get(base_url, headers=headers)
-#     print("Scraping:", base_url)
+products=[]
+page=1
+max_page=20
+while page<=max_page:
+    base_url = f'https://www.oreillyauto.com/shop/b/ignition---tune-up/spark-plugs/b14eb31b13d7?page={page}'
+    response = requests.get(base_url, headers=headers)
+    print("Scraping:", base_url)
 
-#     sel = Selector(text=response.text)
-#     product_links = sel.xpath("//a[@class='js-product-link product__link']/@href").getall()
+    sel = Selector(text=response.text)
+    product_links = sel.xpath("//a[@class='js-product-link product__link']/@href").getall()
 
-#     for url in product_links:
-#         full_url = f"https://www.oreillyauto.com{url}"
-#         print(full_url)
-#         products.append(full_url) 
-#         pass
-#     page+=1
+    for url in product_links:
+        full_url = f"https://www.oreillyauto.com{url}"
+        print(full_url)
+        products.append(full_url) 
+        pass
+    page+=1
 
 
 
@@ -110,9 +110,9 @@ if response.status_code==200:
     if details:
             match = re.search(r"window\._ost\.brandInformation\s*=\s*'(.*?)';", details, re.DOTALL)
             if match:
-                raw_desc = match.group(1)
-                raw_desc = raw_desc.replace("\\/", "/").replace("\\'", "'")
-                brand_informatiom = Selector(text=raw_desc).xpath("string(.)").get()
+                raw_brand = match.group(1)
+                raw_brand = raw_desc.replace("\\/", "/").replace("\\'", "'")
+                brand_informatiom = Selector(text=raw_brand).xpath("string(.)").get()
                 brand_informatiom = re.sub(r"\s*,\s*", " ", brand_informatiom).strip()
                 brand_informatiom = re.sub(r"\s+", " ", brand_informatiom).strip()
 
@@ -120,4 +120,3 @@ if response.status_code==200:
     warranty_json = html.unescape(warranty_row)
     warranty_data = json.loads(warranty_json)
     warranty=warranty_data.get('warranty','')
-    print(image_url)
