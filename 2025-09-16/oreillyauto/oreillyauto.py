@@ -136,4 +136,3 @@ with open(csv_file, 'a', newline='', encoding='utf-8') as file:
 
             print(item)
             writer.writerow(item)
-            print(f"Saved: {product_name}")

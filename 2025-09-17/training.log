@@ -1,0 +1,16 @@
+1.Learning about better coding in python requests.
+2.Developing the feasibility study of the lorespresso website.
+3.Developing the feasibility study of the 3m website.
+4.Developing the feasibility study of the bic website.
+5.Developing the feasibility study of the navigator-paper website.
+
+https://www.lorespresso.com/en_gb?srsltid=AfmBOorLxnudF3I555z-i5KZrG1cQzEd6IIW0TuPu44xvWju6kB8gPxt
+https://www.3m.com/3M/en_US/p/c/office-supplies/notes-dispensers
+https://navigator-paper.com/en
+https://eu.bic.com/en-gb
+
+Fields to extract
+product characteristics (product name, size, colour, brand…)
+images
+documents (safety data sheets, technical sheets…)
+General and logistic data: GTIN, MPN, UoM, Quantities, Intrastat code…
