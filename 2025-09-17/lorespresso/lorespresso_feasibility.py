@@ -19,14 +19,14 @@ headers = {
 }
 
 ########################CRAWLER######################
-# product=[]
-# response = requests.get('https://www.lorespresso.com/en_gb/capsules', headers=headers)
-# sel=Selector(text=response.text)
-# product_urls=sel.xpath("//div[contains(@class, 'ProductListItem-titleContainer')]//a/@href").getall()
-# for url in product_urls:
-#     full_url=f"https://www.lorespresso.com/{url}"
-#     print(full_url)
-#     product.append(full_url)
+product=[]
+response = requests.get('https://www.lorespresso.com/en_gb/capsules', headers=headers)
+sel=Selector(text=response.text)
+product_urls=sel.xpath("//div[contains(@class, 'ProductListItem-titleContainer')]//a/@href").getall()
+for url in product_urls:
+    full_url=f"https://www.lorespresso.com/{url}"
+    print(full_url)
+    product.append(full_url)
 
 #######################PARSER########################
 
