@@ -7,17 +7,24 @@ class Product_Item(DynamicDocument):
     meta={"db_alias":"default",'collection':COLLECTION_DETAILS}
 
     product_name=StringField()
-    size=StringField()
-    colour=StringField()
-    product_description=StringField()
-    features=StringField()
-    material=StringField()
-    pdp_url=StringField()
+    stock_number=StringField()
+    upc=StringField()
+    product_number=StringField()
+    part_number=StringField()
     images=StringField()
-    datasheets=StringField()
-    declaration_conformity_eu=StringField()
-    declaration_conformity_uk=StringField()
-    sizing_chart=StringField()
+    brand=StringField()
+    product_description=StringField()
+    pdp_url=StringField()
+    specifications=DictField()
+    regulatory_data_sheet=StringField()
+    other=StringField()
+    catalogs=StringField()
+    brochures=StringField()
+   
+       
+
+       
+       
                
 
 
