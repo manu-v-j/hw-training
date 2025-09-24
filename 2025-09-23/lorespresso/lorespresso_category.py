@@ -1,7 +1,7 @@
 import requests
 from parsel import Selector
 from pymongo import MongoClient
-from setttings import headers,MONGO_URL,MONGO_DB,COLLECTION_CATEGORY
+from settings import headers,MONGO_URL,MONGO_DB,COLLECTION_CATEGORY
 
 class Category:
 

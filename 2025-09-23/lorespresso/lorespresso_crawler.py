@@ -2,7 +2,7 @@ import requests
 import logging
 from parsel import Selector
 from pymongo import MongoClient,errors
-from setttings import headers,MONGO_URL,MONGO_DB,COLLECTION_CATEGORY,COLLECTION
+from settings import headers,MONGO_URL,MONGO_DB,COLLECTION_CATEGORY,COLLECTION
 logging.basicConfig(level=logging.INFO)
 
 class Crawler:
