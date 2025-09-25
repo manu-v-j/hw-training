@@ -49,7 +49,7 @@ for base_url in product:
         data = json.loads(script)
         product_name=data.get('name','')
         # backend
-        mpn=data.get('mpn','')
+        unique_id=data.get('mpn','')
         sku=data.get('sku','')
         brand=data.get('brand',{}).get('name','')
         image_url=data.get('image',[])
