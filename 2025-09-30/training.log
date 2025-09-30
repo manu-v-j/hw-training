@@ -1,0 +1,30 @@
+1.Task of doing extracting information decathlon website used in parser code.
+2.Developing the feasibility study of the bipa website.
+3.Discussed about feasibility study
+4.Developing the feasibility study of the seloger website.
+5.Developing the feasibility study of the logic website.
+
+url=https://www.logic-immo.com/
+    https://www.seloger.com/
+https://www.seloger.com
+https://www.logic-immo.com
+
+Fields to extract
+listing URL
+
+seller's phone number
+
+seller's email address
+
+property type
+
+property size
+
+property price
+
+city.
+
+Additional info
+Here are the criteria for extracting data:
+
+- Real estate sales - Houses and apartments (no buildings or land) - Over €200,000 - Old (no life annuities or new properties)
