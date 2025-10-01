@@ -1,0 +1,16 @@
+1.Learning about the pytesseract and PIL
+2.Developing the feasibility study of the snitch website.
+3.Developing the feasibility study of the thehouseofrare website.
+4.Learning about the encoding and decoding
+
+Target sites
+	https://www.snitch.com/
+	https://thehouseofrare.com/
+Category
+	menswear shirts category (printed, checks, and stripes)
+
+Fields to extract
+	All attributes that are publicly available like images, price, discount, fabrics, style (like collar, fit), etc.
+
+Data format
+	API

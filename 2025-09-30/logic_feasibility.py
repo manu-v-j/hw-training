@@ -46,12 +46,12 @@ while len(product)<=300:
 print(len(product))
 base_url="https://www.logic-immo.com/detail-vente-249178873.htm"
 
-# for base_url in product:
 response=requests.get(base_url,headers=headers)
 sel=Selector(text=response.text)
 property_price=sel.xpath("//span[@data-testid='program-price-value']/text()").get()
 city=sel.xpath("//div[@class='css-1ytyjyb']/text()").getall()
 size=sel.xpath("//div[@class='css-7tj8u'][3]/span/text()").getall()
+type=sel.xpath("//span[@class='css-1nxshv1']/text()").get()
 script_text = sel.xpath(
     '//script[contains(text(),"__UFRN_LIFECYCLE_SERVERREQUEST__")]/text()'
 ).get()
@@ -63,4 +63,3 @@ if match:
     cleaned_json = raw_json.encode("utf-8").decode("unicode_escape")
     parsed = json.loads(cleaned_json)  
     phone_number=parsed.get('app_cldp',{}).get('data',{}).get('classified',{}).get('contactSections',{}).get('sticky',{}).get('phoneNumbers',[])
-print(size)
