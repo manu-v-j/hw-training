@@ -1,6 +1,6 @@
 import requests
 import json
-
+from parsel import Selector
 headers = {
     'Accept': 'application/json, text/plain, */*',
     'Accept-Headers': 'application/json',
@@ -55,28 +55,8 @@ while len(product)<=100:
         print(product_name,selling_price)
     page+=1
 
+print(len(product))
 
-###############PARSER########################
-# base_url="https://mxemjhp3rt.ap-south-1.awsapprunner.com/products/shop-the-look?product_id=8777775841442"
-# response=requests.get(base_url,headers=headers)
-# data=response.json()
-# data = response.json()
-# with open('product.json', 'w') as f:
-#     json.dump(data, f, indent=4)
-# product=data.get('data',{}).get('shop_the_look',[])
-# for item in product:
-#     if item.get('shopify_product_id','')==8777775841442:
-#         product_name=item.get('title','')
-#         selling_price=item.get('selling_price','')
-#         rating=item.get('average_rating','')
-#         review=item.get('total_rewiews_count','')
-#         size_list=item.get('variants',[])
-#         for value in size_list:
-#             size=value.get('size','')
-#         product_description=item.get('short_description','')
-#         fit_guide=item.get('fit','')
-#         washcare=item.get('washcare','')
-#         material=item.get('material','')
-#         image_url=item.get('images',[])
-
-#         print(product_name)
+response = requests.get('https://mxemjhp3rt.ap-south-1.awsapprunner.com/products/offer-details', headers=headers)
+data=response.json()
+print(data)

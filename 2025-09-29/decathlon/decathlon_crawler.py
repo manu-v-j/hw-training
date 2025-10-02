@@ -24,14 +24,12 @@ class Crawler:
                     'size': '40',
                 }
                 response=requests.get(base_url,params=params,headers=headers,impersonate='chrome')
-                print(base_url)
                 if response.status_code==200:
                     has_item=self.parse_item(response)
                     if not has_item:
                         break
 
                 count+=40
-                print(count)
     def parse_item(self,response):
         sel=Selector(text=response.text)
         product_urls=sel.xpath("//div[contains(@class,'product-card-details__item')]/h2/a/@href").getall()
