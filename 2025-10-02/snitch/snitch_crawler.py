@@ -25,23 +25,37 @@ class Crawler:
             }
 
             response = requests.get('https://mxemjhp3rt.ap-south-1.awsapprunner.com/products/plp/v2', params=params, headers=headers)
-            data=response.json()
-            product_list=data.get('data',{}).get('products',[])
-            if not product_list:
+
+            if response.status_code==200:
+                has_item=self.parse_item(response)
+
+                if not has_item:
+                    break
+            else:
                 break
-            for item in product_list:
-                id=item.get('shopify_product_id','')
-                handle=item.get('handle','')
-                try:
-                    full_url=f"https://www.snitch.com/men-shirts/{handle}/{id}/buy"
-                    self.collection.insert_one({'link':full_url})
-                    logging.info(full_url)
-
-                except errors.DuplicateKeyError:
-                    logging.info(f"Duplicate: {full_url}")
-
-
             page+=1
+
+    def parse_item(self,response):
+        data=response.json()
+        product_list=data.get('data',{}).get('products',[])
+        if not product_list:
+            return False
+        
+        for item in product_list:
+            id=item.get('shopify_product_id','')
+            handle=item.get('handle','')
+            try:
+                full_url=f"https://www.snitch.com/men-shirts/{handle}/{id}/buy"
+                item={}
+                item['id']=id
+                item['link']=full_url
+                self.collection.insert_one(item)
+                logging.info(full_url)
+
+            except errors.DuplicateKeyError:
+                logging.info(f"Duplicate: {full_url}")
+
+        return True
 
 if __name__=='__main__':
     crawler=Crawler()
