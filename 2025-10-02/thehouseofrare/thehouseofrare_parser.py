@@ -1,8 +1,12 @@
 import requests
 import json
+import logging
 from parsel import Selector
 from pymongo import MongoClient
 from settings import headers,MONGO_URL,MONGO_DB,COLLECTION,COLLECTION_ERROR
+from thehouseofrare_item import Product_Item
+
+logging.basicConfig(level=logging.INFO)
 
 class Parser:
 
@@ -11,7 +15,7 @@ class Parser:
         self.db=self.client[MONGO_DB]
 
     def start(self):
-        for item in self.db[COLLECTION].find():
+        for item in self.db[COLLECTION].find().limit(200):
             base_url=item.get('link','')
             response=requests.get(base_url,headers=headers)
 
@@ -20,13 +24,13 @@ class Parser:
             else:
                 self.db[COLLECTION_ERROR].insert_one({'link':base_url})
 
-    def start(self,response,base_url):
+    def parse_item(self,response,base_url):
         sel=Selector(text=response.text)
 
         #XPATH
         PRODUCT_NAME_XPATH="//div[contains(@class,'product-heading')]//text()"
-        SELLING_PRICE_XPATH="//span[@class='money']/text()"
-        REGULAR_PRICE_XPATH="//span[@class='regular-price']/span/text()"
+        SELLING_PRICE_XPATH="//div[@class='main-price']/span/text() | //span[@class='regular-price']/span/text()"
+        REGULAR_PRICE_XPATH="//span[@class='compare-price']/span/text()"
         PERCENTAGE_DISCOUNT="//span[@class='perc_price']/text()"
         SIZE_XPATH="//span[@class='size-title']/text()"
         COLOR_XPATH="//div[@class='color-title']/text()"
@@ -36,8 +40,8 @@ class Parser:
 
         #EXTRACT
         product_name_raw=sel.xpath(PRODUCT_NAME_XPATH).getall()
-        regular_price_raw=sel.xpath(SELLING_PRICE_XPATH).get()
-        selling_price_raw=sel.xpath(REGULAR_PRICE_XPATH).get()
+        regular_price_raw=sel.xpath(REGULAR_PRICE_XPATH).get()
+        selling_price_raw=sel.xpath(SELLING_PRICE_XPATH).get()
         percentage_discount=sel.xpath(PERCENTAGE_DISCOUNT).get()
         size=sel.xpath(SIZE_XPATH).getall()
         color=sel.xpath(COLOR_XPATH).get()
@@ -47,8 +51,18 @@ class Parser:
 
         #CLEAN
         product_name=' '.join([item.strip() for item in product_name_raw if item.strip()])
-        selling_price=selling_price_raw.replace('₹ ','').replace(',','')
-        regular_price=regular_price_raw.replace('₹ ','').replace(',','')
+
+        selling_price=0.0
+        if selling_price_raw:
+            selling_price=selling_price_raw.replace('₹ ','').replace(',','')
+            selling_price = float(f"{float(selling_price):.2f}")
+        
+        if regular_price_raw:
+            regular_price=regular_price_raw.replace('₹ ','').replace(',','')
+            regular_price = float(f"{float(regular_price):.2f}")    
+        else:
+            regular_price=selling_price
+
         size=','.join(size)
 
         data=json.loads(script)
@@ -71,6 +85,8 @@ class Parser:
         item['manufacturer_address']=manufacturer_address
         item['images']=images
 
+        product_item=Product_Item(**item)
+        product_item.save()
 
 if __name__=='__main__':
     parser=Parser()
