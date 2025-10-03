@@ -1,0 +1,17 @@
+1.Task of doing extracting information thehouseofrare website used in parser code.
+2.Learning about the regex in python
+3.Developing the feasibility study of the lidl website.
+
+Target sites
+lidl
+
+Fields to extract
+city, zip code, street name and number for all locations from each Lidl website
+
+Countries with Priority :   
+
+Italy
+Hungary
+Switzerland
+Slovenia
+Ireland

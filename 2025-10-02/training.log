@@ -1,0 +1,17 @@
+1.Learning about the encoding and decoding
+2.Task of doing extracting information snitch website used in crawler code.
+3.Task of doing extracting information snitch website used in parser code.
+4.Task of doing extracting information thehouseofrare website used in crawler code.
+5.Task of doing extracting information thehouseofrare website used in parser code.
+
+Target sites
+	https://www.snitch.com/
+	https://thehouseofrare.com/
+Category
+	menswear shirts category (printed, checks, and stripes)
+
+Fields to extract
+	All attributes that are publicly available like images, price, discount, fabrics, style (like collar, fit), etc.
+
+Data format
+	API
