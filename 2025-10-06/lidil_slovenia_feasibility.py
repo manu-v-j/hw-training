@@ -18,24 +18,20 @@ headers = {
 }
 
 postal_data = {
-    "Ljubljana": (46.056946, 14.505751),
-    # "Maribor": (46.554722, 15.645833),
-    # "Celje": (46.240833, 15.267222),
+    "Ljubljana": (46.2334, 14.597),
+    "Maribor": (46.7394, 15.737),
 }
-
+delta_1=0.364
+delta_2=0.182
 for city, (lat, lon) in postal_data.items():
-    lat_min = lat - 0.1
-    lat_max = lat + 0.1
-    lon_min = lon - 0.1
-    lon_max = lon + 0.1
+    geo_box=f"{lat - delta_1},{lon - delta_2}:{lat},{lon}"
 
     url = (
         f"https://live.api.schwarz/odj/stores-api/v2/myapi/stores-frontend/stores"
         f"?limit=25&offset=0&country_code=SI"
-        f"&geo_box={lat_min},{lon_min}:{lat_max},{lon_max}"
+        f"&geo_box={geo_box}"
     )
 
-    # print(f" Fetching stores for {city}")
     response = requests.get(url, headers=headers)
     data = response.json()
     number_locations=data.get('meta',{}).get('total','')
@@ -44,4 +40,4 @@ for city, (lat, lon) in postal_data.items():
         city=item.get('address',{}).get('city','')
         zipcode=item.get('address',{}).get('zip','')
         street=item.get('address',{}).get('streetName','')
-        print(street)
+        print(number_locations)

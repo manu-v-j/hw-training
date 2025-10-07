@@ -1,5 +1,5 @@
 import requests
-
+import json
 headers = {
     'Accept': '*/*',
     'Accept-Language': 'en-US,en;q=0.9',
@@ -17,15 +17,15 @@ headers = {
 }
 
 postal_data = {
-    "Verona": (45.438, 10.991),
-    "Vicenza": (45.367, 11.267),
-    "Padova": (45.406, 11.876),
+    "Vicenza": (45.7279, 11.6313),
+    "Padova": (45.6305, 11.9361),
   
 }
 
-delta=0.05
+delta_1=0.364
+delta_2=0.182
 for city, (lat, lon) in postal_data.items():
-    geo_box=f"{lat - delta},{lon - delta}:{lat + delta},{lon + delta}"
+    geo_box=f"{lat - delta_1},{lon - delta_2}:{lat},{lon}"
     base_url=f"https://live.api.schwarz/odj/stores-api/v2/myapi/stores-frontend/stores?limit=25&offset=0&country_code=IT&geo_box={geo_box}"
     response = requests.get(
         base_url,
@@ -39,4 +39,4 @@ for city, (lat, lon) in postal_data.items():
         city=item.get('address',{}).get('city','')
         zipcode=item.get('address',{}).get('zip','')
         street=item.get('address',{}).get('streetName','')
-    print(number_locations)
+        print(city) 

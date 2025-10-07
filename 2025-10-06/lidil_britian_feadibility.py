@@ -17,16 +17,16 @@ headers = {
 }
 
 postal_data = {
-    "London": (51.683, -0.4146),
-    "Manchester": (53.4808, -2.2426),
-    "Birmingham": (52.4862, -1.8904),
+    "London": (51.683,-0.0506),
+    "Manchester": (53.665, -2.1401),
+    "Birmingham": (52.658, -1.8152),
   
 }
 
 delta_1=0.364
 delta_2=0.182
 for city, (lat, lon) in postal_data.items():
-    geo_box=f"{lat - delta_1},{lon - delta_2}:{lat + delta_1},{lon + delta_2}"
+    geo_box=f"{lat - delta_1},{lon - delta_2}:{lat},{lon}"
     base_url=f"https://live.api.schwarz/odj/stores-api/v2/myapi/stores-frontend/stores?limit=25&offset=0&country_code=GB&geo_box={geo_box}"
     response = requests.get(
         base_url,
@@ -40,6 +40,6 @@ for city, (lat, lon) in postal_data.items():
         city=item.get('address',{}).get('city','')
         zipcode=item.get('address',{}).get('zip','')
         street=item.get('address',{}).get('streetName','')
-        print(street)
+    print(number_locations)
 
 
