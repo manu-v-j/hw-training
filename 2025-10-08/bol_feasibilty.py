@@ -2,33 +2,35 @@ from curl_cffi import requests
 from parsel import Selector
 
 cookies = {
-    'BUI': 'f97eb38b-3bba-4d2d-9039-aafcca9e7ba8',
-    'XSC': 'wXYN5LWK7In1JXyGPhtDX8Wvpq5PpfkV',
-    'shopping_session_id': '26cbaaf55cf700073c54cd735e8b5824d38748f3cc582baf73f9813780045f5f',
-    'bltgSessionId': '0143cda3-d77b-40be-aff2-17f59b1bf98d',
-    'XSRF-TOKEN': 'adf1344f-a92a-4317-be79-851a72234b5c',
-    'sbsd_o': '33BF51F21E4EC539E73DE8E556DEDB65FA43E098D7E5DEBFF278AD29A933CEF0~sd9F2BjSI5JhI+//7o/StGOp6DnrMDkrVTkY8SYjSMhxdRyylBvxubd5IbQqjt+CEMaadBU+rDTn0RZZFIx6lY3tETl1OUfsIG8PzvMVZY6HQKmmc64zFAJkwX+VyVKOc/JQKnikN2VjeU6aRW6KSIR6VbJbUQ609DolXyl8J3cdoDiJZT8b9MCE/BFdbeSOv2vzfoWfYWfwLrBupRSLwNSRyGkG99eJig/Ru4XsyBHE=',
-    '_abck': '191291018293DCB288D65841344C904D~-1~YAAQHEPHF+zsDZaZAQAAXnYvww6LB3Bfwsv5IAP3tO+nBKrYtOCmRuMAyauAGr4/aBmOBTQORERuNt0p68+xD+zg8mmFhUCpTlJ3jJd9hYRQsla/uqs2vQDNjj0ir7loaCWF3708l/qvS44+BHsiPNvbr8QWAYVt6uytU4RHStErt980lA/MCIras23+oxS2fPk2vZNX2vs64X3jGY5m0vKlW+PeuSn/twFF91r0WOCn0/0bMK/1IL8otjjhXc6gxP2bbRm+kzcHUOwJvJfyiL8IfMdEw5YJIBKH1ve/BBHLv9aPa2uq0f6+X1MVHy2pQht7gvp/7dosuQyqJ8VSwRFSKdtj3Z4xJ2L7aXiB4tJc1AtfKuScPGXr5Y6nk8cSTtXTDByK3nEOzl631GsNJLvTLNH1pUBkTfhs/B5V8sgtwJvcD22R/ceGSJzJhBbWkVo5MQ==~-1~-1~-1~-1~-1',
-    'ak_bmsc': '49CB7C9176CA2DF872BC38E837EE7B4B~000000000000000000000000000000~YAAQHEPHF+3sDZaZAQAAXnYvwx1YebNt1t6xUcuyvJ0zwzi200M2Mg6MAIGwKi8XZMQy5eChwKMv+v+IgIUPCcCtu1pHLrHRUpwTyWpfjUY8+/P/kifC4vGI1HIC7h4RHteFulvgbNAF7hyZNk/8QfXGKF7ZxwGQe0kAX1/re8t4R1KPxddPWs43av0P/uAAcDD91zRcDzUWVQo3+8sGze+/AjShM5AkeHXrsd8VC9/bTXXcz/MF2sVUScG8y2rRtyt7IggNe33jwvSXFr4F2a0SiyOE2pUSj+bGAPmwuhmPh0O/5eB6K+j38wi8+ycr8PQnkpbuuxCgfC/Jbh1G+pkMURjOHbEPwczRvuiNUWzaqb3ukHtdXZGguGysvXbHlw==',
-    'bm_sz': '71993C9015CFD64E24ECACF9AC31787E~YAAQHEPHF+7sDZaZAQAAXnYvwx0HSl7UgUtuA7F5g2uSfCU6z6bOPI22dPebo49cEtlpQWjQ6pucnIjunbANdlfD7ubcGP2A7hpvnDoCppNZKNhkVJvDQS/iZ/eBTnFpi8Mzwccf18fri6tk93ssBN0FgwG7jITRe7LyJ42KjHcmfA0gAm+NuM/Gjv2j0gdLKSkhi6xBniFTeBB0Rt+UBlgIP9XgMXzdvcdj0IK4xoVygDpyc0y2PT+cgtAhZdf3JiykaMTVV6zed+sKub19f2FZ+gD6rRlIyY9RqCpqsMgSm80g2iHc3SJd3Hxdq6iyvtsLxhi2Sbme5/d9Z9kbx1OUWEu9FuNifKzCfL817Bu640zSBoxmraHVIV+dUkfYAMTkXk9jy+XdEXBBaA==~3422262~3290421',
-    'bm_lso': '33BF51F21E4EC539E73DE8E556DEDB65FA43E098D7E5DEBFF278AD29A933CEF0~sd9F2BjSI5JhI+//7o/StGOp6DnrMDkrVTkY8SYjSMhxdRyylBvxubd5IbQqjt+CEMaadBU+rDTn0RZZFIx6lY3tETl1OUfsIG8PzvMVZY6HQKmmc64zFAJkwX+VyVKOc/JQKnikN2VjeU6aRW6KSIR6VbJbUQ609DolXyl8J3cdoDiJZT8b9MCE/BFdbeSOv2vzfoWfYWfwLrBupRSLwNSRyGkG99eJig/Ru4XsyBHE=^1759916294190',
+    'BUI': 'fb8ae9d0-3ce5-4583-9fe7-2c004768beb4',
+    'XSC': 'wEmBMSjPogCLOYIpl0eky2Kg5p3m6KV8',
+    'rl_anonymous_id': 'RS_ENC_v3_ImZkZTZkNGIwLTVkOWEtNDkwNC1hMDYwLTcxNTc1MmI1NTVhZCI%3D',
+    'rl_page_init_referrer': 'RS_ENC_v3_IiRkaXJlY3Qi',
+    '_fbp': 'fb.1.1759910973018.559396921600489205',
+    '_ga': 'GA1.1.392313674.1759910975',
+    '_gcl_au': '1.1.537497710.1759910975',
+    'rl_trait': 'RS_ENC_v3_eyJzaG9wQ291bnRyeSI6Im5sIiwic2hvcExhbmd1YWdlIjoibmwiLCJyZWNvZ25pdGlvblR5cGUiOiJhbm9ueW1vdXMiLCJjbGllbnRJZCI6ImZiOGFlOWQwLTNjZTUtNDU4My05ZmU3LTJjMDA0NzY4YmViNCJ9',
+    'ga_client_id': '392313674.1759910975',
+    'ga_session_id': '1759910974',
+    'shopping_session_id': '0c329f65badd059e955de30248d3f4d46846585ab914b499725c71efb0a14828',
+    'bltgSessionId': '425171cf-47fd-4fee-bc9c-357e76f1a074',
+    'XSRF-TOKEN': '90e5e33c-ea23-4f93-9582-b6cc7b24fc79',
+    'bolConsentChoices': 'source#OFC|version#6|int-tran#true|ext-tran#true|int-beh#true|ext-beh#true',
+    '_abck': 'D913F887F03B81CBC74A347C8173669F~-1~YAAQDEPHFyjAgZeZAQAA/W1nxw5L1PxtqP/8dZM1Yo6BStGK7nOfk6mgi+AHVVWdkEsqW5DFL9GUHKFopSMevDc4qWNzd9nt5LwZvFJoA/TZYcf9jUHc0c26/EIQRUCK7V4/EIB9mNaXV0tqPpqWt9C0q7+BZHBlCb3UjTw/Hes8pWmh+SzFsycwHPTRFe9cISuv+bcr+pi2cu3KwwYLt1Zfwm+ysxdCNxMq7Z0nUXL/BY5RYdjQ47MGnddSabhN3bYW931WCgBZQP7yhfpVY83LXoEOxuYz3YGzyB74H+hZ4eFODfFMMTH7r+WNmsM95Pz1qtc4Xx/8h2tIBAx4DquH5SyqQRx+lEPjblpC1Bh5u6xh0EYCjq+a1roJxk0vpMmaUuUqPzf1nlF4zNiSSh5b7TyzZsmd5YPpNngnHgAqnRFutYGFzCZ1jJnb9c6+CQhhv526xVTTr5QC3h+PajNM487nmun131szc04m/bJf5QZD/5VH7D1bCg==~-1~-1~-1~-1~-1',
+    'ak_bmsc': '8D46E2091E1959CCC540820113689202~000000000000000000000000000000~YAAQDEPHFynAgZeZAQAA/W1nxx2U3WJcK0ZETgBAgLXtOEFTikjcIrzmBKW44zZU1iLqZoHvKJK/VPwgwmEtSnfBgoD10lzF2uRF+25O4IP3t1Wiwn06krVpTu3VgOjJdpzg460cyDRJylwW9rn/fD0apUU/I62GZJ+K+P3Wcceev7HxjtJdwgGm/ZubfWodWg/xsyTrot1I2QC15cM48jZjisCucEGGxbey1GgSyu6WQ4LuZdchItzh/p3a6leiUqT9at7Y0JspCzkIxszelytUywvZYBuell5siTIouhgbfjU597KF0hN81U9MnPESAv7hP5yYfCHvzQ22ow7e7b2nt5vr8wiWlZCIlMgmTlaWnMEf51XW3/4PnRQe8Jyrmw==',
     'locale': 'NL',
     'language': 'nl-NL',
-    'P': '.wspc-deployment-597bf947d6-lqbcb',
-    'sbsd': 'sF8rgnIfG/vknkUFAyw4UxRyUvA9zb4dXKgE18aFBza9+sAkIMdV7fx81ow0cRQssilwxuwbkiuBfJ0Fskce/7fRr915xbGz1DMFAl7gpEDlXLFEfuUoWdKQRlboK1JyX2EQrAtjuEhZPfujZQShYIF8Q81eWyeSI5oW96wFicegXgjjKSmExSLp7BMyBFKDv9ZNXt70l6mCWj7m8NGWMmMU8VKvcsAAvl+M0A4A33/oelJZrQSMHzPHJYDrKeC+/WzgfSkI3zlFjX7EvhMUeAUyi3bD1PgK5AWK9mfIf+XRBfNzbLEJ3yUfM1y5oQKAf75msk+dRnOFeOyXnct0fGmBgsE7E/8DBCn45DtI5lRoXfXi7tFJaqg9tlN6+y7Tj9MbrVsEktqEyPUFXL2vHxw==',
-    'rl_anonymous_id': 'RS_ENC_v3_Ijc4OTVmYjg0LTRkM2YtNGU4Ni05ZmY0LTFhYTFmZjBmOTQ0NCI%3D',
-    'rl_page_init_referrer': 'RS_ENC_v3_Imh0dHBzOi8vd3d3LmJvbC5jb20vbmwvbmwvbC90ZWxlZm9vbmhvdWRlcnMtYXV0by84MTAwLz9ibHRnaD01ZGM2NTBjMy05ZDQxLTRiNjEtOGMxNi03MjdhZTVlNTI2YjAuZy5pLlF1ZXJ5Q29udGV4dEhvb2si',
-    'rl_page_init_referring_domain': 'RS_ENC_v3_Ind3dy5ib2wuY29tIg%3D%3D',
-    'rl_trait': 'RS_ENC_v3_eyJjbGllbnRJZCI6ImY5N2ViMzhiLTNiYmEtNGQyZC05MDM5LWFhZmNjYTllN2JhOCIsInJlY29nbml0aW9uVHlwZSI6ImFub255bW91cyIsInNob3BDb3VudHJ5IjoibmwiLCJzaG9wTGFuZ3VhZ2UiOiJubCJ9',
-    'rl_session': 'RS_ENC_v3_eyJpZCI6MTc1OTkxNjMwMTc3OCwiZXhwaXJlc0F0IjoxNzU5OTE4MTAxODYwLCJ0aW1lb3V0IjoxODAwMDAwLCJhdXRvVHJhY2siOnRydWUsInNlc3Npb25TdGFydCI6ZmFsc2V9',
-    '_ga': 'GA1.1.655852812.1759916304',
-    '_gcl_au': '1.1.345353315.1759916304',
-    '_uetsid': '68692a90a42411f09f1cafaedf3616c4',
-    '_uetvid': '68698290a42411f0a2901f682279587c',
-    '_fbp': 'fb.1.1759916304130.997467042493434565',
-    'bolConsentChoices': 'source#OFC|version#6|int-tran#true|ext-tran#true|int-beh#true|ext-beh#true',
-    '_ga_MY1G523SMZ': 'GS2.1.s1759916303$o1$g1$t1759916304$j59$l0$h0',
-    'bm_sv': '2855A9E19A7ABE2C22C6DF99D3A97E80~YAAQDUPHF0FsrpeZAQAAGMkvwx1aktJUOJeJR+5sDyT0yZ/OM6vizRbJyBWkiNA9qCQq0x4YJXX4wSGaKGUVCvAGZ9WpaR40e8YLTuKYt6Ry2m8R9t0abPy9KkPkhEkqy4ENL/Vo23UrcGsKs2LwQF6BMYARt7Ly6wVzG+dGfYPb5miF0PkCvlK82kElV44rFb5JZxWsLznWe4FWaox+GAwNmUVvwEcoi+xbgPjkeQTJ6/weDYrDdIO7Bt3GVw==~1',
+    'sbsd_o': '11EB0D1D5C29B595E728C89B362959EF8B9EE65CF69F32E7CB0A5EB1EA0B6913~si3h0MdCEe3X3eueL7tnBmMbB4MCGYdM30Dp/btl1rQBM8OBpamfJVRo5LGjSwfKIDyozrtESgZoMStKzFWSiA9ylvcmoaAbYdqQr8CU3B5tKwzqASfLJXzJeYmXbqGXEPvbX+TPjAkxmadgdZRzmRzb7FAryJ3kaI3MPf/BG5BvWmT4csytcIvS/oOXzS14UY6yb8EaETKSICHY2oUpILcFhVUZ0iqIH1Pgm8YI87tI=',
+    'sbsd': 'sW9xwK0t4i/kzsFSaB7X1oqMczmC8Ssjk7mKDwNHpxXAZ4qQNd/fHb/yoDZBR36nHyLMLO8VsTT8S/jb5yJV9Ei94V9GZR6VYRmEdEC5jg0ZjI9gw45h4+hCZ/WzRF8vrWNViHgjWbrDrWfUAIQhNDmTWKfx1GRXQSR3xUn7x2+mv03U0U5YOMFjyKXCN++9B9wWLYCtI9u2ZbHeWOYM9jIioG8c9hcMBh/26cU0XnfGFn6+vntqJIAV1EbB7g63UFIT1M0kcPSUsU8YZnwCMfRlt7Y/2vEhUc4FWGIlUPNrn7aWyzhiD8DpZotdpZZg3js6d4WOQPGFRhW7+Y87s8Wgfnp+9sIo9wfTFwMeS7T2AfzWyfKNsoMn9QvN2DawrTO3WgxJ/dK2eom3H7Bwtoq4xiakEtqRvLMlTs8kkGp8=',
+    'bm_sz': '04DD556299C0D0510B002A9B4888C5E1~YAAQTZUjF1bRq8WZAQAAIQp1xx1RO3T6OXef7K+BIGHOQp9yb6brmVBgg9OXUP4DEWhG5CKfBpspkcH5GkmR5rb46RmEV25azyMVtPbggBE2E35CR4OdNYrTUavnI2je5ogQQvvlK8dpN4RvTjBc/EYmVsXpdxZLyceFa3BP7E+cxEa/x1u3Kkv22lTmQQnwOvme2QDoiTXM9VUtgXeicRhLoWW25mkiYLFM/dh/AU/smEq5yjohmB4Of62sxveceiYMe1P49kpLHEN096PAWN3Pmy6jSCPLDaDHuvhRcluNLD9hzUuGdDuhly6k5iHb0HV5f+xJkl+OFIki6ALzAL/86DinSP2g2CBAi3VxEKxpyOhowWVnUSHliYLYskyBtsHmtLCzTGRWeYbToKotBMCmPN5fb0vvqnbHfV1tKUTzF2w=~3163442~4404792',
+    'P': '.wspc-deployment-597bf947d6-vnkl5',
+    'bm_lso': '11EB0D1D5C29B595E728C89B362959EF8B9EE65CF69F32E7CB0A5EB1EA0B6913~si3h0MdCEe3X3eueL7tnBmMbB4MCGYdM30Dp/btl1rQBM8OBpamfJVRo5LGjSwfKIDyozrtESgZoMStKzFWSiA9ylvcmoaAbYdqQr8CU3B5tKwzqASfLJXzJeYmXbqGXEPvbX+TPjAkxmadgdZRzmRzb7FAryJ3kaI3MPf/BG5BvWmT4csytcIvS/oOXzS14UY6yb8EaETKSICHY2oUpILcFhVUZ0iqIH1Pgm8YI87tI=^1759987963589',
+    '_uetsid': '1d9af8c0a41e11f0892ae55a9cdd75a5',
+    '_uetvid': '1d9b4200a41e11f0bf4f41d92a42bd94',
+    '_ga_MY1G523SMZ': 'GS2.1.s1759987079$o3$g1$t1759987967$j9$l0$h0',
+    '__eoi': 'ID=4b801c569e2797b8:T=1755587444:RT=1759987970:S=AA-AfjaIie8oyK6cGFqCsiVe8ydg',
+    'rl_session': 'RS_ENC_v3_eyJhdXRvVHJhY2siOnRydWUsInRpbWVvdXQiOjE4MDAwMDAsImV4cGlyZXNBdCI6MTc1OTk4OTc3MzY5MSwiaWQiOjE3NTk5ODcwNzM2NDIsInNlc3Npb25TdGFydCI6ZmFsc2V9',
+    'bm_sv': 'D8BCBB41D67F0A415A448C0F66C1DD70~YAAQTZUjF93Tq8WZAQAAA1F1xx0rigUtnLqiUmiYVH23J8te9Jnle2iwWh5J59s8QbigaOJemgA+9h1Iml8dhIqSoDRIdJXRC1Y7EBCHjtv0F+DreyB6deon4zB4uFYQ+uHEGmpmnhyUWDBLwqzAEjnWkaucbRhj1SLEQXIuRN6Bq4XpxPU64ncSD4Zz4hYOGvHMnUO3t9LLrT9Io3zOY9KH5h7INdgDmOjfdPBlvardHdToq1X22mVHSWj9WQ==~1',
 }
 
 
@@ -53,11 +55,11 @@ headers = {
 ####################################CRAWLER#####################################
 product=[]
 page=1
-while len(product)<=30:
+while len(product)<=300:
     base_url=f"https://www.bol.com/nl/nl/l/draadloze-opladers/04349/?page={page}"
     response = requests.get(base_url, cookies=cookies, headers=headers,impersonate='chrome')
     print(response.status_code)
-    # print(base_url)
+    print(base_url)
     sel=Selector(text=response.text)
     product_urls=sel.xpath("//a[@class='w-full']/@href").getall()
     # if not product_urls:
@@ -65,31 +67,31 @@ while len(product)<=30:
    
     for url in product_urls:
         full_url=f'https://www.bol.com{url}'
-        product.append(full_url)
+        # product.append(full_url)
         print(full_url)
     page+=1
 
 print(len(product))
 #############################PARSER#########################
-# for base_url in product:
+for base_url in product:
 # base_url="https://www.bol.com/nl/nl/p/autohouder-telefoon-smartphone-telefoon-houder-auto-ventilatie-telefoonhouder-auto/9200000105111982/"
-# response=requests.get(base_url,cookies=cookies,headers=headers)
-# print(response.status_code)
-# sel=Selector(text=response.text)
-# product_name=sel.xpath("//span[@class='u-mr--xs']/text()").get()
-# brand=sel.xpath("//a[@data-role='BRAND']/text()").get()
-# rating=sel.xpath("//div[@class='text-neutral-text-high']/text()").get()
-# review=sel.xpath("//div[@data-test='rating-suffix']/text()").get()
-# breadcrumb=sel.xpath("//p[@class='breadcrumbs__link-label']/text()").getall()
-# selling_price=sel.xpath("//span[@class='promo-price']//text()").getall()
-# image_url=sel.xpath("//img[@data-test='product-main-image']/@src").get()
-# product_description=sel.xpath("//div[@class='product-description']//text()").getall()
-# ean=sel.xpath("//dt[contains(text(),'EAN')]/following-sibling::dd/text()").get()
-# mpn=sel.xpath("//dt[contains(text(),'MPN (Manufacturer Part Number)')]/following-sibling::dd/text()").get()
-# product_information={}
-# rows = sel.xpath("//h3[text()='Productinformatie']/following-sibling::dl/div")
-# for row in rows:
-#     title = row.xpath("normalize-space(.//dt[@class='specs__title']/text())").get()
-#     value = row.xpath("normalize-space(.//dd[@class='specs__value']//text())").get()
-# manufacturer_address=sel.xpath("//dt[contains(text(),'Fabrikant Adres')]/following-sibling::dd/text()").get()
-# documents=sel.xpath("//h3[text()='Documenten']/following-sibling::div/a/@href").getall()
+    response=requests.get(base_url,cookies=cookies,headers=headers)
+    print(response.status_code)
+sel=Selector(text=response.text)
+product_name=sel.xpath("//span[@class='u-mr--xs']/text()").get()
+brand=sel.xpath("//a[@data-role='BRAND']/text()").get()
+rating=sel.xpath("//div[@class='text-neutral-text-high']/text()").get()
+review=sel.xpath("//div[@data-test='rating-suffix']/text()").get()
+breadcrumb=sel.xpath("//p[@class='breadcrumbs__link-label']/text()").getall()
+selling_price=sel.xpath("//span[@class='promo-price']//text()").getall()
+image_url=sel.xpath("//img[@data-test='product-main-image']/@src").get()
+product_description=sel.xpath("//div[@class='product-description']//text()").getall()
+ean=sel.xpath("//dt[contains(text(),'EAN')]/following-sibling::dd/text()").get()
+mpn=sel.xpath("//dt[contains(text(),'MPN (Manufacturer Part Number)')]/following-sibling::dd/text()").get()
+product_information={}
+rows = sel.xpath("//h3[text()='Productinformatie']/following-sibling::dl/div")
+for row in rows:
+    title = row.xpath("normalize-space(.//dt[@class='specs__title']/text())").get()
+    value = row.xpath("normalize-space(.//dd[@class='specs__value']//text())").get()
+manufacturer_address=sel.xpath("//dt[contains(text(),'Fabrikant Adres')]/following-sibling::dd/text()").get()
+documents=sel.xpath("//h3[text()='Documenten']/following-sibling::div/a/@href").getall()
